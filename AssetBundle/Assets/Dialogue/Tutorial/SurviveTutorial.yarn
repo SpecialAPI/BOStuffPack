@@ -1,0 +1,39 @@
+﻿title: SurviveTutorial_Characters
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Nice, you have Survive.
+
+<<RightSound>>
+Survive will let you survive the next instance of lethal damage.
+
+<<RightSound>>
+The next instance of lethal damage will only leave you at 1 health.
+
+<<RightSound>>
+Surive does not go away with time.
+===
+
+title: SurviveTutorial_Enemies
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Oh no, that enemy has Survive.
+
+<<RightSound>>
+Survive will let it survive the next instance of lethal damage.
+
+<<RightSound>>
+The next instance of lethal damage will only leave it at 1 health.
+
+<<RightSound>>
+Surive does not go away with time.
+===

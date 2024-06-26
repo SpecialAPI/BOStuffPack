@@ -1,0 +1,240 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+      <LangVersion>latest</LangVersion>
+      <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AssetBundle\Assets\Prototype\**" />
+    <Compile Remove="AssetBundle\Assets\Scenes\**" />
+    <Compile Remove="AssetBundle\Assets\Scripts\**" />
+    <Compile Remove="AssetBundle\Assets\Templates\**" />
+    <Compile Remove="AssetBundle\Assets\TextMesh Pro\**" />
+    <Compile Remove="AssetBundle\Assets\YarnSpinner\**" />
+    <Compile Remove="AssetBundle\Library\**" />
+    <Compile Remove="AssetBundle\Logs\**" />
+    <Compile Remove="AssetBundle\Packages\**" />
+    <Compile Remove="AssetBundle\ProjectSettings\**" />
+    <Compile Remove="AssetBundle\Temp\**" />
+    <Compile Remove="AssetBundle\UserSettings\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\Prototype\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\Scenes\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\Scripts\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\Templates\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\TextMesh Pro\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\YarnSpinner\**" />
+    <EmbeddedResource Remove="AssetBundle\Library\**" />
+    <EmbeddedResource Remove="AssetBundle\Logs\**" />
+    <EmbeddedResource Remove="AssetBundle\Packages\**" />
+    <EmbeddedResource Remove="AssetBundle\ProjectSettings\**" />
+    <EmbeddedResource Remove="AssetBundle\Temp\**" />
+    <EmbeddedResource Remove="AssetBundle\UserSettings\**" />
+    <None Remove="AssetBundle\Assets\Prototype\**" />
+    <None Remove="AssetBundle\Assets\Scenes\**" />
+    <None Remove="AssetBundle\Assets\Scripts\**" />
+    <None Remove="AssetBundle\Assets\Templates\**" />
+    <None Remove="AssetBundle\Assets\TextMesh Pro\**" />
+    <None Remove="AssetBundle\Assets\YarnSpinner\**" />
+    <None Remove="AssetBundle\Library\**" />
+    <None Remove="AssetBundle\Logs\**" />
+    <None Remove="AssetBundle\Packages\**" />
+    <None Remove="AssetBundle\ProjectSettings\**" />
+    <None Remove="AssetBundle\Temp\**" />
+    <None Remove="AssetBundle\UserSettings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AssetBundle\.vsconfig" />
+    <None Remove="AssetBundle\Assets\AssetBundles.meta" />
+    <None Remove="AssetBundle\Assets\AssetBundles\bostuffpack" />
+    <None Remove="AssetBundle\Assets\Prototype.meta" />
+    <None Remove="AssetBundle\Assets\Scenes.meta" />
+    <None Remove="AssetBundle\Assets\Scripts.meta" />
+    <None Remove="AssetBundle\Assets\Templates.meta" />
+    <None Remove="AssetBundle\Assets\TextMesh Pro.meta" />
+    <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
+    <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Apple.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Ascend.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Ascent.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Bash.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_ChildStomper.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_CombatRoll.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_EOTU.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Everything.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Expand.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Force.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Fury.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_GardenOfEden.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Gravity.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Mirror.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_PillarsOfTheWorld.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Punish.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Question.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Retarget.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_TwoIntoOne.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Uppercut.png" />
+    <None Remove="Resources\Achievements\Unlock_Comedy.png" />
+    <None Remove="Resources\Achievements\Unlock_Heaven.png" />
+    <None Remove="Resources\Achievements\Unlock_Osman.png" />
+    <None Remove="Resources\Achievements\Unlock_Tragedy.png" />
+    <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_50.png" />
+    <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_Back_50.png" />
+    <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
+    <None Remove="Resources\Enemies\ATM\ATMPortrait.png" />
+    <None Remove="Resources\Enemies\ATM\ATMSpeaker.png" />
+    <None Remove="Resources\Items\AlmightyBranch.png" />
+    <None Remove="Resources\Items\ArtOfViolence.png" />
+    <None Remove="Resources\Items\BloodyHacksaw.png" />
+    <None Remove="Resources\Items\CombatDice.png" />
+    <None Remove="Resources\Items\ConjoinedFungi.png" />
+    <None Remove="Resources\Items\error.png" />
+    <None Remove="Resources\Items\Eyepatch.png" />
+    <None Remove="Resources\Items\failrounds.png" />
+    <None Remove="Resources\Items\InterdimensionalShapeshifter.png" />
+    <None Remove="Resources\Items\jester_hat.png" />
+    <None Remove="Resources\Items\LoudPhone.png" />
+    <None Remove="Resources\Items\MagickalBleach.png" />
+    <None Remove="Resources\Items\MusicBox.png" />
+    <None Remove="Resources\Items\NegativeTeapot.png" />
+    <None Remove="Resources\Items\NewtonsApple.png" />
+    <None Remove="Resources\Items\OilPaints.png" />
+    <None Remove="Resources\Items\Palette.png" />
+    <None Remove="Resources\Items\PetrifiedMedicine.png" />
+    <None Remove="Resources\Items\placeholder.png" />
+    <None Remove="Resources\Items\potential.png" />
+    <None Remove="Resources\Items\RipAndTear.png" />
+    <None Remove="Resources\Items\Shop\SchmuckleTicket.png" />
+    <None Remove="Resources\Items\SilverMirror.png" />
+    <None Remove="Resources\Items\StrangeDevice.png" />
+    <None Remove="Resources\Items\Survivorship.png" />
+    <None Remove="Resources\Items\TheSquirrel.png" />
+    <None Remove="Resources\Items\TheTiderunner.png" />
+    <None Remove="Resources\Items\WorldShatter.png" />
+    <None Remove="Resources\Passives\ATMPassive.png" />
+    <None Remove="Resources\Passives\DamageCap.png" />
+    <None Remove="Resources\Passives\IsaacNewton_Passive_50.png" />
+    <None Remove="Resources\Passives\Merged.png" />
+    <None Remove="Resources\Passives\Shapeshifter.png" />
+    <None Remove="Resources\StatusEffects\berserk.png" />
+    <None Remove="Resources\StatusEffects\fury.png" />
+    <None Remove="Resources\StatusEffects\PoweredUp.png" />
+    <None Remove="Resources\StatusEffects\Survive.png" />
+    <None Remove="Resources\StatusEffects\targetswap.png" />
+    <None Remove="Resources\StatusEffects\weaken.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="AssetBundle\Assets\AssetBundles\bostuffpack" />
+    <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.bank" />
+    <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.strings.bank" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Anchor.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Apple.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Ascend.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Ascent.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Bash.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_ChildStomper.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_CombatRoll.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_EOTU.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Everything.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Expand.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Force.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Fury.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_GardenOfEden.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Gravity.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Mirror.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_PillarsOfTheWorld.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Punish.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Question.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Retarget.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_TwoIntoOne.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Uppercut.png" />
+    <EmbeddedResource Include="Resources\Achievements\Unlock_Comedy.png" />
+    <EmbeddedResource Include="Resources\Achievements\Unlock_Heaven.png" />
+    <EmbeddedResource Include="Resources\Achievements\Unlock_Osman.png" />
+    <EmbeddedResource Include="Resources\Achievements\Unlock_Tragedy.png" />
+    <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_50.png" />
+    <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_Back_50.png" />
+    <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
+    <EmbeddedResource Include="Resources\Enemies\ATM\ATMPortrait.png" />
+    <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\SchmuckleTicket.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\AlmightyBranch.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\ArtOfViolence.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\BloodyHacksaw.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\CombatDice.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\ConjoinedFungi.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\Error.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\Eyepatch.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\FailRounds.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\InterdimensionalShapeshifter.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\JesterHat.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\LoudPhone.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\MagickalBleach.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\MusicBox.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\NegativeTeapot.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\NewtonsApple.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\OilPaints.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\Palette.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\PetrifiedMedicine.png" />
+    <EmbeddedResource Include="Resources\Items\Placeholder.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\Potential.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\RipAndTear.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\SilverMirror.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\StrangeDevice.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\Survivorship.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\TheSquirrel.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\TheTiderunner.png" />
+    <EmbeddedResource Include="Resources\Items\Shop\WorldShatter.png" />
+    <EmbeddedResource Include="Resources\Passives\ATMPassive.png" />
+    <EmbeddedResource Include="Resources\Passives\DamageCap.png" />
+    <EmbeddedResource Include="Resources\Passives\IsaacNewton_Passive_50.png" />
+    <EmbeddedResource Include="Resources\Passives\Merged.png" />
+    <EmbeddedResource Include="Resources\Passives\Shapeshifter.png" />
+    <EmbeddedResource Include="Resources\StatusEffects\Berserk.png" />
+    <EmbeddedResource Include="Resources\StatusEffects\Fury.png" />
+    <EmbeddedResource Include="Resources\StatusEffects\PoweredUp.png" />
+    <EmbeddedResource Include="Resources\StatusEffects\Survive.png" />
+    <EmbeddedResource Include="Resources\StatusEffects\TargetSwap.png" />
+    <EmbeddedResource Include="Resources\StatusEffects\Weaken.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="UnityEngine.Modules" Version="2020.3.26">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>compile</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\References\BrutalOrchestra\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="BrutalAPI">
+      <HintPath>..\BrutalAPIFork\BrutalAPI\bin\Debug\netstandard2.0\BrutalAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="FMODUnity">
+      <HintPath>..\References\Unity\FMODUnity.dll</HintPath>
+    </Reference>
+    <Reference Include="Marosi.SerializableCollections">
+      <HintPath>..\References\Unity\Marosi.SerializableCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="Marosi.Utility">
+      <HintPath>..\References\Unity\Marosi.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner">
+      <HintPath>..\References\Unity\YarnSpinner.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner.Compiler">
+      <HintPath>..\References\Unity\YarnSpinner.Compiler.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinner.Unity">
+      <HintPath>..\References\Unity\YarnSpinner.Unity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,45 @@
+﻿title: FuryTutorial_Characters
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Woah, looks like you're full of rage.
+
+<<RightSound>>
+The next ability you perform will be repeated.
+
+<<RightSound>>
+All Fury will be lost upon performing an ability.
+
+<<RightSound>>
+Fury will also naturally wear off with time.
+
+<<RightSound>>
+Make good use of it.
+===
+
+title: FuryTutorial_Enemies
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Woah, looks like that enemy is full of rage.
+
+<<RightSound>>
+The next ability they perform will be repeated.
+
+<<RightSound>>
+All Fury will be lost upon performing an ability.
+
+<<RightSound>>
+Fury will also naturally wear off with time.
+
+<<RightSound>>
+Be careful.
+===

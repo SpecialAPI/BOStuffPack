@@ -1,0 +1,33 @@
+﻿title: WeakenedTutorial_Characters
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+You've been Weakened.
+
+<<RightSound>>
+While Weakened, your abilities will be lowered in level.
+
+<<RightSound>>
+Weakened will go away with time.
+===
+
+title: WeakenedTutorial_Enemies
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+They've been Weakened, nice.
+
+<<RightSound>>
+While Weakened, their damage will be lowered.
+
+<<RightSound>>
+Weakened will go away with time.
+===
