@@ -41,12 +41,11 @@ namespace BOStuffPack.Content.Items.Treasure
                     Effect(Allies, CreateScriptable<ShuffleHealthEffect>()).WithCondition(TurnInRotation(7, 9)),
 
                     Effect(Opposing, PlayVisuals(Visuals_Wrath)).WithCondition(TurnInRotation(8, 9)),
-                    Effect(Opposing, ApplyFocused).WithCondition(TurnInRotation(8, 9)),
+                    Effect(Opposing, CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Berserk)).WithCondition(TurnInRotation(8, 9)),
 
                     Effect(AllySlots, PlayVisuals(Visuals_Heal)).WithCondition(TurnInRotation(9, 9)),
                     Effect(null, VariableForNext, 2).WithCondition(TurnInRotation(9, 9)),
                     Effect(Allies, CreateScriptable<RandomHealBetweenPreviousAndEntryEffect>(), 5).WithCondition(TurnInRotation(9, 9)),
-
 
                     Effect(Opposing, IndirectDamage, 7)
                 },

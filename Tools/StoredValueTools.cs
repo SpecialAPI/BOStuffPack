@@ -10,23 +10,14 @@ namespace BOStuffPack.Tools
         public static Color StoredValue_Negative = new(0.8667f, 0f, 0.2157f);
         public static Color StoredValue_Rare = new(0.7725f, 0.2667f, 0.8196f);
 
-        public static int GetIntStoredValue(this IUnit u, string storedValue) => u.TryGetStoredData(storedValue, out var hold, false) ? hold?.m_MainData ?? 0 : 0;
-        public static void SetIntStoredValue(this IUnit u, string storedValue, int val)
-        {
-            u.TryGetStoredData(storedValue, out var holder);
-
-            if (holder == null)
-                return;
-
-            holder.m_MainData = val;
-        }
-
         public static AdvancedStoredValueIntInfo StoredValue(string id)
         {
             var val = CreateScriptable<AdvancedStoredValueIntInfo>();
 
             val.name = id;
             val._UnitStoreDataID = id;
+            
+            LoadedDBsHandler.MiscDB.AddNewUnitStoreData(id, val);
 
             return val;
         }
@@ -91,7 +82,7 @@ namespace BOStuffPack.Tools
 
     public class AdvancedStoredValueIntInfo : UnitStoreData_BasicSO
     {
-        public string staticString;
+        public string staticString = string.Empty;
         public Func<UnitStoreDataHolder, string> dynamicString;
 
         public Color color = Color.white;

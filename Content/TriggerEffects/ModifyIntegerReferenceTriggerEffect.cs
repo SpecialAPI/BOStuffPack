@@ -18,7 +18,7 @@ namespace BOStuffPack.Content.TriggerEffects
             if(!TryReadIntegerReference(args, out var intRef))
                 return;
 
-            var val = UseStoredValue ? sender.GetIntStoredValue(StoredValue) : Value;
+            var val = UseStoredValue ? sender.SimpleGetStoredValue(StoredValue) : Value;
 
             intRef.value = Operation switch
             {

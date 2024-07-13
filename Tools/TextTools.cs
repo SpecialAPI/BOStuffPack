@@ -113,5 +113,24 @@ namespace BOStuffPack.Tools
         {
             return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(input);
         }
+
+        public static string TargetString(int offset)
+        {
+            var str = "";
+
+            for (var i = 1; i < Mathf.Abs(offset); i++)
+                str += "Far ";
+
+            if (offset > 0)
+                str += "Right";
+
+            else if (offset < 0)
+                str += "Left";
+
+            else
+                str = "Opposing";
+
+            return str;
+        }
     }
 }

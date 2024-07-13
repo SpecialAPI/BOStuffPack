@@ -38,7 +38,7 @@ namespace BOStuffPack.API.Trigger
 
             for (var i = 0; i < disconnectionEffects.Count; i++)
             {
-                TryPerformItemEffect(unit, null, i + connectionEffects?.Count ?? 0);
+                TryPerformItemEffect(unit, null, i + (connectionEffects?.Count ?? 0));
             }
         }
 
@@ -54,7 +54,7 @@ namespace BOStuffPack.API.Trigger
 
                 foreach (var str in strings)
                 {
-                    CombatManager.Instance.AddObserver(GetEffectMethod(i + connectionEffects?.Count ?? 0 + disconnectionEffects?.Count ?? 0), str, caller);
+                    CombatManager.Instance.AddObserver(GetEffectMethod(i + (connectionEffects?.Count ?? 0) + (disconnectionEffects?.Count ?? 0)), str, caller);
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace BOStuffPack.API.Trigger
 
                 foreach (var str in strings)
                 {
-                    CombatManager.Instance.RemoveObserver(GetEffectMethod(i + connectionEffects?.Count ?? 0 + disconnectionEffects?.Count ?? 0), str, caller);
+                    CombatManager.Instance.RemoveObserver(GetEffectMethod(i + (connectionEffects?.Count ?? 0) + (disconnectionEffects?.Count ?? 0)), str, caller);
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace BOStuffPack.API.Trigger
 
         public void TryPerformItemEffect(object sender, object args, int index)
         {
-            if (index >= (triggerEffects?.Count ?? 0 + connectionEffects?.Count ?? 0 + disconnectionEffects?.Count ?? 0) || sender is not IPassiveEffector effector || !effector.CanPassiveTrigger(m_PassiveID))
+            if (index >= ((triggerEffects?.Count ?? 0) + (connectionEffects?.Count ?? 0) + (disconnectionEffects?.Count ?? 0)) || sender is not IPassiveEffector effector || !effector.CanPassiveTrigger(m_PassiveID))
                 return;
 
             var te = GetEffectAtIndex(index, out var connect, out var disconnect);
@@ -112,7 +112,7 @@ namespace BOStuffPack.API.Trigger
 
         public override void FinalizeCustomTriggerPassive(object sender, object args, int idx)
         {
-            if (idx >= (triggerEffects?.Count ?? 0 + connectionEffects?.Count ?? 0 + disconnectionEffects?.Count ?? 0) || sender is not IPassiveEffector effector || sender is not IUnit caster)
+            if (idx >= ((triggerEffects?.Count ?? 0) + (connectionEffects?.Count ?? 0) + (disconnectionEffects?.Count ?? 0)) || sender is not IPassiveEffector effector || sender is not IUnit caster)
                 return;
 
             var te = GetEffectAtIndex(idx, out _, out _);

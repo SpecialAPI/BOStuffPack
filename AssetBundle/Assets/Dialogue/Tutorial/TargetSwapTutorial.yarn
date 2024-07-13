@@ -1,0 +1,33 @@
+﻿title: TargetSwapTutorial_Characters
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Hmm, you have TargetSwap.
+
+<<RightSound>>
+Any abilities you perform will be performed as if you were on the opposite side.
+
+<<RightSound>>
+Don't do anything stupid.
+===
+
+title: TargetSwapTutorial_Enemies
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Hmm, they have TargetSwap.
+
+<<RightSound>>
+Any abilities they perform will be performed as if they were on the opposite side.
+
+<<RightSound>>
+Try to make use of that.
+===

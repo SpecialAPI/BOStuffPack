@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BOStuffPack.API.UnitExtension;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using static UnityEngine.UIElements.StyleSheets.Dimension;
 
 namespace BOStuffPack.API.CustomEvent
 {
@@ -13,6 +13,8 @@ namespace BOStuffPack.API.CustomEvent
         public const string CAN_PRODUCE_PIGMENT_COLOR = "CanProducePigmentColor";
         public const string MODIFY_WRONG_PIGMENT_AMOUNT = "ModifyWrongPigmentAmount";
         public const string MODIFY_ABILITY_RANK = "ModifyAbilityRank";
+        public const string MODIFY_TARGETTING = "ModifyTargetting";
+        public const string MODIFY_TARGETTING_INTENTS = "ModifyTargettingIntents";
     }
 
     [HarmonyPatch]
@@ -31,6 +33,16 @@ namespace BOStuffPack.API.CustomEvent
         public static MethodInfo mwpa_c_te = AccessTools.Method(typeof(EventPatches), nameof(ModifyWrongPigmentAmount_Character_TriggerEvent));
 
         public static MethodInfo mar_te = AccessTools.Method(typeof(EventPatches), nameof(ModifyAbilityRank_TriggerEvent));
+
+        public static MethodInfo mt_aaetl_atl = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_AddAbilityEffectsToList_AddToList));
+        public static MethodInfo mt_aaetl_se = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_AddAbilityEffectsToList_SetEffects));
+        public static MethodInfo mt_aaetl_rfl = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_AddAbilityEffectsToList_RemoveFromList));
+        public static MethodInfo mt_sarv_e_s = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_SetAndResetVariables_Effects_Set));
+        public static MethodInfo mt_sarv_v_s = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_SetAndResetVariables_Visuals_Set));
+        public static MethodInfo mt_sarv_r = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_SetAndResetVariables_Reset));
+        public static MethodInfo mt_i_te = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_Intent_TriggerEvent));
+        public static MethodInfo mt_i_s = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_Intent_Set));
+        public static MethodInfo mt_i_ts = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_Intent_TargetSwap));
 
         [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.UseAbility))]
         [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.UseAbility))]
@@ -94,9 +106,7 @@ namespace BOStuffPack.API.CustomEvent
                 }
 
                 else
-                {
                     crs.Emit(OpCodes.Call, bae_e_te);
-                }
             }
         }
 
@@ -220,6 +230,290 @@ namespace BOStuffPack.API.CustomEvent
             CombatManager.Instance.PostNotification(CustomEvents.MODIFY_ABILITY_RANK, cc, intRef);
 
             return cc.Character.ClampRank(intRef.value);
+        }
+
+        [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.UseAbility), typeof(int))]
+        [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.UseAbility), typeof(int), typeof(FilledManaCost[]))]
+        [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.TryPerformRandomAbility), [])]
+        [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.TryPerformRandomAbility), typeof(AbilitySO))]
+        [HarmonyILManipulator]
+        public static void ModifyTargetting_AddAbilityEffectsToList_Transpiler(ILContext ctx, MethodBase mthd)
+        {
+            var crs = new ILCursor(ctx);
+
+            var infoLocal = crs.DeclareLocal<PerformedAbilityInformation>();
+
+            if (!crs.JumpToNext(x => x.MatchNewobj<PlayAbilityAnimationAction>()))
+                return;
+
+            if (mthd.Name == nameof(CharacterCombat.TryPerformRandomAbility))
+                if (mthd.GetParameters().Length > 0)
+                    crs.Emit(OpCodes.Ldarg_0);
+
+                else
+                    crs.Emit(OpCodes.Ldloc_1);
+
+            else
+                crs.Emit(OpCodes.Ldloc_0);
+
+            crs.Emit(OpCodes.Ldarg_0);
+            crs.Emit(OpCodes.Ldloca_S, infoLocal);
+            crs.Emit(OpCodes.Call, mt_aaetl_atl);
+
+            if (!crs.JumpToNext(x => x.MatchNewobj<EffectAction>()))
+                return;
+
+            crs.Emit(OpCodes.Ldloc_S, infoLocal);
+            crs.Emit(OpCodes.Call, mt_aaetl_se);
+
+            if (!crs.JumpBeforeNext(x => x.MatchRet()))
+                return;
+
+            crs.Emit(OpCodes.Ldarg_0);
+            crs.Emit(OpCodes.Ldloc_S, infoLocal);
+            crs.Emit(OpCodes.Call, mt_aaetl_rfl);
+        }
+
+        public static PlayAbilityAnimationAction ModifyTargetting_AddAbilityEffectsToList_AddToList(PlayAbilityAnimationAction action, AbilitySO ability, IUnit caster, out PerformedAbilityInformation info)
+        {
+            ModifyTargettingAPI.ResetTemporaryTargettingModifications();
+
+            var ext = caster.Ext();
+
+            if (ext != null)
+            {
+                ext.CurrentlyPerformedAbilities.Add(info = new() { visuals = action, ability = ability });
+
+                CombatManager.Instance.AddRootAction(new PreprocessAbilityInformationAction(info, caster));
+            }
+            else
+                info = null;
+
+            return action;
+        }
+
+        public static EffectAction ModifyTargetting_AddAbilityEffectsToList_SetEffects(EffectAction action, PerformedAbilityInformation info)
+        {
+            ModifyTargettingAPI.ResetTemporaryTargettingModifications();
+
+            if (info != null)
+                info.effects = action;
+
+            return action;
+        }
+
+        public static void ModifyTargetting_AddAbilityEffectsToList_RemoveFromList(IUnit caster, PerformedAbilityInformation info)
+        {
+            if (info != null && caster != null)
+                CombatManager.Instance.AddRootAction(new RemoveAbilityInformationFromListAction(info, caster));
+        }
+
+        [HarmonyPatch(typeof(EffectAction), nameof(EffectAction.Execute), MethodType.Enumerator)]
+        [HarmonyILManipulator]
+        public static void ModifyTargetting_SetAndResetVariables_Effects_Transpiler(ILContext ctx)
+        {
+            var crs = new ILCursor(ctx);
+
+            foreach(var m in crs.MatchBefore(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>(nameof(BaseCombatTargettingSO.GetTargets))))
+            {
+                crs.Emit(OpCodes.Ldloc_1);
+                crs.Emit(OpCodes.Call, mt_sarv_e_s);
+            }
+
+            crs.Index = 0;
+            foreach (var m in crs.MatchAfter(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>(nameof(BaseCombatTargettingSO.GetTargets))))
+            {
+                crs.Emit(OpCodes.Call, mt_sarv_r);
+            }
+        }
+
+        public static bool ModifyTargetting_SetAndResetVariables_Effects_Set(bool curr, EffectAction act)
+        {
+            ModifyTargettingAPI.ResetTemporaryTargettingModifications();
+
+            if (act == null)
+                return curr;
+
+            var ext = act._caster.Ext();
+
+            if (ext != null && ext.CurrentlyPerformedAbilities.FirstOrDefault(x => x.effects == act) is PerformedAbilityInformation inf && inf != null)
+            {
+                ModifyTargettingAPI.targetOffset = inf.targetOffset;
+                ModifyTargettingAPI.targetSwapped = inf.isTargetsSwapped;
+            }
+
+            return curr;
+        }
+
+        public static TargetSlotInfo[] ModifyTargetting_SetAndResetVariables_Reset(TargetSlotInfo[] curr)
+        {
+            ModifyTargettingAPI.ResetTemporaryTargettingModifications();
+
+            return curr;
+        }
+
+        [HarmonyPatch(typeof(PlayAbilityAnimationAction), nameof(PlayAbilityAnimationAction.Execute), MethodType.Enumerator)]
+        [HarmonyILManipulator]
+        public static void ModifyTargetting_SetAndResetVariables_Visuals_Transpiler(ILContext ctx)
+        {
+            var crs = new ILCursor(ctx);
+
+            foreach (var m in crs.MatchBefore(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>(nameof(BaseCombatTargettingSO.GetTargets))))
+            {
+                crs.Emit(OpCodes.Ldloc_1);
+                crs.Emit(OpCodes.Call, mt_sarv_v_s);
+            }
+
+            crs.Index = 0;
+            foreach (var m in crs.MatchAfter(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>(nameof(BaseCombatTargettingSO.GetTargets))))
+            {
+                crs.Emit(OpCodes.Call, mt_sarv_r);
+            }
+        }
+
+        public static bool ModifyTargetting_SetAndResetVariables_Visuals_Set(bool curr, PlayAbilityAnimationAction act)
+        {
+            ModifyTargettingAPI.ResetTemporaryTargettingModifications();
+
+            if (act == null)
+                return curr;
+
+            var ext = act._caster.Ext();
+
+            if (ext != null && ext.CurrentlyPerformedAbilities.FirstOrDefault(x => x.visuals == act) is PerformedAbilityInformation inf && inf != null)
+            {
+                ModifyTargettingAPI.targetOffset = inf.targetOffset;
+                ModifyTargettingAPI.targetSwapped = inf.isTargetsSwapped;
+            }
+
+            return curr;
+        }
+
+        [HarmonyPatch(typeof(Targetting_BySlot_Index), nameof(Targetting_BySlot_Index.GetTargets))]
+        [HarmonyPatch(typeof(CustomOpponentTargetting_BySlot_Index), nameof(CustomOpponentTargetting_BySlot_Index.GetTargets))]
+        [HarmonyPostfix]
+        public static void ModifyTargetting_BySlot_Index_Postfix(ref TargetSlotInfo[] __result, SlotsCombat slots)
+        {
+            var offs = ModifyTargettingAPI.targetOffset ?? 0;
+            var swapped = ModifyTargettingAPI.targetSwapped ?? false;
+
+            if (offs == 0 && !swapped)
+                return;
+
+            var slot = new List<TargetSlotInfo>();
+
+            foreach(var s in __result)
+            {
+                var newSlot = slots.GetGenericAllySlotTarget(s.SlotID + offs, s.IsTargetCharacterSlot != swapped);
+
+                if(newSlot != null)
+                    slot.Add(newSlot);
+            }
+
+            __result = [.. slot];
+        }
+
+        [HarmonyPatch(typeof(GenericTargetting_BySlot_Index), nameof(GenericTargetting_BySlot_Index.GetTargets))]
+        [HarmonyPostfix]
+        public static void ModifyTargetting_Generic_BySlot_Index_Postfix(ref TargetSlotInfo[] __result, SlotsCombat slots)
+        {
+            var swapped = ModifyTargettingAPI.targetSwapped ?? false;
+
+            if (!swapped)
+                return;
+
+            var slot = new List<TargetSlotInfo>();
+
+            foreach (var s in __result)
+            {
+                var newSlot = slots.GetGenericAllySlotTarget(s.SlotID, s.IsTargetCharacterSlot != swapped);
+
+                if (newSlot != null)
+                    slot.Add(newSlot);
+            }
+
+            __result = [.. slot];
+        }
+
+        [HarmonyPatch(typeof(CombatVisualizationController), nameof(CombatVisualizationController.ShowTargeting))]
+        [HarmonyILManipulator]
+        public static void ModifyTargetting_Intent_Transpiler(ILContext ctx)
+        {
+            var crs = new ILCursor(ctx);
+
+            if (!crs.JumpToNext(x => x.MatchStloc(0)))
+                return;
+
+            var targettingStuff = crs.DeclareLocal<ModifyTargettingInfo>();
+
+            crs.Emit(OpCodes.Ldarg_1);
+            crs.Emit(OpCodes.Ldarg_3);
+            crs.Emit(OpCodes.Ldarg_S, (byte)5);
+            crs.Emit(OpCodes.Ldloca_S, targettingStuff);
+
+            crs.Emit(OpCodes.Call, mt_i_te);
+
+            foreach (var m in crs.MatchBefore(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>(nameof(BaseCombatTargettingSO.GetTargets))))
+            {
+                crs.Emit(OpCodes.Ldloc_S, targettingStuff);
+                crs.Emit(OpCodes.Call, mt_i_s);
+            }
+
+            crs.Index = 0;
+            if (!crs.JumpToNext(x => x.MatchStloc(0)))
+                return;
+
+            foreach (var m in crs.MatchAfter(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>(nameof(BaseCombatTargettingSO.GetTargets))))
+            {
+                crs.Emit(OpCodes.Call, mt_sarv_r);
+            }
+
+            crs.Index = 0;
+            if (!crs.JumpToNext(x => x.MatchStloc(0)))
+                return;
+
+            foreach(var m in crs.MatchAfter(x => x.MatchCallOrCallvirt<BaseCombatTargettingSO>($"get_{nameof(BaseCombatTargettingSO.AreTargetAllies)}")))
+            {
+                crs.Emit(OpCodes.Ldloc_S, targettingStuff);
+                crs.Emit(OpCodes.Call, mt_i_ts);
+            }
+        }
+
+        public static void ModifyTargetting_Intent_TriggerEvent(AbilitySO ab, int casterId, bool casterIsCharacter, out ModifyTargettingInfo inf)
+        {
+            inf = new(new(false), new(0), ab);
+
+            if (!CombatManager.Instance._stats.TryGetUnit(casterId, casterIsCharacter, out var u))
+                return;
+
+            CombatManager.Instance.PostNotification(CustomEvents.MODIFY_TARGETTING_INTENTS, u, inf);
+        }
+
+        public static bool ModifyTargetting_Intent_Set(bool curr, ModifyTargettingInfo inf)
+        {
+            ModifyTargettingAPI.ResetTemporaryTargettingModifications();
+
+            if (inf == null)
+                return curr;
+
+            if(inf.intReference != null)
+                ModifyTargettingAPI.targetOffset = inf.intReference.value;
+
+            if (inf.boolReference != null)
+                ModifyTargettingAPI.targetSwapped = inf.boolReference.value;
+
+            return curr;
+        }
+
+        public static bool ModifyTargetting_Intent_TargetSwap(bool curr, ModifyTargettingInfo inf)
+        {
+            if (inf == null)
+                return curr;
+
+            if (inf.boolReference != null)
+                return curr != inf.boolReference.value;
+
+            return curr;
         }
     }
 }

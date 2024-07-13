@@ -1,0 +1,39 @@
+﻿title: BerserkTutorial_Characters
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Wow, looks like you're out for blood.
+
+<<RightSound>>
+While you have Berserk, you will deal double damage.
+
+<<RightSound>>
+Berserk will naturally wear off with time.
+
+<<RightSound>>
+Use it well.
+===
+
+title: BerserkTutorial_Enemies
+tags:
+---
+<<RightSet Bosch>>
+<<LeftHide>>
+<<RightFocus>>
+
+<<RightSound>>
+Wow, looks like that enemy is out for blood.
+
+<<RightSound>>
+While they have Berserk, they will deal double damage.
+
+<<RightSound>>
+Berserk will naturally wear off with time.
+
+<<RightSound>>
+Try not to let them hit you.
+===

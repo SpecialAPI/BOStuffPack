@@ -28,7 +28,7 @@ namespace BOStuffPack.API.CustomEvent
         public IntegerReference GetIntegerReference() => reference;
     }
 
-    public abstract class BooleanAndIntegerReferenceHolderBase(BooleanReference boolReference, IntegerReference intReference) : IBooleanReferenceHolder, IIntegerReferenceHolder
+    public class BooleanAndIntegerReferenceHolderBase(BooleanReference boolReference, IntegerReference intReference) : IBooleanReferenceHolder, IIntegerReferenceHolder
     {
         public BooleanReference boolReference = boolReference;
         public IntegerReference intReference = intReference;
@@ -47,5 +47,10 @@ namespace BOStuffPack.API.CustomEvent
     public class CanProducePigmentColorInfo(ManaColorSO pigment, BooleanReference reference) : BooleanReferenceHolderBase(reference)
     {
         public ManaColorSO pigment = pigment;
+    }
+
+    public class ModifyTargettingInfo(BooleanReference boolReference, IntegerReference intReference, AbilitySO ability) : BooleanAndIntegerReferenceHolderBase(boolReference, intReference)
+    {
+        public AbilitySO ability = ability;
     }
 }

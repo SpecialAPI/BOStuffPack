@@ -18,6 +18,8 @@ global using static BOStuffPack.Tools.PassiveTools;
 global using static BOStuffPack.Tools.StoredValueTools;
 global using static BOStuffPack.Tools.StatusEffectTools;
 global using static BOStuffPack.Tools.CharacterTools;
+global using static BOStuffPack.Tools.TextTools;
+global using static BOStuffPack.Tools.IUnitExtensions;
 
 global using BOStuffPack.CommonReferences;
 

@@ -86,6 +86,7 @@
     <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
     <None Remove="Resources\Enemies\ATM\ATMPortrait.png" />
     <None Remove="Resources\Enemies\ATM\ATMSpeaker.png" />
+    <None Remove="Resources\Enemies\Monty\MontyIcon2.png" />
     <None Remove="Resources\Items\AlmightyBranch.png" />
     <None Remove="Resources\Items\ArtOfViolence.png" />
     <None Remove="Resources\Items\BloodyHacksaw.png" />
@@ -116,9 +117,15 @@
     <None Remove="Resources\Items\WorldShatter.png" />
     <None Remove="Resources\Passives\ATMPassive.png" />
     <None Remove="Resources\Passives\DamageCap.png" />
+    <None Remove="Resources\Passives\Energized.png" />
+    <None Remove="Resources\Passives\Frenzied.png" />
+    <None Remove="Resources\Passives\Furious.png" />
     <None Remove="Resources\Passives\IsaacNewton_Passive_50.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
+    <None Remove="Resources\Passives\TargetShift.png" />
+    <None Remove="Resources\Passives\TargetSwapped.png" />
+    <None Remove="Resources\Passives\Weak.png" />
     <None Remove="Resources\StatusEffects\berserk.png" />
     <None Remove="Resources\StatusEffects\fury.png" />
     <None Remove="Resources\StatusEffects\PoweredUp.png" />
@@ -161,6 +168,7 @@
     <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMPortrait.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
+    <EmbeddedResource Include="Resources\Enemies\Monty\MontyIcon2.png" />
     <EmbeddedResource Include="Resources\Items\Shop\SchmuckleTicket.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\ArtOfViolence.png" />
@@ -191,9 +199,15 @@
     <EmbeddedResource Include="Resources\Items\Shop\WorldShatter.png" />
     <EmbeddedResource Include="Resources\Passives\ATMPassive.png" />
     <EmbeddedResource Include="Resources\Passives\DamageCap.png" />
+    <EmbeddedResource Include="Resources\Passives\Energized.png" />
+    <EmbeddedResource Include="Resources\Passives\Frenzied.png" />
+    <EmbeddedResource Include="Resources\Passives\Furious.png" />
     <EmbeddedResource Include="Resources\Passives\IsaacNewton_Passive_50.png" />
     <EmbeddedResource Include="Resources\Passives\Merged.png" />
     <EmbeddedResource Include="Resources\Passives\Shapeshifter.png" />
+    <EmbeddedResource Include="Resources\Passives\TargetShift.png" />
+    <EmbeddedResource Include="Resources\Passives\TargetSwapped.png" />
+    <EmbeddedResource Include="Resources\Passives\Weak.png" />
     <EmbeddedResource Include="Resources\StatusEffects\Berserk.png" />
     <EmbeddedResource Include="Resources\StatusEffects\Fury.png" />
     <EmbeddedResource Include="Resources\StatusEffects\PoweredUp.png" />

@@ -56,5 +56,18 @@ namespace BOStuffPack.Tools
 
             crs.Index = idx;
         }
+
+        public static VariableDefinition DeclareLocal<T>(this ILContext ctx)
+        {
+            var loc = new VariableDefinition(ctx.Import(typeof(T)));
+            ctx.Body.Variables.Add(loc);
+
+            return loc;
+        }
+
+        public static VariableDefinition DeclareLocal<T>(this ILCursor curs)
+        {
+            return curs.Context.DeclareLocal<T>();
+        }
     }
 }

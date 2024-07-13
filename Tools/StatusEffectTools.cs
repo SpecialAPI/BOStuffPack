@@ -24,9 +24,22 @@ namespace BOStuffPack.Tools
 
             st._EffectInfo.icon = LoadSprite(sprite);
 
+            AddBasicIntent(IntentForStatus<T>(), sprite);
+            AddBasicIntent(IntentForStatusRemove<T>(), sprite, StatusRemove_IntentColor);
+
             StatusField.AddNewStatusEffect(st, false);
 
             return st;
+        }
+
+        public static string IntentForStatus<T>() where T : StatusEffect_SO
+        {
+            return $"Status_{typeof(T).Name}";
+        }
+
+        public static string IntentForStatusRemove<T>() where T : StatusEffect_SO
+        {
+            return $"Rem_Status_{typeof(T).Name}";
         }
 
         public static T AddToGlossary<T>(this T st) where T : StatusEffect_SO

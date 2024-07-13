@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{d6128f26-a5ba-4e10-90a5-74278343c56c}">
+		<property name="assetPath">
+			<value>Monty_Hurt_2.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.7142857142857143</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e2013155-8f1e-4b95-b289-ad19f59a577f}</destination>
+		</relationship>
+	</object>
+</objects>

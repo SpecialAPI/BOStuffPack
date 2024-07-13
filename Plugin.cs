@@ -61,6 +61,15 @@ namespace BOStuffPack
             StrangeDevice.Init();
             WorldShatter.Init();
 
+            // Items - Beta update 2
+            FailRounds.Init();
+            Eyepatch.Init();
+            NegativeTeapot.Init();
+            MusicBox.Init();
+
+            // Monty
+            Monty.Init();
+
             InitModInfo();
         }
 

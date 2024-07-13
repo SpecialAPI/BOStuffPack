@@ -43,7 +43,7 @@ namespace BOStuffPack.Content.Items.Treasure
                 },
                 new()
                 {
-                    TargetIntent(Self, INTENT_FURY_APPLY, IntentType_GameIDs.Misc.ToString())
+                    TargetIntent(Self, IntentForStatus<FuryStatusEffect>(), IntentType_GameIDs.Misc.ToString())
                 })
                 
                 .WithVisuals(Visuals_Wrath, Self)

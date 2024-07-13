@@ -73,6 +73,23 @@ namespace BOStuffPack.Tools
             };
         }
 
+        public static bool CompareInts(int a, int b, IntComparison comparison)
+        {
+            return comparison switch
+            {
+                IntComparison.Equal => a == b,
+                IntComparison.NotEqual => a != b,
+
+                IntComparison.GreaterThan => a > b,
+                IntComparison.GreaterThanOrEqual => a >= b,
+
+                IntComparison.LessThan => a < b,
+                IntComparison.LessThanOrEqual => a <= b,
+
+                _ => true
+            };
+        }
+
         public static T GetOrAddComponent<T>(this GameObject go) where T : Component
         {
             var exists = go.GetComponent<T>();
@@ -121,6 +138,18 @@ namespace BOStuffPack.Tools
             Negative,
 
             NonZero
+        }
+
+        public enum IntComparison
+        {
+            Equal,
+            NotEqual,
+
+            GreaterThan,
+            GreaterThanOrEqual,
+
+            LessThan,
+            LessThanOrEqual,
         }
     }
 }
