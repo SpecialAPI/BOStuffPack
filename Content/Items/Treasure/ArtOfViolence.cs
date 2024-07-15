@@ -8,7 +8,7 @@ namespace BOStuffPack.Content.Items.Treasure
     {
         public static void Init()
         {
-            var name = "Art of Violence";
+            var name = "The Art of Violence";
             var flav = "\"The world is your canvas, so take up your brush and paint it <color=#ff0000>R E D</color>\"";
             var desc = "On combat start, change all enemies' health colors to grey and give them Leaky and Red Core as passives.";
 
