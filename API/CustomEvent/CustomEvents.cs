@@ -15,6 +15,9 @@ namespace BOStuffPack.API.CustomEvent
         public const string MODIFY_ABILITY_RANK = "ModifyAbilityRank";
         public const string MODIFY_TARGETTING = "ModifyTargetting";
         public const string MODIFY_TARGETTING_INTENTS = "ModifyTargettingIntents";
+        public const string STATUS_EFFECT_FIRST_APPLIED = "StatusEffectFirstAplied";
+        public const string STATUS_EFFECT_APPLIED = "StatusEffectApplied";
+        public const string STATUS_EFFECT_INCREASED = "StatusEffectIncreased";
     }
 
     [HarmonyPatch]
@@ -43,6 +46,10 @@ namespace BOStuffPack.API.CustomEvent
         public static MethodInfo mt_i_te = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_Intent_TriggerEvent));
         public static MethodInfo mt_i_s = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_Intent_Set));
         public static MethodInfo mt_i_ts = AccessTools.Method(typeof(EventPatches), nameof(ModifyTargetting_Intent_TargetSwap));
+
+        public static MethodInfo sefa_te = AccessTools.Method(typeof(EventPatches), nameof(StatusEffectFirstAplied_TriggerEvent));
+        public static MethodInfo sea_te = AccessTools.Method(typeof(EventPatches), nameof(StatusEffectAplied_TriggerEvent));
+        public static MethodInfo sei_te = AccessTools.Method(typeof(EventPatches), nameof(StatusEffectIncreased_TriggerEvent));
 
         [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.UseAbility))]
         [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.UseAbility))]
@@ -514,6 +521,76 @@ namespace BOStuffPack.API.CustomEvent
                 return curr != inf.boolReference.value;
 
             return curr;
+        }
+
+        [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.ApplyStatusEffect))]
+        [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.ApplyStatusEffect))]
+        [HarmonyILManipulator]
+        public static void StatusEffectApplied_Transpiler(ILContext ctx)
+        {
+            var cursor = new ILCursor(ctx);
+
+            if (!cursor.JumpToNext(x => x.MatchCallOrCallvirt<CombatManager>(nameof(CombatManager.PostNotification)), 2))
+                return;
+
+            cursor.Emit(OpCodes.Ldarg_0);
+            cursor.Emit(OpCodes.Ldarg_1);
+            cursor.Emit(OpCodes.Ldarg_2);
+            cursor.Emit(OpCodes.Call, sefa_te);
+
+            if (!cursor.JumpToNext(x => x.MatchCallOrCallvirt<CombatManager>(nameof(CombatManager.PostNotification))))
+                return;
+
+            cursor.Emit(OpCodes.Ldarg_0);
+            cursor.Emit(OpCodes.Ldarg_1);
+            cursor.Emit(OpCodes.Ldarg_2);
+            cursor.Emit(OpCodes.Call, sea_te);
+
+            cursor.Emit(OpCodes.Ldarg_0);
+            cursor.Emit(OpCodes.Ldarg_1);
+            cursor.Emit(OpCodes.Ldarg_2);
+            cursor.Emit(OpCodes.Call, sei_te);
+        }
+
+        [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.IncreaseStatusEffects))]
+        [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.IncreaseStatusEffects))]
+        [HarmonyILManipulator]
+        public static void InsertToIncreaseEffects(ILContext ctx)
+        {
+            var cursor = new ILCursor(ctx);
+
+            if (cursor.JumpToNext(x => x.MatchCallOrCallvirt<CombatManager>(nameof(CombatManager.PostNotification))))
+            {
+                cursor.Emit(OpCodes.Ldarg_0);
+                cursor.Emit(OpCodes.Ldloc_2);
+                cursor.Emit(OpCodes.Ldarg_1);
+
+                cursor.Emit(OpCodes.Call, sei_te);
+            }
+        }
+
+        public static void StatusEffectFirstAplied_TriggerEvent(IUnit whoWasThisAppliedTo, StatusEffect_SO effect, int amount)
+        {
+            var cm = CombatManager.Instance;
+
+            foreach(var u in cm._stats.UnitsOnField())
+                cm.PostNotification(CustomEvents.STATUS_EFFECT_FIRST_APPLIED, u, new TargettedStatusEffectApplicationInfo(whoWasThisAppliedTo, effect, amount));
+        }
+
+        public static void StatusEffectAplied_TriggerEvent(IUnit whoWasThisAppliedTo, StatusEffect_SO effect, int amount)
+        {
+            var cm = CombatManager.Instance;
+
+            foreach (var u in cm._stats.UnitsOnField())
+                cm.PostNotification(CustomEvents.STATUS_EFFECT_APPLIED, u, new TargettedStatusEffectApplicationInfo(whoWasThisAppliedTo, effect, amount));
+        }
+
+        public static void StatusEffectIncreased_TriggerEvent(IUnit whoWasThisAppliedTo, StatusEffect_SO effect, int amount)
+        {
+            var cm = CombatManager.Instance;
+
+            foreach (var u in cm._stats.UnitsOnField())
+                cm.PostNotification(CustomEvents.STATUS_EFFECT_INCREASED, u, new TargettedStatusEffectApplicationInfo(whoWasThisAppliedTo, effect, amount));
         }
     }
 }

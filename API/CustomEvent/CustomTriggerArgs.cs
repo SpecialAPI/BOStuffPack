@@ -14,6 +14,11 @@ namespace BOStuffPack.API.CustomEvent
         public IntegerReference GetIntegerReference();
     }
 
+    public interface ITargettedNotificationInfo
+    {
+        public IUnit Target { get; }
+    }
+
     public abstract class BooleanReferenceHolderBase(BooleanReference reference) : IBooleanReferenceHolder
     {
         public BooleanReference reference = reference;
@@ -52,5 +57,14 @@ namespace BOStuffPack.API.CustomEvent
     public class ModifyTargettingInfo(BooleanReference boolReference, IntegerReference intReference, AbilitySO ability) : BooleanAndIntegerReferenceHolderBase(boolReference, intReference)
     {
         public AbilitySO ability = ability;
+    }
+
+    public class TargettedStatusEffectApplicationInfo(IUnit guy, StatusEffect_SO statusEffect, int amountToApply) : ITargettedNotificationInfo
+    {
+        public IUnit unit = guy;
+        public StatusEffect_SO statusEffect = statusEffect;
+        public int amountToApply = amountToApply;
+
+        public IUnit Target => unit;
     }
 }

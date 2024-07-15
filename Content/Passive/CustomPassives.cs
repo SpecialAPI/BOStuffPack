@@ -9,6 +9,12 @@ namespace BOStuffPack.Content.Passive
         public static MultiCustomTriggerEffectPassive Merged;
         public static MultiCustomTriggerEffectPassive Shapeshifter;
 
+        public static MultiCustomTriggerEffectPassive RedCore;
+        public static MultiCustomTriggerEffectPassive BlueCore;
+        public static MultiCustomTriggerEffectPassive PurpleCore;
+        public static MultiCustomTriggerEffectPassive YellowCore;
+        public static MultiCustomTriggerEffectPassive UntetheredCore;
+
         public static StatusEffectPassiveAbility TargetSwapped;
         public static StatusEffectPassiveAbility Frenzied;
 
@@ -47,6 +53,81 @@ namespace BOStuffPack.Content.Passive
                     effect = new PerformEffectTriggerEffect(new()
                     {
                         Effect(Self, CreateScriptable<EquipRandomTreasureEffect>())
+                    })
+                }
+            };
+
+            RedCore = NewPassive<MultiCustomTriggerEffectPassive>("RedCore_PA", "RedCore", "Red Core", "Core_Red").AutoDescription("Allows this ally's health to be toggled to red.");
+            RedCore.connectionEffects = new()
+            {
+                new()
+                {
+                    immediate = false,
+                    doesPopup = false,
+
+                    effect = new PerformEffectTriggerEffect(new()
+                    {
+                        Effect(Self, CreateScriptable<AddHealthOptionIfUnitDoesntHaveItEffect>(x => x.healthColorsToAdd = [Pigments.Red]))
+                    })
+                }
+            };
+
+            BlueCore = NewPassive<MultiCustomTriggerEffectPassive>("BlueCore_PA", "BlueCore", "Blue Core", "Core_Blue").AutoDescription("Allows this ally's health to be toggled to Blue.");
+            BlueCore.connectionEffects = new()
+            {
+                new()
+                {
+                    immediate = false,
+                    doesPopup = false,
+
+                    effect = new PerformEffectTriggerEffect(new()
+                    {
+                        Effect(Self, CreateScriptable<AddHealthOptionIfUnitDoesntHaveItEffect>(x => x.healthColorsToAdd = [Pigments.Blue]))
+                    })
+                }
+            };
+
+            PurpleCore = NewPassive<MultiCustomTriggerEffectPassive>("PurpleCore_PA", "PurpleCore", "Purple Core", "Core_Purple").AutoDescription("Allows this ally's health to be toggled to Purple.");
+            PurpleCore.connectionEffects = new()
+            {
+                new()
+                {
+                    immediate = false,
+                    doesPopup = false,
+
+                    effect = new PerformEffectTriggerEffect(new()
+                    {
+                        Effect(Self, CreateScriptable<AddHealthOptionIfUnitDoesntHaveItEffect>(x => x.healthColorsToAdd = [Pigments.Purple]))
+                    })
+                }
+            };
+
+            YellowCore = NewPassive<MultiCustomTriggerEffectPassive>("YellowCore_PA", "YellowCore", "Yellow Core", "Core_Yellow").AutoDescription("Allows this ally's health to be toggled to Yellow.");
+            YellowCore.connectionEffects = new()
+            {
+                new()
+                {
+                    immediate = false,
+                    doesPopup = false,
+
+                    effect = new PerformEffectTriggerEffect(new()
+                    {
+                        Effect(Self, CreateScriptable<AddHealthOptionIfUnitDoesntHaveItEffect>(x => x.healthColorsToAdd = [Pigments.Yellow]))
+                    })
+                }
+            };
+
+            UntetheredCore = NewPassive<MultiCustomTriggerEffectPassive>("UntetheredCore_PA", "UntetheredCore", "Untethered Core", "Core_Untethered").AutoDescription("Allows this ally's health to be toggled to any basic color.");
+            UntetheredCore.connectionEffects = new()
+            {
+                new()
+                {
+                    immediate = false,
+                    doesPopup = false,
+
+                    effect = new PerformEffectTriggerEffect(new()
+                    {
+                        Effect(Self, CreateScriptable<AddHealthOptionIfUnitDoesntHaveItEffect>(x => x.healthColorsToAdd = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple]))
                     })
                 }
             };

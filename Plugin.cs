@@ -67,6 +67,12 @@ namespace BOStuffPack
             NegativeTeapot.Init();
             MusicBox.Init();
 
+            // Items - Beta update 3
+            ArtistsPalette.Init();
+            ArtOfViolence.Init();
+            OilPaints.Init();
+            MagickalBleach.Init();
+
             // Monty
             Monty.Init();
 

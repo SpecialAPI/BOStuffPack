@@ -17,7 +17,7 @@ namespace BOStuffPack.API.UnitExtension
             if (hold == null)
                 return null; // WTF?
 
-            return (hold.m_ObjectData ??= new UnitExt()) as UnitExt;
+            return (hold.m_ObjectData ??= new UnitExt(unit)) as UnitExt;
         }
     }
 }
