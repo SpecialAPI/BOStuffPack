@@ -1,4 +1,5 @@
-﻿using BOStuffPack.API.CustomEvent;
+﻿using Pentacle.CustomEvent.Args;
+using Pentacle.Tools;
 using System;
 using System.Collections.Generic;
 using System.Text;

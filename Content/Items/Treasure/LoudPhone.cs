@@ -12,7 +12,10 @@ namespace BOStuffPack.Content.Items.Treasure
             var flav = "\"CAW CAW CAW\"";
             var desc = "60% chance to refresh this party member's abilities upon performing an ability. Inflict 1 Weakened to this party member if they get refreshed.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(name, flav, desc, "LoudPhone").AddToTreasure().Build();
+            var item = NewItem<MultiCustomTriggerEffectWearable>("LoudPhone_TW")
+                .SetBasicInformation(name, flav, desc, "LoudPhone")
+                .SetPrice(4)
+                .AddToTreasure();
 
             item.triggerEffects = new()
             {
@@ -23,8 +26,8 @@ namespace BOStuffPack.Content.Items.Treasure
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effect(Self, CreateScriptable<RefreshAbilityUseEffect>()),
-                        Effect(Self, CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Weakened), 1)
+                        Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot),
+                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = CustomStatusEffects.Weakened), 1, Targeting.Slot_SelfSlot)
                     }),
 
                     conditions = new()

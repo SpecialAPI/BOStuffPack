@@ -7,29 +7,18 @@ namespace BOStuffPack.Content.TriggerEffects
     public class ModifyIntegerReferenceTriggerEffect : TriggerEffect
     {
         public IntOperation Operation;
-
         public int Value;
 
         public bool UseStoredValue;
         public string StoredValue;
 
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger)
+        public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger, object activator)
         {
-            if(!TryReadIntegerReference(args, out var intRef))
+            if (!args.TryGetIntReference(out var intRef))
                 return;
 
             var val = UseStoredValue ? sender.SimpleGetStoredValue(StoredValue) : Value;
-
-            intRef.value = Operation switch
-            {
-                IntOperation.Add => intRef.value + val,
-                IntOperation.Subtract => intRef.value - val,
-
-                IntOperation.Multiply => intRef.value * val,
-                IntOperation.Divide => intRef.value / val,
-
-                _ => val
-            };
+            intRef.value = DoOperation(intRef.value, val, Operation);
         }
     }
 }

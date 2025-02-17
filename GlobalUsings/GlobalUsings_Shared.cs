@@ -19,6 +19,34 @@ global using Mono.Cecil.Cil;
 global using BrutalAPI;
 global using Tools;
 
+global using Pentacle;
+global using Pentacle.Tools;
+global using Pentacle.Builders;
+global using Pentacle.TriggerEffect;
+global using Pentacle.TriggerEffect.BasicTriggerEffects;
+global using Pentacle.CustomEvent;
+global using Pentacle.Advanced;
+global using Pentacle.Misc;
+global using Pentacle.UnitExtension;
+global using Pentacle.CombatActions;
+
+global using static Pentacle.Builders.IntentBuilder;
+global using static Pentacle.Builders.ItemBuilder;
+global using static Pentacle.Builders.PassiveBuilder;
+global using static Pentacle.Builders.StatusEffectBuilder;
+global using static Pentacle.Builders.CharacterBuilder;
+global using static Pentacle.Builders.StoredValueBuilder;
+global using static Pentacle.Builders.AbilityBuilder;
+global using static Pentacle.Builders.EnemyBuilder;
+
+global using static Pentacle.Tools.ScriptableObjectTools;
+global using static Pentacle.Tools.IntentTools;
+global using static Pentacle.Tools.IntTools;
+
+global using Grimoire.Content.StatusEffect;
+global using Grimoire.Content.Passive;
+global using Grimoire.Content.Intent;
+
 global using Object = UnityEngine.Object;
 global using Random = UnityEngine.Random;
 

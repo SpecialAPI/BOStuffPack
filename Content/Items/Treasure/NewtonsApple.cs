@@ -14,7 +14,10 @@ namespace BOStuffPack.Content.Items.Treasure
             var flav = "\"Tastes like science\"";
             var desc = "At the start of combat, spawns Isaac Newton as a permanent party member.\nThis item is destroyed upon activation.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(name, flav, desc, "NewtonsApple").AddToTreasure().Build();
+            var item = NewItem<MultiCustomTriggerEffectWearable>("NewtonsApple_TW")
+                .SetBasicInformation(name, flav, desc, "NewtonsApple")
+                .SetPrice(3)
+                .AddToTreasure();
 
             item.triggerEffects = new()
             {
@@ -26,7 +29,7 @@ namespace BOStuffPack.Content.Items.Treasure
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effect(null, CreateScriptable<CopyAndSpawnCustomCharacterAnywhereEffect>(x =>
+                        Effects.GenerateEffect(CreateScriptable<CopyAndSpawnCustomCharacterAnywhereEffect>(x =>
                         {
                             x._characterCopy = Newton().name;
 
@@ -43,141 +46,124 @@ namespace BOStuffPack.Content.Items.Treasure
 
         public static CharacterSO Newton()
         {
-            var ch = NewCharacter("Isaac Newton", Pigments.SplitPigment(Pigments.Green, Pigments.Red), "IsaacNewton_50", "IsaacNewton_Back_50", "IsaacNewton_OW");
+            var kleiver = GetCharacter("Kleiver_CH");
+            var smokestacks = GetCharacter("SmokeStacks_CH");
 
-            ch.movesOnOverworld = false;
+            var isaacNewtonPassive = NewPassive<MultiCustomTriggerEffectPassive>("IsaacNewton_PA", "IsaacNewton")
+                .SetBasicInformation("Isaac Newton", ResourceLoader.LoadSprite("IsaacNewton_Passive_50", ppu: 300))
+                .AutoSetDescriptions("This ally invented gravity.")
+                .AddToDatabase();
 
-            ch.GrabDamagedFrom("Kleiver_CH");
-            ch.GrabDeathFrom("SmokeStacks_CH");
-            ch.GrabDialogueFrom("SmokeStacks_CH");
+            var ch = NewCharacter("IsaacNewton_CH", "IsaacNewton")
+                .SetBasicInformation("Isaac Newton", Pigments.SplitPigment(Pigments.Green, Pigments.Red), "IsaacNewton_50", "IsaacNewton_Back_50", "IsaacNewton_OW")
+                .SetSounds(kleiver.damageSound, smokestacks.deathSound, smokestacks.dxSound)
+                .SetMovesOnOverworld(false)
+                .AddPassives(isaacNewtonPassive)
+                .AddUnitTypes("Bird");
 
-            ch.passiveAbilities = new()
+            var gravityIntent = AddIntent("Gravity", isaacNewtonPassive.passiveIcon);
+
+            ch.RankedDataSetup(4, (rank, abRank) =>
             {
-                NewPassive<MultiCustomTriggerEffectPassive>("IsaacNewton_PA", "IsaacNewton", "Isaac Newton", "IsaacNewton_Passive_50").AutoDescription("This ally invented gravity")
-            };
+                var gravityDamage = RankedValue(6, 8, 10, 12);
 
-            ch.RankedDataSetup(4, i =>
-            {
-                var gravityDamage = Choose(i, 6, 8, 10, 12);
+                var gravityPulltext = RankedValue("gently nudge", "nudge", "pull", "punt");
+                var gravityPullmult = RankedValue(1f, 1.25f, 1.5f, 1.75f);
 
-                var gravityPulltext = Choose(i, "gently nudge", "nudge", "pull", "punt");
-                var gravityPullmult = Choose(i, 1f, 1.25f, 1.5f, 1.75f);
-
-                var gravityName = $"{Choose(i, "Discover", "Invent", "Create", "Become")} Gravity";
+                var gravityName = $"{RankedValue("Discover", "Invent", "Create", "Become")} Gravity";
                 var gravityDesc = $"Move all enemies closer to this party member.\nDeal {gravityDamage} damage to the opposing enemy, give it gravity and {gravityPulltext} it towards this party member.";
 
-                var gravity =
-                    NewAbility(gravityName, gravityDesc, "AttackIcon_Gravity", new()
+                var gravity = NewAbility($"Gravity{abRank}_A")
+                    .SetBasicInformation(gravityName, gravityDesc, "AttackIcon_Gravity")
+                    .SetVisuals(Visuals.WrigglingWrath, Targeting.Slot_Front)
+                    .SetEffects(new()
                     {
-                        Effect(Relative(false, 0, -1, -2, -3, -4), CreateScriptable<SmartMoveTowardsEffect>(x => x.right = true)),
-                        Effect(Relative(false, 0, 1, 2, 3, 4), CreateScriptable<SmartMoveTowardsEffect>(x => x.right = false)),
+                        Effects.GenerateEffect(CreateScriptable<SmartMoveTowardsEffect>(x => x.right = true), 0, Targeting.GenerateSlotTarget([0, -1, -2, -3, -4, -5])),
+                        Effects.GenerateEffect(CreateScriptable<SmartMoveTowardsEffect>(x => x.right = false), 0, Targeting.GenerateSlotTarget([0, 1, 2, 3, 4, 5])),
 
-                        Effect(Opposing, Damage, gravityDamage),
-
-                        Effect(Opposing, CreateScriptable<AddGravityEffect>(x =>
+                        Effects.GenerateEffect(CreateScriptable<DamageEffect>(), gravityDamage, Targeting.Slot_Front),
+                        Effects.GenerateEffect(CreateScriptable<AddGravityEffect>(x =>
                         {
                             x.collider = ColliderType.None;
                             x.launchForce = new Vector3(0f, 50f, -100f) * gravityPullmult;
                             x.randomForce = 0f;
-                        }))
-                    },
-                    new()
-                    {
-                        TargetIntent(Opposing, IntentForDamage(gravityDamage), IntentType_GameIDs.Misc.ToString()),
-
-                        TargetIntent(Relative(false, -1, -2, -3, -4), IntentType_GameIDs.Swap_Right.ToString()),
-                        TargetIntent(Relative(false, 1, 2, 3, 4), IntentType_GameIDs.Swap_Left.ToString()),
+                        }), 0, Targeting.Slot_Front),
                     })
-                    
-                    .WithCustomId($"Gravity_{i + 1}_A")
-                    .WithVisuals(Visuals_Wriggle, Opposing)
-                    .Character(Pigments.Red, Pigments.Grey);
-
-                var appleRuptured = Choose(i, 1, 2, 2, 3);
-                var appleExtension = Choose(i, 1, 1, 2, 2);
-                
-                var applePulltext = Choose(i, "gently nudge", "nudge", "pull", "punt");
-                var applePullmult = Choose(i, 1f, 1.33f, 1.66f, 2f);
-                
-                var appleChance = Choose(i, 2, 5, 6, 7);
-                var appleAppleitem = Choose(i, "a Tainted Apple", "a Tainted Apple", "a Tainted Apple", "The Apple");
-                var appleAppleid = Choose(i, "TaintedApple_TW", "TaintedApple_TW", "TaintedApple_TW", "TheApple_TW");
-
-                var appleName = $"{Choose(i, "Rotten", "Fallen", "Falling", "The")} Apple";
-                var appleDesc = $"Apply {appleRuptured} Ruptured to the opposing enemy.\nIncrease all negative status and field effects on the enemy side by {appleExtension}.\nGive the opposing enemy gravity, switch its collider to sphere and {applePulltext} it in a random direction.\n{appleChance}% chance to produce {appleAppleitem}.";
-
-                var apple =
-                    NewAbility(appleName, appleDesc, "AttackIcon_Apple", new()
+                    .SetIntents(new()
                     {
-                        Effect(Opposing, ApplyRuptured, appleRuptured),
-                        Effect(EnemySide, CreateScriptable<IncreaseStatusEffectsEffect>(), appleExtension),
+                        TargetIntent(Targeting.Slot_OpponentAllLefts, IntentType_GameIDs.Swap_Right.ToString()),
+                        TargetIntent(Targeting.Slot_OpponentAllRights, IntentType_GameIDs.Swap_Left.ToString()),
+                        TargetIntent(Targeting.Slot_Front, IntentForDamage(gravityDamage), gravityIntent)
+                    })
+                    .AddToCharacterDatabase()
+                    .CharacterAbility(Pigments.Red, Pigments.Grey);
 
-                        Effect(Opposing, CreateScriptable<AddGravityEffect>(x =>
+                var appleRuptured = RankedValue(2, 3, 3, 4);
+                var appleExtension = RankedValue(1, 1, 2, 2);
+
+                var applePulltext = RankedValue("gently nudge", "nudge", "pull", "punt");
+                var applePullmult = RankedValue(1f, 1.33f, 1.66f, 2f);
+
+                var appleName = $"{RankedValue("Rotten", "Fallen", "The", "Bad")} Apple";
+                var appleDesc = $"Apply {appleRuptured} Ruptured to the opposing enemy.\nGive the opposing enemy gravity, switch its collider to sphere and {applePulltext} it in a random direction.\nIncrease all negative status and field effects on the enemy side by {appleExtension}.";
+
+                var apple = NewAbility($"Apple_{abRank}_A")
+                    .SetBasicInformation(appleName, appleDesc, "AttackIcon_Apple")
+                    .SetVisuals(Visuals.UglyOnTheInside, Targeting.Slot_Front)
+                    .SetEffects(new()
+                    {
+                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Ruptured), appleRuptured, Targeting.Slot_Front),
+                        Effects.GenerateEffect(CreateScriptable<AddGravityEffect>(x =>
                         {
                             x.collider = ColliderType.Sphere;
                             x.launchForce = Vector3.zero;
                             x.randomForce = 50f * applePullmult;
-                        })),
+                        }), 0, Targeting.Slot_Front),
 
-                        Effect(null, CreateScriptable<ExtraLootListEffect>(x =>
-                        {
-                            x._nothingPercentage = 0;
-                            x._shopPercentage = 0;
-                            x._treasurePercentage = 0;
-
-                            x._lockedLootableItems = [];
-                            x._lootableItems = new() { new() { itemName = appleAppleid, probability = 100 } };
-                        })).WithCondition(Chance(appleChance))
-                    },
-                    new()
-                    {
-                        TargetIntent(Opposing, IntentType_GameIDs.Status_Ruptured.ToString(), IntentType_GameIDs.Misc.ToString()),
-                        TargetIntent(EnemySide, IntentType_GameIDs.Misc.ToString()),
-
-                        TargetIntent(Self, IntentType_GameIDs.Misc.ToString())
+                        Effects.GenerateEffect(CreateScriptable<IncreaseStatusEffectsEffect>(), appleExtension, Targeting.Slot_OpponentAllSlots),
                     })
-                    
-                    .WithCustomId($"Apple_{i + 1}_A")
-                    .WithVisuals(Visuals_WasteAway, Opposing)
-                    .Character(Pigments.SplitPigment(Pigments.Green, Pigments.Red));
+                    .SetIntents(new()
+                    {
+                        TargetIntent(Targeting.Slot_Front, IntentType_GameIDs.Status_Ruptured.ToString(), gravityIntent),
+                        TargetIntent(Targeting.Unit_AllOpponents, IntentType_GameIDs.Misc.ToString())
+                    })
+                    .AddToCharacterDatabase()
+                    .CharacterAbility(Pigments.SplitPigment(Pigments.Green, Pigments.Red));
 
-                var forceDamage = Choose(i, 5, 7, 9, 13);
+                var forceDamage = RankedValue(5, 7, 9, 13);
 
-                var forcePulltext = Choose(i, "gently nudge", "nudge", "pull", "punt");
-                var forcePullmult = Choose(i, 1f, 1.25f, 1.5f, 1.75f);
+                var forcePulltext = RankedValue("gently nudge", "nudge", "pull", "punt");
+                var forcePullmult = RankedValue(1f, 1.25f, 1.5f, 1.75f);
 
-                var forceSpacesmoved = Choose(i, 1, 1, 2, 2);
+                var forceSpacesmoved = RankedValue(1, 1, 2, 2);
                 var forceMoveaddition = forceSpacesmoved > 1 ? $" {forceSpacesmoved} spaces" : "";
 
-                var forceName = $"{Choose(i, "Add", "Apply", "Transfer", "Kick into")} Force";
+                var forceName = $"{RankedValue("Add", "Apply", "Transfer", "Kick into")} Force";
                 var forceDesc = $"Deal {forceDamage} damage to the opposing enemy.\nAdd gravity to the opposing enemy and {forcePulltext} it away from this party member. Move the opposing enemy{forceMoveaddition} to the left or right.";
 
-                var force =
-                    NewAbility(forceName, forceDesc, "AttackIcon_Force", new()
+                var force = NewAbility($"Force_{abRank}_A")
+                    .SetBasicInformation(forceName, forceDesc, "AttackIcon_Force")
+                    .SetVisuals(Visuals.Contusion, Targeting.Slot_Front)
+                    .SetEffects(new()
                     {
-                        Effect(Opposing, Damage, forceDamage),
-
-                        Effect(Opposing, CreateScriptable<AddGravityEffect>(x =>
+                        Effects.GenerateEffect(CreateScriptable<DamageEffect>(), forceDamage, Targeting.Slot_Front),
+                        Effects.GenerateEffect(CreateScriptable<AddGravityEffect>(x =>
                         {
                             x.collider = ColliderType.None;
                             x.launchForce = new Vector3(0f, 100f, 250f) * forcePullmult;
                             x.randomForce = 0f;
-                        })),
+                        }), 0, Targeting.Slot_Front),
 
-                        Effect(Opposing, CreateScriptable<SwapToOneRandomSideXTimesEffect>(), forceSpacesmoved)
-                    },
-                    new()
-                    {
-                        TargetIntent(Opposing, IntentForDamage(forceDamage), forceSpacesmoved > 1 ? IntentType_GameIDs.Swap_Mass.ToString() : IntentType_GameIDs.Swap_Sides.ToString())
+                        Effects.GenerateEffect(CreateScriptable<SwapToOneRandomSideXTimesEffect>(), forceSpacesmoved, Targeting.Slot_Front)
                     })
-                    
-                    .WithCustomId($"Force_{i + 1}_A")
-                    .WithVisuals(Visuals_Contusion, Opposing)
-                    .Character(Pigments.Grey, Pigments.Red);
+                    .AddIntent(Targeting.Slot_Front, IntentForDamage(forceDamage), gravityIntent, forceSpacesmoved > 1 ? IntentType_GameIDs.Swap_Mass.ToString() : IntentType_GameIDs.Swap_Sides.ToString())
+                    .AddToCharacterDatabase()
+                    .CharacterAbility(Pigments.Grey, Pigments.Red);
 
-                return new(Choose(i, 12, 16, 20, 24), [gravity, apple, force]);
+                return new(RankedValue(12, 16, 20, 24), [gravity, apple, force]);
             });
 
+            ch.AddToDatabase(false);
             return ch;
         }
     }

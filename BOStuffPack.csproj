@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="API\**" />
     <Compile Remove="AssetBundle\Assets\Prototype\**" />
     <Compile Remove="AssetBundle\Assets\Scenes\**" />
     <Compile Remove="AssetBundle\Assets\Scripts\**" />
@@ -19,6 +20,11 @@
     <Compile Remove="AssetBundle\ProjectSettings\**" />
     <Compile Remove="AssetBundle\Temp\**" />
     <Compile Remove="AssetBundle\UserSettings\**" />
+    <Compile Remove="Content\Passive\**" />
+    <Compile Remove="Content\Pigment\**" />
+    <Compile Remove="Content\StatusEffect\**" />
+    <Compile Remove="Tools\**" />
+    <EmbeddedResource Remove="API\**" />
     <EmbeddedResource Remove="AssetBundle\Assets\Prototype\**" />
     <EmbeddedResource Remove="AssetBundle\Assets\Scenes\**" />
     <EmbeddedResource Remove="AssetBundle\Assets\Scripts\**" />
@@ -31,6 +37,11 @@
     <EmbeddedResource Remove="AssetBundle\ProjectSettings\**" />
     <EmbeddedResource Remove="AssetBundle\Temp\**" />
     <EmbeddedResource Remove="AssetBundle\UserSettings\**" />
+    <EmbeddedResource Remove="Content\Passive\**" />
+    <EmbeddedResource Remove="Content\Pigment\**" />
+    <EmbeddedResource Remove="Content\StatusEffect\**" />
+    <EmbeddedResource Remove="Tools\**" />
+    <None Remove="API\**" />
     <None Remove="AssetBundle\Assets\Prototype\**" />
     <None Remove="AssetBundle\Assets\Scenes\**" />
     <None Remove="AssetBundle\Assets\Scripts\**" />
@@ -43,6 +54,44 @@
     <None Remove="AssetBundle\ProjectSettings\**" />
     <None Remove="AssetBundle\Temp\**" />
     <None Remove="AssetBundle\UserSettings\**" />
+    <None Remove="Content\Passive\**" />
+    <None Remove="Content\Pigment\**" />
+    <None Remove="Content\StatusEffect\**" />
+    <None Remove="Tools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Content\Conditions\Effector\CanProducePigmentColorCheckCondition.cs" />
+    <Compile Remove="Content\Conditions\Effector\IgnoreTargetShiftCheckCondition.cs" />
+    <Compile Remove="Content\Conditions\Effector\PercentageRollPerStoredValueEffect.cs" />
+    <Compile Remove="Content\Conditions\Effector\TargettedEffectApplicationMatchesEffectEffectorCondition.cs" />
+    <Compile Remove="Content\Effect\CasterRemoveExtraAbilityOfNameEffect.cs" />
+    <Compile Remove="Content\Effect\CopyTargetMissingAbilityEffect.cs" />
+    <Compile Remove="Content\Effect\GainGadgetEffect.cs" />
+    <Compile Remove="Content\Effect\PatchCrashIntoRandomEffectEffect.cs" />
+    <Compile Remove="Content\Effect\PerformAllAbilitiesButThisOffsettedEffect.cs" />
+    <Compile Remove="Content\Effect\PerformRandomGadgetEffect.cs" />
+    <Compile Remove="Content\Effect\PerformRandomMissingAbilityEffect.cs" />
+    <Compile Remove="Content\Effect\RandomValueSumEffect.cs" />
+    <Compile Remove="Content\Effect\RemovePostCombatCurrencyEffect.cs" />
+    <Compile Remove="Content\Effect\SimplifyAbilitiesEffect.cs" />
+    <Compile Remove="Content\Effect\SplitEnemyEffect.cs" />
+    <Compile Remove="Content\Effect\TargetDisplayTextEffect.cs" />
+    <Compile Remove="Content\Effect\ThreatenEffect.cs" />
+    <Compile Remove="Content\Effect\TranspileEffectIntoAbilityEffect.cs" />
+    <Compile Remove="Content\Items\Shop\SchmuckleTicket.cs" />
+    <Compile Remove="Content\Items\Shop\StrangeDevice.cs" />
+    <Compile Remove="Content\Items\Shop\WorldShatter.cs" />
+    <Compile Remove="Content\Items\Treasure\JesterHat.cs" />
+    <Compile Remove="Content\Items\Treasure\PetrifiedMedicine.cs" />
+    <Compile Remove="Content\Items\Treasure\SilverMirror.cs" />
+    <Compile Remove="Content\Items\Treasure\Simplifier.cs" />
+    <Compile Remove="Content\Misc\CustomForbiddenFruit.cs" />
+    <Compile Remove="Content\Misc\GadgetDB.cs" />
+    <Compile Remove="Content\Misc\MinimizationValueModifier.cs" />
+    <Compile Remove="Content\Misc\Monty.cs" />
+    <Compile Remove="Content\Misc\ReduceStatusDurationAction.cs" />
+    <Compile Remove="Content\Misc\SetToValueValueModifier.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,6 +112,7 @@
     <None Remove="Resources\AbilityIcons\AttackIcon_Bash.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_ChildStomper.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_CombatRoll.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_DarkMatter.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_EOTU.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Everything.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Expand.png" />
@@ -70,11 +120,24 @@
     <None Remove="Resources\AbilityIcons\AttackIcon_Fury.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_GardenOfEden.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Gravity.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Key_Blue.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Key_Purple.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Key_Red.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Key_Yellow.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Lock_Blue.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Lock_Purple.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Lock_Red.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Lock_Yellow.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Mars.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_MasterKey.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Mirror.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_PillarsOfTheWorld.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Punish.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Question.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Retarget.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_SEU.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Slap.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Stardust.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_TwoIntoOne.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Uppercut.png" />
     <None Remove="Resources\Achievements\Unlock_Comedy.png" />
@@ -84,15 +147,25 @@
     <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_50.png" />
     <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_Back_50.png" />
     <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
+    <None Remove="Resources\Characters\PurpleBoyle\PurpleBoyle.png" />
+    <None Remove="Resources\Characters\PurpleBoyle\PurpleBoyle_Back.png" />
+    <None Remove="Resources\Characters\PurpleBoyle\PurpleBoyle_OW.png" />
+    <None Remove="Resources\Characters\ShardOfNowak\ShardOfNowak.png" />
+    <None Remove="Resources\Characters\ShardOfNowak\ShardOfNowak_Back.png" />
+    <None Remove="Resources\Characters\ShardOfNowak\ShardOfNowak_OW.png" />
     <None Remove="Resources\Enemies\ATM\ATMPortrait.png" />
     <None Remove="Resources\Enemies\ATM\ATMSpeaker.png" />
-    <None Remove="Resources\Enemies\Monty\MontyIcon2.png" />
+    <None Remove="Resources\Enemies\ATM\ATM_Corpse.png" />
+    <None Remove="Resources\Enemies\ATM\ATM_OW.png" />
     <None Remove="Resources\Items\AlmightyBranch.png" />
     <None Remove="Resources\Items\ArtOfViolence.png" />
     <None Remove="Resources\Items\BloodyHacksaw.png" />
     <None Remove="Resources\Items\CombatDice.png" />
     <None Remove="Resources\Items\ConjoinedFungi.png" />
     <None Remove="Resources\Items\error.png" />
+    <None Remove="Resources\Items\Extra\CorruptedChunk.png" />
+    <None Remove="Resources\Items\Extra\Nothing.png" />
+    <None Remove="Resources\Items\Extra\PlatinumMirror.png" />
     <None Remove="Resources\Items\Eyepatch.png" />
     <None Remove="Resources\Items\failrounds.png" />
     <None Remove="Resources\Items\InterdimensionalShapeshifter.png" />
@@ -114,30 +187,18 @@
     <None Remove="Resources\Items\Survivorship.png" />
     <None Remove="Resources\Items\TheSquirrel.png" />
     <None Remove="Resources\Items\TheTiderunner.png" />
+    <None Remove="Resources\Items\Treasure\Keyring.png" />
+    <None Remove="Resources\Items\Treasure\MergingStones.png" />
+    <None Remove="Resources\Items\Treasure\MindHouse.png" />
+    <None Remove="Resources\Items\Treasure\Pencil.png" />
     <None Remove="Resources\Items\WorldShatter.png" />
-    <None Remove="Resources\Misc\UI_ManaToggle_Disabled.png" />
-    <None Remove="Resources\Passives\ATMPassive.png" />
-    <None Remove="Resources\Passives\Core_Blue.png" />
-    <None Remove="Resources\Passives\Core_Purple.png" />
-    <None Remove="Resources\Passives\Core_Red.png" />
-    <None Remove="Resources\Passives\Core_Untethered.png" />
-    <None Remove="Resources\Passives\Core_Yellow.png" />
-    <None Remove="Resources\Passives\DamageCap.png" />
-    <None Remove="Resources\Passives\Energized.png" />
-    <None Remove="Resources\Passives\Frenzied.png" />
-    <None Remove="Resources\Passives\Furious.png" />
     <None Remove="Resources\Passives\IsaacNewton_Passive_50.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
-    <None Remove="Resources\Passives\TargetShift.png" />
-    <None Remove="Resources\Passives\TargetSwapped.png" />
-    <None Remove="Resources\Passives\Weak.png" />
-    <None Remove="Resources\StatusEffects\berserk.png" />
-    <None Remove="Resources\StatusEffects\fury.png" />
-    <None Remove="Resources\StatusEffects\PoweredUp.png" />
-    <None Remove="Resources\StatusEffects\Survive.png" />
-    <None Remove="Resources\StatusEffects\targetswap.png" />
-    <None Remove="Resources\StatusEffects\weaken.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Content\Passive\StuffPackPassives.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -151,6 +212,7 @@
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Bash.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_ChildStomper.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_CombatRoll.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_DarkMatter.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_EOTU.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Everything.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Expand.png" />
@@ -158,13 +220,26 @@
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Fury.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_GardenOfEden.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Gravity.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Blue.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Purple.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Red.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Yellow.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Mars.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_MasterKey.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Mirror.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_PillarsOfTheWorld.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Punish.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Question.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Retarget.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_SEU.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Slap.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Stardust.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_TwoIntoOne.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Uppercut.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Lock_Blue.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Lock_Purple.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Lock_Red.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Lock_Yellow.png" />
     <EmbeddedResource Include="Resources\Achievements\Unlock_Comedy.png" />
     <EmbeddedResource Include="Resources\Achievements\Unlock_Heaven.png" />
     <EmbeddedResource Include="Resources\Achievements\Unlock_Osman.png" />
@@ -172,12 +247,21 @@
     <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_50.png" />
     <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_Back_50.png" />
     <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
+    <EmbeddedResource Include="Resources\Characters\PurpleBoyle\PurpleBoyle.png" />
+    <EmbeddedResource Include="Resources\Characters\PurpleBoyle\PurpleBoyle_Back.png" />
+    <EmbeddedResource Include="Resources\Characters\PurpleBoyle\PurpleBoyle_OW.png" />
+    <EmbeddedResource Include="Resources\Characters\ShardOfNowak\ShardOfNowak.png" />
+    <EmbeddedResource Include="Resources\Characters\ShardOfNowak\ShardOfNowak_Back.png" />
+    <EmbeddedResource Include="Resources\Characters\ShardOfNowak\ShardOfNowak_OW.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMPortrait.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
-    <EmbeddedResource Include="Resources\Enemies\Monty\MontyIcon2.png" />
+    <EmbeddedResource Include="Resources\Enemies\ATM\ATM_Corpse.png" />
+    <EmbeddedResource Include="Resources\Enemies\ATM\ATM_OW.png" />
+    <EmbeddedResource Include="Resources\Items\Extra\CorruptedChunk.png" />
+    <EmbeddedResource Include="Resources\Items\Extra\Nothing.png" />
+    <EmbeddedResource Include="Resources\Items\Extra\PlatinumMirror.png" />
     <EmbeddedResource Include="Resources\Items\Shop\SchmuckleTicket.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\AlmightyBranch.png" />
-    <EmbeddedResource Include="Resources\Items\Treasure\ArtOfViolence.png" />
     <EmbeddedResource Include="Resources\Items\Shop\BloodyHacksaw.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\CombatDice.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\ConjoinedFungi.png" />
@@ -186,13 +270,15 @@
     <EmbeddedResource Include="Resources\Items\Treasure\FailRounds.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\InterdimensionalShapeshifter.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\JesterHat.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\Keyring.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\LoudPhone.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\MagickalBleach.png" />
     <EmbeddedResource Include="Resources\Items\Shop\MusicBox.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\MergingStones.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\MindHouse.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\NegativeTeapot.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\NewtonsApple.png" />
-    <EmbeddedResource Include="Resources\Items\Shop\OilPaints.png" />
-    <EmbeddedResource Include="Resources\Items\Treasure\Palette.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\Pencil.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\PetrifiedMedicine.png" />
     <EmbeddedResource Include="Resources\Items\Placeholder.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\Potential.png" />
@@ -203,33 +289,15 @@
     <EmbeddedResource Include="Resources\Items\Treasure\TheSquirrel.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\TheTiderunner.png" />
     <EmbeddedResource Include="Resources\Items\Shop\WorldShatter.png" />
-    <EmbeddedResource Include="Resources\Misc\UI_ManaToggle_Disabled.png" />
-    <EmbeddedResource Include="Resources\Passives\ATMPassive.png" />
-    <EmbeddedResource Include="Resources\Passives\Core_Blue.png" />
-    <EmbeddedResource Include="Resources\Passives\Core_Purple.png" />
-    <EmbeddedResource Include="Resources\Passives\Core_Red.png" />
-    <EmbeddedResource Include="Resources\Passives\Core_Untethered.png" />
-    <EmbeddedResource Include="Resources\Passives\Core_Yellow.png" />
-    <EmbeddedResource Include="Resources\Passives\DamageCap.png" />
-    <EmbeddedResource Include="Resources\Passives\Energized.png" />
-    <EmbeddedResource Include="Resources\Passives\Frenzied.png" />
-    <EmbeddedResource Include="Resources\Passives\Furious.png" />
     <EmbeddedResource Include="Resources\Passives\IsaacNewton_Passive_50.png" />
     <EmbeddedResource Include="Resources\Passives\Merged.png" />
     <EmbeddedResource Include="Resources\Passives\Shapeshifter.png" />
-    <EmbeddedResource Include="Resources\Passives\TargetShift.png" />
-    <EmbeddedResource Include="Resources\Passives\TargetSwapped.png" />
-    <EmbeddedResource Include="Resources\Passives\Weak.png" />
-    <EmbeddedResource Include="Resources\StatusEffects\Berserk.png" />
-    <EmbeddedResource Include="Resources\StatusEffects\Fury.png" />
-    <EmbeddedResource Include="Resources\StatusEffects\PoweredUp.png" />
-    <EmbeddedResource Include="Resources\StatusEffects\Survive.png" />
-    <EmbeddedResource Include="Resources\StatusEffects\TargetSwap.png" />
-    <EmbeddedResource Include="Resources\StatusEffects\Weaken.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
     <PackageReference Include="UnityEngine.Modules" Version="2020.3.26">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>compile</IncludeAssets>
@@ -240,17 +308,29 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\References\BrutalOrchestra\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\References\Unity\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="BrutalAPI">
       <HintPath>..\BrutalAPIFork\BrutalAPI\bin\Debug\netstandard2.0\BrutalAPI.dll</HintPath>
     </Reference>
     <Reference Include="FMODUnity">
       <HintPath>..\References\Unity\FMODUnity.dll</HintPath>
     </Reference>
+    <Reference Include="Grimoire">
+      <HintPath>..\Grimoire\bin\Debug\netstandard2.0\Grimoire.dll</HintPath>
+    </Reference>
     <Reference Include="Marosi.SerializableCollections">
       <HintPath>..\References\Unity\Marosi.SerializableCollections.dll</HintPath>
     </Reference>
     <Reference Include="Marosi.Utility">
       <HintPath>..\References\Unity\Marosi.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentacle">
+      <HintPath>..\Pentacle\bin\Debug\netstandard2.0\Pentacle.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Brutal Orchestra\BrutalOrchestra_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Brutal Orchestra\BrutalOrchestra_Data\Managed\UnityEngine.UI.dll</HintPath>

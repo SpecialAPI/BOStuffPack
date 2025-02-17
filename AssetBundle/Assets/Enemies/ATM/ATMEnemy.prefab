@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6603406641879569334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.85, y: -2.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7357631998945439022}
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_Renderer: {fileID: 3176632732587454658}
   m_Animator: {fileID: 5729309103920568363}
   m_UI3DLocation: {fileID: 719416002579250123}
-  m_Gibs: {fileID: 0}
-  m_GibsEvent: event:/Combat/Gibs/CBT_Gibs
+  m_Gibs: {fileID: 647823787658685102, guid: 5b1b06f40b8e7f44293761d2994b103b, type: 3}
+  m_GibsEvent: 
   m_ExtraSounds: []
   m_SaveAnimationTime: 2
 --- !u!95 &5729309103920568363
@@ -311,8 +311,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7, y: 3.3045957, z: 1.7}
-  m_Center: {x: 0, y: 1.6522979, z: 0}
+  m_Size: {x: 2.7, y: 10, z: 1.7}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1 &7119609710906443369
 GameObject:
   m_ObjectHideFlags: 0

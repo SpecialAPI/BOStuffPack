@@ -10,7 +10,7 @@ namespace BOStuffPack.Content.Conditions.Effector
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            return TryReadIntegerReference(args, out var intRef) && MeetsIntCondition(intRef.value, valueCondition);
+            return args.TryGetIntReference(out var intRef) && MeetsIntCondition(intRef.value, valueCondition);
         }
     }
 }

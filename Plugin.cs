@@ -1,196 +1,108 @@
 ﻿using BepInEx;
+using BepInEx.Bootstrap;
+using BOStuffPack.Content.Items;
+using BOStuffPack.Content.Items.Shop;
 using BOStuffPack.Content.Items.Treasure;
+using BOStuffPack.Content.Misc;
+using BOStuffPack.Content.Passive;
+using BOStuffPack.Content.StoredValues;
+using Steamworks;
 using System;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace BOStuffPack
 {
     [BepInDependency(BrutalAPI.BrutalAPI.GUID)]
-    [BepInPlugin(GUID, PLUGIN_NAME, PLUGIN_VERSION)]
+    [BepInPlugin(MODGUID, MODNAME, MODVERSION)]
+    [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
-        public const string GUID = "SpecialAPI.BOStuffPack";
-        public const string PLUGIN_NAME = "SpecialAPI's Stuff Pack";
-        public const string PLUGIN_VERSION = "1.0.0";
+        public const string MODGUID = "SpecialAPI.BOStuffPack";
+        public const string MODNAME = "SpecialAPI's Stuff Pack";
+        public const string MODVERSION = "1.0.0";
+        public const string MODPREFIX = "BOStuffPack";
 
         public static Harmony HarmonyInstance;
         public static AssetBundle Bundle;
+        public static Assembly ModAssembly;
+
+        public static PostProcessResources PostProcessResources;
 
         public void Awake()
         {
-            if (LoadedDBsHandler.ModdingDB.IsModDisabled(GUID))
-            {
-                InitModInfo();
-
-                return;
-            }
-
+            PostProcessResources = Resources.FindObjectsOfTypeAll<PostProcessResources>().FirstOrDefault();
             ModAssembly = Assembly.GetExecutingAssembly();
 
-            (HarmonyInstance = new Harmony(GUID)).PatchAll();
-
-            if (TryReadFromResource("bostuffpack", out var ba))
+            if (AdvancedResourceLoader.TryReadFromResource("bostuffpack", out var ba))
                 Bundle = AssetBundle.LoadFromMemory(ba);
 
-            LoadFMODBankFromResource("BOStuffPack");
-            LoadFMODBankFromResource("BOStuffPack.strings");
+            var profile = ProfileManager.RegisterMod();
+            profile.SetGuidAndPrefix(MODGUID, MODPREFIX);
+            profile.SetAssetBundle(Bundle);
 
-            Common.Init();
+            AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
+            AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack.strings");
 
-            CustomStoredValues.Init();
-            CustomStatusEffects.Init();
-            CustomPassives.Init();
+            HarmonyInstance = new Harmony(MODGUID);
+            HarmonyInstance.PatchAll();
 
-            // Items - Initial beta release
+            StuffPackStoredValues.Init();
+            StuffPackPassives.Init();
+
+            var eggEnemies = new List<string>()
+            {
+                "TaMaGoa_EN"
+            };
+
+            var eggItems = new List<string>()
+            {
+                "AsceticEgg_TW",
+                "EggOfFirmament_TW",
+                "EggOfIncubus_TW",
+                "OpulentEgg_TW",
+                "StillbornEgg_TW",
+                "EggOfIncubusCracked_ExtraW"
+            };
+
+            foreach (var enm in eggEnemies)
+                GetEnemy(enm).unitTypes.Add("Egg");
+
+            foreach(var itm in eggItems)
+            {
+                var item = GetWearable(itm);
+                item._ItemTypeIDs = item._ItemTypeIDs.AddToArray("Egg");
+            }
+
             TheTiderunner.Init();
             BloodyHacksaw.Init();
-            JesterHat.Init();
             ConjoinedFungi.Init();
             SchmuckleTicket.Init();
             CombatDice.Init();
-            AlmightyBranch.Init();
             RipAndTear.Init();
-
-            // Items - Beta update 1
-            PetrifiedMedicine.Init();
             TheSquirrel.Init();
             Survivorship.Init();
             LoudPhone.Init();
+            MagickalBleach.Init();
             Potential.Init();
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();
-            StrangeDevice.Init();
             WorldShatter.Init();
+            Keyring.Init();
+            Pencil.Init();
+            AlmightyBranch.Init();
+            MindHouse.Init();
+            MergingStones.Init();
+            Nothing.Init();
+            PetrifyItem.Init();
 
-            // Items - Beta update 2
-            FailRounds.Init();
-            Eyepatch.Init();
-            NegativeTeapot.Init();
-            MusicBox.Init();
+            // targeting modify items (hell)
+            ////FailRounds.Init();
+            ////Eyepatch.Init();
+            ////NegativeTeapot.Init();
+            ////MusicBox.Init();
 
-            // Items - Beta update 3
-            ArtistsPalette.Init();
-            ArtOfViolence.Init();
-            OilPaints.Init();
-            MagickalBleach.Init();
-
-            // Monty
-            Monty.Init();
-
-            InitModInfo();
-        }
-
-        public void Start()
-        {
-            if (LoadedDBsHandler.ModdingDB.IsModDisabled(GUID))
-                return;
-
-            PostStart.OnPostStart();
-        }
-
-        public static void InitModInfo()
-        {
-            var info = ModConfiguration.PrepareAndAddMyModInformation(GUID);
-
-            info.DisplayName = PLUGIN_NAME;
-
-            var descriptionBuilder = new StringBuilder();
-            var contentBuilder = new StringBuilder();
-
-            if(Database.Shop.Count > 0)
-                contentBuilder.AppendLine($" - {Database.Shop.Count} shop items.");
-
-            if(Database.Treasures.Count > 0)
-                contentBuilder.AppendLine($" - {Database.Treasures.Count} treasure items.");
-
-            if(Database.Fish.Count > 0)
-                contentBuilder.AppendLine($" - {Database.Fish.Count} fish");
-
-            descriptionBuilder.AppendLine("A content mod focused on adding new items.");
-
-            if (contentBuilder.Length > 0)
-            {
-                descriptionBuilder.AppendLine();
-                descriptionBuilder.AppendLine("Currently adds:");
-                descriptionBuilder.AppendLine(contentBuilder.ToString());
-            }
-
-            info.Description = descriptionBuilder.ToString();
-
-            var creditsBuilder = new StringBuilder();
-
-            creditsBuilder.AppendLine("Made by SpecialAPI");
-
-            info.Credits = creditsBuilder.ToString();
-
-            var lastItem = Database.AllItems.LastOrDefault();
-
-            if(lastItem != null)
-            {
-                var itm = GetWearable(lastItem).wearableImage;
-
-                var iconBgs = new string[]
-                {
-                    //"Unlock_Comedy",
-                    "Unlock_Tragedy",
-                    //"Unlock_Heaven",
-                    //"Unlock_Osman",
-                };
-                var rng = new System.Random(Database.AllItems.Count * 19521);
-                var usedBG = iconBgs[rng.Next(0, iconBgs.Length)];
-
-                var bgTex = LoadTexture(usedBG);
-
-                var iconScale = 1.1f;
-                var iconTex = new Texture2D((int)(bgTex.width * iconScale), (int)(bgTex.height * iconScale), TextureFormat.ARGB32, false)
-                {
-                    anisoLevel = 1,
-                    filterMode = 0
-                };
-
-                var iconXOffs = (iconTex.width - bgTex.width) / 2;
-                var iconYOffs = (iconTex.height - bgTex.height) / 2;
-
-                iconTex.SetPixels(new Color[iconTex.width * iconTex.height]);
-                iconTex.SetPixels(iconXOffs, iconYOffs, bgTex.width, bgTex.height, bgTex.GetPixels());
-
-                var itemWidth = Mathf.RoundToInt(bgTex.width * 0.75f);
-                var itemHeight = Mathf.RoundToInt(bgTex.height * 0.75f);
-
-                var itemXOffs = (iconTex.width - itemWidth) / 2;
-                var itemYOffs = (iconTex.height - itemHeight) / 2;
-
-                var xScale = itm.rect.width / itemWidth;
-                var yScale = itm.rect.height / itemHeight;
-
-                for(int x = itemXOffs; x < itemXOffs + itemWidth; x++)
-                {
-                    for(int y = itemYOffs; y < itemYOffs + itemHeight; y++)
-                    {
-                        var middleCoord = itm.rect.center;
-
-                        var middleOffsetX = x - (iconTex.width / 2);
-                        var middleOffsetY = y - (iconTex.height / 2);
-
-                        var xCoord = (int)(middleCoord.x + middleOffsetX * xScale);
-                        var yCoord = (int)(middleCoord.y + middleOffsetY * yScale);
-
-                        var itemPixel = itm.texture.GetPixel(xCoord, yCoord);
-                        var iconPixel = iconTex.GetPixel(x, y);
-
-                        var combinedPixel = Color.Lerp(iconPixel, itemPixel, itemPixel.a);
-                        combinedPixel.a = Mathf.Clamp01(iconPixel.a + itemPixel.a);
-
-                        iconTex.SetPixel(x, y, combinedPixel);
-                    }
-                }
-
-                iconTex.Apply();
-
-                var iconSprite = Sprite.Create(iconTex, new(0, 0, iconTex.width, iconTex.height), new(0.5f, 0.5f), 32);
-
-                info.Icon = iconSprite;
-                info.ShowIconOnMainMenu = true;
-            }
+            ////CorruptedChunk.Init();
+            PurpleBoyle.Init();
         }
     }
 }

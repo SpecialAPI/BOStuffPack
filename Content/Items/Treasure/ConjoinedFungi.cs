@@ -10,19 +10,22 @@ namespace BOStuffPack.Content.Items.Treasure
         {
             var name = "Conjoined Fungi";
             var flav = $"\"{"We are not welcome elsewhere.".Scale(50)}\"";
-            var desc = "On combat start, merge all duplicate enemies.";
+            var desc = "At the start of each turn merge all duplicate enemies.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(name, flav, desc, "ConjoinedFungi").AddToTreasure().Build();
+            var item = NewItem<MultiCustomTriggerEffectWearable>("ConjoinedFungi_TW")
+                .SetBasicInformation(name, flav, desc, "ConjoinedFungi")
+                .SetPrice(2)
+                .AddToTreasure();
 
             item.triggerEffects = new()
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnCombatStart.ToString(),
+                    trigger = TriggerCalls.OnTurnStart.ToString(),
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effect(Enemies, CreateScriptable<MergeEnemiesEffect>())
+                        Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Unit_AllOpponents)
                     })
                 }
             };

@@ -12,46 +12,44 @@ namespace BOStuffPack.Content.Items.Treasure
             var flav = "\"Or is it called a douse?\"";
             var desc = "Replaces \"Slap\" with \"Combat Roll\", a pigment rerolling ability with a chance to refresh.\nAdds \"Fury\" as an additional ability, an ability that applies Fury to this party member.";
 
+            var itm = NewItem<BasicWearable>("CombatDice_TW")
+                .SetBasicInformation(name, flav, desc, "CombatDice")
+                .SetPrice(6)
+                .AddToTreasure();
+
             var rollName = "Combat Roll";
-            var rollDesc = "Generates 1 pigment of a random color.\n75% chance to refresh.";
+            var rollDesc = "Generates 1 pigment of a random color not used for this ability.\n75% chance to refresh.";
 
-            var roll =
-                NewAbility(rollName, rollDesc, "AttackIcon_CombatRoll", new()
+            var roll = NewAbility("CombatRoll_A")
+                .SetBasicInformation(rollName, rollDesc, "AttackIcon_CombatRoll")
+                .SetVisuals(Visuals.Insult, Targeting.Slot_SelfSlot)
+                .SetEffects(new()
                 {
-                    Effect(null, CreateScriptable<GenerateRandomManaBetweenEffect>(x => x.possibleMana = new ManaColorSO[] { Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple }), 1),
-
-                    Effect(Self, CreateScriptable<RefreshAbilityUseEffect>()).WithCondition(Chance(75))
-                },
-                new()
-                {
-                    TargetIntent(Self, IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Misc.ToString())
+                    Effects.GenerateEffect(CreateScriptable<ProducePigmentNotUsedForAbilityEffect>(x => x.pigmentColors = [Pigments.Yellow, Pigments.Red, Pigments.Blue, Pigments.Purple]), 1),
+                    Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.ChanceCondition(75))
                 })
-
-                .WithVisuals(Visuals_MiddleFinger, Self)
-                .Character(Pigments.Grey);
+                .AddIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Other_Refresh.ToString())
+                .AddToCharacterDatabase()
+                .CharacterAbility(Pigments.Grey);
 
             var furyName = "Fury";
             var furyDesc = "Apply 1 Fury to this party member.\nIf this party member didn't have Fury before, refresh this party member.";
 
-            var fury =
-                NewAbility(furyName, furyDesc, "AttackIcon_Fury", new()
+            var fury = NewAbility("Fury_A")
+                .SetBasicInformation(furyName, furyDesc, "AttackIcon_Fury")
+                .SetVisuals(Visuals.Bosch, Targeting.Slot_SelfSlot)
+                .SetEffects(new()
                 {
-                    Effect(Self, CreateScriptable<StatusEffectCheckerEffect>(x => x._status = Fury)),
+                    Effects.GenerateEffect(CreateScriptable<StatusEffectCheckerEffect>(x => x._status = CustomStatusEffects.Fury), 0, Targeting.Slot_SelfSlot),
 
-                    Effect(Self, CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Fury), 1),
-                    Effect(Self, CreateScriptable<RefreshAbilityUseEffect>()).WithCondition(Previous(2, false))
-                },
-                new()
-                {
-                    TargetIntent(Self, IntentForStatus<FuryStatusEffect>(), IntentType_GameIDs.Misc.ToString())
+                    Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = CustomStatusEffects.Fury), 1, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 2)),
                 })
-                
-                .WithVisuals(Visuals_Wrath, Self)
-                .WithFootnotes("This ability can't be repeated by Fury.")
-                .WithFlags("NoFuryRepeat")
-                .Character(Pigments.Red, Pigments.Red, Pigments.Red);
+                .AddIntent(Targeting.Slot_SelfSlot, StatusFieldIntents.Status_Fury, IntentType_GameIDs.Other_Refresh.ToString())
+                .AddToCharacterDatabase()
+                .CharacterAbility(Pigments.Red, Pigments.Red, Pigments.Red);
 
-            var itm = NewItem<BasicWearable>(name, flav, desc, "CombatDice").AddToTreasure().AddModifiers(BasicAbility(roll), ExtraAbility(fury)).Build();
+            itm.SetStaticModifiers(BasicAbilityModifier(roll), ExtraAbilityModifier(fury));
         }
     }
 }

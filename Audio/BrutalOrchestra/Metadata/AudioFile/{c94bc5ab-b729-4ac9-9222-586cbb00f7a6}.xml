@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{c94bc5ab-b729-4ac9-9222-586cbb00f7a6}">
+		<property name="assetPath">
+			<value>ENV_OW_ChestOpen_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.42920833333333336</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e2013155-8f1e-4b95-b289-ad19f59a577f}</destination>
+		</relationship>
+	</object>
+</objects>

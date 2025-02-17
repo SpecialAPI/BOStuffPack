@@ -21,7 +21,7 @@ namespace BOStuffPack.Content.Misc
 
             var targetsAndAnimations = animations
                 .FindAll(x => x != null && x.visuals != null)
-                .ConvertAll(x => (data: x, targettedSlots: x.targets?.GetModifiedTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter, x.targettingOffset)))
+                .ConvertAll(x => (data: x, targettedSlots: x.targets != null ? x.targets.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter) : null))
                 .FindAll(x => x.data.visuals.isAnimationFullScreen || (x.targettedSlots != null && x.targettedSlots.Length > 0));
 
             var maxDelay = animations.Max(x => x.visuals.animation.length + x.timeDelay);

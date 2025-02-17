@@ -12,7 +12,10 @@ namespace BOStuffPack.Content.Items.Treasure
             var flav = "\"Yet you stand\"";
             var desc = "On combat start, apply 1 Survive to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(name, flav, desc, "Survivorship").AddToTreasure().Build();
+            var item = NewItem<MultiCustomTriggerEffectWearable>("Survivorship_TW")
+                .SetBasicInformation(name, flav, desc, "Survivorship")
+                .SetPrice(5)
+                .AddToTreasure();
 
             item.triggerEffects = new()
             {
@@ -23,7 +26,7 @@ namespace BOStuffPack.Content.Items.Treasure
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effect(Self, CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Survive), 1)
+                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = CustomStatusEffects.Survive), 1, Targeting.Slot_SelfSlot)
                     })
                 }
             };

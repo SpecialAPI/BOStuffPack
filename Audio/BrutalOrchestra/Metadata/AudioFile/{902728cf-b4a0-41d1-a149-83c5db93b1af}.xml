@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{902728cf-b4a0-41d1-a149-83c5db93b1af}">
+		<property name="assetPath">
+			<value>blind.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e2013155-8f1e-4b95-b289-ad19f59a577f}</destination>
+		</relationship>
+	</object>
+</objects>

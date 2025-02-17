@@ -1,4 +1,4 @@
-﻿using BOStuffPack.Content.Effects;
+﻿using BOStuffPack.Content.Effect;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,30 +16,30 @@ namespace BOStuffPack.Content.Items.Shop
             var abilityName = "Two Into One";
             var abilityDesc = "Deal 5 damage to the left and right enemies.\nIf the left and right enemies are duplicates, deal double damage and merge them if they survive.";
 
-            var ab =
-                NewAbility(abilityName, abilityDesc, "AttackIcon_TwoIntoOne",
-
-                new()
+            var mergeIntent = AddIntent("PA_Merged", "Merged");
+            var ab = NewAbility("TwoIntoOne_A")
+                .SetBasicInformation(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
+                .SetVisuals(Visuals.Slash, Targeting.Slot_OpponentSides)
+                .SetEffects(new()
                 {
-                    Effect(Relative(false, -1, 1), CreateScriptable<CheckDuplicateEnemiesEffect>()),
+                    Effects.GenerateEffect(CreateScriptable<CheckDuplicateEnemiesEffect>(), 0, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), 5, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 1)),
+                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), 10, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2)),
 
-                    Effect(Relative(false, -1, 1), Damage, 5).WithCondition(Previous(1, false)),
-                    Effect(Relative(false, -1, 1), Damage, 10).WithCondition(Previous(2, true)),
-
-                    Effect(Relative(false, -1, 1), CreateScriptable<CheckDuplicateEnemiesEffect>()),
-                    Effect(Relative(false, -1, 1), PlayVisuals(Visuals_Connection)).WithCondition(Previous(1, true)),
-                    Effect(Relative(false, -1, 1), CreateScriptable<MergeEnemiesEffect>()).WithCondition(Previous(2, true)),
-                },
-
-                new()
-                {
-                    TargetIntent(Relative(false, -1, 1), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Misc.ToString())
+                    Effects.GenerateEffect(CreateScriptable<CheckDuplicateEnemiesEffect>(), 0, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(CreateScriptable<AnimationVisualsEffect>(x => { x._visuals = Visuals.Equal; x._animationTarget = Targeting.Slot_OpponentSides; }), condition: Effects.CheckPreviousEffectCondition(true, 1)),
+                    Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2))
                 })
+                .AddIntent(Targeting.Slot_OpponentSides, IntentForDamage(5), IntentForDamage(10), mergeIntent)
+                .AddToCharacterDatabase()
+                .CharacterAbility(Pigments.Red, Pigments.Red, Pigments.YellowPurple);
 
-                .WithVisuals(Visuals_Slash, Relative(false, -1, 1))
-                .Character(Pigments.Red, Pigments.Red, Pigments.Yellow);
+            var item = NewItem<BasicWearable>("BloodyHacksaw_SW")
+                .SetBasicInformation(name, flav, desc, "BloodyHacksaw")
+                .SetPrice(5)
+                .AddToShop();
 
-            var item = NewItem<BasicWearable>(name, flav, desc, "BloodyHacksaw").AddToShop(5).AddModifiers(ExtraAbility(ab)).Build();
+            item.SetStaticModifiers(ExtraAbilityModifier(ab));
         }
     }
 }

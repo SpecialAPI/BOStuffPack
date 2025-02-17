@@ -12,7 +12,11 @@ namespace BOStuffPack.Content.Items.Treasure
             var flav = "\"Enemies have a 20% cha- oh wait, wrong game\"";
             var desc = "Upon killing an enemy, apply 2 Fury to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(name, flav, desc, "RipAndTear").AddToTreasure().Build();
+            var item = NewItem<MultiCustomTriggerEffectWearable>("RipAndTear_TW")
+                .SetBasicInformation(name, flav, desc, "RipAndTear")
+                .SetPrice(10)
+                .AddToTreasure();
+
             item.triggerEffects = new()
             {
                 new()
@@ -22,7 +26,7 @@ namespace BOStuffPack.Content.Items.Treasure
                     
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effect(Self, CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Fury), 2)
+                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = CustomStatusEffects.Fury), 2, Targeting.Slot_SelfSlot)
                     })
                 }
             };
