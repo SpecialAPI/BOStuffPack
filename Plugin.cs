@@ -36,8 +36,7 @@ namespace BOStuffPack
             if (AdvancedResourceLoader.TryReadFromResource("bostuffpack", out var ba))
                 Bundle = AssetBundle.LoadFromMemory(ba);
 
-            var profile = ProfileManager.RegisterMod();
-            profile.SetGuidAndPrefix(MODGUID, MODPREFIX);
+            var profile = ProfileManager.RegisterMod(MODGUID, MODPREFIX);
             profile.SetAssetBundle(Bundle);
 
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
