@@ -6,15 +6,16 @@ namespace BOStuffPack.Content.TriggerEffects
 {
     public class StressfulConnectTriggerEffect : TriggerEffect
     {
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger, object activator = null)
+        public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger, TriggerEffectExtraInfo extraInfo)
         {
-            activator.TryGetActivatorNameAndSprite(out var name, out var sprite);
+            if (!extraInfo.TryGetPopupUIAction(sender.ID, sender.IsUnitCharacter, false, out var action))
+                action = null;
 
-            CombatManager.Instance.AddSubAction(new StressfulConnectedAction(sender, name, sprite));
+            CombatManager.Instance.AddSubAction(new StressfulConnectedAction(sender, action));
         }
     }
 
-    public class StressfulConnectedAction(IUnit u, string passiveName, Sprite passiveSprte) : CombatAction
+    public class StressfulConnectedAction(IUnit u, CombatAction popupUIAction) : CombatAction
     {
         public override IEnumerator Execute(CombatStats stats)
         {
@@ -44,7 +45,8 @@ namespace BOStuffPack.Content.TriggerEffects
 
             stats.combatUI._TimelineHandler = new TimelineLayoutHandler_RealTime(stats.combatUI._timeline_RT, stats.combatUI._enemiesInCombat, plr._player);
 
-            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(onField.ID, onField.IsUnitCharacter, passiveName, passiveSprte));
+            if (popupUIAction != null)
+                yield return popupUIAction.Execute(stats);
 
             if (info != null)
             {

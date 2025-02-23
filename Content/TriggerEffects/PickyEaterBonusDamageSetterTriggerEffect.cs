@@ -7,7 +7,7 @@ namespace BOStuffPack.Content.TriggerEffects
 {
     public class PickyEaterBonusDamageSetterTriggerEffect : TriggerEffect
     {
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect triggerInfo, object activator = null)
+        public override void DoEffect(IUnit sender, object args, TriggeredEffect triggerInfo, TriggerEffectExtraInfo extraInfo)
         {
             if (args is not DamageDealtValueChangeException ex || ex.damagedUnit is not IUnit u)
                 return;
