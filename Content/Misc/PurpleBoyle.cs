@@ -49,10 +49,6 @@ namespace BOStuffPack.Content.Misc
                 .AddToCharacterDatabase()
                 .CharacterAbility(Pigments.Yellow);
 
-            ch.AddPassives(NewPassive<MultiCustomTriggerEffectPassive>("Hater_PA", "Hater")
-                .SetBasicInformation("Hater", "Hater")
-                .AutoSetDescriptions("Upon death, rate down all installed and enabled mods."));
-
             ch.SetBasicAbility(purpleSlap);
             ch.AddToDatabase(false);
         }

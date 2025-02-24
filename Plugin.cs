@@ -2,6 +2,7 @@
 using BepInEx.Bootstrap;
 using BOStuffPack.Content.Items;
 using BOStuffPack.Content.Items.Shop;
+using BOStuffPack.Content.Items.Trash;
 using BOStuffPack.Content.Items.Treasure;
 using BOStuffPack.Content.Misc;
 using BOStuffPack.Content.Passive;
@@ -88,11 +89,15 @@ namespace BOStuffPack
             WorldShatter.Init();
             Keyring.Init();
             Pencil.Init();
-            AlmightyBranch.Init();
+            AlmightyBranch.Init(); // TODO: make it work lmao
             MindHouse.Init();
             MergingStones.Init();
             Nothing.Init();
-            PetrifyItem.Init();
+            PetrifyItem.Init(); // TODO: come up with a name and sprite
+
+            // Trash
+            // TODO: add trash pool
+            GitHubSmoker.Init();
 
             // targeting modify items (hell)
             ////FailRounds.Init();
