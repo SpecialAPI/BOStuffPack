@@ -99,6 +99,7 @@ namespace BOStuffPack
             // TODO: add trash pool
             GitHubSmoker.Init();
             GotEgg.Init();
+            BlueTrap.Init();
 
             // targeting modify items (hell)
             ////FailRounds.Init();
