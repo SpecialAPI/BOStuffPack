@@ -100,6 +100,7 @@ namespace BOStuffPack
             GitHubSmoker.Init();
             GotEgg.Init();
             BlueTrap.Init();
+            GreyPills.Init();
 
             // targeting modify items (hell)
             ////FailRounds.Init();

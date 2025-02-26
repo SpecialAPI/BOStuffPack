@@ -190,6 +190,7 @@
     <None Remove="Resources\Items\Trash\BlueTrap.png" />
     <None Remove="Resources\Items\Trash\GitHubSmoker.png" />
     <None Remove="Resources\Items\Trash\GotEgg.png" />
+    <None Remove="Resources\Items\Trash\GreyPills.png" />
     <None Remove="Resources\Items\Treasure\Keyring.png" />
     <None Remove="Resources\Items\Treasure\MergingStones.png" />
     <None Remove="Resources\Items\Treasure\MindHouse.png" />
@@ -267,6 +268,7 @@
     <EmbeddedResource Include="Resources\Items\Trash\BlueTrap.png" />
     <EmbeddedResource Include="Resources\Items\Trash\GitHubSmoker.png" />
     <EmbeddedResource Include="Resources\Items\Trash\GotEgg.png" />
+    <EmbeddedResource Include="Resources\Items\Trash\GreyPills.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\Shop\BloodyHacksaw.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\CombatDice.png" />
