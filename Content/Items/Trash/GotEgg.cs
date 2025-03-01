@@ -15,7 +15,7 @@ namespace BOStuffPack.Content.Items.Trash
             var item = NewItem<MultiCustomTriggerEffectWearable>("GotEgg_TrashW")
                 .SetBasicInformation(name, flav, desc, "GotEgg")
                 .SetPrice(65)
-                .AddToShop(); // TODO: add to trash instead of shop
+                .AddWithoutItemPools(); // TODO: add to trash pool
 
             item.triggerEffects = new()
             {

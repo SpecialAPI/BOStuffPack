@@ -15,7 +15,7 @@ namespace BOStuffPack.Content.Items.Trash
             var item = NewItem<MultiCustomTriggerEffectWearable>("GitHubSmoker_TrashW")
                 .SetBasicInformation(name, flav, desc, "GitHubSmoker")
                 .SetPrice(1)
-                .AddToShop(); // TODO: add to trash instead of shop
+                .AddWithoutItemPools(); // TODO: add to trash pool
 
             item.triggerEffects = new()
             {
