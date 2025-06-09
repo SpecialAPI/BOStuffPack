@@ -8,14 +8,10 @@
 
   <ItemGroup>
     <Compile Remove="API\**" />
-    <Compile Remove="AssetBundle\Assets\Prototype\**" />
-    <Compile Remove="AssetBundle\Assets\Scenes\**" />
-    <Compile Remove="AssetBundle\Assets\Scripts\**" />
-    <Compile Remove="AssetBundle\Assets\Templates\**" />
-    <Compile Remove="AssetBundle\Assets\TextMesh Pro\**" />
-    <Compile Remove="AssetBundle\Assets\YarnSpinner\**" />
+    <Compile Remove="AssetBundle\Assets\**" />
     <Compile Remove="AssetBundle\Library\**" />
     <Compile Remove="AssetBundle\Logs\**" />
+    <Compile Remove="AssetBundle\obj\**" />
     <Compile Remove="AssetBundle\Packages\**" />
     <Compile Remove="AssetBundle\ProjectSettings\**" />
     <Compile Remove="AssetBundle\Temp\**" />
@@ -25,14 +21,10 @@
     <Compile Remove="Content\StatusEffect\**" />
     <Compile Remove="Tools\**" />
     <EmbeddedResource Remove="API\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\Prototype\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\Scenes\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\Scripts\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\Templates\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\TextMesh Pro\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\YarnSpinner\**" />
+    <EmbeddedResource Remove="AssetBundle\Assets\**" />
     <EmbeddedResource Remove="AssetBundle\Library\**" />
     <EmbeddedResource Remove="AssetBundle\Logs\**" />
+    <EmbeddedResource Remove="AssetBundle\obj\**" />
     <EmbeddedResource Remove="AssetBundle\Packages\**" />
     <EmbeddedResource Remove="AssetBundle\ProjectSettings\**" />
     <EmbeddedResource Remove="AssetBundle\Temp\**" />
@@ -42,14 +34,10 @@
     <EmbeddedResource Remove="Content\StatusEffect\**" />
     <EmbeddedResource Remove="Tools\**" />
     <None Remove="API\**" />
-    <None Remove="AssetBundle\Assets\Prototype\**" />
-    <None Remove="AssetBundle\Assets\Scenes\**" />
-    <None Remove="AssetBundle\Assets\Scripts\**" />
-    <None Remove="AssetBundle\Assets\Templates\**" />
-    <None Remove="AssetBundle\Assets\TextMesh Pro\**" />
-    <None Remove="AssetBundle\Assets\YarnSpinner\**" />
+    <None Remove="AssetBundle\Assets\**" />
     <None Remove="AssetBundle\Library\**" />
     <None Remove="AssetBundle\Logs\**" />
+    <None Remove="AssetBundle\obj\**" />
     <None Remove="AssetBundle\Packages\**" />
     <None Remove="AssetBundle\ProjectSettings\**" />
     <None Remove="AssetBundle\Temp\**" />
@@ -95,14 +83,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="AssetBundle\.gitignore" />
     <None Remove="AssetBundle\.vsconfig" />
-    <None Remove="AssetBundle\Assets\AssetBundles.meta" />
-    <None Remove="AssetBundle\Assets\AssetBundles\bostuffpack" />
-    <None Remove="AssetBundle\Assets\Prototype.meta" />
-    <None Remove="AssetBundle\Assets\Scenes.meta" />
-    <None Remove="AssetBundle\Assets\Scripts.meta" />
-    <None Remove="AssetBundle\Assets\Templates.meta" />
-    <None Remove="AssetBundle\Assets\TextMesh Pro.meta" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
@@ -206,7 +188,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="AssetBundle\Assets\AssetBundles\bostuffpack" />
     <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.bank" />
     <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Anchor.png" />

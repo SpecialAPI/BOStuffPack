@@ -8,7 +8,7 @@ public class CreateAssetBundles
     [MenuItem("Assets/Build AssetBundles")]
     static void BuildAllAssetBundles()
     {
-        string assetBundleDirectory = "Assets/AssetBundles";
+        string assetBundleDirectory = "AssetBundles";
         if (!Directory.Exists(assetBundleDirectory))
         {
             Directory.CreateDirectory(assetBundleDirectory);
@@ -17,7 +17,7 @@ public class CreateAssetBundles
         {
             BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.StrictMode, BuildTarget.StandaloneWindows);
             DirectoryInfo d = new DirectoryInfo(assetBundleDirectory);
-            File.Delete("Assets/AssetBundles/AssetBundles");
+            File.Delete($"{assetBundleDirectory}/AssetBundles");
             foreach (var file in d.GetFiles("*.manifest"))
             {
                 file.Delete();
