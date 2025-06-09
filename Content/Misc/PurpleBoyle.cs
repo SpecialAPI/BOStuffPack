@@ -43,7 +43,7 @@ namespace BOStuffPack.Content.Misc
                 .SetVisuals(Visuals.Slap, Targeting.Slot_Front)
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CreateScriptable<SpecialDamageEffect>(x => x.damageInfo = new() { ProduceSpecialPigment = true, SpecialPiment = Pigments.Purple }), 1, Targeting.Slot_Front)
+                    Effects.GenerateEffect(CreateScriptable<SpecialDamageEffect>(x => x.damageInfo = new() { ProduceSpecialPigment = true, SpecialPigment = Pigments.Purple }), 1, Targeting.Slot_Front)
                 })
                 .AddIntent(Targeting.Slot_Front, IntentForDamage(1), IntentType_GameIDs.Mana_Generate.ToString())
                 .AddToCharacterDatabase()

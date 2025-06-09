@@ -36,7 +36,7 @@ namespace BOStuffPack.Content.Effect
                 var targetOffset = areTargetSlots ? t.TargetOffset() : -1;
 
                 if (indirect)
-                    exitAmount += t.Unit.SpecialDamage(entryVariable, null, deathType, damageInfo, targetOffset, wetDamage, false, !shieldHittingIndirect, specialDamageType).damageAmount;
+                    exitAmount += t.Unit.SpecialDamage(entryVariable, null, damageInfo, deathType, targetOffset, wetDamage, false, !shieldHittingIndirect, specialDamageType).damageAmount;
 
                 else
                 {
@@ -45,7 +45,7 @@ namespace BOStuffPack.Content.Effect
                     if (damageInfo != null && damageInfo.ExtraDamageModifierPercentage != 0)
                         modValue = (int)Mathf.LerpUnclamped(entryVariable, modValue, 1f + (damageInfo.ExtraDamageModifierPercentage / 100f));
 
-                    exitAmount += t.Unit.SpecialDamage(modValue, caster, deathType, damageInfo, targetOffset, !dryDamage, true, ignoreShield, specialDamageType).damageAmount;
+                    exitAmount += t.Unit.SpecialDamage(modValue, caster, damageInfo, deathType, targetOffset, !dryDamage, true, ignoreShield, specialDamageType).damageAmount;
                 }
             }
 
