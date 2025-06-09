@@ -1,0 +1,636 @@
+fileFormatVersion: 2
+guid: e900cb5e1cb39484e93372cdbfc9a1be
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8915917636314847741
+    second: Blood_MudLung1_0
+  - first:
+      213: -2367752319454493846
+    second: Blood_MudLung1_1
+  - first:
+      213: -7096448901691324325
+    second: Blood_MudLung1_2
+  - first:
+      213: 8343778695528660701
+    second: Blood_MudLung1_3
+  - first:
+      213: -2835530582341053600
+    second: Blood_MudLung1_4
+  - first:
+      213: 7218237530892190188
+    second: Blood_MudLung1_5
+  - first:
+      213: 2196881382960652219
+    second: Blood_MudLung1_6
+  - first:
+      213: 294616809051361531
+    second: Blood_MudLung1_7
+  - first:
+      213: 5027322831119822785
+    second: Blood_MudLung1_8
+  - first:
+      213: -1822838993037728287
+    second: Blood_MudLung1_9
+  - first:
+      213: 8672155625826466419
+    second: Blood_MudLung1_10
+  - first:
+      213: 407094662128744273
+    second: Blood_MudLung1_11
+  - first:
+      213: 3550916949553121260
+    second: Blood_MudLung1_12
+  - first:
+      213: -9108855102306036825
+    second: Blood_MudLung1_13
+  - first:
+      213: -6515181734308746841
+    second: Blood_MudLung1_14
+  - first:
+      213: -8722631130546960460
+    second: Blood_MudLung1_15
+  - first:
+      213: -2786721896866225821
+    second: Blood_MudLung1_16
+  - first:
+      213: -959658979517332827
+    second: Blood_MudLung1_17
+  - first:
+      213: -4041610247489670357
+    second: Blood_MudLung1_18
+  - first:
+      213: -7819743726414506899
+    second: Blood_MudLung1_19
+  - first:
+      213: 1714331397271312618
+    second: Blood_MudLung1_20
+  - first:
+      213: -6361874202114737940
+    second: Blood_MudLung1_21
+  - first:
+      213: -4637232900638318698
+    second: Blood_MudLung1_22
+  - first:
+      213: 8228220497073756884
+    second: Blood_MudLung1_23
+  - first:
+      213: 6087350637509296354
+    second: Blood_MudLung1_24
+  - first:
+      213: 1349079229662061824
+    second: Blood_MudLung1_25
+  - first:
+      213: 2794085455383690685
+    second: Blood_MudLung1_26
+  - first:
+      213: 9016862833513637433
+    second: Blood_MudLung1_27
+  - first:
+      213: -2715765283818364828
+    second: Blood_MudLung1_28
+  - first:
+      213: -5111384719002919245
+    second: Blood_MudLung1_29
+  - first:
+      213: 2741544559280481950
+    second: Blood_MudLung1_30
+  - first:
+      213: 1491454436116624448
+    second: Blood_MudLung1_31
+  - first:
+      213: 4547315042228406762
+    second: Blood_MudLung1_32
+  - first:
+      213: 5020561686636393165
+    second: Blood_MudLung1_33
+  - first:
+      213: -5980659369609395201
+    second: Blood_MudLung1_34
+  - first:
+      213: 523752298865078017
+    second: Blood_MudLung1_35
+  - first:
+      213: 630667409611200731
+    second: Blood_MudLung1_36
+  - first:
+      213: 6199568254407264499
+    second: Blood_MudLung1_37
+  - first:
+      213: 3910198890609544617
+    second: Blood_MudLung1_38
+  - first:
+      213: 5460142650486850299
+    second: Blood_MudLung1_39
+  - first:
+      213: -2790139038369868730
+    second: Blood_MudLung1_40
+  - first:
+      213: -3098066267928889636
+    second: Blood_MudLung1_41
+  - first:
+      213: -1446841295509036790
+    second: Blood_MudLung1_42
+  - first:
+      213: 7296442287195713753
+    second: Blood_MudLung1_43
+  - first:
+      213: -5118503885953004655
+    second: Blood_MudLung1_44
+  - first:
+      213: -1663340717461831221
+    second: Blood_MudLung1_45
+  - first:
+      213: 7378135698378155495
+    second: Blood_MudLung1_46
+  - first:
+      213: 5742249944698097607
+    second: Blood_MudLung1_47
+  - first:
+      213: 6671330516849057688
+    second: Blood_MudLung1_48
+  - first:
+      213: -5865187624264673975
+    second: Blood_MudLung1_49
+  - first:
+      213: 3201594921794795818
+    second: Blood_MudLung1_50
+  - first:
+      213: 5662336958219379672
+    second: Blood_MudLung1_51
+  - first:
+      213: 7095440514281081926
+    second: Blood_MudLung1_52
+  - first:
+      213: 2054930339536625104
+    second: Blood_MudLung1_53
+  - first:
+      213: 4067516432747249765
+    second: Blood_MudLung1_54
+  - first:
+      213: -6357244561607727050
+    second: Blood_MudLung1_55
+  - first:
+      213: 6477234506625276731
+    second: Blood_MudLung1_56
+  - first:
+      213: -3331419727138213753
+    second: Blood_MudLung1_57
+  - first:
+      213: 8978840924375810483
+    second: Blood_MudLung1_58
+  - first:
+      213: -2241182645293938163
+    second: Blood_MudLung1_59
+  - first:
+      213: -6132830453378410494
+    second: Blood_MudLung1_60
+  - first:
+      213: -1345992751679140952
+    second: Blood_MudLung1_61
+  - first:
+      213: -6736427456337079388
+    second: Blood_MudLung1_62
+  - first:
+      213: 5163737435897169229
+    second: Blood_MudLung1_63
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blood_MudLung1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30620d8f52c444480800000000000000
+      internalID: -8915917636314847741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63cec27fcd042fd0800000000000000
+      internalID: -2367752319454493846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b584aff8259548d90800000000000000
+      internalID: -7096448901691324325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde357f248e0bc370800000000000000
+      internalID: 8343778695528660701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0631ec965fb26a8d0800000000000000
+      internalID: -2835530582341053600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1c83d5ac45c2460800000000000000
+      internalID: 7218237530892190188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbfd90d6af3ec7e10800000000000000
+      internalID: 2196881382960652219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf09d584d60b61400800000000000000
+      internalID: 294616809051361531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfab10aa73a4c540800000000000000
+      internalID: 5027322831119822785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e56149f799f3b6e0800000000000000
+      internalID: -1822838993037728287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37aba4a389fa95870800000000000000
+      internalID: 8672155625826466419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1573426307a46a500800000000000000
+      internalID: 407094662128744273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7070de624674130800000000000000
+      internalID: 3550916949553121260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a35b849b88d69180800000000000000
+      internalID: -9108855102306036825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9e9674bbc6595a0800000000000000
+      internalID: -6515181734308746841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_MudLung1_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b70cf4833df2f680800000000000000
+      internalID: -8722631130546960460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
