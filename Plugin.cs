@@ -89,7 +89,7 @@ namespace BOStuffPack
             WorldShatter.Init();
             Keyring.Init();
             Pencil.Init();
-            AlmightyBranch.Init(); // TODO: make it work lmao
+            //AlmightyBranch.Init();
             MindHouse.Init();
             MergingStones.Init();
             Nothing.Init();
