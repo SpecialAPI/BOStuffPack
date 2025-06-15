@@ -85,6 +85,7 @@
   <ItemGroup>
     <None Remove="AssetBundle\.gitignore" />
     <None Remove="AssetBundle\.vsconfig" />
+    <None Remove="AssetBundle\AssetBundles\bostuffpack" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
@@ -188,6 +189,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="AssetBundle\AssetBundles\bostuffpack" />
     <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.bank" />
     <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Anchor.png" />

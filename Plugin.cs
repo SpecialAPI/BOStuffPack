@@ -94,6 +94,8 @@ namespace BOStuffPack
             MergingStones.Init();
             Nothing.Init();
             PetrifyItem.Init(); // TODO: come up with a name and sprite
+            PaperCrown.Init(); // TODO: make a sprite
+            BlueCrown.Init(); // TODO: make a sprite
 
             // Trash
             // TODO: add trash pool
