@@ -42,7 +42,7 @@ namespace BOStuffPack.Content.Items
                     doesPopup = false,
                     immediate = true,
 
-                    effect = new BoolReferenceSetterTriggerffect(true),
+                    effect = new BoolHolderSetterTriggerffect(true),
                     conditions = new()
                     {
                         CreateScriptable<CanProducePigmentColorReferenceMatchesPigmentEffectorCondition>(x => x.pigment = Pigments.Grey)

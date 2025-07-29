@@ -70,7 +70,7 @@ namespace BOStuffPack.Content.Items.Treasure
                     {
                         Effects.GenerateEffect(CreateScriptable<CheckWrongPigmentEffect>()),
 
-                        Effects.GenerateEffect(CreateScriptable<CasterReplaceExtraAbilityEffect>(x => { x.abilityToReplace = AbilityReference($"Lock{idx}_A"); x.replacement = keyAb; }), condition: Effects.CheckPreviousEffectCondition(false, 1)),
+                        Effects.GenerateEffect(CreateScriptable<CasterReplaceExtraAbilityEffect>(x => { x.abilityToReplace = AdvancedAbilityReference($"Lock{idx}_A"); x.replacement = keyAb; }), condition: Effects.CheckPreviousEffectCondition(false, 1)),
                         Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 2))
                     })
                     .AddIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Other_Refresh.ToString())

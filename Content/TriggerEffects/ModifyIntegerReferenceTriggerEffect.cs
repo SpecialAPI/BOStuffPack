@@ -14,11 +14,11 @@ namespace BOStuffPack.Content.TriggerEffects
 
         public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger, TriggerEffectExtraInfo extraInfo)
         {
-            if (!args.TryGetIntReference(out var intRef))
+            if (!ValueReferenceTools.TryGetIntHolder(args, out var intRef))
                 return;
 
             var val = UseStoredValue ? sender.SimpleGetStoredValue(StoredValue) : Value;
-            intRef.value = DoOperation(intRef.value, val, Operation);
+            intRef.Value = DoOperation(intRef.Value, val, Operation);
         }
     }
 }
