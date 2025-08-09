@@ -75,7 +75,7 @@ namespace BOStuffPack.Content.Items.Treasure
             }));
 
             var atmSpeakHiddenEffect = CreateScriptable<MultiCustomTriggerEffectHiddenEffect>();
-            atmSpeakHiddenEffect.name = $"{MODPREFIX}_ATMSpeak_HE";
+            atmSpeakHiddenEffect.name = $"{MOD_PREFIX}_ATMSpeak_HE";
             atmSpeakHiddenEffect.triggerEffects = new()
             {
                 new()

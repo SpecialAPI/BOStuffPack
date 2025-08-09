@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOStuffPack.CustomTrigger;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,50 +25,50 @@ namespace BOStuffPack.Content.Items.Treasure
                 {
                     triggers = new()
                     {
-                        TriggerCalls.OnDamaged.ToString(),
-                        TriggerCalls.OnBeingDamaged.ToString(),
+                        // A unit got moved
+                        CustomTriggers.OnAnyoneMoved,
+
+                        // Misc
+                        LocalCustomTriggers.OnAnyoneFleetingEnd,
+
+                        // Pigment-related
+                        //TriggerCalls.OnOverflowAdded.ToString(), // maybe
+                        TriggerCalls.CanOverflowTrigger.ToString(), // Replace this with OnOverflowTriggered in the future (this will require it getting added to Pentacle)
+                        CustomTriggers.OnLuckyPigmentSuccess,
+
+                        // Health-related
+                        LocalCustomTriggers.OnAnyoneDirectDamaged,
+                        LocalCustomTriggers.OnAnyonesMaxHealthChanged,
+                        LocalCustomTriggers.OnAnyoneHealed,
+
+                        // An ability was used
+                        TriggerCalls.OnAnyAbilityUsed.ToString(),
+
+                        // Turn finished/started
                         TriggerCalls.OnTurnFinished.ToString(),
-                        TriggerCalls.OnMoved.ToString(),
-                        TriggerCalls.OnDeath.ToString(),
-                        TriggerCalls.OnWillBeHealed.ToString(),
-                        TriggerCalls.OnDirectDamaged.ToString(),
-                        TriggerCalls.OnDirectHealed.ToString(),
-                        TriggerCalls.OnAbilityUsed.ToString(),
-                        TriggerCalls.OnWillApplyDamage.ToString(),
                         TriggerCalls.OnTurnStart.ToString(),
-                        TriggerCalls.CanApplyStatusEffect.ToString(),
-                        TriggerCalls.OnSwapTo.ToString(),
-                        TriggerCalls.OnSwappedTo.ToString(),
-                        TriggerCalls.OnKill.ToString(),
+
+                        // Combat start/end (lol)
                         TriggerCalls.OnCombatStart.ToString(),
                         TriggerCalls.OnCombatEnd.ToString(),
-                        TriggerCalls.OnHealed.ToString(),
-                        TriggerCalls.OnDidApplyDamage.ToString(),
-                        TriggerCalls.OnAbilityWillBeUsed.ToString(),
-                        TriggerCalls.OnFirstTurnStart.ToString(),
-                        TriggerCalls.TimelineEndReached.ToString(),
-                        TriggerCalls.OnWillReceiveCostDamage.ToString(),
-                        TriggerCalls.OnFleeting.ToString(),
-                        TriggerCalls.OnBeingHealed.ToString(),
-                        TriggerCalls.OnStatusEffectApplied.ToString(),
-                        TriggerCalls.OnMaxHealthChanged.ToString(),
-                        TriggerCalls.OnOverflowAdded.ToString(),
-                        TriggerCalls.OnMiscPlayerTurnStart.ToString(),
-                        TriggerCalls.OnMiscCombatStartWithBigEnemies.ToString(),
-                        TriggerCalls.OnRoundFinished.ToString(),
-                        TriggerCalls.OnStatusEffectContentAdded.ToString(),
-                        TriggerCalls.OnAnyAbilityUsed.ToString(),
-                        TriggerCalls.OnBeforeCombatStart.ToString(),
-                        TriggerCalls.OnWillApplyHeal.ToString(),
-                        TriggerCalls.OnKilledButSurvived.ToString(),
-                        TriggerCalls.OnItemWillBeConsumed.ToString(),
+
+                        // An item got consumed
                         TriggerCalls.OnANYItemConsumed.ToString(),
-                        TriggerCalls.OnAllyHasDied.ToString(),
-                        TriggerCalls.OnOpponentHasDied.ToString(),
+
+                        // A unit got spawned
                         TriggerCalls.OnAllyHasSpawned.ToString(),
                         TriggerCalls.OnOpponentHasSpawned.ToString(),
-                        TriggerCalls.OnIndirectDamaged.ToString(),
-                        TriggerCalls.OnHealthColorChanged.ToString(),
+
+                        // A unit has died
+                        TriggerCalls.OnAllyHasDied.ToString(),
+                        TriggerCalls.OnDeath.ToString(),
+                        TriggerCalls.OnOpponentHasDied.ToString(),
+
+                        // Status effect applied/increased
+                        CustomTriggers.StatusEffectFirstAppliedToAnyone,
+                        CustomTriggers.StatusEffectIncreasedOnAnyone,
+
+                        // For the future: add FieldEffectFirstAppliedAnywhere and FieldEffectIncreasedAnywhere
                     },
                     doesPopup = true,
                     immediate = false,

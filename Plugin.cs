@@ -14,14 +14,14 @@ using UnityEngine.Rendering.PostProcessing;
 namespace BOStuffPack
 {
     [BepInDependency(BrutalAPI.BrutalAPI.GUID)]
-    [BepInPlugin(MODGUID, MODNAME, MODVERSION)]
+    [BepInPlugin(MOD_GUID, MOD_NAME, MOD_VERSION)]
     [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
-        public const string MODGUID = "SpecialAPI.BOStuffPack";
-        public const string MODNAME = "SpecialAPI's Stuff Pack";
-        public const string MODVERSION = "1.0.0";
-        public const string MODPREFIX = "BOStuffPack";
+        public const string MOD_GUID = "SpecialAPI.BOStuffPack";
+        public const string MOD_NAME = "SpecialAPI's Stuff Pack";
+        public const string MOD_VERSION = "1.0.0";
+        public const string MOD_PREFIX = "BOStuffPack";
 
         public static Harmony HarmonyInstance;
         public static AssetBundle Bundle;
@@ -37,13 +37,13 @@ namespace BOStuffPack
             if (AdvancedResourceLoader.TryReadFromResource("bostuffpack", out var ba))
                 Bundle = AssetBundle.LoadFromMemory(ba);
 
-            var profile = ProfileManager.RegisterMod(MODGUID, MODPREFIX);
+            var profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
             profile.SetAssetBundle(Bundle);
 
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack.strings");
 
-            HarmonyInstance = new Harmony(MODGUID);
+            HarmonyInstance = new Harmony(MOD_GUID);
             HarmonyInstance.PatchAll();
 
             StuffPackStoredValues.Init();
