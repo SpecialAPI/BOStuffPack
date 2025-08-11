@@ -37,15 +37,15 @@ namespace BOStuffPack.Content.Items.Treasure
         public static EnemySO ATM()
         {
             var customCashout = NewPassive<MultiCustomTriggerEffectPassive>("Cashout_ATM_PA", PassiveType_GameIDs.Cashout.ToString())
-                .SetBasicInformation("Cashout", Passives.Cashout.passiveIcon)
-                .AutoSetDescriptions("Upon this ally receiving any damage, gain 1 coin.")
+                .SetBasicInformation("Cashout (1)", Passives.Cashout.passiveIcon)
+                .AutoSetDescriptions("Upon this ally receiving direct damage, gain 1 coin.")
                 .AddToDatabase();
 
             customCashout.SetTriggerEffects(new()
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnDamaged.ToString(),
+                    trigger = TriggerCalls.OnDirectDamaged.ToString(),
                     doesPopup = true,
                     immediate = false,
 
@@ -108,23 +108,24 @@ namespace BOStuffPack.Content.Items.Treasure
             {
                 NewAbility("Whack_A")
                 .SetName("Whack")
-                .SetDescription("Deals a painful amount of damage to the opposing party member")
+                .SetDescription("Deals a painful amount of damage to the opposing party member.")
                 .SetVisuals(Visuals.Crush, Targeting.Slot_Front)
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), 5, Targeting.Slot_Front)
+                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), 4, Targeting.Slot_Front)
                 })
-                .AddIntent(Targeting.Slot_Front, IntentForDamage(5))
+                .AddIntent(Targeting.Slot_Front, IntentForDamage(4))
                 .AddToEnemyDatabase()
                 .EnemyAbility(Rarity.Common, Priority.Fast),
 
                 NewAbility("WithdrawSchmucks_A")
                 .SetName("Withdraw Schmucks")
-                .SetDescription("Deals almost no indirect damage to this enemy.")
+                .SetDescription("Deals almost no damage to this enemy.")
                 .SetVisuals(Visuals.Wriggle, Targeting.Slot_SelfSlot)
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(x => x._indirect = true), 1, Targeting.Slot_SelfSlot)
+                    Effects.GenerateEffect(CreateScriptable<ExtraVariableForNextEffect>(), 1),
+                    Effects.GenerateEffect(CreateScriptable<RandomDamageBetweenPreviousAndEntryEffect>(), 2, Targeting.Slot_SelfSlot)
                 })
                 .AddIntent(Targeting.Slot_SelfSlot, IntentForDamage(1))
                 .AddToEnemyDatabase()
@@ -132,17 +133,21 @@ namespace BOStuffPack.Content.Items.Treasure
 
                 NewAbility("OutOfOrder_A")
                 .SetName("Out of Order")
-                .SetDescription("Deals a mortal amount of damage to this enemy.\nSteals 1-2 coins.")
+                .SetDescription("Deals a mortal amount of damage to this enemy. This damage doesn't activate any on-hit effects.\nMoves this ATM to the left or right.\n\"Have a horrible day.\"")
                 .SetVisuals(Visuals.Clobber_Left, Targeting.Slot_SelfSlot)
                 .SetEffects(new()
                 {
                     Effects.GenerateEffect(CreateScriptable<ExtraVariableForNextEffect>(), 21),
-                    Effects.GenerateEffect(CreateScriptable<RandomDamageBetweenPreviousAndEntryEffect>(), 50, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(CreateScriptable<RandomSpecialDamageBetweenPreviousAndEntryEffect>(x => x.specialDamage = new()
+                    {
+                        DisableOnDamageCalls = true
+                    }), 50, Targeting.Slot_SelfSlot),
 
-                    Effects.GenerateEffect(CreateScriptable<LosePlayerCurrencyEffect>(), 1),
-                    Effects.GenerateEffect(CreateScriptable<LosePlayerCurrencyEffect>(), 1, null, Effects.ChanceCondition(50)),
+                    Effects.GenerateEffect(CreateScriptable<StartDialogueConversationEffect>(x => x._dialogue = evilDialogue), condition: Effects.CheckPreviousEffectCondition(true, 1)),
+
+                    Effects.GenerateEffect(CreateScriptable<SwapToSidesEffect>(), 0, Targeting.Slot_SelfSlot)
                 })
-                .AddIntent(Targeting.Slot_SelfSlot, [IntentForDamage(50), IntentType_GameIDs.Misc_Currency.ToString()])
+                .AddIntent(Targeting.Slot_SelfSlot, [IntentForDamage(50), IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Swap_Sides.ToString()])
                 .EnemyAbility(Rarity.Uncommon, Priority.Fast)
             });
 
