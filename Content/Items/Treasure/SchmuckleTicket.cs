@@ -100,6 +100,10 @@ namespace BOStuffPack.Content.Items.Treasure
                 .AddHiddenEffects(atmSpeakHiddenEffect)
                 .AddToDatabase(true, false, false);
 
+            var eifl3D = enm.enemyTemplate.AddComponent<EnemyInFieldLayout3D>();
+            eifl3D.enemyLayout = enm.enemyTemplate;
+            eifl3D.data = eifl3D.GetComponent<EnemyInFieldLayout3DData>();
+
             enm.SetAbilities(new()
             {
                 NewAbility("Whack_A")
