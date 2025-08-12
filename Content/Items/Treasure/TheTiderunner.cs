@@ -17,7 +17,7 @@ namespace BOStuffPack.Content.Items.Treasure
         {
             var name = "The Tiderunner";
             var flav = "\"Smooth sailing.\"";
-            var desc = "Using the leftmost or rightmost ability moves this party member to the left or right respectively. This doesn't happen if this party member is constricted.\nThis party member's outer ranked abilities are moved to the edges of the abilities list.\nAdds \"Anchor\" as an additional ability.";
+            var desc = "Using the leftmost or rightmost ability moves this party member in the same direction, unless they are Constricted.\nAdds \"Anchor\" as an additional ability. This party member's base abilities (except Slap) are moved to the edges of the abilities list.";
 
             var abilityName = "Anchor";
             var abilityDesc = "Apply 1 Constricted to this party member's position.\nIf this party member wasn't Constricted before, refresh this party member.";
