@@ -177,6 +177,7 @@
     <None Remove="Resources\Items\Treasure\Keyring.png" />
     <None Remove="Resources\Items\Treasure\MergingStones.png" />
     <None Remove="Resources\Items\Treasure\MindHouse.png" />
+    <None Remove="Resources\Items\Treasure\PaperCrown.png" />
     <None Remove="Resources\Items\Treasure\Pencil.png" />
     <None Remove="Resources\Items\WorldShatter.png" />
     <None Remove="Resources\Passives\IsaacNewton_Passive_50.png" />
@@ -269,6 +270,7 @@
     <EmbeddedResource Include="Resources\Items\Treasure\MindHouse.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\NegativeTeapot.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\NewtonsApple.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\PaperCrown.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\Pencil.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\PetrifiedMedicine.png" />
     <EmbeddedResource Include="Resources\Items\Placeholder.png" />
