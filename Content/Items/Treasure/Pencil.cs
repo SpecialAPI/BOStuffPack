@@ -21,7 +21,7 @@ namespace BOStuffPack.Content.Items.Treasure
 
             item.triggerEffects = new()
             {
-                new EffectsAndTriggers()
+                new TriggerEffectAndTriggersInfo()
                 {
                     triggers = new()
                     {

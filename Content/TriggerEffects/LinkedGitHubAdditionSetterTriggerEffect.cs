@@ -10,7 +10,7 @@ namespace BOStuffPack.Content.TriggerEffects
         public bool UseModsWithoutGitHub;
         public int AdditionPerMod;
 
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect triggerInfo, TriggerEffectExtraInfo extraInfo)
+        public override void DoEffect(IUnit sender, object args, TriggerEffectInfo triggerInfo, TriggerEffectActivationExtraInfo extraInfo)
         {
             if (args is not DamageReceivedValueChangeException ex)
                 return;

@@ -19,7 +19,7 @@ namespace BOStuffPack.Content.Items.Treasure
 
             item.triggerEffects = new()
             {
-                new EffectsAndTriggers()
+                new TriggerEffectAndTriggersInfo()
                 {
                     triggers = [CustomTriggers.ModifyWrongPigmentAmount, CustomTriggers.ModifyWrongPigmentAmount_UI],
                     doesPopup = false,

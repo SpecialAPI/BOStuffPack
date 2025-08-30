@@ -1,7 +1,5 @@
 ﻿using Pentacle.Builders;
 using Pentacle.CustomEvent;
-using Pentacle.TriggerEffect;
-using Pentacle.TriggerEffect.BasicTriggerEffects;
 using BOStuffPack.Content.Conditions.Effector;
 using BOStuffPack.Content.Effect;
 using BOStuffPack.Content.StaticModifiers;

@@ -6,7 +6,7 @@ namespace BOStuffPack.Content.TriggerEffects
 {
     public class StressfulConnectTriggerEffect : TriggerEffect
     {
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger, TriggerEffectExtraInfo extraInfo)
+        public override void DoEffect(IUnit sender, object args, TriggerEffectInfo effectsAndTrigger, TriggerEffectActivationExtraInfo extraInfo)
         {
             if (!extraInfo.TryGetPopupUIAction(sender.ID, sender.IsUnitCharacter, false, out var action))
                 action = null;
