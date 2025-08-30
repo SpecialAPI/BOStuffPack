@@ -34,11 +34,8 @@ namespace BOStuffPack
             PostProcessResources = Resources.FindObjectsOfTypeAll<PostProcessResources>().FirstOrDefault();
             ModAssembly = Assembly.GetExecutingAssembly();
 
-            if (AdvancedResourceLoader.TryReadFromResource("bostuffpack", out var ba))
-                Bundle = AssetBundle.LoadFromMemory(ba);
-
             var profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
-            profile.SetAssetBundle(Bundle);
+            Bundle = profile.LoadAssetBundle("bostuffpack");
 
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack.strings");

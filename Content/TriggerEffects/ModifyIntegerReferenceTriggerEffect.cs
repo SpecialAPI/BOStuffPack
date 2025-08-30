@@ -12,7 +12,7 @@ namespace BOStuffPack.Content.TriggerEffects
         public bool UseStoredValue;
         public string StoredValue;
 
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect effectsAndTrigger, TriggerEffectExtraInfo extraInfo)
+        public override void DoEffect(IUnit sender, object args, TriggerEffectInfo effectsAndTrigger, TriggerEffectActivationExtraInfo extraInfo)
         {
             if (!ValueReferenceTools.TryGetIntHolder(args, out var intRef))
                 return;

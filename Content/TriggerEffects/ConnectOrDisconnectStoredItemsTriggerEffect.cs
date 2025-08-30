@@ -9,7 +9,7 @@ namespace BOStuffPack.Content.TriggerEffects
         public UnitStoreData_BasicSO itemsStoredValue;
         public bool disconnect;
 
-        public override void DoEffect(IUnit sender, object args, TriggeredEffect triggerInfo, TriggerEffectExtraInfo extraInfo)
+        public override void DoEffect(IUnit sender, object args, TriggerEffectInfo triggerInfo, TriggerEffectActivationExtraInfo extraInfo)
         {
             if (sender is not IWearableEffector effector)
                 return;
