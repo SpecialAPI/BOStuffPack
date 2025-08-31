@@ -1,5 +1,4 @@
 ﻿using Pentacle.Builders;
-using Pentacle.CustomEvent;
 using BOStuffPack.Content.Conditions.Effector;
 using BOStuffPack.Content.Effect;
 using BOStuffPack.Content.StaticModifiers;
