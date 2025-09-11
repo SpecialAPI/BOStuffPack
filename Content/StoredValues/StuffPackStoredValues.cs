@@ -11,6 +11,7 @@ namespace BOStuffPack.Content.StoredValues
         public static UnitStoreData_BasicSO StoredValue_KeybladeBTurn;
         public static UnitStoreData_BasicSO StoredValue_KeybladeYTurn;
         public static UnitStoreData_BasicSO StoredValue_KeybladePTurn;
+        public static UnitStoreData_BasicSO StoredValue_Blood;
 
         public static UnitStoreData_BasicSO StoredValue_MergingStones;
 
@@ -21,6 +22,7 @@ namespace BOStuffPack.Content.StoredValues
             StoredValue_KeybladeBTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladeBTurn_USD", "KeybladeBTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade B Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
             StoredValue_KeybladeYTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladeYTurn_USD", "KeybladeYTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade Y Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
             StoredValue_KeybladePTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladePTurn_USD", "KeybladePTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
+            StoredValue_Blood = NewStoredValue<AdvancedStoredValueIntInfo>("Blood_USD", "Blood").SetColor(StoredValueColor_Negative).SetFormat("Blood: {0}");
 
             StoredValue_MergingStones = NewStoredValue<MergingStonesStoredValue>("MergingStones_USD", "MergingStones").SetColor(StoredValueColor_Rare).SetFormat("Merging Stones: {0}");
         }

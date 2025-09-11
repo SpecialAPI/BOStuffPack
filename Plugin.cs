@@ -90,6 +90,7 @@ namespace BOStuffPack
             PetrifyItem.Init(); // TODO: come up with a name and sprite
             PaperCrown.Init();
             BlueCrown.Init(); // TODO: make a sprite
+            InstrumentsOfMurder.Init();
 
             // Trash
             // TODO: add trash pool

@@ -114,6 +114,7 @@
     <None Remove="Resources\AbilityIcons\AttackIcon_Mars.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_MasterKey.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Mirror.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Murder.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_PillarsOfTheWorld.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Punish.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Question.png" />
@@ -174,6 +175,7 @@
     <None Remove="Resources\Items\Trash\GitHubSmoker.png" />
     <None Remove="Resources\Items\Trash\GotEgg.png" />
     <None Remove="Resources\Items\Trash\GreyPills.png" />
+    <None Remove="Resources\Items\Treasure\InstrumentsOfMurder.png" />
     <None Remove="Resources\Items\Treasure\Keyring.png" />
     <None Remove="Resources\Items\Treasure\MergingStones.png" />
     <None Remove="Resources\Items\Treasure\MindHouse.png" />
@@ -215,6 +217,7 @@
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Mars.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_MasterKey.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Mirror.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Murder.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_PillarsOfTheWorld.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Punish.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Question.png" />
@@ -260,6 +263,7 @@
     <EmbeddedResource Include="Resources\Items\Treasure\Error.png" />
     <EmbeddedResource Include="Resources\Items\Shop\Eyepatch.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\FailRounds.png" />
+    <EmbeddedResource Include="Resources\Items\Treasure\InstrumentsOfMurder.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\InterdimensionalShapeshifter.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\JesterHat.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\Keyring.png" />
