@@ -42,7 +42,8 @@ namespace BOStuffPack.Content.Items.Treasure
             var item = NewItem<MultiCustomTriggerEffectWearable>("InstrumentsOfMurder_TW")
                 .SetBasicInformation(name, flav, desc, "InstrumentsOfMurder")
                 .AddToTreasure()
-                .SetStaticModifiers(ExtraAbilityModifier(ab));
+                .SetStaticModifiers(ExtraAbilityModifier(ab))
+                .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
             item.SetTriggerEffects(new()
             {

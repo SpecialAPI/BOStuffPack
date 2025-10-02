@@ -15,7 +15,8 @@ namespace BOStuffPack.Content.Items.Treasure
             var item = NewItem<MultiCustomTriggerEffectWearable>("InterdimensionalShapeShifter_TW")
                 .SetBasicInformation(name, flav, desc, "InterdimensionalShapeshifter")
                 .SetPrice(6)
-                .AddToTreasure();
+                .AddToTreasure()
+                .AddItemTypes(ItemType_GameIDs.Magic.ToString());
 
             var shapeshifter = NewPassive<MultiCustomTriggerEffectPassive>("ShapeShifter_PA", "ShapeShifter")
                 .SetBasicInformation("Shape-Shifter", "Shapeshifter")

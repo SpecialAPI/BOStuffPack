@@ -17,7 +17,8 @@ namespace BOStuffPack.Content.Items.Treasure
             var item = NewItem<MultiCustomTriggerEffectWearable>("SchmuckleTicket_TW")
                 .SetBasicInformation(name, flav, desc, "SchmuckleTicket")
                 .SetPrice(5)
-                .AddToTreasure();
+                .AddToTreasure()
+                .AddItemTypes(ItemType_GameIDs.Fabric.ToString());
 
             item.triggerEffects = new()
             {

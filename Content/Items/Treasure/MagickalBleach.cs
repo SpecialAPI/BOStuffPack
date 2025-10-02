@@ -17,7 +17,8 @@ namespace BOStuffPack.Content.Items.Treasure
                 .SetBasicInformation(name, flav, desc, "MagickalBleach")
                 .SetStaticModifiers(ModdedDataModifier(new BleachStaticModifier()))
                 .SetPrice(0)
-                .AddToTreasure();
+                .AddToTreasure()
+                .AddItemTypes(ItemType_GameIDs.Magic.ToString());
         }
     }
 }

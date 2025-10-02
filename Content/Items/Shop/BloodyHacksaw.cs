@@ -37,7 +37,8 @@ namespace BOStuffPack.Content.Items.Shop
             var item = NewItem<BasicWearable>("BloodyHacksaw_SW")
                 .SetBasicInformation(name, flav, desc, "BloodyHacksaw")
                 .SetPrice(5)
-                .AddToShop();
+                .AddToShop()
+                .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
             item.SetStaticModifiers(ExtraAbilityModifier(ab));
         }
