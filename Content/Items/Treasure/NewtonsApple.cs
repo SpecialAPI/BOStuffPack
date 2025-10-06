@@ -59,7 +59,7 @@ namespace BOStuffPack.Content.Items.Treasure
                 .SetSounds(kleiver.damageSound, smokestacks.deathSound, smokestacks.dxSound)
                 .SetMovesOnOverworld(false)
                 .AddPassives(isaacNewtonPassive)
-                .AddUnitTypes("Bird");
+                .AddUnitTypes("Bird", "Sandwich_Silly");
 
             var gravityIntent = AddIntent("Gravity", isaacNewtonPassive.passiveIcon);
 
