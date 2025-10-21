@@ -86,7 +86,6 @@ namespace BOStuffPack
             //AlmightyBranch.Init();
             MindHouse.Init();
             MergingStones.Init();
-            Nothing.Init();
             PetrifyItem.Init(); // TODO: come up with a name and sprite
             PaperCrown.Init();
             BlueCrown.Init(); // TODO: make a sprite
