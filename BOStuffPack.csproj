@@ -16,6 +16,7 @@
     <Compile Remove="AssetBundle\ProjectSettings\**" />
     <Compile Remove="AssetBundle\Temp\**" />
     <Compile Remove="AssetBundle\UserSettings\**" />
+    <Compile Remove="Audio\**" />
     <Compile Remove="Content\Passive\**" />
     <Compile Remove="Content\Pigment\**" />
     <Compile Remove="Content\StatusEffect\**" />
@@ -29,6 +30,7 @@
     <EmbeddedResource Remove="AssetBundle\ProjectSettings\**" />
     <EmbeddedResource Remove="AssetBundle\Temp\**" />
     <EmbeddedResource Remove="AssetBundle\UserSettings\**" />
+    <EmbeddedResource Remove="Audio\**" />
     <EmbeddedResource Remove="Content\Passive\**" />
     <EmbeddedResource Remove="Content\Pigment\**" />
     <EmbeddedResource Remove="Content\StatusEffect\**" />
@@ -42,6 +44,7 @@
     <None Remove="AssetBundle\ProjectSettings\**" />
     <None Remove="AssetBundle\Temp\**" />
     <None Remove="AssetBundle\UserSettings\**" />
+    <None Remove="Audio\**" />
     <None Remove="Content\Passive\**" />
     <None Remove="Content\Pigment\**" />
     <None Remove="Content\StatusEffect\**" />
