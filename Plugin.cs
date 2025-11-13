@@ -7,6 +7,7 @@ using BOStuffPack.Content.Items.Treasure;
 using BOStuffPack.Content.Misc;
 using BOStuffPack.Content.Passive;
 using BOStuffPack.Content.StoredValues;
+using BOStuffPack.ReversePatches;
 using Steamworks;
 using System;
 using UnityEngine.Rendering.PostProcessing;
@@ -26,6 +27,7 @@ namespace BOStuffPack
         public static Harmony HarmonyInstance;
         public static AssetBundle Bundle;
         public static Assembly ModAssembly;
+        public static bool ReversePatchesFinished;
 
         public static PostProcessResources PostProcessResources;
 
@@ -84,7 +86,7 @@ namespace BOStuffPack
             Keyring.Init();
             Pencil.Init();
             //AlmightyBranch.Init();
-            MindHouse.Init();
+            UnnamedItem16.Init();
             MergingStones.Init();
             PetrifyItem.Init(); // TODO: come up with a name and sprite
             PaperCrown.Init();
@@ -106,6 +108,19 @@ namespace BOStuffPack
 
             ////CorruptedChunk.Init();
             PurpleBoyle.Init();
+        }
+
+        public void Start()
+        {
+            var reversePatchTypes = new Type[]
+            {
+                typeof(AddNewEnemyOutputReversePatch)
+            };
+
+            foreach (var t in reversePatchTypes)
+                HarmonyInstance.PatchAll(t);
+
+            ReversePatchesFinished = true;
         }
     }
 }
