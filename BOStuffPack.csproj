@@ -167,10 +167,6 @@
     <None Remove="Resources\Items\Survivorship.png" />
     <None Remove="Resources\Items\TheSquirrel.png" />
     <None Remove="Resources\Items\TheTiderunner.png" />
-    <None Remove="Resources\Items\Trash\BlueTrap.png" />
-    <None Remove="Resources\Items\Trash\GitHubSmoker.png" />
-    <None Remove="Resources\Items\Trash\GotEgg.png" />
-    <None Remove="Resources\Items\Trash\GreyPills.png" />
     <None Remove="Resources\Items\Treasure\FramedE.png" />
     <None Remove="Resources\Items\Treasure\InstrumentsOfMurder.png" />
     <None Remove="Resources\Items\Treasure\Keyring.png" />
@@ -244,10 +240,6 @@
     <EmbeddedResource Include="Resources\Items\Extra\Nothing.png" />
     <EmbeddedResource Include="Resources\Items\Extra\PlatinumMirror.png" />
     <EmbeddedResource Include="Resources\Items\Shop\SchmuckleTicket.png" />
-    <EmbeddedResource Include="Resources\Items\Trash\BlueTrap.png" />
-    <EmbeddedResource Include="Resources\Items\Trash\GitHubSmoker.png" />
-    <EmbeddedResource Include="Resources\Items\Trash\GotEgg.png" />
-    <EmbeddedResource Include="Resources\Items\Trash\GreyPills.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\Shop\BloodyHacksaw.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\CombatDice.png" />

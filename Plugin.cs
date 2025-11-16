@@ -2,7 +2,6 @@
 using BepInEx.Bootstrap;
 using BOStuffPack.Content.Items;
 using BOStuffPack.Content.Items.Shop;
-using BOStuffPack.Content.Items.Trash;
 using BOStuffPack.Content.Items.Treasure;
 using BOStuffPack.Content.Misc;
 using BOStuffPack.Content.Passive;
@@ -48,27 +47,6 @@ namespace BOStuffPack
             StuffPackStoredValues.Init();
             StuffPackPassives.Init();
 
-            //var eggEnemies = new List<string>()
-            //{
-            //    "TaMaGoa_EN"
-            //};
-            //
-            //var eggItems = new List<string>()
-            //{
-            //    "AsceticEgg_TW",
-            //    "EggOfFirmament_TW",
-            //    "EggOfIncubus_TW",
-            //    "OpulentEgg_TW",
-            //    "StillbornEgg_TW",
-            //    "EggOfIncubusCracked_ExtraW"
-            //};
-            //
-            //foreach (var enm in eggEnemies)
-            //    GetEnemy(enm).AddUnitTypes("Egg");
-            //
-            //foreach(var itm in eggItems)
-            //    GetWearable(itm).AddItemTypes("Egg");
-
             TheTiderunner.Init();
             BloodyHacksaw.Init();
             ConjoinedFungi.Init();
@@ -93,13 +71,6 @@ namespace BOStuffPack
             BlueCrown.Init(); // TODO: make a sprite
             InstrumentsOfMurder.Init();
             FramedE.Init();
-
-            // Trash
-            // TODO: add trash pool
-            GitHubSmoker.Init();
-            GotEgg.Init();
-            BlueTrap.Init();
-            GreyPills.Init();
         }
 
         public void Start()
