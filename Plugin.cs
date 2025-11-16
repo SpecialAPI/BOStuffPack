@@ -101,12 +101,6 @@ namespace BOStuffPack
             BlueTrap.Init();
             GreyPills.Init();
 
-            // targeting modify items (hell)
-            ////FailRounds.Init();
-            ////Eyepatch.Init();
-            ////NegativeTeapot.Init();
-            ////MusicBox.Init();
-
             ////CorruptedChunk.Init();
             PurpleBoyle.Init();
         }

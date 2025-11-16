@@ -261,8 +261,6 @@
     <EmbeddedResource Include="Resources\Items\Treasure\CombatDice.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\ConjoinedFungi.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\Error.png" />
-    <EmbeddedResource Include="Resources\Items\Shop\Eyepatch.png" />
-    <EmbeddedResource Include="Resources\Items\Treasure\FailRounds.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\FramedE.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\InstrumentsOfMurder.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\InterdimensionalShapeshifter.png" />
@@ -270,9 +268,7 @@
     <EmbeddedResource Include="Resources\Items\Treasure\Keyring.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\LoudPhone.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\MagickalBleach.png" />
-    <EmbeddedResource Include="Resources\Items\Shop\MusicBox.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\MergingStones.png" />
-    <EmbeddedResource Include="Resources\Items\Treasure\NegativeTeapot.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\NewtonsApple.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\PaperCrown.png" />
     <EmbeddedResource Include="Resources\Items\Treasure\Pencil.png" />
