@@ -100,9 +100,6 @@ namespace BOStuffPack
             GotEgg.Init();
             BlueTrap.Init();
             GreyPills.Init();
-
-            ////CorruptedChunk.Init();
-            PurpleBoyle.Init();
         }
 
         public void Start()
