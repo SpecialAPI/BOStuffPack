@@ -92,6 +92,7 @@ namespace BOStuffPack
             PaperCrown.Init();
             BlueCrown.Init(); // TODO: make a sprite
             InstrumentsOfMurder.Init();
+            FramedE.Init();
 
             // Trash
             // TODO: add trash pool
