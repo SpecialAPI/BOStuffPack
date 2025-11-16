@@ -273,7 +273,6 @@
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Core" Version="5.4.21" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
     <PackageReference Include="UnityEngine.Modules" Version="2020.3.26">
       <PrivateAssets>all</PrivateAssets>
