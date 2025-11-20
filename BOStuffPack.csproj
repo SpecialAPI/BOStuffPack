@@ -146,6 +146,7 @@
     <None Remove="Resources\Items\NegativeTeapot.png" />
     <None Remove="Resources\Items\OilPaints.png" />
     <None Remove="Resources\Items\Palette.png" />
+    <None Remove="Resources\Items\RedMarker.png" />
     <None Remove="Resources\Passives\IsaacNewton_Passive_50.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
@@ -209,6 +210,7 @@
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_Corpse.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_OW.png" />
+    <EmbeddedResource Include="Resources\Items\RedMarker.png" />
     <EmbeddedResource Include="Resources\Items\SchmuckleTicket.png" />
     <EmbeddedResource Include="Resources\Items\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\BloodyHacksaw.png" />

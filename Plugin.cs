@@ -71,6 +71,7 @@ namespace BOStuffPack
             BlueCrown.Init(); // TODO: make a sprite
             InstrumentsOfMurder.Init();
             FramedE.Init();
+            RedMarker.Init();
         }
 
         public void Start()
