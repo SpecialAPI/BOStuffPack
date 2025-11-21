@@ -5,16 +5,16 @@ using System.Text;
 
 namespace BOStuffPack.Content.Items
 {
-    public static class PetrifyItem
+    public static class UnnamedItem17
     {
         public static void Init()
         {
-            var name = "";
-            var flav = "";
+            var name = "Unnamed Item 17";
+            var flav = "\"WIP\"";
             var desc = "Grey pigment can now be produced. This party member has \"Petrify\" as an additional ability.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("IDKYET_TW")
-                .SetBasicInformation(name, flav, desc, "CorruptedChunk")
+            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem17_TW")
+                .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(9)
                 .AddToTreasure();
 
