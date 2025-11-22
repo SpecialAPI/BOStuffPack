@@ -63,7 +63,7 @@ namespace BOStuffPack
             WorldShatter.Init();
             Keyring.Init();
             Pencil.Init();
-            //AlmightyBranch.Init();
+            AlmightyBranch.Init();
             UnnamedItem16.Init();
             MergingStones.Init();
             UnnamedItem17.Init(); // TODO: come up with a name and sprite
