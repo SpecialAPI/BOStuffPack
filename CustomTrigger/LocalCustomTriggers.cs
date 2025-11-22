@@ -12,5 +12,6 @@ namespace BOStuffPack.CustomTrigger
         public static readonly string OnAnyonesMaxHealthChanged = $"{MOD_PREFIX}_OnAnyonesMaxHealthChanged";
         public static readonly string OnAnyoneHealed = $"{MOD_PREFIX}_OnAnyoneHealed";
         public static readonly string OnAnyoneBeingDamaged = $"{MOD_PREFIX}_OnAnyoneBeingDamaged";
+        public static readonly string ModifyCanProducePigmentFromDamage_Anyone = $"{MOD_PREFIX}_ModifyCanProducePigmentFromDamage_Anyone";
     }
 }
