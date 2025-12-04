@@ -70,6 +70,7 @@ namespace BOStuffPack
             InstrumentsOfMurder.Init();
             FramedE.Init();
             RedMarker.Init();
+            UnnamedItem11.Init();
         }
 
         public void Start()
