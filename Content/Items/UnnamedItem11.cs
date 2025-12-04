@@ -10,7 +10,7 @@ namespace BOStuffPack.Content.Items
         {
             var name = "Unnamed Item 11";
             var flav = "\"WIP\"";
-            var desc = "Upon this party member moving themself to a new position, move all field effects on the party member side to this party member's new position.";
+            var desc = "Upon this party member moving themself to a new position, move all field effects on the party member side to their new position.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem11_SW")
                 .SetBasicInformation(name, flav, desc, "")
