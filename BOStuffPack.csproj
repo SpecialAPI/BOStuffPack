@@ -67,13 +67,6 @@
     <Compile Remove="Content\Effect\TargetDisplayTextEffect.cs" />
     <Compile Remove="Content\Effect\ThreatenEffect.cs" />
     <Compile Remove="Content\Effect\TranspileEffectIntoAbilityEffect.cs" />
-    <Compile Remove="Content\Items\Shop\SchmuckleTicket.cs" />
-    <Compile Remove="Content\Items\Shop\StrangeDevice.cs" />
-    <Compile Remove="Content\Items\Shop\WorldShatter.cs" />
-    <Compile Remove="Content\Items\Treasure\JesterHat.cs" />
-    <Compile Remove="Content\Items\Treasure\PetrifiedMedicine.cs" />
-    <Compile Remove="Content\Items\Treasure\SilverMirror.cs" />
-    <Compile Remove="Content\Items\Treasure\Simplifier.cs" />
     <Compile Remove="Content\Misc\CustomForbiddenFruit.cs" />
     <Compile Remove="Content\Misc\GadgetDB.cs" />
     <Compile Remove="Content\Misc\MinimizationValueModifier.cs" />
@@ -291,12 +284,6 @@
     <Reference Include="YarnSpinner.Unity">
       <HintPath>..\References\Unity\YarnSpinner.Unity.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Content\Items\Shop\" />
-    <Folder Include="Content\Items\StaticModifiers\" />
-    <Folder Include="Content\Items\Treasure\" />
   </ItemGroup>
 
 </Project>
