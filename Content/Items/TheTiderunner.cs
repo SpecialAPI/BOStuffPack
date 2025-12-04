@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BOStuffPack.Content.Items.Treasure
+namespace BOStuffPack.Content.Items
 {
     public static class TheTiderunner
     {
@@ -26,7 +26,7 @@ namespace BOStuffPack.Content.Items.Treasure
                 {
                     Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
 
-                    Effects.GenerateEffect(CreateScriptable<FieldEffect_Apply_Effect>(x => x._Field = StatusField.Constricted), 1, Targeting.Slot_SelfAll),
+                    Effects.GenerateEffect(CreateScriptable<FieldEffect_Apply_Effect>(x => x._Field = Status.Constricted), 1, Targeting.Slot_SelfAll),
                     Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 2))
                 })
                 .SetIntents(new()

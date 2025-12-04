@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BOStuffPack.Content.Items.Treasure
+namespace BOStuffPack.Content.Items
 {
     public static class WorldShatter
     {
@@ -16,12 +16,12 @@ namespace BOStuffPack.Content.Items.Treasure
             var abilityDesc = "Some things are simply too horrible to be described. Use it and find out, coward.\n\"At least it doesn't crash the game\"";
 
             var Damage = CreateScriptable<DamageEffect>();
-            var ApplyRuptured = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Ruptured);
-            var ApplyFocused = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Focused);
-            var ApplySpotlight = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Spotlight);
-            var ApplyGutted = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Gutted);
-            var ApplyFrail = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Frail);
-            var ApplyScars = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Scars);
+            var ApplyRuptured = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Ruptured);
+            var ApplyFocused = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Focused);
+            var ApplySpotlight = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Spotlight);
+            var ApplyGutted = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Gutted);
+            var ApplyFrail = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Frail);
+            var ApplyScars = CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Scars);
             var MoveRandom = CreateScriptable<SwapToSidesEffect>();
 
             var effects = new List<EffectInfo>();

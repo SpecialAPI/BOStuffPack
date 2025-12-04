@@ -293,4 +293,10 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Content\Items\Shop\" />
+    <Folder Include="Content\Items\StaticModifiers\" />
+    <Folder Include="Content\Items\Treasure\" />
+  </ItemGroup>
+
 </Project>

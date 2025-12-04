@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Yarn.Compiler;
 
-namespace BOStuffPack.Content.Items.Treasure
+namespace BOStuffPack.Content.Items
 {
     public static class SchmuckleTicket
     {

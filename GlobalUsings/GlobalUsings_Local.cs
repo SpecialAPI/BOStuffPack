@@ -2,7 +2,6 @@
 
 global using static BOStuffPack.Plugin;
 
-global using BOStuffPack.Content.Items.Treasure;
 global using BOStuffPack.Content.Effect;
 global using BOStuffPack.Content.TriggerEffects;
 

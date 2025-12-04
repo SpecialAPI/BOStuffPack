@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking.Types;
 
-namespace BOStuffPack.Content.Items.Treasure
+namespace BOStuffPack.Content.Items
 {
     public static class NewtonsApple
     {
@@ -112,7 +112,7 @@ namespace BOStuffPack.Content.Items.Treasure
                     .SetVisuals(Visuals.UglyOnTheInside, Targeting.Slot_Front)
                     .SetEffects(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Ruptured), appleRuptured, Targeting.Slot_Front),
+                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Ruptured), appleRuptured, Targeting.Slot_Front),
                         Effects.GenerateEffect(CreateScriptable<AddGravityEffect>(x =>
                         {
                             x.collider = ColliderType.Sphere;

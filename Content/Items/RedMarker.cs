@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BOStuffPack.Content.Items.Treasure
+namespace BOStuffPack.Content.Items
 {
     public static class RedMarker
     {
@@ -27,7 +27,7 @@ namespace BOStuffPack.Content.Items.Treasure
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = StatusField.Linked), 2, Targeting.Slot_Front)
+                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = Status.Linked), 2, Targeting.Slot_Front)
                     })
                 }
             });

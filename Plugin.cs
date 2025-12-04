@@ -1,8 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Bootstrap;
 using BOStuffPack.Content.Items;
-using BOStuffPack.Content.Items.Shop;
-using BOStuffPack.Content.Items.Treasure;
 using BOStuffPack.Content.Misc;
 using BOStuffPack.Content.Passive;
 using BOStuffPack.Content.StoredValues;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BOStuffPack.Content.Items.StaticModifiers
+namespace BOStuffPack.Content.StaticModifiers
 {
     public class ResetEverythingOnDisconnectStaticModifier : WearableStaticModifierSetterSO
     {
