@@ -73,6 +73,7 @@ namespace BOStuffPack
             RedMarker.Init();
             UnnamedItem11.Init();
             UnnamedItem18.Init();
+            UnnamedItem1.Init();
         }
 
         public void Start()

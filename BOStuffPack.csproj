@@ -254,6 +254,9 @@
     <Reference Include="BrutalAPI">
       <HintPath>..\References\BrutalOrchestra\BrutalAPI.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>..\References\BrutalOrchestra\DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="FMODUnity">
       <HintPath>..\References\Unity\FMODUnity.dll</HintPath>
     </Reference>
@@ -271,6 +274,9 @@
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Brutal Orchestra\BrutalOrchestra_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\References\Unity\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\Brutal Orchestra\BrutalOrchestra_Data\Managed\UnityEngine.UI.dll</HintPath>
