@@ -24,6 +24,7 @@ namespace BOStuffPack
         public static Harmony HarmonyInstance;
         public static AssetBundle Bundle;
         public static Assembly ModAssembly;
+        public static ModProfile Profile;
         public static bool ReversePatchesFinished;
 
         public static PostProcessResources PostProcessResources;
@@ -33,8 +34,8 @@ namespace BOStuffPack
             PostProcessResources = Resources.FindObjectsOfTypeAll<PostProcessResources>().FirstOrDefault();
             ModAssembly = Assembly.GetExecutingAssembly();
 
-            var profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
-            Bundle = profile.LoadAssetBundle("bostuffpack");
+            Profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
+            Bundle = Profile.LoadAssetBundle("bostuffpack");
 
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack.strings");
@@ -71,6 +72,7 @@ namespace BOStuffPack
             FramedE.Init();
             RedMarker.Init();
             UnnamedItem11.Init();
+            UnnamedItem18.Init();
         }
 
         public void Start()
