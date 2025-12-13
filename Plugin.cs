@@ -74,6 +74,7 @@ namespace BOStuffPack
             UnnamedItem11.Init();
             UnnamedItem18.Init();
             UnnamedItem1.Init();
+            UnnamedItem3.Init();
         }
 
         public void Start()
