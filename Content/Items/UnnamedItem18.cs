@@ -1,5 +1,6 @@
 ﻿using BOStuffPack.Content.Misc;
 using BOStuffPack.DynamicAppearances;
+using BOStuffPack.Tools;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,8 @@ namespace BOStuffPack.Content.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
-            var dataKey = Profile.GetID("SavedStatusEffects");
+            var seDataKey = Profile.GetID("SavedStatusEffects");
+            var svDataKey = Profile.GetID("SavedStoredValues");
             item.SetTriggerEffects(new()
             {
                 new()
@@ -28,7 +30,9 @@ namespace BOStuffPack.Content.Items
                     doesPopup = true,
                     immediate = false,
 
-                    effect = new SaveSenderStatusEffectsEffect(dataKey)
+                    effect =
+                        new SaveSenderStatusEffectsEffect(seDataKey)
+                        .Add(new SaveSenderStoredValuesTriggerEffect(svDataKey))
                 },
                 new()
                 {
@@ -36,10 +40,12 @@ namespace BOStuffPack.Content.Items
                     doesPopup = true,
                     immediate = false,
 
-                    effect = new ApplySavedStatusEffectsToSenderTriggerEffect(dataKey)
+                    effect =
+                        new ApplySavedStatusEffectsToSenderTriggerEffect(seDataKey)
+                        .Add(new ApplySavedStoredValuesToSenderTriggerEffect(svDataKey))
                 }
             });
-            item.AttachDynamicAppearance(new UnnamedItem18DynamicAppearance(dataKey));
+            item.AttachDynamicAppearance(new UnnamedItem18DynamicAppearance(seDataKey));
         }
     }
 }
