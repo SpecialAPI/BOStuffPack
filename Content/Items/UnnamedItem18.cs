@@ -39,6 +39,7 @@ namespace BOStuffPack.Content.Items
                     effect = new ApplySavedStatusEffectsToSenderTriggerEffect(dataKey)
                 }
             });
+            item.AttachDynamicAppearance(new UnnamedItem18DynamicAppearance(dataKey));
         }
     }
 }
