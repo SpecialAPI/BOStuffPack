@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BOStuffPack.Content.Misc;
+using BOStuffPack.DynamicAppearances;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -22,7 +24,7 @@ namespace BOStuffPack.Content.Items
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnFirstTurnStart.ToString(),
+                    trigger = TriggerCalls.OnCombatEnd.ToString(),
                     doesPopup = true,
                     immediate = false,
 
@@ -30,7 +32,7 @@ namespace BOStuffPack.Content.Items
                 },
                 new()
                 {
-                    trigger = TriggerCalls.OnCombatStart.ToString(),
+                    trigger = TriggerCalls.OnFirstTurnStart.ToString(),
                     doesPopup = true,
                     immediate = false,
 
