@@ -5,13 +5,14 @@ using System.Text;
 
 namespace BOStuffPack.Content.Misc
 {
-    public class UnnamedItem18DynamicAppearance(string dataKey) : DynamicItemAppearanceBase
+    public class UnnamedItem18DynamicAppearance(string seDataKey, string svDataKey) : DynamicItemAppearanceBase
     {
-        public const string SavedStatusString = "Saved status effects: {0}";
+        public static readonly string SavedStatusString = "Saved status effects: {0}.".Colorize(new Color32(0, 139, 255, 255));
+        public static readonly string SavedSVString = "{0} saved stored values.".Colorize(new Color32(0, 139, 255, 255));
 
         public override void ModifyItemDescription(ref string description)
         {
-            if (string.IsNullOrEmpty(dataKey))
+            if (string.IsNullOrEmpty(seDataKey))
                 return;
 
             var infoHolder = LoadedDBsHandler.InfoHolder;
@@ -21,9 +22,57 @@ namespace BOStuffPack.Content.Misc
             if (infoHolder.Run == null || infoHolder.Run.InGameData is not IInGameRunData dat)
                 return;
 
-            var savedStatuses = dat.GetStringData(dataKey);
+            var seString = GetStatusString(dat);
+            if (!string.IsNullOrEmpty(seString))
+            {
+                if(!description.EndsWith("\n"))
+                    description += "\n";
+                description += seString;
+            }
+
+            var svString = GetSVString(dat);
+            if (!string.IsNullOrEmpty(svString))
+            {
+                if(!description.EndsWith("\n"))
+                    description += "\n";
+                description += svString;
+            }
+        }
+
+        public string GetSVString(IInGameRunData dat)
+        {
+            var savedValues = dat.GetStringData(svDataKey);
+            if (string.IsNullOrEmpty(savedValues))
+                return string.Empty;
+
+            var svData = savedValues.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
+            var validSVCounter = 0;
+            foreach (var sv in svData)
+            {
+                var commaIdx = sv.IndexOf(',');
+                if (commaIdx < 0)
+                    continue;
+
+                var svID = sv.Substring(0, commaIdx);
+                var amtString = sv.Substring(commaIdx + 1);
+
+                if (!LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(svID) || !int.TryParse(amtString, out var amt))
+                    continue;
+
+                validSVCounter++;
+            }
+
+            if (validSVCounter <= 0)
+                return string.Empty;
+
+            return string.Format(SavedSVString, validSVCounter);
+        }
+
+        public string GetStatusString(IInGameRunData dat)
+        {
+            var savedStatuses = dat.GetStringData(seDataKey);
             if (string.IsNullOrEmpty(savedStatuses))
-                return;
+                return string.Empty;
 
             var statusData = savedStatuses.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
             var statusTexts = new List<string>();
@@ -53,12 +102,9 @@ namespace BOStuffPack.Content.Misc
             }
 
             if (statusTexts.Count <= 0)
-                return;
+                return string.Empty;
 
-            if (!description.EndsWith("\n"))
-                description += "\n";
-
-            description += string.Format(SavedStatusString, string.Join(", ", statusTexts)).Colorize(new Color32(0, 139, 255, 255));
+            return string.Format(SavedStatusString, string.Join(", ", statusTexts));
         }
     }
 }

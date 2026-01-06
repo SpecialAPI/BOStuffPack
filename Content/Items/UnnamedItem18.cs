@@ -13,7 +13,7 @@ namespace BOStuffPack.Content.Items
         {
             var name = "Unnamed Item 18";
             var flav = "\"WIP\"";
-            var desc = "At the end of combat, save all status effects on this party member. At the start of combat, apply all saved status effects to this party member.";
+            var desc = "At the end of combat, save all status effects and stored values on this party member. At the start of combat, apply all saved status effects and stored values to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem18_TW")
                 .SetBasicInformation(name, flav, desc, "")
@@ -45,7 +45,7 @@ namespace BOStuffPack.Content.Items
                         .Add(new ApplySavedStoredValuesToSenderTriggerEffect(svDataKey))
                 }
             });
-            item.AttachDynamicAppearance(new UnnamedItem18DynamicAppearance(seDataKey));
+            item.AttachDynamicAppearance(new UnnamedItem18DynamicAppearance(seDataKey, svDataKey));
         }
     }
 }
