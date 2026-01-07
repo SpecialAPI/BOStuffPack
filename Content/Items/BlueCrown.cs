@@ -10,7 +10,7 @@ namespace BOStuffPack.Content.Items
         public static void Init()
         {
             var name = "Blue Crown";
-            var flav = "\"Recently set with freshly cut sapphires\"";
+            var flav = "\"Heavy is the crown.\"";
             var desc = "Adds Red Essence to this party member as a passive. Upon red lucky pigment being produced, randomize stored pigment.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("BlueCrown")
