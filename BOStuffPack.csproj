@@ -121,9 +121,6 @@
     <None Remove="Resources\Achievements\Unlock_Heaven.png" />
     <None Remove="Resources\Achievements\Unlock_Osman.png" />
     <None Remove="Resources\Achievements\Unlock_Tragedy.png" />
-    <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_50.png" />
-    <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_Back_50.png" />
-    <None Remove="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
     <None Remove="Resources\Characters\ShardOfNowak\ShardOfNowak.png" />
     <None Remove="Resources\Characters\ShardOfNowak\ShardOfNowak_Back.png" />
     <None Remove="Resources\Characters\ShardOfNowak\ShardOfNowak_OW.png" />
@@ -141,7 +138,6 @@
     <None Remove="Resources\Items\OilPaints.png" />
     <None Remove="Resources\Items\Palette.png" />
     <None Remove="Resources\Items\RedMarker.png" />
-    <None Remove="Resources\Passives\IsaacNewton_Passive_50.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
   </ItemGroup>
@@ -194,9 +190,6 @@
     <EmbeddedResource Include="Resources\Achievements\Unlock_Heaven.png" />
     <EmbeddedResource Include="Resources\Achievements\Unlock_Osman.png" />
     <EmbeddedResource Include="Resources\Achievements\Unlock_Tragedy.png" />
-    <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_50.png" />
-    <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_Back_50.png" />
-    <EmbeddedResource Include="Resources\Characters\IsaacNewton\IsaacNewton_OW.png" />
     <EmbeddedResource Include="Resources\Characters\ShardOfNowak\ShardOfNowak.png" />
     <EmbeddedResource Include="Resources\Characters\ShardOfNowak\ShardOfNowak_Back.png" />
     <EmbeddedResource Include="Resources\Characters\ShardOfNowak\ShardOfNowak_OW.png" />
@@ -230,7 +223,6 @@
     <EmbeddedResource Include="Resources\Items\TheSquirrel.png" />
     <EmbeddedResource Include="Resources\Items\TheTiderunner.png" />
     <EmbeddedResource Include="Resources\Items\WorldShatter.png" />
-    <EmbeddedResource Include="Resources\Passives\IsaacNewton_Passive_50.png" />
     <EmbeddedResource Include="Resources\Passives\Merged.png" />
     <EmbeddedResource Include="Resources\Passives\Shapeshifter.png" />
   </ItemGroup>
