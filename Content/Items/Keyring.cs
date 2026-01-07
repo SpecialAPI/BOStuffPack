@@ -1,4 +1,5 @@
-﻿using BOStuffPack.Content.StoredValues;
+﻿using BOStuffPack.Content.StaticModifiers;
+using BOStuffPack.Content.StoredValues;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,7 +29,8 @@ namespace BOStuffPack.Content.Items
                 (Pigments.Purple, LocalStoredValues.StoredValue_KeybladePTurn, "Purple"),
             };
 
-            var lockAbilities = new List<EffectInfo>();
+            var lockAbilities = new List<CharacterAbility>();
+            var addLockEffects = new List<EffectInfo>();
 
             for (int i = 0; i < colors.Count; i++)
             {
@@ -77,7 +79,8 @@ namespace BOStuffPack.Content.Items
                     .AddToCharacterDatabase()
                     .CharacterAbility(pigment, pigment, pigment);
 
-                lockAbilities.Add(Effects.GenerateEffect(CreateScriptable<CasterAddOrRemoveExtraAbilityEffect>(x => x._extraAbility = ExtraAbilityModifier(lockAb))));
+                lockAbilities.Add(lockAb);
+                addLockEffects.Add(Effects.GenerateEffect(CreateScriptable<CasterAddOrRemoveExtraAbilityEffect>(x => x._extraAbility = ExtraAbilityModifier(lockAb))));
             }
 
             item.triggerEffects = new()
@@ -87,9 +90,10 @@ namespace BOStuffPack.Content.Items
                     trigger = TriggerCalls.OnCombatStart.ToString(),
                     doesPopup = true,
 
-                    effect = new PerformEffectTriggerEffect(lockAbilities)
+                    effect = new PerformEffectTriggerEffect(addLockEffects)
                 }
             };
+            item.SetStaticModifiers(ModdedDataModifier(new OverworldAbilityDisplayStaticModifier(lockAbilities)));
         }
     }
 }
