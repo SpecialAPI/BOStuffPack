@@ -47,7 +47,7 @@ namespace BOStuffPack.Content.Effect
                 {
                     currenthealth += e.CurrentHealth;
                     maxhealth += e.MaximumHealth;
-                    extraabilities += e.SimpleGetStoredValue(StuffPackStoredValues.StoredValue_MergedCount._UnitStoreDataID) + 1;
+                    extraabilities += e.SimpleGetStoredValue(LocalStoredValues.StoredValue_MergedCount._UnitStoreDataID) + 1;
                 }
 
                 if (currenthealth <= 0 || maxhealth <= 0 || extraabilities < 0)
@@ -76,8 +76,8 @@ namespace BOStuffPack.Content.Effect
                 yield break;
 
             en.CurrentHealth = Math.Min(maxHealth, currentHealth);
-            en.SimpleSetStoredValue(StuffPackStoredValues.StoredValue_MergedCount._UnitStoreDataID, extraAbilities);
-            en.AddPassiveAbility(StuffPackPassives.Merged);
+            en.SimpleSetStoredValue(LocalStoredValues.StoredValue_MergedCount._UnitStoreDataID, extraAbilities);
+            en.AddPassiveAbility(LocalPassives.Merged);
         }
     }
 }

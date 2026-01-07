@@ -43,8 +43,8 @@ namespace BOStuffPack
             HarmonyInstance = new Harmony(MOD_GUID);
             HarmonyInstance.PatchAll();
 
-            StuffPackStoredValues.Init();
-            StuffPackPassives.Init();
+            LocalStoredValues.Init();
+            LocalPassives.Init();
 
             TheTiderunner.Init();
             BloodyHacksaw.Init();

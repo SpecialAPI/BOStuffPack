@@ -29,7 +29,7 @@ namespace BOStuffPack.Content.Items
 
                     effect = new BlankBookSetAbilityTriggerEffect()
                     {
-                        storedValue = StuffPackStoredValues.StoredValue_BlankBookAbility._UnitStoreDataID
+                        storedValue = LocalStoredValues.StoredValue_BlankBookAbility._UnitStoreDataID
                     }
                 },
                 new()
@@ -40,7 +40,7 @@ namespace BOStuffPack.Content.Items
 
                     effect = new BlankBookSetPassiveTriggerEffect()
                     {
-                        storedValue = StuffPackStoredValues.StoredValue_BlankBookPassive._UnitStoreDataID
+                        storedValue = LocalStoredValues.StoredValue_BlankBookPassive._UnitStoreDataID
                     }
                 },
                 new TriggerEffectAndTriggersInfo()
@@ -52,10 +52,10 @@ namespace BOStuffPack.Content.Items
 
                     effect = new SetUpAndProduceWrittenBookTriggerEffect()
                     {
-                        abilityStoredValue = StuffPackStoredValues.StoredValue_BlankBookAbility._UnitStoreDataID,
+                        abilityStoredValue = LocalStoredValues.StoredValue_BlankBookAbility._UnitStoreDataID,
                         abilityDataKey = WrittenBook.ExtraAbilityDataKey,
 
-                        passiveStoredValue = StuffPackStoredValues.StoredValue_BlankBookPassive._UnitStoreDataID,
+                        passiveStoredValue = LocalStoredValues.StoredValue_BlankBookPassive._UnitStoreDataID,
                         passiveDataKey = WrittenBook.ExtraPassiveDataKey,
 
                         itemID = Profile.GetID("WrittenBook_ExtraW")

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Content.StoredValues
 {
-    public static class StuffPackStoredValues
+    public static class LocalStoredValues
     {
         public static UnitStoreData_BasicSO StoredValue_MergedCount;
         public static UnitStoreData_BasicSO StoredValue_KeybladeRTurn;

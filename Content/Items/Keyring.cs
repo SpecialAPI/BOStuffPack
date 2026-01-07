@@ -22,10 +22,10 @@ namespace BOStuffPack.Content.Items
 
             var colors = new List<(ManaColorSO pigmentColor, UnitStoreData_BasicSO keyStoredValue, string spritePostfix)>()
             {
-                (Pigments.Red, StuffPackStoredValues.StoredValue_KeybladeRTurn, "Red"),
-                (Pigments.Blue, StuffPackStoredValues.StoredValue_KeybladeBTurn, "Blue"),
-                (Pigments.Yellow, StuffPackStoredValues.StoredValue_KeybladeYTurn, "Yellow"),
-                (Pigments.Purple, StuffPackStoredValues.StoredValue_KeybladePTurn, "Purple"),
+                (Pigments.Red, LocalStoredValues.StoredValue_KeybladeRTurn, "Red"),
+                (Pigments.Blue, LocalStoredValues.StoredValue_KeybladeBTurn, "Blue"),
+                (Pigments.Yellow, LocalStoredValues.StoredValue_KeybladeYTurn, "Yellow"),
+                (Pigments.Purple, LocalStoredValues.StoredValue_KeybladePTurn, "Purple"),
             };
 
             var lockAbilities = new List<EffectInfo>();

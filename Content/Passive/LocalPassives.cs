@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BOStuffPack.Content.Passive
 {
-    public static class StuffPackPassives
+    public static class LocalPassives
     {
         public static BasePassiveAbilitySO Merged;
 
@@ -14,7 +14,7 @@ namespace BOStuffPack.Content.Passive
             Merged = NewPassive<MultiCustomTriggerEffectPassive>("Merged_PA", "Merged")
                 .SetBasicInformation("Merged", "Merged")
                 .SetEnemyDescription("This enemy will perform an additional ability for each enemy merged into it.")
-                .SetStoredValue(StuffPackStoredValues.StoredValue_MergedCount)
+                .SetStoredValue(LocalStoredValues.StoredValue_MergedCount)
                 .SetTriggerEffects(new()
                 {
                     new()
@@ -27,7 +27,7 @@ namespace BOStuffPack.Content.Passive
                         effect = new ModifyIntegerReferenceTriggerEffect()
                         {
                             Operation = IntOperation.Add,
-                            StoredValue = StuffPackStoredValues.StoredValue_MergedCount._UnitStoreDataID,
+                            StoredValue = LocalStoredValues.StoredValue_MergedCount._UnitStoreDataID,
                             UseStoredValue = true
                         }
                     }
