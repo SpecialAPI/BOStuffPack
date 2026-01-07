@@ -75,6 +75,8 @@ namespace BOStuffPack
             UnnamedItem18.Init();
             UnnamedItem1.Init();
             UnnamedItem3.Init();
+            BlankBook.Init();
+            WrittenBook.Init();
         }
 
         public void Start()
