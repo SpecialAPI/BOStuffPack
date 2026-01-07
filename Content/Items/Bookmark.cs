@@ -7,18 +7,18 @@ using System.Text;
 
 namespace BOStuffPack.Content.Items
 {
-    public static class UnnamedItem18
+    public static class Bookmark
     {
         public static void Init()
         {
-            var name = "Unnamed Item 18";
+            var name = "Bookmark";
             var flav = "\"WIP\"";
             var desc = "At the end of combat, save all status effects and stored values on this party member. At the start of combat, apply all saved status effects and stored values to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem18_TW")
-                .SetBasicInformation(name, flav, desc, "")
-                .SetPrice(13)
-                .AddToTreasure();
+            var item = NewItem<MultiCustomTriggerEffectWearable>("Bookmark_SW")
+                .SetBasicInformation(name, flav, desc, "Bookmark")
+                .SetPrice(7)
+                .AddToShop();
 
             var seDataKey = Profile.GetID("SavedStatusEffects");
             var svDataKey = Profile.GetID("SavedStoredValues");
@@ -45,7 +45,7 @@ namespace BOStuffPack.Content.Items
                         .Add(new ApplySavedStoredValuesToSenderTriggerEffect(svDataKey))
                 }
             });
-            item.AttachDynamicAppearance(new UnnamedItem18DynamicAppearance(seDataKey, svDataKey));
+            item.AttachDynamicAppearance(new BookmarkDynamicAppearance(seDataKey, svDataKey));
         }
     }
 }

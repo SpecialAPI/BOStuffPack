@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BOStuffPack.Content.Misc
 {
-    public class UnnamedItem18DynamicAppearance(string seDataKey, string svDataKey) : DynamicItemAppearanceBase
+    public class BookmarkDynamicAppearance(string seDataKey, string svDataKey) : DynamicItemAppearanceBase
     {
         public static readonly string SavedStatusString = "Saved status effects: {0}.".Colorize(new Color32(0, 139, 255, 255));
         public static readonly string SavedSVString = "{0} saved stored values.".Colorize(new Color32(0, 139, 255, 255));

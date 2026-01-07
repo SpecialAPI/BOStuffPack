@@ -72,7 +72,7 @@ namespace BOStuffPack
             FramedE.Init();
             RedMarker.Init();
             UnnamedItem11.Init();
-            UnnamedItem18.Init();
+            Bookmark.Init();
             UnnamedItem1.Init();
             UnnamedItem3.Init();
             BlankBook.Init();
