@@ -40,12 +40,7 @@ namespace BOStuffPack.Content.Effect
 
                 else
                 {
-                    var modValue = (damageInfo == null || !damageInfo.DisableOnBeingDamagedCalls) ? caster.WillApplyDamage(entryVariable, t.Unit) : entryVariable;
-
-                    if (damageInfo != null && damageInfo.ExtraDamageModifierPercentage != 0)
-                        modValue = (int)Mathf.LerpUnclamped(entryVariable, modValue, 1f + (damageInfo.ExtraDamageModifierPercentage / 100f));
-
-                    exitAmount += t.Unit.SpecialDamage(modValue, caster, damageInfo, deathType, targetOffset, !dryDamage, true, ignoreShield, specialDamageType).damageAmount;
+                    exitAmount += t.Unit.SpecialDamage(caster.WillApplyDamage(entryVariable, t.Unit), caster, damageInfo, deathType, targetOffset, !dryDamage, true, ignoreShield, specialDamageType).damageAmount;
                 }
             }
 
