@@ -23,7 +23,7 @@ namespace BOStuffPack.Content.Effect
                 if(t.Unit is not CharacterCombat cc || !CompareInts(cc.ClampedRank, rankTarget, rankComparison))
                     continue;
 
-                t.Unit.DirectDeath(caster, obliterate);
+                t.Unit.DirectDeath(caster, obliterate, out _);
             }
 
             return exitAmount > 0;

@@ -20,7 +20,7 @@ namespace BOStuffPack.Content.Effect
 
                 if (newHealth <= 0)
                 {
-                    if (t.Unit.DirectDeath(caster))
+                    if (t.Unit.DirectDeath(caster, false, out _))
                         exitAmount++;
                 }
 

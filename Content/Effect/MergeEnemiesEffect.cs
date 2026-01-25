@@ -54,7 +54,7 @@ namespace BOStuffPack.Content.Effect
                     continue;
 
                 foreach (var e in targettedEnemies)
-                    e.DirectDeath(null, false);
+                    e.DirectDeath(null, false, out _);
 
                 CombatManager.Instance.AddSubAction(new TrySpawnMergedEnemyAction(en, true, maxhealth, currenthealth, extraabilities));
                 exitAmount += targettedEnemies.Count;
