@@ -49,7 +49,7 @@ namespace BOStuffPack.Content.Items
             {
                 new()
                 {
-                    trigger = LocalCustomTriggers.OnAnyoneBeingDamaged,
+                    trigger = TriggerCalls.OnAnyoneBeingDamaged.ToString(),
                     doesPopup = true,
                     immediate = true,
 
