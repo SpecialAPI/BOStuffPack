@@ -77,6 +77,7 @@ namespace BOStuffPack
             UnnamedItem3.Init();
             BlankBook.Init();
             WrittenBook.Init();
+            Blasphemy.Init();
         }
 
         public void Start()
