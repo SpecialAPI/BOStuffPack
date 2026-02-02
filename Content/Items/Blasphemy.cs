@@ -14,7 +14,7 @@ namespace BOStuffPack.Content.Items
             var flav = "\"Godslayer.\"";
             var desc = "This party member has Anointed (1) as a passive. Round up all damage dealt by this party member to 50% of its original value. This is applied after all damage modifiers on the target.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("Blasphemy_A")
+            var item = NewItem<MultiCustomTriggerEffectWearable>("Blasphemy_TW")
                 .SetBasicInformation(name, flav, desc, "Blasphemy")
                 .SetStaticModifiers(ExtraPassiveModifier(Passives.Anointed1))
                 .SetPrice(13)
