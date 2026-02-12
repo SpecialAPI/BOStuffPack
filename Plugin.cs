@@ -79,6 +79,7 @@ namespace BOStuffPack
             WrittenBook.Init();
             Blasphemy.Init();
             UnnamedItem31.Init();
+            DiceBullets.Init();
         }
 
         public void Start()
