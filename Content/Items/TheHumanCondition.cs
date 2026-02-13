@@ -17,16 +17,6 @@ namespace BOStuffPack.Content.Items
                 .SetEnemyDescription("Upon receiving direct damage, render this enemy female and reroll all of its abilities.")
                 .AddToDatabase();
 
-            evilReborn.SetConnectionEffects(new()
-            {
-                new()
-                {
-                    immediate = true,
-                    doesPopup = true,
-
-                    effect = null
-                }
-            });
             evilReborn.SetTriggerEffects(new()
             {
                 new()
@@ -65,7 +55,7 @@ namespace BOStuffPack.Content.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<AddPassiveEffect>(x => x._passiveToAdd = evilReborn), 0, Targeting.Unit_AllOpponents)
+                        Effects.GenerateEffect(CreateScriptable<AddPassiveWithPopupEffect>(x => x.passive = evilReborn), 0, Targeting.Unit_AllOpponents)
                     }),
                     conditions = [CreateScriptable<CheckBundleDifficultyEffectorCondition>(x =>
                     {
