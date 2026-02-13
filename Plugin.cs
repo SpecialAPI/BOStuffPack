@@ -74,7 +74,7 @@ namespace BOStuffPack
             UnnamedItem11.Init();
             Bookmark.Init();
             UnnamedItem1.Init();
-            UnnamedItem3.Init();
+            TheHumanCondition.Init();
             BlankBook.Init();
             WrittenBook.Init();
             Blasphemy.Init();

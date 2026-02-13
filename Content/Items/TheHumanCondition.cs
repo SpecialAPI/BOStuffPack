@@ -4,12 +4,12 @@ using System.Text;
 
 namespace BOStuffPack.Content.Items
 {
-    public static class UnnamedItem3
+    public static class TheHumanCondition
     {
         public static void Init()
         {
-            var name = "Unnamed Item 3";
-            var flav = "\"WIP\"";
+            var name = "The Human Condition";
+            var flav = "\"What it means to be human.\"";
             var desc = "At the start of combat, add Reborn to all enemies as a passive.\nThis item has no effect in boss encounters.";
 
             var evilReborn = NewPassive<MultiCustomTriggerEffectPassive>("EvilReborn_PA", PassiveType_GameIDs.Reborn.ToString())
@@ -50,8 +50,8 @@ namespace BOStuffPack.Content.Items
                 }
             });
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem3_TW")
-                .SetBasicInformation(name, flav, desc, "")
+            var item = NewItem<MultiCustomTriggerEffectWearable>("TheHumanCondition_TW")
+                .SetBasicInformation(name, flav, desc, "TheHumanCondition")
                 .SetPrice(15)
                 .AddToTreasure();
 

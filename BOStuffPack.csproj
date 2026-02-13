@@ -197,6 +197,7 @@
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_Corpse.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_OW.png" />
+    <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
     <EmbeddedResource Include="Resources\Items\MergingStonesv2.png" />
     <EmbeddedResource Include="Resources\Items\RedMarker.png" />
     <EmbeddedResource Include="Resources\Items\SchmuckleTicket.png" />
