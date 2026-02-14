@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grimoire.HealthColorOptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace BOStuffPack.Content.Effect
     public class AddNewPassiveNotInHealthOptionsEffect : EffectSO
     {
         public List<(string pigment, BasePassiveAbilitySO passive)> passives;
+        public bool addToRandomTarget;
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -15,21 +17,48 @@ namespace BOStuffPack.Content.Effect
             if (passives == null)
                 return false;
 
+            if (targets.Length <= 0)
+                return false;
+
+            if (addToRandomTarget)
+            {
+                var options = targets.Where(x => x != null && x.HasUnit).ToArray();
+
+                if (options.Length <= 0)
+                    return false;
+
+                targets = [options.RandomElement()];
+            }
+
             foreach (var target in targets)
             {
-                if (target.HasUnit)
+                if (target == null || !target.HasUnit)
+                    continue;
+
+                var u = target.Unit;
+                var possiblePassives = passives.ToList();
+                var added = 0;
+
+                while (possiblePassives.Count > 0 && added < entryVariable)
                 {
-                    var u = target.Unit;
-                    var possiblePassives = passives.FindAll(x => x.passive != null && !target.Unit.ContainsPassiveAbility(x.passive.m_PassiveID) && !target.Unit.Ext().HealthColors.Exists(x2 => x2.pigmentID == x.pigment));
+                    var idx = Random.Range(0, possiblePassives.Count);
+                    var (pigment, passive) = possiblePassives[idx];
+                    possiblePassives.RemoveAt(idx);
 
-                    if (possiblePassives.Count > 0)
-                    {
-                        var (pigment, passive) = possiblePassives[Random.Range(0, possiblePassives.Count)];
+                    if (pigment == null || passive == null)
+                        continue;
 
-                        if (u.AddPassiveAbility(passive))
-                            exitAmount++;
-                    }
+                    if (u.ContainsPassiveAbility(passive.m_PassiveID))
+                        continue;
+
+                    if (u.GetHealthColorOptions().Any(x => x.pigmentID == pigment))
+                        continue;
+
+                    u.AddPassiveAbility(passive);
+                    added++;
                 }
+
+                exitAmount += added;
             }
 
             return exitAmount > 0;
