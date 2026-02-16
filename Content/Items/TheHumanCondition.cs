@@ -14,7 +14,7 @@ namespace BOStuffPack.Content.Items
 
             var evilReborn = NewPassive<MultiCustomTriggerEffectPassive>("EvilReborn_PA", PassiveType_GameIDs.Reborn.ToString())
                 .SetBasicInformation("Reborn", Passives.RebornToInHerImage.passiveIcon)
-                .SetEnemyDescription("Upon receiving direct damage, render this enemy female and reroll all of its abilities.")
+                .SetEnemyDescription("When this enemy receives damage it will be rendered female and all of its abilities on the timeline will be rerolled into \"Blood Bath\".")
                 .AddToDatabase();
 
             evilReborn.SetTriggerEffects(new()
@@ -34,7 +34,12 @@ namespace BOStuffPack.Content.Items
                             x._maintainTimelineAbilities = true;
                             x._fullyHeal = false;
                         })),
-                        Effects.GenerateEffect(CreateScriptable<ReRollTargetTimelineAbilityEffect>(), 157157157, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CreateScriptable<RerollTargetTimelineAbilityIntoSpecificAbilityEffect>(x =>
+                        {
+                            x.abId = "BloodBath_A";
+                            x.rerollAll = true;
+                            x.ignoreCantReroll = true;
+                        }), 0, Targeting.Slot_SelfSlot)
                     }),
                     conditions = [CreateScriptable<IsAliveEffectorCondition>(x => x.checkByCurrentHealth = true)]
                 }
