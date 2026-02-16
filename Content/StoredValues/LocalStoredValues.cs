@@ -12,6 +12,7 @@ namespace BOStuffPack.Content.StoredValues
         public static UnitStoreData_BasicSO StoredValue_KeybladeYTurn;
         public static UnitStoreData_BasicSO StoredValue_KeybladePTurn;
         public static UnitStoreData_BasicSO StoredValue_Blood;
+        public static UnitStoreData_BasicSO StoredValue_UnnamedItem5;
 
         public static UnitStoreData_BasicSO StoredValue_MergingStones;
         public static UnitStoreData_BasicSO StoredValue_BlankBookAbility;
@@ -26,6 +27,7 @@ namespace BOStuffPack.Content.StoredValues
             StoredValue_KeybladeYTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladeYTurn_USD", "KeybladeYTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade Y Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
             StoredValue_KeybladePTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladePTurn_USD", "KeybladePTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
             StoredValue_Blood = NewStoredValue<AdvancedStoredValueIntInfo>("Blood_USD", "Blood").SetColor(StoredValueColor_Negative).SetFormat("Blood: {0}");
+            StoredValue_UnnamedItem5 = NewStoredValue<UnitStoreData_BasicSO>("UnnamedItem5_USD", "UnnamedItem5");
 
             StoredValue_MergingStones = NewStoredValue<MergingStonesStoredValue>("MergingStones_USD", "MergingStones").SetColor(StoredValueColor_Rare).SetFormat("Merging Stones: {0}");
             StoredValue_BlankBookAbility = NewStoredValue<CombatAbilityStoredValue>("BlankBook_Ability_USD", "BlankBook_Ability").SetColor(StoredValueColor_Rare).SetFormat("Last used ability: {0}");
