@@ -80,6 +80,7 @@ namespace BOStuffPack
             UnnamedItem31.Init();
             DiceBullets.Init();
             UnnamedItem5.Init();
+            UnnamedItem35.Init();
         }
 
         public void Start()
