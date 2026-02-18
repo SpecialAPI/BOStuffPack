@@ -203,7 +203,6 @@
     <EmbeddedResource Include="Resources\Items\SchmuckleTicket.png" />
     <EmbeddedResource Include="Resources\Items\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\BloodyHacksaw.png" />
-    <EmbeddedResource Include="Resources\Items\CombatDice.png" />
     <EmbeddedResource Include="Resources\Items\ConjoinedFungi.png" />
     <EmbeddedResource Include="Resources\Items\FramedE.png" />
     <EmbeddedResource Include="Resources\Items\InstrumentsOfMurder.png" />

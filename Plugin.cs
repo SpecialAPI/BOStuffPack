@@ -50,7 +50,6 @@ namespace BOStuffPack
             BloodyHacksaw.Init();
             ConjoinedFungi.Init();
             SchmuckleTicket.Init();
-            CombatDice.Init();
             RipAndTear.Init();
             TheSquirrel.Init();
             Survivorship.Init();
