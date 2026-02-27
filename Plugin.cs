@@ -64,9 +64,9 @@ namespace BOStuffPack
             AlmightyBranch.Init();
             UnnamedItem16.Init();
             MergingStones.Init();
-            UnnamedItem17.Init(); // TODO: come up with a name and sprite
+            UnnamedItem17.Init();
             PaperCrown.Init();
-            BlueCrown.Init(); // TODO: make a sprite
+            BlueCrown.Init();
             InstrumentsOfMurder.Init();
             FramedE.Init();
             RedMarker.Init();
