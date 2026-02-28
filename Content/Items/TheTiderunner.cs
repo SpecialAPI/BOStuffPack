@@ -20,7 +20,7 @@ namespace BOStuffPack.Content.Items
             var abilityDesc = "If this party member isn't Constricted, refresh them. Apply 1 Constricted to this party member's position.";
 
             var ab = NewAbility("Anchor_A")
-                .SetBasicInformation(abilityName, abilityDesc, "AttackIcon_Anchor")
+                .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_Anchor")
                 .SetVisuals(Visuals.Resolve, Targeting.Slot_SelfSlot)
                 .SetEffects(new()
                 {
@@ -34,7 +34,6 @@ namespace BOStuffPack.Content.Items
                     TargetIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Other_Refresh.ToString()),
                     TargetIntent(Targeting.Slot_SelfAll, IntentType_GameIDs.Field_Constricted.ToString())
                 })
-                .AddToCharacterDatabase()
                 .CharacterAbility(Pigments.Yellow);
 
             var itm = NewItem<MultiCustomTriggerEffectWearable>("TheTiderunner_TW")

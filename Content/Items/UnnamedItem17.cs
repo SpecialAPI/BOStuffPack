@@ -22,7 +22,7 @@ namespace BOStuffPack.Content.Items
             var abDesc = "Change the left ally's health color to grey.\nIf this fails or the left ally's color is already grey, deal 1 damage to the left ally.\nDamage dealt by this ability produces 1 more pigment than it normally would.";
 
             var ab = NewAbility("Petrify_A")
-                .SetBasicInformation(abName, abDesc)
+                .SetBasicInformationCharacter(abName, abDesc)
                 .SetVisuals(Visuals.Scream, Targeting.Slot_AllyLeft)
                 .SetEffects(new()
                 {
@@ -30,7 +30,6 @@ namespace BOStuffPack.Content.Items
                     Effects.GenerateEffect(CreateScriptable<SpecialDamageEffect>(x => x.damageInfo = new() { ExtraPigment = 1 }), 1, Targeting.Slot_AllyLeft, Effects.CheckPreviousEffectCondition(false, 1)),
                 })
                 .AddIntent(Targeting.Slot_AllyLeft, IntentType_GameIDs.Mana_Modify.ToString(), IntentForDamage(1), IntentType_GameIDs.Mana_Generate.ToString())
-                .AddToCharacterDatabase()
                 .CharacterAbility(Pigments.Yellow, Pigments.Blue);
 
             item.SetStaticModifiers(ExtraAbilityModifier(ab));

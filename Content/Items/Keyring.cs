@@ -41,7 +41,7 @@ namespace BOStuffPack.Content.Items
                 var keyDesc = $"Deal {keybladeDmg} damage to the opposing enemy and refresh this party member.\nDisable the effects of Keyblade {idx} for this turn.";
 
                 var keyAb = NewAbility($"Key{idx}_A")
-                    .SetBasicInformation(keyName, keyDesc, $"AttackIcon_Key_{spritePostfix}")
+                    .SetBasicInformationCharacter(keyName, keyDesc, $"AttackIcon_Key_{spritePostfix}")
                     .SetEffects(new()
                     {
                         Effects.GenerateEffect(CreateScriptable<CasterStoredValueToTurnComparisonEffect>(x =>
@@ -60,14 +60,13 @@ namespace BOStuffPack.Content.Items
                         TargetIntent(Targeting.Slot_Front, IntentForDamage(keybladeDmg)),
                         TargetIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Other_Refresh.ToString())
                     })
-                    .AddToCharacterDatabase()
                     .ExtraAbility(Pigments.Grey, Pigments.Grey);
 
                 var lockName = $"Lock {idx}";
                 var lockDesc = $"If no wrong pigment was used to perform this ability, replace this ability with Keyblade {idx} and refresh this party member.";
 
                 var lockAb = NewAbility($"Lock{idx}_A")
-                    .SetBasicInformation(lockName, lockDesc, $"AttackIcon_Lock_{spritePostfix}")
+                    .SetBasicInformationCharacter(lockName, lockDesc, $"AttackIcon_Lock_{spritePostfix}")
                     .SetEffects(new()
                     {
                         Effects.GenerateEffect(CreateScriptable<CheckWrongPigmentEffect>()),
@@ -76,7 +75,6 @@ namespace BOStuffPack.Content.Items
                         Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 2))
                     })
                     .AddIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Other_Refresh.ToString())
-                    .AddToCharacterDatabase()
                     .CharacterAbility(pigment, pigment, pigment);
 
                 lockAbilities.Add(lockAb);

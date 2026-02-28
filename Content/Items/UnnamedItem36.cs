@@ -20,14 +20,13 @@ namespace BOStuffPack.Content.Items
             var abName = "Transmute";
             var abDesc = "Produce 2 pigment of random colors not used to perform this ability. 50% chance to refresh this party member.";
             var ability = NewAbility("Transmute_A")
-                .SetBasicInformation(abName, abDesc, "AttackIcon_Transmute")
+                .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Transmute")
                 .SetEffects(new()
                 {
                     Effects.GenerateEffect(CreateScriptable<ProducePigmentNotUsedForAbilityEffect>(x => x.pigmentColors = [Pigments.Yellow, Pigments.Red, Pigments.Blue, Pigments.Purple]), 2),
                     Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.ChanceCondition(50))
                 })
                 .AddIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Other_Refresh.ToString())
-                .AddToCharacterDatabase()
                 .CharacterAbility(Pigments.Grey, Pigments.Grey);
 
             item.SetStaticModifiers(ExtraAbilityModifier(ability));

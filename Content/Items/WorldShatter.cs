@@ -248,7 +248,7 @@ namespace BOStuffPack.Content.Items
                 .AddToTreasure();
 
             var ability = NewAbility("EndOfTheUniverse_A")
-                .SetBasicInformation(abilityName, abilityDesc, "AttackIcon_EOTU")
+                .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_EOTU")
                 .SetVisuals(Visuals.DemonCore, null)
                 .SetEffects(effects)
                 .SetIntents(new()
@@ -256,7 +256,6 @@ namespace BOStuffPack.Content.Items
                     TargetIntent(Targeting.Unit_AllOpponents, IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString()),
                     TargetIntent(Targeting.Unit_AllAllies, IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Misc_Hidden.ToString()),
                 })
-                .AddToCharacterDatabase(true)
                 .CharacterAbility(Pigments.Purple, Pigments.Yellow, Pigments.Blue, Pigments.Red);
 
             item.SetStaticModifiers(ExtraAbilityModifier(ability));

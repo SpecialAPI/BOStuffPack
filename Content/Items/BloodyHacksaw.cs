@@ -18,7 +18,7 @@ namespace BOStuffPack.Content.Items
 
             var mergeIntent = AddIntent("PA_Merged", "Merged");
             var ab = NewAbility("TwoIntoOne_A")
-                .SetBasicInformation(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
+                .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
                 .SetVisuals(Visuals.Slash, Targeting.Slot_OpponentSides)
                 .SetEffects(new()
                 {
@@ -31,7 +31,6 @@ namespace BOStuffPack.Content.Items
                     Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2))
                 })
                 .AddIntent(Targeting.Slot_OpponentSides, IntentForDamage(5), IntentForDamage(10), mergeIntent)
-                .AddToCharacterDatabase()
                 .CharacterAbility(Pigments.Red, Pigments.Red, Pigments.YellowPurple);
 
             var item = NewItem<BasicWearable>("BloodyHacksaw_SW")

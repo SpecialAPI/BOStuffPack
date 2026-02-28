@@ -19,7 +19,7 @@ namespace BOStuffPack.Content.Items
             var abDesc = "Deal direct ruptured damage to each enemy and party member equal to their \"Blood\" count.";
 
             var ab = NewAbility("MurderEveryoneYouKnow_A")
-                .SetBasicInformation(abName, abDesc, "AttackIcon_Murder")
+                .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Murder")
                 .SetEffects(new()
                 {
                     Effects.GenerateEffect(CreateScriptable<PlayAnimationOnAllTargetsFulfillingStoredValueConditionEffect>(x =>
@@ -36,7 +36,6 @@ namespace BOStuffPack.Content.Items
                 })
                 .AddIntent(Targeting.Unit_AllOpponents, IntentForDamage(1999))
                 .AddIntent(Targeting.Unit_AllAllies, IntentForDamage(1999))
-                .AddToCharacterDatabase()
                 .CharacterAbility(Pigments.RedBlue, Pigments.RedBlue, Pigments.RedBlue);
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("InstrumentsOfMurder_TW")
