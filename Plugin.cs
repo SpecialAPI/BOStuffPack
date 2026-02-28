@@ -83,6 +83,7 @@ namespace BOStuffPack
             UnnamedItem35.Init();
             UnnamedItem36.Init();
             UnnamedItem37.Init();
+            FakeGuns.Init();
         }
 
         public void Start()

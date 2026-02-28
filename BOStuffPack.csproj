@@ -96,6 +96,7 @@
     <None Remove="Resources\AbilityIcons\AttackIcon_Fury.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_GardenOfEden.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Gravity.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Intimidation.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Key_Blue.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Key_Purple.png" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Key_Red.png" />
@@ -165,6 +166,7 @@
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Fury.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_GardenOfEden.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Gravity.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Intimidation.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Blue.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Purple.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Red.png" />
