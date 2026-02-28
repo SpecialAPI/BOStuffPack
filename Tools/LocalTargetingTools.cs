@@ -26,7 +26,7 @@ namespace BOStuffPack.Tools
             return f;
         }
 
-        public static BaseCombatTargettingSO Join(this BaseCombatTargettingSO a, BaseCombatTargettingSO b, bool? areTargetAllies, bool? areTargetSlots)
+        public static BaseCombatTargettingSO Join(this BaseCombatTargettingSO a, BaseCombatTargettingSO b, bool? areTargetAllies = null, bool? areTargetSlots = null)
         {
             JoinTargeting j;
 
