@@ -48,7 +48,7 @@ namespace BOStuffPack.Content.Items
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnAnyoneBeingDamaged.ToString(),
+                    trigger = LocalCustomTriggers.OnTargetBeingDamaged,
                     doesPopup = true,
                     immediate = true,
 
@@ -56,7 +56,6 @@ namespace BOStuffPack.Content.Items
 
                     conditions = new()
                     {
-                        CreateScriptable<UnitValueMatchesSenderEffectorCondition>(x => x.unitValueIndex = 0),
                         CreateScriptable<StringHolderValueDoesntMatchEffectorCondition>(x =>
                         {
                             x.stringValueIndex = 0;

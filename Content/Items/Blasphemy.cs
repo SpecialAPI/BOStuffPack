@@ -24,15 +24,11 @@ namespace BOStuffPack.Content.Items
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnAnyoneBeingDamaged.ToString(),
+                    trigger = LocalCustomTriggers.OnTargetBeingDamaged,
                     immediate = true,
                     doesPopup = true,
                     
                     effect = new MaximizeValueToPercentOfOriginalLateTriggerEffect(50),
-                    conditions = new()
-                    {
-                        CreateScriptable<UnitValueMatchesSenderEffectorCondition>(x => x.unitValueIndex = 0)
-                    }
                 }
             });
         }
