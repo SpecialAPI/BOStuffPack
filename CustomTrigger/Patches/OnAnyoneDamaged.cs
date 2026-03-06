@@ -26,6 +26,9 @@ namespace BOStuffPack.CustomTrigger.Patches
 
         private static void OnAnyoneDamaged_TriggerEvent(IntegerReference_Damage intref, bool direct)
         {
+            if (intref.possibleSourceUnit is IUnit attacker)
+                CombatManager.Instance.PostNotification(LocalCustomTriggers.OnTargetDamaged, attacker, intref);
+
             CombatManager.Instance.ProcessImmediateAction(new TriggerUnitGeneralEventAction(LocalCustomTriggers.OnAnyoneDamaged, intref));
 
             if(direct)
