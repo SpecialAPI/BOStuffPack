@@ -8,9 +8,6 @@ namespace BOStuffPack.Content.StaticModifiers
     [HarmonyPatch]
     public class BleachStaticModifier : ItemModifierDataSetter
     {
-        public static MethodInfo hfc_rp = AccessTools.Method(typeof(BleachStaticModifier), nameof(HandleFlagsChange_RecoverPassives));
-        public static MethodInfo hfc_dp = AccessTools.Method(typeof(BleachStaticModifier), nameof(HandleFlagsChange_DisconnectPassives));
-
         [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.DefaultPassiveAbilityInitialization))]
         [HarmonyPrefix]
         public static bool MaybeDontAddPassives(CharacterCombat __instance)
@@ -28,7 +25,7 @@ namespace BOStuffPack.Content.StaticModifiers
             {
                 crs.Emit(OpCodes.Ldarg_0);
 
-                crs.Emit(OpCodes.Call, hfc_rp);
+                crs.EmitStaticDelegate(HandleFlagsChange_RecoverPassives);
             }
 
             crs.Index = 0;
@@ -36,7 +33,7 @@ namespace BOStuffPack.Content.StaticModifiers
             {
                 crs.Emit(OpCodes.Ldarg_0);
 
-                crs.Emit(OpCodes.Call, hfc_dp);
+                crs.EmitStaticDelegate(HandleFlagsChange_DisconnectPassives);
             }
         }
 

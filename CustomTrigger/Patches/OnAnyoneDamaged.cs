@@ -7,8 +7,6 @@ namespace BOStuffPack.CustomTrigger.Patches
     [HarmonyPatch]
     internal static class OnAnyoneDamaged
     {
-        private static readonly MethodInfo oad_te = AccessTools.Method(typeof(OnAnyoneDamaged), nameof(OnAnyoneDamaged_TriggerEvent));
-
         [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.Damage))]
         [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.Damage))]
         [HarmonyILManipulator]
@@ -21,7 +19,7 @@ namespace BOStuffPack.CustomTrigger.Patches
 
             crs.Emit(OpCodes.Ldloc, 8);
             crs.Emit(OpCodes.Ldarg, 6);
-            crs.Emit(OpCodes.Call, oad_te);
+            crs.EmitStaticDelegate(OnAnyoneDamaged_TriggerEvent);
         }
 
         private static void OnAnyoneDamaged_TriggerEvent(IntegerReference_Damage intref, bool direct)

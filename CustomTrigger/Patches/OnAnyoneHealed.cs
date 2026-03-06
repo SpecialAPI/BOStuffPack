@@ -7,8 +7,6 @@ namespace BOStuffPack.CustomTrigger.Patches
     [HarmonyPatch]
     internal static class OnAnyoneHealed
     {
-        private static readonly MethodInfo oah_te = AccessTools.Method(typeof(OnAnyoneHealed), nameof(OnAnyoneHealed_TriggerEvent));
-
         [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.Heal))]
         [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.Heal))]
         [HarmonyILManipulator]
@@ -20,7 +18,7 @@ namespace BOStuffPack.CustomTrigger.Patches
                 return;
 
             crs.Emit(OpCodes.Ldarg_0);
-            crs.Emit(OpCodes.Call, oah_te);
+            crs.EmitStaticDelegate(OnAnyoneHealed_TriggerEvent);
         }
 
         private static void OnAnyoneHealed_TriggerEvent(IUnit u)

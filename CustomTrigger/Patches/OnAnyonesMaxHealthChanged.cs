@@ -7,8 +7,6 @@ namespace BOStuffPack.CustomTrigger.Patches
     [HarmonyPatch]
     internal static class OnAnyonesMaxHealthChanged
     {
-        private static readonly MethodInfo oamhc_te = AccessTools.Method(typeof(OnAnyonesMaxHealthChanged), nameof(OnAnyonesMaxHealthChanged_TriggerEvent));
-
         [HarmonyPatch(typeof(CharacterCombat), nameof(CharacterCombat.MaximizeHealth))]
         [HarmonyPatch(typeof(EnemyCombat), nameof(EnemyCombat.MaximizeHealth))]
         [HarmonyILManipulator]
@@ -20,7 +18,7 @@ namespace BOStuffPack.CustomTrigger.Patches
                 return;
 
             crs.Emit(OpCodes.Ldarg_0);
-            crs.Emit(OpCodes.Call, oamhc_te);
+            crs.EmitStaticDelegate(OnAnyonesMaxHealthChanged_TriggerEvent);
         }
 
         private static void OnAnyonesMaxHealthChanged_TriggerEvent(IUnit u)
