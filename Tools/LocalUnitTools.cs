@@ -39,5 +39,35 @@ namespace BOStuffPack.Tools
             cc.HeldItem.OnTriggerAttached(cc);
             CombatManager.Instance.AddUIAction(new CharacterItemChangeUIAction(cc.ID, cc.HeldItem, cc.IsWearableConsumed));
         }
+
+        public static bool TryMoveLeftOrRight(this IUnit u)
+        {
+            var stats = CombatManager.Instance._stats;
+
+            if (u.IsUnitCharacter)
+            {
+                var direction = Random.Range(0, 2) * 2 - 1;
+                if (u.SlotID + direction >= 0 && u.SlotID + direction < stats.combatSlots.CharacterSlots.Length)
+                    return stats.combatSlots.SwapCharacters(u.SlotID, u.SlotID + direction, isMandatory: true);
+
+                direction *= -1;
+                if (u.SlotID + direction >= 0 && u.SlotID + direction < stats.combatSlots.CharacterSlots.Length)
+                    return stats.combatSlots.SwapCharacters(u.SlotID, u.SlotID + direction, isMandatory: true);
+
+                return false;
+            }
+            else
+            {
+                var direction = Random.Range(0, 2) * (u.Size + 1) - 1;
+                if (stats.combatSlots.CanEnemiesSwap(u.SlotID, u.SlotID + direction, out var firstSlotSwap, out var secondSlotSwap))
+                    return stats.combatSlots.SwapEnemies(u.SlotID, firstSlotSwap, u.SlotID + direction, secondSlotSwap, isMandatory: true);
+
+                direction = (direction < 0) ? u.Size : (-1);
+                if (stats.combatSlots.CanEnemiesSwap(u.SlotID, u.SlotID + direction, out firstSlotSwap, out secondSlotSwap))
+                    return stats.combatSlots.SwapEnemies(u.SlotID, firstSlotSwap, u.SlotID + direction, secondSlotSwap, isMandatory: true);
+
+                return false;
+            }
+        }
     }
 }
