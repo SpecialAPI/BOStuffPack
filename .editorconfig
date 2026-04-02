@@ -49,6 +49,9 @@ csharp_style_prefer_range_operator = true:suggestion
 # IDE0059: Unnecessary assignment of a value
 csharp_style_unused_value_assignment_preference = unused_local_variable
 
+# IDE0051: Remove unused private members
+dotnet_diagnostic.IDE0051.severity = none
+
 [*.{cs,vb}]
 #### Naming styles ####
 
