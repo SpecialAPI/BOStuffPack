@@ -130,6 +130,7 @@
     <None Remove="Resources\Enemies\ATM\ATM_Corpse.png" />
     <None Remove="Resources\Enemies\ATM\ATM_OW.png" />
     <None Remove="Resources\Items\ArtOfViolence.png" />
+    <None Remove="Resources\Items\DirtBlock.png" />
     <None Remove="Resources\Items\Eyepatch.png" />
     <None Remove="Resources\Items\failrounds.png" />
     <None Remove="Resources\Items\jester_hat.png" />
@@ -199,6 +200,7 @@
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_Corpse.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_OW.png" />
+    <EmbeddedResource Include="Resources\Items\DirtBlock.png" />
     <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
     <EmbeddedResource Include="Resources\Items\MergingStonesv2.png" />
     <EmbeddedResource Include="Resources\Items\RedMarker.png" />

@@ -85,6 +85,7 @@ namespace BOStuffPack
             UnnamedItem37.Init();
             FakeGuns.Init();
             UnnamedItem42.Init();
+            DirtBlock.Init();
         }
 
         public void Start()
