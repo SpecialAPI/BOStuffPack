@@ -16,5 +16,6 @@ namespace BOStuffPack.CustomTrigger
         public static readonly string OnPassivePopup                            = $"{MOD_PREFIX}_{nameof(OnPassivePopup)}";
         public static readonly string OnTargetBeingDamaged                      = $"{MOD_PREFIX}_{nameof(OnTargetBeingDamaged)}";
         public static readonly string OnTargetDamaged                           = $"{MOD_PREFIX}_{nameof(OnTargetDamaged)}";
+        public static readonly string ModifyCanDestroyItem                      = $"{MOD_PREFIX}_{nameof(ModifyCanDestroyItem)}";
     }
 }
