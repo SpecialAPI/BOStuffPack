@@ -92,7 +92,9 @@ namespace BOStuffPack.Content.Items
                         {
                             x.entityIDs = ["CadaverSynod_EN"];
                             x.effects = [spawnSepulchre];
-                        }), 0, Targeting.AllUnits)
+                        }), 0, Targeting.AllUnits),
+
+                        Effects.GenerateEffect(CreateScriptable<FleeAllTargetsWithIDEffect>(x => x.entityIDs = [Entity_GameIDs.Gospel.ToString()]), 0, Targeting.AllUnits)
                     })
                 }
             });
