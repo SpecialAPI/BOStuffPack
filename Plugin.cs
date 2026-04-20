@@ -86,6 +86,8 @@ namespace BOStuffPack
             FakeGuns.Init();
             UnnamedItem42.Init();
             DirtBlock.Init();
+            OldBleach.Init();
+            TrueZeal.Init();
         }
 
         public void Start()
