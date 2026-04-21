@@ -28,7 +28,7 @@ namespace BOStuffPack.Content.Items
             {
                 x.blacklist = ["ShellyK_CH", "Formosus_CH"];
 
-                x.rank = 0;
+                x.rankIsPreviousExit = true;
                 x.nameAddition = NameAdditionLocID.NameAdditionNone;
                 x.permanent = true;
             }), 1);
@@ -89,6 +89,7 @@ namespace BOStuffPack.Content.Items
                         {
                             x.entityIDs = [Entity_GameIDs.ShellyK.ToString(), Entity_GameIDs.Formosus.ToString()];
                             x.effects = [spawnRandomChar];
+                            x.startResultIsKilledRank = true;
                         }), 0, Targeting.AllUnits),
                         Effects.GenerateEffect(CreateScriptable<KillTargetsWithIDPerformEffectOnSuccessEffect>(x =>
                         {
