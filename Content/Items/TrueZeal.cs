@@ -24,11 +24,13 @@ namespace BOStuffPack.Content.Items
             var genDirt = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = Profile.GetID("DirtBlock_ExtraW")), condition: Effects.ChanceCondition(1));
             var genZeal = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = item.name));
 
-            var spawnRandomChar = Effects.GenerateEffect(CreateScriptable<CopyAndSpawnRandomCharacterAnywhereEffect>(x =>
+            var spawnRandomChar = Effects.GenerateEffect(CreateScriptable<SpawnRandomCharacterWithBlacklistEffect>(x =>
             {
-                x._rank = 0;
-                x._nameAddition = NameAdditionLocID.NameAdditionNone;
-                x._permanentSpawn = true;
+                x.blacklist = ["ShellyK_CH", "Formosus_CH"];
+
+                x.rank = 0;
+                x.nameAddition = NameAdditionLocID.NameAdditionNone;
+                x.permanent = true;
             }), 1);
             var spawnSepulchre = Effects.GenerateEffect(CreateScriptable<SpawnEnemyAnywhereEffect>(x =>
             {
