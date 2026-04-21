@@ -16,7 +16,7 @@ namespace BOStuffPack.Content.Items
                 .SetBasicInformation(name, flav, desc, "OldBleach")
                 .SetStaticModifiers(ModdedDataModifier(new BleachStaticModifier()))
                 .SetPrice(0)
-                .AddToTreasure()
+                .AddWithoutItemPools()
                 .AddItemTypes(ItemType_GameIDs.Magic.ToString());
         }
     }
