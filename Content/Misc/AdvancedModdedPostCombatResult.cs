@@ -24,7 +24,7 @@ namespace BOStuffPack.Content.Misc
 
                                             // curr: void
 
-            crs.Emit(OpCodes.Ldloca, 37);   // enumerator
+            crs.Emit(OpCodes.Ldloc, 37);    // enumerator
             crs.Emit(OpCodes.Ldarg_0);      // infoHolder
 
             crs.Emit(OpCodes.Ldloc, 8);     // characterAdditions
@@ -37,7 +37,7 @@ namespace BOStuffPack.Content.Misc
             crs.EmitStaticDelegate(ProcessAdvancedPostCombatResults_ProcessCurrentAdvancedResult); // push: void
         }
 
-        private static void ProcessAdvancedPostCombatResults_ProcessCurrentAdvancedResult(IEnumerator<ModdedPostCombatResult> enumerator, GameInformationHolder infoHolder, List<SpawnedCharacterAddition> characterAdditions, List<CombatLootData> casualtiesInfo, List<CombatLootData> lootedItemsInfo, List<BaseWearableSO> lootedItems, ref int gainedCurrency, ref int playerCurrency)
+        private static void ProcessAdvancedPostCombatResults_ProcessCurrentAdvancedResult(List<ModdedPostCombatResult>.Enumerator enumerator, GameInformationHolder infoHolder, List<SpawnedCharacterAddition> characterAdditions, List<CombatLootData> casualtiesInfo, List<CombatLootData> lootedItemsInfo, List<BaseWearableSO> lootedItems, ref int gainedCurrency, ref int playerCurrency)
         {
             var currResult = enumerator.Current;
 
