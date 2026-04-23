@@ -10,7 +10,7 @@ namespace BOStuffPack.Content.Items
         {
             var name = "The Squirrel";
             var flav = "\"Free Sacrifice\"";
-            var desc = "The first wrong pigment used in an ability doesn't count as wrong pigment.";
+            var desc = "The first wrong pigment used in an ability doesn't count as wrong pigment. Increase incoming wrong pigment damage by 200%.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("TheSquirrel_TW")
                 .SetBasicInformation(name, flav, desc, "TheSquirrel")
@@ -30,6 +30,15 @@ namespace BOStuffPack.Content.Items
                         Operation = IntOperation.Subtract,
                         Value = 1
                     },
+                },
+
+                new()
+                {
+                    trigger = TriggerCalls.OnWillReceiveCostDamage.ToString(),
+                    doesPopup = true,
+                    immediate = true,
+
+                    effect = new PercentageModifierSetterTriggerEffect(200, true)
                 }
             };
         }
