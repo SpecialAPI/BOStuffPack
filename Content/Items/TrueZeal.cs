@@ -19,6 +19,12 @@ namespace BOStuffPack.Content.Items
 
             var charBlacklist = new List<string>()
             {
+                "LongLiver_CH",
+                "Clive_CH",
+                "Cranes_CH",
+                "Gospel_CH",
+                "Mordrake_CH",
+
                 "ShellyK_CH",
                 "Formosus_CH"
             };
