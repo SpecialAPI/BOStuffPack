@@ -32,43 +32,9 @@ namespace BOStuffPack.Content.Items
                         Effects.GenerateEffect(CreateScriptable<MultiplyTargetAbilityCostsEffect>(), 2, Targeting.Slot_SelfSlot)
                     })
                 },
-                new()
-                {
-                    trigger = TriggerCalls.OnTurnStart.ToString(),
-                    immediate = false,
-                    doesPopup = false,
 
-                    effect = new PerformEffectTriggerEffect(new()
-                    {
-                        Effects.GenerateEffect(CreateScriptable<CasterStoreValueSetterEffect>(x => x.m_unitStoredDataID = LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID), 1)
-                    })
-                },
-                new()
-                {
-                    trigger = TriggerCalls.OnAbilityUsed.ToString(),
-                    immediate = false,
-                    doesPopup = true,
-
-                    effect = new PerformEffectTriggerEffect(new()
-                    {
-                        Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot),
-                        Effects.GenerateEffect(CreateScriptable<CasterStoredValueChangeEffect>(x =>
-                        {
-                            x.m_unitStoredDataID = LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID;
-                            x._minimumValue = 0;
-                            x._increase = false;
-                        }), 1, condition: Effects.CheckPreviousEffectCondition(true, 1))
-                    }),
-                    conditions = new()
-                    {
-                        CreateScriptable<StoredValueComparisonEffectorCondition>(x =>
-                        {
-                            x.value = LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID;
-                            x.compareTo = 0;
-                            x.comparison = IntComparison.GreaterThan;
-                        })
-                    }
-                }
+                CharacterMultiAttackTriggerEffect.RestoreSV(LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID, 2),
+                CharacterMultiAttackTriggerEffect.Refresh(LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID, true),
             });
         }
     }
