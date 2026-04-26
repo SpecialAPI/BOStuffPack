@@ -49,7 +49,6 @@ namespace BOStuffPack
             TheTideTurner.Init();
             BloodyHacksaw.Init();
             ConjoinedFungi.Init();
-            SchmuckleTicket.Init();
             RipAndTear.Init();
             TheSquirrel.Init();
             Survivorship.Init();
