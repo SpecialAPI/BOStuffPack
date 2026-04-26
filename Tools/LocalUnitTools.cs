@@ -69,5 +69,38 @@ namespace BOStuffPack.Tools
                 return false;
             }
         }
+
+        public static bool GetCanSwapNoTrigger(this IUnit u)
+        {
+            if(u is CharacterCombat cc)
+                return cc.CanSwapNoTrigger;
+
+            // replace with reverese patch in the future?
+            else if(u is EnemyCombat ec)
+            {
+                var boolRef = new BooleanWithTriggerReference(ec._canSwap, false);
+                CombatManager.Instance.PostNotification(TriggerCalls.CanSwap.ToString(), ec, boolRef);
+
+                return boolRef.value;
+            }
+
+            return false;
+        }
+
+        public static bool GetCanUseAbilitiesNoTrigger(this IUnit u)
+        {
+            if (u is CharacterCombat cc)
+                return cc.CanUseAbilitiesNoTrigger;
+
+            return false;
+        }
+
+        public static bool GetCanUseAbilities(this IUnit u)
+        {
+            if (u is CharacterCombat cc)
+                return cc.CanUseAbilities;
+
+            return false;
+        }
     }
 }
