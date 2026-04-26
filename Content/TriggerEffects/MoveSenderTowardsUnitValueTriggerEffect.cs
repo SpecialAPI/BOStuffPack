@@ -8,7 +8,7 @@ namespace BOStuffPack.Content.TriggerEffects
     {
         public override void DoEffect(IUnit sender, object args, TriggerEffectInfo triggerInfo, TriggerEffectActivationExtraInfo extraInfo)
         {
-            if (!ValueReferenceTools.TryGetUnitHolder(sender, out var unitHolder) || unitHolder[valueIndex] is not IUnit target)
+            if (!ValueReferenceTools.TryGetUnitHolder(args, out var unitHolder) || unitHolder[valueIndex] is not IUnit target)
                 return;
 
             var leftOf = sender.IsLeftOf(target);
