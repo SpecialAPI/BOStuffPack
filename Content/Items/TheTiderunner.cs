@@ -39,7 +39,7 @@ namespace BOStuffPack.Content.Items
             var itm = NewItem<MultiCustomTriggerEffectWearable>("TheTiderunner_TW")
                 .SetBasicInformation(name, flav, desc, "TheTiderunner")
                 .SetPrice(5)
-                .SetStaticModifiers(ModdedDataModifier<TiderunnerStaticModifier>(), ExtraAbilityModifier(ab))
+                .SetStaticModifiers(ExtraAbilityModifier(ab))
                 .AddToTreasure();
 
             itm.triggerEffects = new()
