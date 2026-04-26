@@ -13,29 +13,29 @@ namespace BOStuffPack.Content.Items
             var flav = "\"Two into one!\"";
             var desc = "Adds \"Two Into One\" as an additional ability, a weak attack with the ability to merge enemies.";
 
+            var dmg = 3;
             var abilityName = "Two Into One";
-            var abilityDesc = "Deal 5 damage to the left and right enemies.\nIf the left and right enemies are duplicates, deal double damage and merge them if they survive.";
+            var abilityDesc = $"If the Left and Right enemies are duplicates, merge them.\nOtherwise, deal {dmg} damage to theh Left and Right enemies.";
 
             var mergeIntent = AddIntent("PA_Merged", "Merged");
             var ab = NewAbility("TwoIntoOne_A")
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
-                .SetVisuals(Visuals.Slash, Targeting.Slot_OpponentSides)
                 .SetEffects(new()
                 {
                     Effects.GenerateEffect(CreateScriptable<CheckDuplicateEnemiesEffect>(), 0, Targeting.Slot_OpponentSides),
-                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), 5, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 1)),
-                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), 10, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2)),
 
-                    Effects.GenerateEffect(CreateScriptable<CheckDuplicateEnemiesEffect>(), 0, Targeting.Slot_OpponentSides),
-                    Effects.GenerateEffect(CreateScriptable<AnimationVisualsEffect>(x => { x._visuals = Visuals.Equal; x._animationTarget = Targeting.Slot_OpponentSides; }), condition: Effects.CheckPreviousEffectCondition(true, 1)),
-                    Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2))
+                    Effects.GenerateEffect(CreateScriptable<AnimationVisualsOnEffectTargetsEffect>(x => x.visuals = Visuals.Equal), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 1)),
+                    Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2)),
+
+                    Effects.GenerateEffect(CreateScriptable<AnimationVisualsOnEffectTargetsEffect>(x => x.visuals = Visuals.Mitosis), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 3)),
+                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), dmg, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 4)),
                 })
-                .AddIntent(Targeting.Slot_OpponentSides, IntentForDamage(5), IntentForDamage(10), mergeIntent)
-                .CharacterAbility(Pigments.Red, Pigments.Red, Pigments.YellowPurple);
+                .AddIntent(Targeting.Slot_OpponentSides, IntentType_GameIDs.Misc_Hidden.ToString(), mergeIntent, IntentForDamage(dmg))
+                .CharacterAbility(Pigments.Red, Pigments.Blue);
 
             var item = NewItem<BasicWearable>("BloodyHacksaw_SW")
                 .SetBasicInformation(name, flav, desc, "BloodyHacksaw")
-                .SetPrice(5)
+                .SetPrice(7)
                 .AddToShop()
                 .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
