@@ -15,7 +15,7 @@ namespace BOStuffPack.Content.Items
 
             var dmg = 3;
             var abilityName = "Two Into One";
-            var abilityDesc = $"If the Left and Right enemies are duplicates, merge them.\nOtherwise, deal {dmg} damage to theh Left and Right enemies.";
+            var abilityDesc = $"If the Left and Right enemies are duplicates, merge them.\nOtherwise, deal {dmg} damage to the Left and Right enemies.";
 
             var mergeIntent = AddIntent("PA_Merged", "Merged");
             var ab = NewAbility("TwoIntoOne_A")
