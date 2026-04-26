@@ -6,12 +6,16 @@ namespace BOStuffPack.Content.Conditions.Effector
 {
     public class UnitValueSideCheckEffectorCondition : EffectorConditionSO
     {
-        public int unitValueIndex;
+        public int unitValueIndex = 0;
         public UnitSide neededSide;
+        public bool ignoreCaster = false;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if(!ValueReferenceTools.TryGetUnitHolder(args, out var unitHolder) || unitHolder[unitValueIndex] is not IUnit u)
+                return false;
+
+            if(ignoreCaster && u == effector)
                 return false;
 
             var checkSide = neededSide switch

@@ -53,7 +53,11 @@ namespace BOStuffPack.Content.Items
                     effect = new MoveSenderTowardsUnitValueTriggerEffect(),
                     conditions = new()
                     {
-                        CreateScriptable<UnitValueSideCheckEffectorCondition>(x => x.neededSide = UnitValueSideCheckEffectorCondition.UnitSide.SameAsCaster),
+                        CreateScriptable<UnitValueSideCheckEffectorCondition>(x =>
+                        {
+                            x.neededSide = UnitValueSideCheckEffectorCondition.UnitSide.SameAsCaster;
+                            x.ignoreCaster = true;
+                        }),
                         CreateScriptable<ContainsFieldEffectEffectorCondition>(x =>
                         {
                             x.fieldEffectCheck = StatusField.Constricted;
