@@ -46,7 +46,7 @@ namespace BOStuffPack
             LocalStoredValues.Init();
             LocalPassives.Init();
 
-            TheTiderunner.Init();
+            TheTideTurner.Init();
             BloodyHacksaw.Init();
             ConjoinedFungi.Init();
             SchmuckleTicket.Init();

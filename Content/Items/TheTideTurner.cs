@@ -8,12 +8,12 @@ using System.Text;
 
 namespace BOStuffPack.Content.Items
 {
-    public static class TheTiderunner
+    public static class TheTideTurner
     {
         public static void Init()
         {
-            var name = "The Tiderunner";
-            var flav = "\"Smooth sailing.\"";
+            var name = "The Tide Turner";
+            var flav = "\"Close enough.\"";
             var desc = "Upon another party member using an ability, move this party member towards them, unless this party member is Constricted.\nAdds \"Anchor\" as an additional ability.";
 
             var abilityName = "Anchor";
@@ -36,8 +36,8 @@ namespace BOStuffPack.Content.Items
                 })
                 .CharacterAbility(Pigments.Yellow);
 
-            var itm = NewItem<MultiCustomTriggerEffectWearable>("TheTiderunner_TW")
-                .SetBasicInformation(name, flav, desc, "TheTiderunner")
+            var itm = NewItem<MultiCustomTriggerEffectWearable>("TheTideTurner_TW")
+                .SetBasicInformation(name, flav, desc, "TheTideTurner")
                 .SetPrice(5)
                 .SetStaticModifiers(ExtraAbilityModifier(ab))
                 .AddToTreasure();
