@@ -14,7 +14,7 @@ namespace BOStuffPack.Content.Items
         {
             var name = "The Tiderunner";
             var flav = "\"Smooth sailing.\"";
-            var desc = "Upon the leftmost or rightmost party member using an ability, this party member is moved to the left or right respectively, unless they are Constricted.\nAdds \"Anchor\" as an additional ability.";
+            var desc = "Upon another party member using an ability, move this party member towards them, unless this party member is Constricted.\nAdds \"Anchor\" as an additional ability.";
 
             var abilityName = "Anchor";
             var abilityDesc = "If this party member isn't Constricted, refresh them. Apply 1 Constricted to this party member's position.";
@@ -50,35 +50,17 @@ namespace BOStuffPack.Content.Items
                     doesPopup = true,
                     immediate = false,
 
-                    effect = new PerformEffectTriggerEffect(new()
-                    {
-                        Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
-                        Effects.GenerateEffect(CreateScriptable<SwapToOneSideEffect>(x => x._swapRight = false), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1))
-                    }),
+                    effect = new MoveSenderTowardsUnitValueTriggerEffect(),
                     conditions = new()
                     {
                         CreateScriptable<UnitValueSideCheckEffectorCondition>(x => x.neededSide = UnitValueSideCheckEffectorCondition.UnitSide.SameAsCaster),
-                        CreateScriptable<UnitValuePlacementCheckEffectorCondition>(x => x.neededPlacement = UnitValuePlacementCheckEffectorCondition.UnitPlacement.Leftmost)
+                        CreateScriptable<ContainsFieldEffectEffectorCondition>(x =>
+                        {
+                            x.fieldEffectCheck = StatusField.Constricted;
+                            x.useNotContains = true;
+                        })
                     }
                 },
-
-                new()
-                {
-                    trigger = TriggerCalls.OnAnyAbilityUsed.ToString(),
-                    doesPopup = true,
-                    immediate = false,
-
-                    effect = new PerformEffectTriggerEffect(new()
-                    {
-                        Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
-                        Effects.GenerateEffect(CreateScriptable<SwapToOneSideEffect>(x => x._swapRight = true), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1))
-                    }),
-                    conditions = new()
-                    {
-                        CreateScriptable<UnitValueSideCheckEffectorCondition>(x => x.neededSide = UnitValueSideCheckEffectorCondition.UnitSide.SameAsCaster),
-                        CreateScriptable<UnitValuePlacementCheckEffectorCondition>(x => x.neededPlacement = UnitValuePlacementCheckEffectorCondition.UnitPlacement.Rightmost)
-                    }
-                }
             };
         }
     }
