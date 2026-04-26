@@ -14,6 +14,7 @@ namespace BOStuffPack.Content.StoredValues
         public static UnitStoreData_BasicSO StoredValue_Blood;
         public static UnitStoreData_BasicSO StoredValue_UnnamedItem5;
         public static UnitStoreData_BasicSO StoredValue_UnnamedItem42TempDisable;
+        public static UnitStoreData_BasicSO StoredValue_FramedE;
 
         public static UnitStoreData_BasicSO StoredValue_MergingStones;
         public static UnitStoreData_BasicSO StoredValue_BlankBookAbility;
@@ -30,6 +31,7 @@ namespace BOStuffPack.Content.StoredValues
             StoredValue_Blood = NewStoredValue<AdvancedStoredValueIntInfo>("Blood_USD", "Blood").SetColor(StoredValueColor_Negative).SetFormat("Blood: {0}");
             StoredValue_UnnamedItem5 = NewStoredValue<UnitStoreData_BasicSO>("UnnamedItem5_USD", "UnnamedItem5");
             StoredValue_UnnamedItem42TempDisable = NewStoredValue<UnitStoreData_BasicSO>("UnnamedItem42TempDisable_USD", "UnnamedItem42TempDisable");
+            StoredValue_FramedE = NewStoredValue<UnitStoreData_BasicSO>("FramedE_USD", "FramedE");
 
             StoredValue_MergingStones = NewStoredValue<MergingStonesStoredValue>("MergingStones_USD", "MergingStones").SetColor(StoredValueColor_Rare).SetFormat("Merging Stones: {0}");
             StoredValue_BlankBookAbility = NewStoredValue<CombatAbilityStoredValue>("BlankBook_Ability_USD", "BlankBook_Ability").SetColor(StoredValueColor_Rare).SetFormat("Last used ability: {0}");

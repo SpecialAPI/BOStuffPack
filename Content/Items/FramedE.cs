@@ -11,7 +11,7 @@ namespace BOStuffPack.Content.Items
         {
             var name = "Framed E";
             var flav = "\"EEEEE E EE EEEEEEEE EEEE EEEEEE.\"";
-            var desc = "Upon this party member moving themself to a new postion, move all enemies in the opposite direction.";
+            var desc = "This party member can now move 2 times per turn. Upon this party member moving themself to a new postion, move all enemies in the opposite direction.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("FramedE_TW")
                 .SetBasicInformation(name, flav, desc, "FramedE")
@@ -20,6 +20,9 @@ namespace BOStuffPack.Content.Items
 
             item.SetTriggerEffects(new()
             {
+                CharacterMultiSwapTriggerEffect.Refresh(LocalStoredValues.StoredValue_FramedE._UnitStoreDataID, false),
+                CharacterMultiSwapTriggerEffect.RestoreSV(LocalStoredValues.StoredValue_FramedE._UnitStoreDataID, 2),
+
                 new()
                 {
                     trigger = TriggerCalls.OnSwapTo.ToString(),
