@@ -16,8 +16,8 @@ namespace BOStuffPack
     [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
-        public const string MOD_GUID = "SpecialAPI.BOStuffPack";
-        public const string MOD_NAME = "SpecialAPI's Stuff Pack";
+        public const string MOD_GUID = "157.Items";
+        public const string MOD_NAME = "157 ITEMS";
         public const string MOD_VERSION = "1.0.0";
         public const string MOD_PREFIX = "BOStuffPack";
 
