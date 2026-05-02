@@ -19,7 +19,7 @@ namespace BOStuffPack
         public const string MOD_GUID = "157.Items";
         public const string MOD_NAME = "157 ITEMS";
         public const string MOD_VERSION = "1.0.0";
-        public const string MOD_PREFIX = "BOStuffPack";
+        public const string MOD_PREFIX = "157Items";
 
         public static Harmony HarmonyInstance;
         public static AssetBundle Bundle;
