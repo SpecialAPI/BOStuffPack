@@ -5,6 +5,7 @@ using BOStuffPack.Content.Misc;
 using BOStuffPack.Content.Passive;
 using BOStuffPack.Content.StoredValues;
 using BOStuffPack.ReversePatches;
+using Grimoire;
 using Steamworks;
 using System;
 using UnityEngine.Rendering.PostProcessing;
@@ -12,8 +13,9 @@ using UnityEngine.Rendering.PostProcessing;
 namespace BOStuffPack
 {
     [BepInDependency(BrutalAPI.BrutalAPI.GUID)]
+    [BepInDependency(PentaclePlugin.MOD_GUID)]
+    [BepInDependency(GrimoirePlugin.MOD_GUID)]
     [BepInPlugin(MOD_GUID, MOD_NAME, MOD_VERSION)]
-    [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
         public const string MOD_GUID = "157.Items";
