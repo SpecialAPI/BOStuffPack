@@ -71,8 +71,7 @@ namespace BOStuffPack.Content.Effect
             if (slot == -1)
                 yield break;
 
-            stats.AddNewEnemy(enemy, slot, givesExperience, "Spawn_Basic", maxHealth);
-            if (stats.combatSlots.EnemySlots[slot].Unit is not EnemyCombat en)
+            if (!stats.AddNewEnemyWithOutput(enemy, slot, givesExperience, "Spawn_Basic", maxHealth, out var en))
                 yield break;
 
             en.CurrentHealth = Math.Min(maxHealth, currentHealth);
