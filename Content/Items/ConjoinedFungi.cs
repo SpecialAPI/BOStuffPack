@@ -9,7 +9,7 @@ namespace BOStuffPack.Content.Items
         public static void Init()
         {
             var name = "Conjoined Fungi";
-            var flav = $"\"{"We are not welcome elsewhere.".Scale(50)}\"";
+            var flav = $"\"We are not welcome elsewhere.\"";
             var desc = "At the start of each turn merge all duplicate enemies.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("ConjoinedFungi_TW")
