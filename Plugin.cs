@@ -52,7 +52,7 @@ namespace BOStuffPack
             BloodyHacksaw.Init();
             ConjoinedFungi.Init();
             RipAndTear.Init();
-            TheSquirrel.Init();
+            SquirrelBomb.Init();
             Survivorship.Init();
             LoudPhone.Init();
             MagickalBleach.Init();

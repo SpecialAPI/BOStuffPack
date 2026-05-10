@@ -4,16 +4,16 @@ using System.Text;
 
 namespace BOStuffPack.Content.Items
 {
-    public static class TheSquirrel
+    public static class SquirrelBomb
     {
         public static void Init()
         {
-            var name = "The Squirrel";
-            var flav = "\"Free Sacrifice\"";
+            var name = "Squirrel Bomb";
+            var flav = "\"Uh oh.\"";
             var desc = "The first wrong pigment used in an ability doesn't count as wrong pigment. Increase incoming wrong pigment damage by 200%.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("TheSquirrel_TW")
-                .SetBasicInformation(name, flav, desc, "TheSquirrel")
+            var item = NewItem<MultiCustomTriggerEffectWearable>("SquirrelBomb_TW")
+                .SetBasicInformation(name, flav, desc, "SquirrelBomb")
                 .SetPrice(7)
                 .AddToTreasure();
 
