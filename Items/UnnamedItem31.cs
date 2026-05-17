@@ -34,7 +34,7 @@ namespace BOStuffPack.Items
                     {
                         Effects.GenerateEffect(CreateScriptable<AddEntryToStoreDataHashSetEffect>(x =>
                         {
-                            x.storedValue = LocalStoredValues.StoredValue_UnnamedItem31._UnitStoreDataID;
+                            x.storedValue = LocalStoredValues.UnnamedItem31._UnitStoreDataID;
                             x.usePreviousExit = true;
                         }), 1),
                         Effects.GenerateEffect(CreateScriptable<ExtraCurrencyEffect>(), 1)
@@ -46,7 +46,7 @@ namespace BOStuffPack.Items
                         CreateScriptable<IntValueInStoreDataHashSetCheckEffectorCondition>(x =>
                         {
                             x.intValueIndex = 0;
-                            x.storedValue = LocalStoredValues.StoredValue_UnnamedItem31._UnitStoreDataID;
+                            x.storedValue = LocalStoredValues.UnnamedItem31._UnitStoreDataID;
                             x.needsToContain = false;
                         })
                     }

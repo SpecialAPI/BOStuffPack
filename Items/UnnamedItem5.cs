@@ -34,8 +34,8 @@ namespace BOStuffPack.Items
                     })
                 },
 
-                CharacterMultiAttackTriggerEffect.RestoreSV(LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID, 2),
-                CharacterMultiAttackTriggerEffect.Refresh(LocalStoredValues.StoredValue_UnnamedItem5._UnitStoreDataID, true),
+                CharacterMultiAttackTriggerEffect.RestoreSV(LocalStoredValues.UnnamedItem5._UnitStoreDataID, 2),
+                CharacterMultiAttackTriggerEffect.Refresh(LocalStoredValues.UnnamedItem5._UnitStoreDataID, true),
             });
         }
     }

@@ -29,7 +29,7 @@ namespace BOStuffPack.Items
                     doesPopup = true,
                     immediate = true,
 
-                    effect = new ConvertDamageToUnitStoredValueTriggerEffect(1, LocalStoredValues.StoredValue_Blood._UnitStoreDataID),
+                    effect = new ConvertDamageToUnitStoredValueTriggerEffect(1, LocalStoredValues.Blood._UnitStoreDataID),
 
                     conditions = new()
                     {
@@ -51,13 +51,13 @@ namespace BOStuffPack.Items
                 {
                     Effects.GenerateEffect(CreateScriptable<PlayAnimationOnAllTargetsFulfillingStoredValueConditionEffect>(x =>
                     {
-                        x.storedValueID = LocalStoredValues.StoredValue_Blood._UnitStoreDataID;
+                        x.storedValueID = LocalStoredValues.Blood._UnitStoreDataID;
                         x.storedValueCondition = IntCondition.Positive;
                         x.visuals = Visuals.Slash;
                     }), 0, Targeting.AllUnits),
                     Effects.GenerateEffect(CreateScriptable<DamageByTargetStoredValueEffect>(x =>
                     {
-                        x.storedValueID = LocalStoredValues.StoredValue_Blood._UnitStoreDataID;
+                        x.storedValueID = LocalStoredValues.Blood._UnitStoreDataID;
                         x.damageType = CombatType_GameIDs.Dmg_Ruptured.ToString();
                     }), 1, Targeting.AllUnits)
                 })

@@ -15,7 +15,7 @@ namespace BOStuffPack.Passive
             Merged = NewPassive<MultiCustomTriggerEffectPassive>(PassiveIDs.MergedDB, PassiveIDs.MergedID)
             .SetBasicInformation("Merged", "Merged")
             .SetEnemyDescription("This enemy will perform an additional ability for each enemy merged into it.")
-            .SetStoredValue(LocalStoredValues.StoredValue_MergedCount)
+            .SetStoredValue(LocalStoredValues.MergedCount)
             .SetTriggerEffects(new()
             {
                 new()
@@ -28,7 +28,7 @@ namespace BOStuffPack.Passive
                     effect = new ModifyIntegerReferenceTriggerEffect()
                     {
                         Operation = IntOperation.Add,
-                        StoredValue = LocalStoredValues.StoredValue_MergedCount._UnitStoreDataID,
+                        StoredValue = LocalStoredValues.MergedCount._UnitStoreDataID,
                         UseStoredValue = true
                     }
                 }

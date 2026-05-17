@@ -22,8 +22,8 @@ namespace BOStuffPack.Items
 
             item.SetTriggerEffects(new()
             {
-                CharacterMultiSwapTriggerEffect.RestoreSV(LocalStoredValues.StoredValue_FramedE._UnitStoreDataID, 2),
-                CharacterMultiSwapTriggerEffect.Refresh(LocalStoredValues.StoredValue_FramedE._UnitStoreDataID, false),
+                CharacterMultiSwapTriggerEffect.RestoreSV(LocalStoredValues.FramedE._UnitStoreDataID, 2),
+                CharacterMultiSwapTriggerEffect.Refresh(LocalStoredValues.FramedE._UnitStoreDataID, false),
 
                 new()
                 {

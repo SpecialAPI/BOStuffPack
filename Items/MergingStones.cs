@@ -30,7 +30,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = LocalStoredValues.StoredValue_MergingStones), 0, Targeting.Slot_AllySides)
+                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = LocalStoredValues.MergingStones), 0, Targeting.Slot_AllySides)
                     })
                 }
             };
@@ -44,7 +44,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = LocalStoredValues.StoredValue_MergingStones,
+                        itemsStoredValue = LocalStoredValues.MergingStones,
                         disconnect = false
                     }
                 }
@@ -59,7 +59,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = LocalStoredValues.StoredValue_MergingStones,
+                        itemsStoredValue = LocalStoredValues.MergingStones,
                         disconnect = true
                     }
                 }

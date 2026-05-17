@@ -36,12 +36,12 @@ namespace BOStuffPack.Items
                     doesPopup = false,
                     immediate = true,
 
-                    effect = new DodgeDamageModifierSetterTriggerEffect(LocalStoredValues.StoredValue_UnnamedItem42TempDisable._UnitStoreDataID),
+                    effect = new DodgeDamageModifierSetterTriggerEffect(LocalStoredValues.UnnamedItem42TempDisable._UnitStoreDataID),
                     conditions = new()
                     {
                         CreateScriptable<StoredValueComparisonEffectorCondition>(x =>
                         {
-                            x.value = LocalStoredValues.StoredValue_UnnamedItem42TempDisable._UnitStoreDataID;
+                            x.value = LocalStoredValues.UnnamedItem42TempDisable._UnitStoreDataID;
                             x.compareTo = 0;
                             x.comparison = IntComparison.Equal;
                         })
