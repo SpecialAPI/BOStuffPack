@@ -50,7 +50,7 @@ namespace BOStuffPack.Tools
             return e;
         }
 
-        public static EffectSO PlayAnimation(AttackVisualsSO visuals)
+        public static EffectSO Animation(AttackVisualsSO anim)
         {
             var e = CreateScriptable<AnimationVisualsOnEffectTargetsEffect>();
             e.visuals = Visuals.Mitosis;
