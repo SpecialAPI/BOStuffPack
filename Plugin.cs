@@ -23,27 +23,22 @@ namespace BOStuffPack
         public const string MOD_VERSION = "0.0.2";
         public const string MOD_PREFIX = "157Items";
 
-        public static Harmony HarmonyInstance;
-        public static AssetBundle Bundle;
-        public static Assembly ModAssembly;
-        public static ModProfile Profile;
-        public static bool ReversePatchesFinished;
+        public static Harmony HarmonyInstance   = new(MOD_GUID);
+        public static Assembly ModAssembly      = Assembly.GetExecutingAssembly();
+        public static ModProfile Profile        = GenerateProfile();
+        public static AssetBundle Bundle        = Profile.AssetBundle;
 
         public static PostProcessResources PostProcessResources;
+
+        public static bool ReversePatchesFinished;
 
         public void Awake()
         {
             PostProcessResources = Resources.FindObjectsOfTypeAll<PostProcessResources>().FirstOrDefault();
-            ModAssembly = Assembly.GetExecutingAssembly();
-
-            Profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
-            Bundle = Profile.LoadAssetBundle("bostuffpack");
+            HarmonyInstance.PatchAll();
 
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
             AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack.strings");
-
-            HarmonyInstance = new Harmony(MOD_GUID);
-            HarmonyInstance.PatchAll();
 
             LocalStoredValues.Init();
             LocalPassives.Init();
@@ -102,6 +97,14 @@ namespace BOStuffPack
                 HarmonyInstance.PatchAll(t);
 
             ReversePatchesFinished = true;
+        }
+
+        private static ModProfile GenerateProfile()
+        {
+            var profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
+            profile.LoadAssetBundle("bostuffpack");
+
+            return profile;
         }
     }
 }
