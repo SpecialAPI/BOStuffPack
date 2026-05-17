@@ -26,7 +26,7 @@ namespace BOStuffPack.Items
                     
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = CustomStatusEffects.Fury), 2, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(CustomStatusEffects.Fury), 2, Targeting.Slot_SelfSlot)
                     })
                 }
             };

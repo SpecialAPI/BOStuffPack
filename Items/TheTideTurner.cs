@@ -23,9 +23,9 @@ namespace BOStuffPack.Items
                 .SetEffects(new()
                 {
                     Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
-                    Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1)),
+                    Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1)),
 
-                    Effects.GenerateEffect(CreateScriptable<FieldEffect_Apply_Effect>(x => x._Field = Status.Constricted), 1, Targeting.Slot_SelfAll)
+                    Effects.GenerateEffect(CommonEffects.ApplyConstricted, 1, Targeting.Slot_SelfAll)
                 })
                 .SetIntents(new()
                 {

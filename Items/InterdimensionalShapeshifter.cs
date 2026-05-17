@@ -49,7 +49,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<AddPassiveEffect>(x => x._passiveToAdd = shapeshifter), 0, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.AddPassive(shapeshifter), 0, Targeting.Slot_SelfSlot)
                     })
                 }
             };

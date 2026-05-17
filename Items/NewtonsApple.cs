@@ -30,8 +30,8 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<SwapToOneSideEffect>(x => x._swapRight = true), 0, Targeting.Slot_OpponentAllLefts),
-                        Effects.GenerateEffect(CreateScriptable<SwapToOneSideEffect>(x => x._swapRight = false), 0, Targeting.Slot_OpponentAllRights)
+                        Effects.GenerateEffect(CommonEffects.SwapRight, 0, Targeting.Slot_OpponentAllLefts),
+                        Effects.GenerateEffect(CommonEffects.SwapLeft, 0, Targeting.Slot_OpponentAllRights)
                     })
                 }
             };

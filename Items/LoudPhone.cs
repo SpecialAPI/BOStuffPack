@@ -26,8 +26,8 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot),
-                        Effects.GenerateEffect(CreateScriptable<StatusEffect_Apply_Effect>(x => x._Status = CustomStatusEffects.Weakened), 1, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot),
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(CustomStatusEffects.Weakened), 1, Targeting.Slot_SelfSlot)
                     }),
 
                     conditions = new()

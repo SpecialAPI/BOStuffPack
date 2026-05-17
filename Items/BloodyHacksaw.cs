@@ -24,11 +24,11 @@ namespace BOStuffPack.Items
                 {
                     Effects.GenerateEffect(CreateScriptable<CheckDuplicateEnemiesEffect>(), 0, Targeting.Slot_OpponentSides),
 
-                    Effects.GenerateEffect(CreateScriptable<AnimationVisualsOnEffectTargetsEffect>(x => x.visuals = Visuals.Equal), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 1)),
+                    Effects.GenerateEffect(CommonEffects.Animation(Visuals.Equal), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 1)),
                     Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2)),
 
-                    Effects.GenerateEffect(CreateScriptable<AnimationVisualsOnEffectTargetsEffect>(x => x.visuals = Visuals.Mitosis), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 3)),
-                    Effects.GenerateEffect(CreateScriptable<DamageEffect>(), dmg, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 4)),
+                    Effects.GenerateEffect(CommonEffects.Animation(Visuals.Mitosis), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 3)),
+                    Effects.GenerateEffect(CommonEffects.Damage, dmg, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 4)),
                 })
                 .AddIntent(Targeting.Slot_OpponentSides, IntentType_GameIDs.Misc_Hidden.ToString(), mergeIntent, IntentForDamage(dmg))
                 .CharacterAbility(Pigments.Red, Pigments.Blue);

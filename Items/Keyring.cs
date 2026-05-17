@@ -50,9 +50,9 @@ namespace BOStuffPack.Items
                             x.comparison = IntComparison.LessThan;
                         })),
 
-                        Effects.GenerateEffect(CreateScriptable<AnimationVisualsEffect>(x => { x._visuals = Visuals.Slash; x._animationTarget = Targeting.Slot_Front; }), condition: Effects.CheckPreviousEffectCondition(true, 1)),
-                        Effects.GenerateEffect(CreateScriptable<DamageEffect>(), keybladeDmg, Targeting.Slot_Front, Effects.CheckPreviousEffectCondition(true, 2)),
-                        Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(true, 3)),
+                        Effects.GenerateEffect(CommonEffects.Animation(Visuals.Slash), 0, Targeting.Slot_Front, condition: Effects.CheckPreviousEffectCondition(true, 1)),
+                        Effects.GenerateEffect(CommonEffects.Damage, keybladeDmg, Targeting.Slot_Front, Effects.CheckPreviousEffectCondition(true, 2)),
+                        Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(true, 3)),
                         Effects.GenerateEffect(CreateScriptable<CasterSetStoredValueToTurnEffect>(x => x.value = keySV._UnitStoreDataID), condition: Effects.CheckPreviousEffectCondition(true, 4))
                     })
                     .SetIntents(new()
@@ -72,7 +72,7 @@ namespace BOStuffPack.Items
                         Effects.GenerateEffect(CreateScriptable<CheckWrongPigmentEffect>()),
 
                         Effects.GenerateEffect(CreateScriptable<CasterReplaceExtraAbilityEffect>(x => { x.abilityToReplace = AdvancedAbilityReference($"Lock{idx}_A"); x.replacement = keyAb; }), condition: Effects.CheckPreviousEffectCondition(false, 1)),
-                        Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 2))
+                        Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 2))
                     })
                     .AddIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Other_Refresh.ToString())
                     .CharacterAbility(pigment, pigment, pigment);

@@ -75,7 +75,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<DamageEffect>(x => x._indirect = true), 1, Targeting.Unit_AllOpponents)
+                        Effects.GenerateEffect(CommonEffects.IndirectDamage, 1, Targeting.Unit_AllOpponents)
                     }),
                     conditions = new()
                     {

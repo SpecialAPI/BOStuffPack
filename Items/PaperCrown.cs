@@ -27,7 +27,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<RandomizeAllManaEffect>(x => x.manaRandomOptions = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple]))
+                        Effects.GenerateEffect(CommonEffects.RandomizeAllPigment)
                     }),
                     conditions = new()
                     {

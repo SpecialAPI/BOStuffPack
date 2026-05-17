@@ -33,7 +33,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<SwapToOneSideEffect>(x => x._swapRight = true), 0, Targeting.GenerateSlotTarget([4, 3, 2, 1, 0, -1, -2, -3, -4], false))
+                        Effects.GenerateEffect(CommonEffects.SwapRight, 0, Targeting.GenerateSlotTarget([4, 3, 2, 1, 0, -1, -2, -3, -4], false))
                     }),
                     conditions = new()
                     {
@@ -48,7 +48,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<SwapToOneSideEffect>(x => x._swapRight = false), 0, Targeting.GenerateSlotTarget([-4, -3, -2, -1, 0, 1, 2, 3, 4], false))
+                        Effects.GenerateEffect(CommonEffects.SwapLeft, 0, Targeting.GenerateSlotTarget([-4, -3, -2, -1, 0, 1, 2, 3, 4], false))
                     }),
                     conditions = new()
                     {

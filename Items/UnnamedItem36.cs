@@ -25,7 +25,7 @@ namespace BOStuffPack.Items
                 .SetEffects(new()
                 {
                     Effects.GenerateEffect(CreateScriptable<ProducePigmentNotUsedForAbilityEffect>(x => x.pigmentColors = [Pigments.Yellow, Pigments.Red, Pigments.Blue, Pigments.Purple]), 2),
-                    Effects.GenerateEffect(CreateScriptable<RefreshAbilityUseEffect>(), 0, Targeting.Slot_SelfSlot, Effects.ChanceCondition(50))
+                    Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.ChanceCondition(50))
                 })
                 .AddIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Other_Refresh.ToString())
                 .CharacterAbility(Pigments.Grey, Pigments.Grey);
