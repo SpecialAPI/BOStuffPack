@@ -52,7 +52,7 @@ namespace BOStuffPack
             AlmightyBranch.Init();
             Bait.Init();
             MergingStones.Init();
-            UnnamedItem17.Init();
+            //UnnamedItem17.Init();
             PaperCrown.Init();
             BlueCrown.Init();
             InstrumentsOfMurder.Init();
@@ -69,7 +69,7 @@ namespace BOStuffPack
             DiceBullets.Init();
             UnnamedItem5.Init();
             UnnamedItem35.Init();
-            UnnamedItem36.Init();
+            //UnnamedItem36.Init();
             UnnamedItem37.Init();
             FakeGun.Init();
             UnnamedItem42.Init();
