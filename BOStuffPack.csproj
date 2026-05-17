@@ -7,51 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="API\**" />
-    <Compile Remove="AssetBundle\**" />
     <Compile Remove="Audio\**" />
-    <Compile Remove="Content\Passive\**" />
-    <Compile Remove="Content\Pigment\**" />
-    <Compile Remove="Content\StatusEffect\**" />
-    <EmbeddedResource Remove="API\**" />
-    <EmbeddedResource Remove="AssetBundle\**" />
     <EmbeddedResource Remove="Audio\**" />
-    <EmbeddedResource Remove="Content\Passive\**" />
-    <EmbeddedResource Remove="Content\Pigment\**" />
-    <EmbeddedResource Remove="Content\StatusEffect\**" />
-    <None Remove="API\**" />
-    <None Remove="AssetBundle\**" />
     <None Remove="Audio\**" />
-    <None Remove="Content\Passive\**" />
-    <None Remove="Content\Pigment\**" />
-    <None Remove="Content\StatusEffect\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Content\Conditions\Effector\CanProducePigmentColorCheckCondition.cs" />
-    <Compile Remove="Content\Conditions\Effector\IgnoreTargetShiftCheckCondition.cs" />
-    <Compile Remove="Content\Conditions\Effector\PercentageRollPerStoredValueEffect.cs" />
-    <Compile Remove="Content\Conditions\Effector\TargettedEffectApplicationMatchesEffectEffectorCondition.cs" />
-    <Compile Remove="Content\Effect\CasterRemoveExtraAbilityOfNameEffect.cs" />
-    <Compile Remove="Content\Effect\CopyTargetMissingAbilityEffect.cs" />
-    <Compile Remove="Content\Effect\GainGadgetEffect.cs" />
-    <Compile Remove="Content\Effect\PatchCrashIntoRandomEffectEffect.cs" />
-    <Compile Remove="Content\Effect\PerformAllAbilitiesButThisOffsettedEffect.cs" />
-    <Compile Remove="Content\Effect\PerformRandomGadgetEffect.cs" />
-    <Compile Remove="Content\Effect\PerformRandomMissingAbilityEffect.cs" />
-    <Compile Remove="Content\Effect\RandomValueSumEffect.cs" />
-    <Compile Remove="Content\Effect\RemovePostCombatCurrencyEffect.cs" />
-    <Compile Remove="Content\Effect\SimplifyAbilitiesEffect.cs" />
-    <Compile Remove="Content\Effect\SplitEnemyEffect.cs" />
-    <Compile Remove="Content\Effect\TargetDisplayTextEffect.cs" />
-    <Compile Remove="Content\Effect\ThreatenEffect.cs" />
-    <Compile Remove="Content\Effect\TranspileEffectIntoAbilityEffect.cs" />
-    <Compile Remove="Content\Misc\CustomForbiddenFruit.cs" />
-    <Compile Remove="Content\Misc\GadgetDB.cs" />
-    <Compile Remove="Content\Misc\MinimizationValueModifier.cs" />
-    <Compile Remove="Content\Misc\Monty.cs" />
-    <Compile Remove="Content\Misc\ReduceStatusDurationAction.cs" />
-    <Compile Remove="Content\Misc\SetToValueValueModifier.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -121,10 +79,6 @@
     <None Remove="Resources\Items\TrueZeal.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Content\Passive\LocalPassives.cs" />
   </ItemGroup>
 
   <ItemGroup>
