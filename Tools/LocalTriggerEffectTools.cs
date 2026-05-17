@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOStuffPack.TriggerEffects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

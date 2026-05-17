@@ -1,10 +1,9 @@
 ﻿using BepInEx;
 using BepInEx.Bootstrap;
-using BOStuffPack.Content.Items;
-using BOStuffPack.Content.Misc;
-using BOStuffPack.Content.Passive;
-using BOStuffPack.Content.StoredValues;
+using BOStuffPack.Items;
+using BOStuffPack.Passive;
 using BOStuffPack.ReversePatches;
+using BOStuffPack.StoredValues;
 using Grimoire;
 using Steamworks;
 using System;

@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BOStuffPack.Effect
+{
+    public class MatchCurrentLuckyPigmentOptionEffect : EffectSO
+    {
+        public ManaColorSO pigment;
+        public PigmentMatchType match;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            return stats.LuckyManaColorOptions[stats.SelectedLuckyColor].PigmentMatch(pigment, match);
+        }
+    }
+}

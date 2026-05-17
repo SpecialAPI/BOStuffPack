@@ -1,4 +1,4 @@
-﻿using BOStuffPack.Content.Targets;
+﻿using BOStuffPack.Targets;
 using System;
 using System.Collections.Generic;
 using System.Text;
