@@ -23,7 +23,7 @@ namespace BOStuffPack
         public static readonly string AlmightyBranch                = "AlmightyBranch_TW".Prefix();
         public static readonly string Bait                          = "Bait_TW".Prefix();
         public static readonly string MergingStones                 = "MergingStones_TW".Prefix();
-        //public static readonly string UnnamedItem17                 = "".Prefix();
+        public static readonly string UnnamedItem17                 = "UnnamedItem17_TW".Prefix();
         public static readonly string PaperCrown                    = "PaperCrown_TW".Prefix();
         public static readonly string BlueCrown                     = "BlueCrown_TW".Prefix();
         public static readonly string InstrumentsOfMurder           = "InstrumentsOfMurder_TW".Prefix();
@@ -40,7 +40,7 @@ namespace BOStuffPack
         public static readonly string DiceBullets                   = "DiceBullets_SW".Prefix();
         public static readonly string UnnamedItem5                  = "UnnamedItem5_TW".Prefix();
         public static readonly string UnnamedItem35                 = "UnnamedItem35_TW".Prefix();
-        //public static readonly string UnnamedItem36                 = "".Prefix();
+        public static readonly string UnnamedItem36                 = "UnnamedItem36_TW".Prefix();
         public static readonly string UnnamedItem37                 = "UnnamedItem37".Prefix();
         public static readonly string FakeGun                       = "FakeGun_TW".Prefix();
         public static readonly string UnnamedItem42                 = "UnnamedItem42_TW".Prefix();
