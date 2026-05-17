@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
             var desc = "Adds Red Essence to this party member as a passive. Upon red lucky pigment being produced, randomize stored pigment.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("BlueCrown")
-                .SetBasicInformation(name, flav, desc, "CrownOfTheBlueprints")
+                .SetBasicInformation(name, flav, desc, "BlueCrownPlaceholder")
                 .SetPrice(46)
                 .AddToTreasure()
                 .SetStaticModifiers(ExtraPassiveModifier(Passives.EssenceRed));

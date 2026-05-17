@@ -13,7 +13,7 @@ namespace BOStuffPack.Items
             var desc = "Damage dealt by this party member is randomized between 4 and double the original amount of damage they would've dealt.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("DiceBullets_SW")
-                .SetBasicInformation(name, flav, desc, "DiceBullets")
+                .SetBasicInformation(name, flav, desc, "DiceBulletsPlaceholder")
                 .SetPrice(7)
                 .AddToShop();
 

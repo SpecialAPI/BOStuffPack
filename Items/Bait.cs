@@ -5,16 +5,16 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class UnnamedItem16
+    public static class Bait
     {
         public static void Init()
         {
-            var name = "Unnamed Item 16";
-            var flav = "\"WIP\"";
+            var name = "Bait";
+            var flav = "\"Bait used to be believable...\"";
             var desc = "At the start of combat, clone a random enemy. If this succeeds, gain coins equal to 20% of the source enemy's health (up to 4) and repeat this effect.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem16_TW")
-                .SetBasicInformation(name, flav, desc, "")
+            var item = NewItem<MultiCustomTriggerEffectWearable>("Bait_TW")
+                .SetBasicInformation(name, flav, desc, "BaitPlaceholder")
                 .SetPrice(11)
                 .AddToTreasure();
 

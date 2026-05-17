@@ -50,7 +50,7 @@ namespace BOStuffPack
             Keyring.Init();
             Pencil.Init();
             AlmightyBranch.Init();
-            UnnamedItem16.Init();
+            Bait.Init();
             MergingStones.Init();
             UnnamedItem17.Init();
             PaperCrown.Init();
@@ -58,7 +58,7 @@ namespace BOStuffPack
             InstrumentsOfMurder.Init();
             FramedE.Init();
             RedMarker.Init();
-            UnnamedItem11.Init();
+            Electromagnet.Init();
             Bookmark.Init();
             UnnamedItem1.Init();
             TheHumanCondition.Init();
@@ -71,7 +71,7 @@ namespace BOStuffPack
             UnnamedItem35.Init();
             UnnamedItem36.Init();
             UnnamedItem37.Init();
-            FakeGuns.Init();
+            FakeGun.Init();
             UnnamedItem42.Init();
             DirtBlock.Init();
             OldBleach.Init();

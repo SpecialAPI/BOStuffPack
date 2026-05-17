@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
             var desc = "At the end of combat, save all status effects and stored values on this party member. At the start of combat, apply all saved status effects and stored values to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("Bookmark_SW")
-                .SetBasicInformation(name, flav, desc, "Bookmark")
+                .SetBasicInformation(name, flav, desc, "BookmarkPlaceholder")
                 .SetPrice(7)
                 .AddToShop();
 

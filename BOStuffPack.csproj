@@ -58,7 +58,12 @@
     <None Remove="Resources\Enemies\ATM\ATM_Corpse.png" />
     <None Remove="Resources\Enemies\ATM\ATM_OW.png" />
     <None Remove="Resources\Items\ArtOfViolence.png" />
+    <None Remove="Resources\Items\BaitPlaceholder.png" />
+    <None Remove="Resources\Items\BlankBookPlaceholder.png" />
+    <None Remove="Resources\Items\BlasphemyPlaceholder.png" />
+    <None Remove="Resources\Items\DiceBulletsPlaceholder.png" />
     <None Remove="Resources\Items\DirtBlock.png" />
+    <None Remove="Resources\Items\ElectromagnetPlaceholder.png" />
     <None Remove="Resources\Items\Eyepatch.png" />
     <None Remove="Resources\Items\failrounds.png" />
     <None Remove="Resources\Items\jester_hat.png" />
@@ -71,6 +76,7 @@
     <None Remove="Resources\Items\RedMarker.png" />
     <None Remove="Resources\Items\SquirrelBomb.png" />
     <None Remove="Resources\Items\TrueZeal.png" />
+    <None Remove="Resources\Items\WrittenBookPlaceholder.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
   </ItemGroup>
@@ -124,7 +130,15 @@
     <EmbeddedResource Include="Resources\Enemies\ATM\ATMSpeaker.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_Corpse.png" />
     <EmbeddedResource Include="Resources\Enemies\ATM\ATM_OW.png" />
+    <EmbeddedResource Include="Resources\Items\BaitPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\BlankBookPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\BlasphemyPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\BlueCrownPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\BookmarkPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\DiceBulletsPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\DirtBlock.png" />
+    <EmbeddedResource Include="Resources\Items\ElectromagnetPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\FakeGunPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\OldBleach.png" />
     <EmbeddedResource Include="Resources\Items\SquirrelBomb.png" />
     <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
@@ -153,6 +167,7 @@
     <EmbeddedResource Include="Resources\Items\TheTideTurner.png" />
     <EmbeddedResource Include="Resources\Items\TrueZeal.png" />
     <EmbeddedResource Include="Resources\Items\WorldShatter.png" />
+    <EmbeddedResource Include="Resources\Items\WrittenBookPlaceholder.png" />
     <EmbeddedResource Include="Resources\Passives\Merged.png" />
     <EmbeddedResource Include="Resources\Passives\Shapeshifter.png" />
   </ItemGroup>

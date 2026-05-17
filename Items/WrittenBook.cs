@@ -22,7 +22,7 @@ namespace BOStuffPack.Items
             var desc = "No effect.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("WrittenBook_ExtraW")
-                .SetBasicInformation(name, flav, desc, "WrittenBook")
+                .SetBasicInformation(name, flav, desc, "WrittenBookPlaceholder")
                 .SetPrice(15)
                 .AddWithoutItemPools();
 

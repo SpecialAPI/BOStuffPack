@@ -5,16 +5,16 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class UnnamedItem11
+    public static class Electromagnet
     {
         public static void Init()
         {
-            var name = "Unnamed Item 11";
+            var name = "Electromagnet";
             var flav = "\"WIP\"";
             var desc = "Upon this party member moving themself to a new position, move all field effects on the party member side to their new position.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem11_SW")
-                .SetBasicInformation(name, flav, desc, "")
+            var item = NewItem<MultiCustomTriggerEffectWearable>("Electromagnet_SW")
+                .SetBasicInformation(name, flav, desc, "ElectromagnetPlaceholder")
                 .SetPrice(6)
                 .AddToShop();
 
