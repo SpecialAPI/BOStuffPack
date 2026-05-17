@@ -60,7 +60,7 @@ namespace BOStuffPack.Items
             if (roll >= Chance)
                 return;
 
-            playerData.AddNewItem(GetWearable("DirtBlock_ExtraW".Prefix()));
+            playerData.AddNewItem(GetWearable(ItemIDs.DirtBlock));
         }
     }
 }

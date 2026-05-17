@@ -44,7 +44,7 @@ namespace BOStuffPack.Items
                 "TrueZeal_TW",
                 "TrueZeal_SW",
                 "TrueZeal_ExtraW",
-                item.name
+                ItemIDs.TrueZeal
             };
 
             var genTreasure = Effects.GenerateEffect(CreateScriptable<ExtraLootWithBlacklistEffect>(x =>
@@ -62,9 +62,9 @@ namespace BOStuffPack.Items
                 x.blacklist = itemBlacklist;
                 x.lootPool = ItemUtils.GetLootPool(PoolList_GameIDs.CanOfWorms_WelsCatfish.ToString());
             }), 1);
-            var genBleach = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = "OldBleach_ExtraW".Prefix()));
-            var genDirt = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = "DirtBlock_ExtraW".Prefix()), condition: Effects.ChanceCondition(1));
-            var genZeal = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = item.name));
+            var genBleach = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = ItemIDs.OldBleach));
+            var genDirt = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = ItemIDs.DirtBlock), condition: Effects.ChanceCondition(1));
+            var genZeal = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = ItemIDs.TrueZeal));
 
             var spawnRandomChar = Effects.GenerateEffect(CreateScriptable<SpawnRandomCharacterWithBlacklistEffect>(x =>
             {
