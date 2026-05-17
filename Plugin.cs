@@ -18,10 +18,10 @@ namespace BOStuffPack
     [BepInPlugin(MOD_GUID, MOD_NAME, MOD_VERSION)]
     public class Plugin : BaseUnityPlugin
     {
-        public const string MOD_GUID = "157.Items";
-        public const string MOD_NAME = "157 ITEMS";
-        public const string MOD_VERSION = "0.0.2";
-        public const string MOD_PREFIX = "157Items";
+        public const string MOD_GUID        = "157.Items";
+        public const string MOD_NAME        = "157 ITEMS";
+        public const string MOD_VERSION     = "0.0.2";
+        public const string MOD_PREFIX      = "157Items";
 
         public static Harmony HarmonyInstance   = new(MOD_GUID);
         public static Assembly ModAssembly      = Assembly.GetExecutingAssembly();
