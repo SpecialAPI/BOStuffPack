@@ -36,9 +36,6 @@ namespace BOStuffPack
             PostProcessResources = Resources.FindObjectsOfTypeAll<PostProcessResources>().FirstOrDefault();
             HarmonyInstance.PatchAll();
 
-            AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack");
-            AdvancedResourceLoader.LoadFMODBankFromResource("BOStuffPack.strings");
-
             LocalStoredValues.Init();
             LocalPassives.Init();
 

@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Audio\**" />
-    <EmbeddedResource Remove="Audio\**" />
-    <None Remove="Audio\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
@@ -82,8 +76,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.bank" />
-    <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Anchor.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Apple.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Ascend.png" />
