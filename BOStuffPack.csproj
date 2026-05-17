@@ -8,40 +8,19 @@
 
   <ItemGroup>
     <Compile Remove="API\**" />
-    <Compile Remove="AssetBundle\Assets\**" />
-    <Compile Remove="AssetBundle\Library\**" />
-    <Compile Remove="AssetBundle\Logs\**" />
-    <Compile Remove="AssetBundle\obj\**" />
-    <Compile Remove="AssetBundle\Packages\**" />
-    <Compile Remove="AssetBundle\ProjectSettings\**" />
-    <Compile Remove="AssetBundle\Temp\**" />
-    <Compile Remove="AssetBundle\UserSettings\**" />
+    <Compile Remove="AssetBundle\**" />
     <Compile Remove="Audio\**" />
     <Compile Remove="Content\Passive\**" />
     <Compile Remove="Content\Pigment\**" />
     <Compile Remove="Content\StatusEffect\**" />
     <EmbeddedResource Remove="API\**" />
-    <EmbeddedResource Remove="AssetBundle\Assets\**" />
-    <EmbeddedResource Remove="AssetBundle\Library\**" />
-    <EmbeddedResource Remove="AssetBundle\Logs\**" />
-    <EmbeddedResource Remove="AssetBundle\obj\**" />
-    <EmbeddedResource Remove="AssetBundle\Packages\**" />
-    <EmbeddedResource Remove="AssetBundle\ProjectSettings\**" />
-    <EmbeddedResource Remove="AssetBundle\Temp\**" />
-    <EmbeddedResource Remove="AssetBundle\UserSettings\**" />
+    <EmbeddedResource Remove="AssetBundle\**" />
     <EmbeddedResource Remove="Audio\**" />
     <EmbeddedResource Remove="Content\Passive\**" />
     <EmbeddedResource Remove="Content\Pigment\**" />
     <EmbeddedResource Remove="Content\StatusEffect\**" />
     <None Remove="API\**" />
-    <None Remove="AssetBundle\Assets\**" />
-    <None Remove="AssetBundle\Library\**" />
-    <None Remove="AssetBundle\Logs\**" />
-    <None Remove="AssetBundle\obj\**" />
-    <None Remove="AssetBundle\Packages\**" />
-    <None Remove="AssetBundle\ProjectSettings\**" />
-    <None Remove="AssetBundle\Temp\**" />
-    <None Remove="AssetBundle\UserSettings\**" />
+    <None Remove="AssetBundle\**" />
     <None Remove="Audio\**" />
     <None Remove="Content\Passive\**" />
     <None Remove="Content\Pigment\**" />
@@ -76,9 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="AssetBundle\.gitignore" />
-    <None Remove="AssetBundle\.vsconfig" />
-    <None Remove="AssetBundle\AssetBundles\bostuffpack" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
@@ -152,7 +128,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="AssetBundle\AssetBundles\bostuffpack" />
     <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.bank" />
     <EmbeddedResource Include="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Anchor.png" />
