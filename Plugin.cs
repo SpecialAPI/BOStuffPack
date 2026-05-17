@@ -27,13 +27,10 @@ namespace BOStuffPack
         public static Assembly ModAssembly      = Assembly.GetExecutingAssembly();
         public static ModProfile Profile        = GenerateProfile();
 
-        public static PostProcessResources PostProcessResources;
-
         public static bool ReversePatchesFinished;
 
         public void Awake()
         {
-            PostProcessResources = Resources.FindObjectsOfTypeAll<PostProcessResources>().FirstOrDefault();
             HarmonyInstance.PatchAll();
 
             LocalStoredValues.Init();
