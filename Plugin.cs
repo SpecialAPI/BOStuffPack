@@ -91,6 +91,6 @@ namespace BOStuffPack
             ReversePatchesFinished = true;
         }
 
-        private static ModProfile GenerateProfile() => ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
+        private static ModProfile GenerateProfile() => ProfileManager.RegisterMod(MOD_GUID, "");
     }
 }
