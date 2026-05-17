@@ -17,7 +17,7 @@ namespace BOStuffPack.Items
                 .SetPrice(4)
                 .AddToShop();
 
-            var ignoreTag = Profile.GetID("UnnamedItem1Ignore");
+            var ignoreTag = "UnnamedItem1Ignore".Prefix();
             item.AddItemTypes(ignoreTag);
 
             item.SetTriggerEffects(new()

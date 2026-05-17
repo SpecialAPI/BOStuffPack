@@ -19,8 +19,8 @@ namespace BOStuffPack.Items
                 .SetPrice(7)
                 .AddToShop();
 
-            var seDataKey = Profile.GetID("SavedStatusEffects");
-            var svDataKey = Profile.GetID("SavedStoredValues");
+            var seDataKey = "SavedStatusEffects".Prefix();
+            var svDataKey = "SavedStoredValues".Prefix();
             item.SetTriggerEffects(new()
             {
                 new()

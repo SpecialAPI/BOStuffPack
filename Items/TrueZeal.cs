@@ -62,8 +62,8 @@ namespace BOStuffPack.Items
                 x.blacklist = itemBlacklist;
                 x.lootPool = ItemUtils.GetLootPool(PoolList_GameIDs.CanOfWorms_WelsCatfish.ToString());
             }), 1);
-            var genBleach = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = Profile.GetID("OldBleach_ExtraW")));
-            var genDirt = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = Profile.GetID("DirtBlock_ExtraW")), condition: Effects.ChanceCondition(1));
+            var genBleach = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = "OldBleach_ExtraW".Prefix()));
+            var genDirt = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = "DirtBlock_ExtraW".Prefix()), condition: Effects.ChanceCondition(1));
             var genZeal = Effects.GenerateEffect(CreateScriptable<ExtraLootOptionsEffect>(x => x._itemName = item.name));
 
             var spawnRandomChar = Effects.GenerateEffect(CreateScriptable<SpawnRandomCharacterWithBlacklistEffect>(x =>

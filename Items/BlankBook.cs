@@ -58,7 +58,7 @@ namespace BOStuffPack.Items
                         passiveStoredValue = LocalStoredValues.StoredValue_BlankBookPassive._UnitStoreDataID,
                         passiveDataKey = WrittenBook.ExtraPassiveDataKey,
 
-                        itemID = Profile.GetID("WrittenBook_ExtraW")
+                        itemID = "WrittenBook_ExtraW".Prefix()
                     }
                 }
             });

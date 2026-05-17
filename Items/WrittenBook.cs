@@ -9,8 +9,8 @@ namespace BOStuffPack.Items
 {
     public static class WrittenBook
     {
-        public static readonly string ExtraAbilityDataKey = Profile.GetID("WrittenBookAbility");
-        public static readonly string ExtraPassiveDataKey = Profile.GetID("WrittenBookPassive");
+        public static readonly string ExtraAbilityDataKey = "WrittenBookAbility".Prefix();
+        public static readonly string ExtraPassiveDataKey = "WrittenBookPassive".Prefix();
 
         public static readonly Dictionary<string, CharacterAbility> deserializedAbilities = [];
         public static readonly Dictionary<string, BasePassiveAbilitySO> deserializedPassives = [];
