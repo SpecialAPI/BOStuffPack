@@ -19,7 +19,7 @@ namespace BOStuffPack.Items
 
             var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem31_SW")
                 .SetBasicInformation(name, flav, desc, "")
-                .SetPrice(6)
+                .SetPrice(8)
                 .AddToShop();
 
             item.SetTriggerEffects(new()
