@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "This party member can now perform 2 abilities per turn. At the start of combat, double this party member's ability costs.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem5_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem5)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(11)
                 .AddToTreasure();

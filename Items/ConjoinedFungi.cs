@@ -13,7 +13,7 @@ namespace BOStuffPack.Items
             var flav = $"\"We are not welcome elsewhere.\"";
             var desc = "At the start of each turn merge all duplicate enemies.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("ConjoinedFungi_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.ConjoinedFungi)
                 .SetBasicInformation(name, flav, desc, "ConjoinedFungi")
                 .SetPrice(2)
                 .AddToTreasure();

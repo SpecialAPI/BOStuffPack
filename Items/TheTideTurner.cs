@@ -14,30 +14,9 @@ namespace BOStuffPack.Items
             var flav = "\"Close enough.\"";
             var desc = "Upon another party member using an ability, move this party member towards them, unless this party member is Constricted.\nAdds \"Anchor\" as an additional ability.";
 
-            var abilityName = "Anchor";
-            var abilityDesc = "If this party member isn't Constricted, refresh them. Apply 1 Constricted to this party member's position.";
-
-            var ab = NewAbility("Anchor_A")
-                .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_Anchor")
-                .SetVisuals(Visuals.Resolve, Targeting.Slot_SelfSlot)
-                .SetEffects(new()
-                {
-                    Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
-                    Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1)),
-
-                    Effects.GenerateEffect(CommonEffects.ApplyConstricted, 1, Targeting.Slot_SelfAll)
-                })
-                .SetIntents(new()
-                {
-                    TargetIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Other_Refresh.ToString()),
-                    TargetIntent(Targeting.Slot_SelfAll, IntentType_GameIDs.Field_Constricted.ToString())
-                })
-                .CharacterAbility(Pigments.Yellow);
-
-            var itm = NewItem<MultiCustomTriggerEffectWearable>("TheTideTurner_TW")
+            var itm = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.TheTideTurner)
                 .SetBasicInformation(name, flav, desc, "TheTideTurner")
                 .SetPrice(5)
-                .SetStaticModifiers(ExtraAbilityModifier(ab))
                 .AddToTreasure();
 
             itm.triggerEffects = new()
@@ -64,6 +43,28 @@ namespace BOStuffPack.Items
                     }
                 },
             };
+
+            var abilityName = "Anchor";
+            var abilityDesc = "If this party member isn't Constricted, refresh them. Apply 1 Constricted to this party member's position.";
+
+            var ab = NewAbility(AbilityIDs.Anchor)
+                .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_Anchor")
+                .SetVisuals(Visuals.Resolve, Targeting.Slot_SelfSlot)
+                .SetEffects(new()
+                {
+                    Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
+                    Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1)),
+
+                    Effects.GenerateEffect(CommonEffects.ApplyConstricted, 1, Targeting.Slot_SelfAll)
+                })
+                .SetIntents(new()
+                {
+                    TargetIntent(Targeting.Slot_SelfSlot, IntentType_GameIDs.Other_Refresh.ToString()),
+                    TargetIntent(Targeting.Slot_SelfAll, IntentType_GameIDs.Field_Constricted.ToString())
+                })
+                .CharacterAbility(Pigments.Yellow);
+
+            itm.SetStaticModifiers(ExtraAbilityModifier(ab));
         }
     }
 }

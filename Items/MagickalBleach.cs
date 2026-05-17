@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"Erase their mistakes.\"";
             var desc = "At the start of combat, remove all passives from all party members.";
             
-            var item = NewItem<MultiCustomTriggerEffectWearable>("MagickalBleach_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.MagickalBleach)
                 .SetBasicInformation(name, flav, desc, "MagickalBleach")
                 //.SetStaticModifiers(ModdedDataModifier(new BleachStaticModifier()))
                 .SetPrice(0)

@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "This party member now deals double damage. Before this party member deals damage, move the target to the left or right.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem42_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem42)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(13)
                 .AddToTreasure();

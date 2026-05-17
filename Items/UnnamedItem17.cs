@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "Grey pigment can now be produced. This party member has \"Petrify\" as an additional ability.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem17_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem17)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(9)
                 .AddToTreasure();
@@ -22,7 +22,7 @@ namespace BOStuffPack.Items
             var abName = "Petrify";
             var abDesc = "Change the left ally's health color to grey.\nIf this fails or the left ally's color is already grey, deal 1 damage to the left ally.\nDamage dealt by this ability produces 1 more pigment than it normally would.";
 
-            var ab = NewAbility("Petrify_A")
+            var ab = NewAbility(AbilityIDs.Petrify)
                 .SetBasicInformationCharacter(abName, abDesc)
                 .SetVisuals(Visuals.Scream, Targeting.Slot_AllyLeft)
                 .SetEffects(new()

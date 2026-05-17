@@ -13,6 +13,11 @@ namespace BOStuffPack.Items
             var flav = "\"Goodbye\"";
             var desc = "Adds \"End of the Universe\" as an additional ability.";
 
+            var item = NewItem<BasicWearable>(ItemIDs.WorldShatter)
+                .SetBasicInformation(name, flav, desc, "WorldShatter")
+                .SetPrice(-2)
+                .AddToTreasure();
+
             var abilityName = "End of the Universe";
             var abilityDesc = "Some things are simply too horrible to be described. Use it and find out, coward.\n\"At least it doesn't crash the game\"";
 
@@ -243,12 +248,7 @@ namespace BOStuffPack.Items
                 }), 0, Targeting.Unit_AllOpponents));
             }
 
-            var item = NewItem<BasicWearable>("WorldShatter_TW")
-                .SetBasicInformation(name, flav, desc, "WorldShatter")
-                .SetPrice(-2)
-                .AddToTreasure();
-
-            var ability = NewAbility("EndOfTheUniverse_A")
+            var ability = NewAbility(AbilityIDs.EndOfTheUniverse)
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_EOTU")
                 .SetVisuals(Visuals.DemonCore, null)
                 .SetEffects(effects)

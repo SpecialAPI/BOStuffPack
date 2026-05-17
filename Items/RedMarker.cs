@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"I can tell you're trying to say something about capitalism, but do it with more loops.\"";
             var desc = "Upon this party member moving themself to a new position, inflict 2 Linked to the opposing enemy.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("RedMarker_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.RedMarker)
                 .SetBasicInformation(name, flav, desc, "RedMarker")
                 .SetPrice(11)
                 .AddToTreasure();

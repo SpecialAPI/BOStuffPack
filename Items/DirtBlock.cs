@@ -17,7 +17,7 @@ namespace BOStuffPack.Items
             var flav = "\"Copyright (c) 2026 Captain Pretzel\"";
             var desc = "This item cannot be destroyed in combat.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("DirtBlock_ExtraW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.DirtBlock)
                 .SetBasicInformation(name, flav, desc, "DirtBlock")
                 .SetPrice(0)
                 .ExcludeFromConsole();

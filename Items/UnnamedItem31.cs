@@ -17,7 +17,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "Upon this party member dealing damage, if this is the first time they've dealt that amount of damage this combat, gain 1 coin.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem31_SW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem31)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(8)
                 .AddToShop();

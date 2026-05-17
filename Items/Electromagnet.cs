@@ -13,7 +13,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "Upon this party member moving themself to a new position, move all field effects on the party member side to their new position.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("Electromagnet_SW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Electromagnet)
                 .SetBasicInformation(name, flav, desc, "ElectromagnetPlaceholder")
                 .SetPrice(6)
                 .AddToShop();

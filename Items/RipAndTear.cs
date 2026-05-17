@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"Enemies have a 20% cha- oh wait, wrong game\"";
             var desc = "Upon killing an enemy, apply 2 Fury to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("RipAndTear_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.RipAndTear)
                 .SetBasicInformation(name, flav, desc, "RipAndTear")
                 .SetPrice(10)
                 .AddToTreasure();

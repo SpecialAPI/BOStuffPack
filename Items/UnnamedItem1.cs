@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "Upon another item being destroyed, restore it and destroy this item if successful. This item's effects don't work on other copies of this item.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem1_SW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem1)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(4)
                 .AddToShop();

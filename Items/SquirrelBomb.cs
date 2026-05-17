@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"Uh oh.\"";
             var desc = "The first wrong pigment used in an ability counts as correct. Increase incoming wrong pigment damage by 200%.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("SquirrelBomb_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.SquirrelBomb)
                 .SetBasicInformation(name, flav, desc, "SquirrelBomb")
                 .SetPrice(7)
                 .AddToTreasure();

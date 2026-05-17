@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
             var flav = "\"The operation, it is complete?\"";
             var desc = "At the start of combat, unequip the items held by the left and right allies and make this item copy both of their effects at once.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("MergingStones_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.MergingStones)
                 .SetBasicInformation(name, flav, desc, "MergingStonesv2")
                 .SetPrice(13)
                 .AddToTreasure();

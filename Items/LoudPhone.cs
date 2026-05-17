@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"CAW CAW CAW\"";
             var desc = "60% chance to refresh this party member's abilities upon performing an ability. Inflict 1 Weakened to this party member if they get refreshed.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("LoudPhone_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.LoudPhone)
                 .SetBasicInformation(name, flav, desc, "LoudPhone")
                 .SetPrice(4)
                 .AddToTreasure();

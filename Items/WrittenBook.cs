@@ -21,7 +21,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "No effect.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("WrittenBook_ExtraW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.WrittenBook)
                 .SetBasicInformation(name, flav, desc, "WrittenBookPlaceholder")
                 .SetPrice(15)
                 .AddWithoutItemPools();

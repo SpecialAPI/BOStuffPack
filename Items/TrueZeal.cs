@@ -13,7 +13,7 @@ namespace BOStuffPack.Items
             var flav = "\"Talia plagiarized my mod.\"";
             var desc = "At the start of combat, destroy all Sacred Shrubs, Royal Pines, Arachnid Aphrodisiacs, Wailing Whistles, Cloth Cocks, Gift Box!es, Burn-Bottle Batches, Coelacanths, Little Clown Dolls, Abused Clown Dolls and True Zeals and instantly kills all Shelly K.s, Formosuses and Cadaver Synods. Produce a shop item for each shop item destroyed, a treasure item for each treasure item destroyed and a fish item for each fish item destroyed. Spawn a permanent party member for each party member killed and an enemy for each enemy killed.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("TrueZeal_ExtraW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.TrueZeal)
                 .SetBasicInformation(name, flav, desc, "TrueZeal")
                 .SetPrice(20)
                 .AddWithoutItemPools();

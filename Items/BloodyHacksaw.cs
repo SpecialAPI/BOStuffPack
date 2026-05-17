@@ -13,12 +13,18 @@ namespace BOStuffPack.Items
             var flav = "\"Two into one!\"";
             var desc = "Adds \"Two Into One\" as an additional ability, a weak attack with the ability to merge enemies.";
 
+            var item = NewItem<BasicWearable>(ItemIDs.BloodyHacksaw)
+                .SetBasicInformation(name, flav, desc, "BloodyHacksaw")
+                .SetPrice(7)
+                .AddToShop()
+                .AddItemTypes(ItemType_GameIDs.Knife.ToString());
+
             var dmg = 3;
             var abilityName = "Two Into One";
             var abilityDesc = $"If the Left and Right enemies are duplicates, merge them.\nOtherwise, deal {dmg} damage to the Left and Right enemies.";
 
             var mergeIntent = AddIntent("PA_Merged", "Merged");
-            var ab = NewAbility("TwoIntoOne_A")
+            var ab = NewAbility(AbilityIDs.TwoIntoOne)
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
                 .SetEffects(new()
                 {
@@ -32,12 +38,6 @@ namespace BOStuffPack.Items
                 })
                 .AddIntent(Targeting.Slot_OpponentSides, IntentType_GameIDs.Misc_Hidden.ToString(), mergeIntent, IntentForDamage(dmg))
                 .CharacterAbility(Pigments.Red, Pigments.Blue);
-
-            var item = NewItem<BasicWearable>("BloodyHacksaw_SW")
-                .SetBasicInformation(name, flav, desc, "BloodyHacksaw")
-                .SetPrice(7)
-                .AddToShop()
-                .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
             item.SetStaticModifiers(ExtraAbilityModifier(ab));
         }

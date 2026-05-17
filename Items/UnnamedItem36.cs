@@ -13,14 +13,14 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "This party member has \"Transmute\" as an additional ability, an ability that can reroll unwanted pigment.";
 
-            var item = NewItem<BasicWearable>("UnnamedItem36")
+            var item = NewItem<BasicWearable>(ItemIDs.UnnamedItem36)
                 .SetBasicInformation(name, flav, desc, "")
                 .AddToTreasure()
                 .SetPrice(7);
 
             var abName = "Transmute";
             var abDesc = "Produce 2 pigment of random colors not used to perform this ability. 50% chance to refresh this party member.";
-            var ability = NewAbility("Transmute_A")
+            var ability = NewAbility(AbilityIDs.Transmute)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Transmute")
                 .SetEffects(new()
                 {

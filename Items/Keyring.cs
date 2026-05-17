@@ -12,9 +12,9 @@ namespace BOStuffPack.Items
         {
             var name = "Key Ring";
             var flav = "\"Keymaster\"";
-            var desc = "At the start of combat, add Lock 1, Lock 2, Lock 3 and Lock 4 as additional abilities.";
+            var desc = "At the start of combat, add Lock R, Lock B, Lock Y and Lock P as additional abilities.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("Keyring_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Keyring)
                 .SetBasicInformation(name, flav, desc, "Keyring")
                 .SetPrice(4)
                 .AddToTreasure();
@@ -40,7 +40,7 @@ namespace BOStuffPack.Items
                 var keyName = $"Keyblade {idx}";
                 var keyDesc = $"Deal {keybladeDmg} damage to the opposing enemy and refresh this party member.\nDisable the effects of Keyblade {idx} for this turn.";
 
-                var keyAb = NewAbility($"Key{idx}_A")
+                var keyAb = NewAbility(string.Format(AbilityIDs.Key, idx))
                     .SetBasicInformationCharacter(keyName, keyDesc, $"AttackIcon_Key_{spritePostfix}")
                     .SetEffects(new()
                     {
@@ -65,7 +65,7 @@ namespace BOStuffPack.Items
                 var lockName = $"Lock {idx}";
                 var lockDesc = $"If no wrong pigment was used to perform this ability, replace this ability with Keyblade {idx} and refresh this party member.";
 
-                var lockAb = NewAbility($"Lock{idx}_A")
+                var lockAb = NewAbility(string.Format(AbilityIDs.Lock, idx))
                     .SetBasicInformationCharacter(lockName, lockDesc, $"AttackIcon_Lock_{spritePostfix}")
                     .SetEffects(new()
                     {

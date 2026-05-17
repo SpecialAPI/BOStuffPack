@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "At the end of combat, or upon this character dying or fleeing, destroy this item and produce a Written Book that grants its holder this party member's last used ability and passive at the time of this effect triggering.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("BlankBook_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.BlankBook)
                 .SetBasicInformation(name, flav, desc, "BlankBookPlaceholder")
                 .SetPrice(8)
                 .AddToTreasure();

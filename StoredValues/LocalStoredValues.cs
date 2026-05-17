@@ -23,20 +23,20 @@ namespace BOStuffPack.StoredValues
 
         public static void Init()
         {
-            StoredValue_MergedCount = NewStoredValue<AdvancedStoredValueIntInfo>("MergedCount_USD", "MergedCount").SetColor(StoredValueColor_Negative).SetFormat("Merged Enemies: {0}");
-            StoredValue_KeybladeRTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladeRTurn_USD", "KeybladeRTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade R Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
-            StoredValue_KeybladeBTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladeBTurn_USD", "KeybladeBTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade B Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
-            StoredValue_KeybladeYTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladeYTurn_USD", "KeybladeYTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade Y Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
-            StoredValue_KeybladePTurn = NewStoredValue<AdvancedStoredValueIntInfo>("KeybladePTurn_USD", "KeybladePTurn").SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
-            StoredValue_Blood = NewStoredValue<AdvancedStoredValueIntInfo>("Blood_USD", "Blood").SetColor(StoredValueColor_Negative).SetFormat("Blood: {0}");
-            StoredValue_UnnamedItem5 = NewStoredValue<UnitStoreData_BasicSO>("UnnamedItem5_USD", "UnnamedItem5");
-            StoredValue_UnnamedItem42TempDisable = NewStoredValue<UnitStoreData_BasicSO>("UnnamedItem42TempDisable_USD", "UnnamedItem42TempDisable");
-            StoredValue_FramedE = NewStoredValue<UnitStoreData_BasicSO>("FramedE_USD", "FramedE");
+            StoredValue_MergedCount = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.MergedCountDB, StoredValueIDs.MergedCountID).SetColor(StoredValueColor_Negative).SetFormat("Merged Enemies: {0}");
+            StoredValue_KeybladeRTurn = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.KeybladeRTurnDB, StoredValueIDs.KeybladeRTurnID).SetColor(StoredValueColor_Negative).SetFormat("Keyblade R Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
+            StoredValue_KeybladeBTurn = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.KeybladeBTurnDB, StoredValueIDs.KeybladeBTurnID).SetColor(StoredValueColor_Negative).SetFormat("Keyblade B Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
+            StoredValue_KeybladeYTurn = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.KeybladeYTurnDB, StoredValueIDs.KeybladeYTurnID).SetColor(StoredValueColor_Negative).SetFormat("Keyblade Y Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
+            StoredValue_KeybladePTurn = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.KeybladePTurnDB, StoredValueIDs.KeybladePTurnID).SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
+            StoredValue_Blood = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.BloodDB, StoredValueIDs.BloodID).SetColor(StoredValueColor_Negative).SetFormat("Blood: {0}");
+            StoredValue_UnnamedItem5 = NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.UnnamedItem5DB, StoredValueIDs.UnnamedItem5ID);
+            StoredValue_UnnamedItem42TempDisable = NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.UnnamedItem42TempDisableDB, StoredValueIDs.UnnamedItem42TempDisableID);
+            StoredValue_FramedE = NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.FramedEDB, StoredValueIDs.FramedEID);
 
-            StoredValue_MergingStones = NewStoredValue<MergingStonesStoredValue>("MergingStones_USD", "MergingStones").SetColor(StoredValueColor_Rare).SetFormat("Merging Stones: {0}");
-            StoredValue_BlankBookAbility = NewStoredValue<CombatAbilityStoredValue>("BlankBook_Ability_USD", "BlankBook_Ability").SetColor(StoredValueColor_Rare).SetFormat("Last used ability: {0}");
-            StoredValue_BlankBookPassive = NewStoredValue<PassiveAbilityStoredValue>("BlankBook_Passive_USD", "BlankBook_Passive").SetColor(StoredValueColor_Rare).SetFormat("Last used passive: {0}");
-            StoredValue_UnnamedItem31 = NewStoredValue<IntEnumerableStoredValue>("UnnamedItem31_USD", "UnnamedItem31").SetColor(StoredValueColor_Negative).SetFormat("Already dealt: {0}").SetSortOrder(IntEnumerableStoredValue.IntSortOrder.Ascending);
+            StoredValue_MergingStones = NewStoredValue<MergingStonesStoredValue>(StoredValueIDs.MergingStonesDB, StoredValueIDs.MergingStonesID).SetColor(StoredValueColor_Rare).SetFormat("Merging Stones: {0}");
+            StoredValue_BlankBookAbility = NewStoredValue<CombatAbilityStoredValue>(StoredValueIDs.BlankBookAbilityDB, StoredValueIDs.BlankBookAbilityID).SetColor(StoredValueColor_Rare).SetFormat("Last used ability: {0}");
+            StoredValue_BlankBookPassive = NewStoredValue<PassiveAbilityStoredValue>(StoredValueIDs.BlankBookPassiveDB, StoredValueIDs.BlankBookPassiveID).SetColor(StoredValueColor_Rare).SetFormat("Last used passive: {0}");
+            StoredValue_UnnamedItem31 = NewStoredValue<IntEnumerableStoredValue>(StoredValueIDs.UnnamedItem31DB, StoredValueIDs.UnnamedItem31ID).SetColor(StoredValueColor_Negative).SetFormat("Already dealt: {0}").SetSortOrder(IntEnumerableStoredValue.IntSortOrder.Ascending);
         }
 
         public static bool CurrentTurnIsLowerThanValueDisplayCondition(UnitStoreDataHolder holder)

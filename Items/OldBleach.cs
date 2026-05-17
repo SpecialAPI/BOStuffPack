@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"A cure for death, inanimacy and your head being on fire. Just drink it and you're good to go!\"";
             var desc = "This party member no longer has any passives.";
 
-            var item = NewItem<BasicWearable>("OldBleach_ExtraW")
+            var item = NewItem<BasicWearable>(ItemIDs.OldBleach)
                 .SetBasicInformation(name, flav, desc, "OldBleach")
                 .SetStaticModifiers(ModdedDataModifier(new BleachStaticModifier()))
                 .SetPrice(0)

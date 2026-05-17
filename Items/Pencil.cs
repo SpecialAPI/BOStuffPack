@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
             var desc = "Small chance to deal 1 indirect damage to all enemies upon almost anything happening.";
 
             var item =
-                NewItem<MultiCustomTriggerEffectWearable>("Pencil_TW")
+                NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Pencil)
                 .SetBasicInformation(name, flav, desc, "Pencil")
                 .SetPrice(2)
                 .AddToTreasure();

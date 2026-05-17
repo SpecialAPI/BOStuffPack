@@ -12,7 +12,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "At the start of combat, apply 1 Fury to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem35_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem35)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(1)
                 .AddToTreasure();

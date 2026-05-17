@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
             var flav = "\"It can't actually shoot.\"";
             var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that deals fake damage.";
 
-            var item = NewItem<BasicWearable>("FakeGun_TW")
+            var item = NewItem<BasicWearable>(ItemIDs.FakeGun)
                 .SetBasicInformation(name, flav, desc, "FakeGunPlaceholder")
                 .SetPrice(2)
                 .AddToTreasure();
@@ -22,7 +22,7 @@ namespace BOStuffPack.Items
             var abName = "Intimidation";
             var abDesc = "Deals 18 fake damage to the Opposing enemy and this party member.";
 
-            var ab = NewAbility("Intimidation_A")
+            var ab = NewAbility(AbilityIDs.Intimidation)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Intimidation")
                 .SetVisuals(Visuals.Misery, Targeting.Slot_Front.Join(Targeting.Slot_SelfSlot))
                 .SetEffects(new()

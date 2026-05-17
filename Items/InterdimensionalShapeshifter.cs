@@ -13,32 +13,12 @@ namespace BOStuffPack.Items
             var flav = "\"Some see it as a pawn\"";
             var desc = "At the start of battle, add Shape-Shifter to this party member as a passive.";
 
-            var shapeshifter = NewPassive<MultiCustomTriggerEffectPassive>("ShapeShifter_PA", "ShapeShifter")
-                .SetBasicInformation("Shape-Shifter", "Shapeshifter")
-                .SetCharacterDescription("At the start of each turn, unequip this party member's held item and equip a random treasure item. Attempt to trigger that item's on combat start effects.")
-                .AddToGlossary("At the start of each turn, unequip this party member's held item and equip a random treasure item. Attempt to trigger that item's on combat start effects.")
-                .AddToDatabase();
-
-            var item = NewItem<MultiCustomTriggerEffectWearable>("InterdimensionalShapeShifter_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.InterdimensionalShapeshifter)
                 .SetBasicInformation(name, flav, desc, "InterdimensionalShapeshifter")
                 .SetPrice(6)
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Magic.ToString())
-                .SetStaticModifiers(ModdedDataModifier(new OverworldPassiveDisplayStaticModifier([shapeshifter])));
-
-            shapeshifter.SetTriggerEffects(new()
-            {
-                new()
-                {
-                    trigger = TriggerCalls.OnTurnStart.ToString(),
-                    doesPopup = true,
-
-                    effect = new PerformEffectTriggerEffect(new()
-                    {
-                        Effects.GenerateEffect(CreateScriptable<EquipRandomTreasureEffect>(), 0, Targeting.Slot_SelfSlot)
-                    })
-                }
-            });
+                .SetStaticModifiers(ModdedDataModifier(new OverworldPassiveDisplayStaticModifier([LocalPassives.ShapeShifter])));
 
             item.triggerEffects = new()
             {
@@ -49,7 +29,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CommonEffects.AddPassive(shapeshifter), 0, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.AddPassive(LocalPassives.ShapeShifter), 0, Targeting.Slot_SelfSlot)
                     })
                 }
             };

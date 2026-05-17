@@ -46,7 +46,7 @@ namespace BOStuffPack.Items
                 }
             });
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("TheHumanCondition_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.TheHumanCondition)
                 .SetBasicInformation(name, flav, desc, "TheHumanCondition")
                 .SetPrice(15)
                 .AddToTreasure();

@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
             var flav = "\"Divine Blood.\"";
             var desc = "Damage dealt by this party member always produces 1 red and 1 purple pigment instead of the target's health color, even if no pigment would normally be produced.";
 
-            var itm = NewItem<MultiCustomTriggerEffectWearable>("AlmightyBranch_TW")
+            var itm = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.AlmightyBranch)
                 .SetBasicInformation(name, flav, desc, "AlmightyBranch")
                 .SetPrice(3)
                 .AddToTreasure();

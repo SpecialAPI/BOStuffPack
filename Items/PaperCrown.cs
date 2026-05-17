@@ -13,7 +13,7 @@ namespace BOStuffPack.Items
             var flav = "\"Also useful for practicing museum burglary\"";
             var desc = "After this party member performs an ability, if there is no red pigment in the pigment bar, randomize all stored pigment.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("PaperCrown_TW")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.PaperCrown)
                 .SetBasicInformation(name, flav, desc, "PaperCrown")
                 .SetPrice(8)
                 .AddToTreasure();
