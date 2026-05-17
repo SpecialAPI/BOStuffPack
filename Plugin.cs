@@ -26,7 +26,6 @@ namespace BOStuffPack
         public static Harmony HarmonyInstance   = new(MOD_GUID);
         public static Assembly ModAssembly      = Assembly.GetExecutingAssembly();
         public static ModProfile Profile        = GenerateProfile();
-        public static AssetBundle Bundle        = Profile.AssetBundle;
 
         public static PostProcessResources PostProcessResources;
 
@@ -99,12 +98,6 @@ namespace BOStuffPack
             ReversePatchesFinished = true;
         }
 
-        private static ModProfile GenerateProfile()
-        {
-            var profile = ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
-            profile.LoadAssetBundle("bostuffpack");
-
-            return profile;
-        }
+        private static ModProfile GenerateProfile() => ProfileManager.RegisterMod(MOD_GUID, MOD_PREFIX);
     }
 }
