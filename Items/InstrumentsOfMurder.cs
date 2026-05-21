@@ -63,28 +63,17 @@ namespace BOStuffPack.Items
 
                     Effects.GenerateEffect(TargetSetStoredValueEffect.Create(StoredValueIDs.MurderID), 0, Targeting.AllUnits)
                 })
-                .SetIntents(new()
-                {
+                .SetIntents(
+                [
                     TargetIntent(Targeting.Unit_AllAllies,    IntentType_GameIDs.Misc_Hidden.ToString()),
                     TargetIntent(Targeting.Unit_AllOpponents, IntentType_GameIDs.Misc_Hidden.ToString()),
 
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 1, 2),     IntentType_GameIDs.Damage_1_2.ToString()),
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 3, 6),     IntentType_GameIDs.Damage_3_6.ToString()),
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 7, 10),    IntentType_GameIDs.Damage_7_10.ToString()),
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 11, 15),   IntentType_GameIDs.Damage_11_15.ToString()),
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 16, 20),   IntentType_GameIDs.Damage_16_20.ToString()),
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 21, null), IntentType_GameIDs.Damage_21.ToString()),
-
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 1, 2),     IntentType_GameIDs.Damage_1_2.ToString()),
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 3, 6),     IntentType_GameIDs.Damage_3_6.ToString()),
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 7, 10),    IntentType_GameIDs.Damage_7_10.ToString()),
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 11, 15),   IntentType_GameIDs.Damage_11_15.ToString()),
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 16, 20),   IntentType_GameIDs.Damage_16_20.ToString()),
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueInRange(StoredValueIDs.MurderID, 21, null), IntentType_GameIDs.Damage_21.ToString()),
+                    ..LocalIntentTools.DamageIntentsWithStoredValueFilter(Targeting.Unit_AllAllies, StoredValueIDs.MurderID),
+                    ..LocalIntentTools.DamageIntentsWithStoredValueFilter(Targeting.Unit_AllOpponents, StoredValueIDs.MurderID),
 
                     TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueComparison(StoredValueIDs.MurderID, 0, IntComparison.GreaterThan), IntentType_GameIDs.Misc.ToString()),
                     TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueComparison(StoredValueIDs.MurderID, 0, IntComparison.GreaterThan), IntentType_GameIDs.Misc.ToString()),
-                })
+                ])
                 .CharacterAbility(Pigments.RedBlue, Pigments.RedBlue, Pigments.RedBlue);
 
             item.SetStaticModifiers(ExtraAbilityModifier(ab));
