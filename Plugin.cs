@@ -32,7 +32,6 @@ namespace BOStuffPack
         {
             HarmonyInstance.PatchAll();
 
-            LocalStoredValues.Init();
             LocalPassives.Init();
 
             TheTideTurner.Init();

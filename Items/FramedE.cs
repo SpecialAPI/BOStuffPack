@@ -20,10 +20,12 @@ namespace BOStuffPack.Items
                 .SetPrice(6)
                 .AddToTreasure();
 
+            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.FramedEDB, StoredValueIDs.FramedEID);
+
             item.SetTriggerEffects(new()
             {
-                CharacterMultiSwapTriggerEffect.RestoreSV(LocalStoredValues.FramedE._UnitStoreDataID, 2),
-                CharacterMultiSwapTriggerEffect.Refresh(LocalStoredValues.FramedE._UnitStoreDataID, false),
+                CharacterMultiSwapTriggerEffect.RestoreSV(StoredValueIDs.FramedEID, 2),
+                CharacterMultiSwapTriggerEffect.Refresh(StoredValueIDs.FramedEID, false),
 
                 new()
                 {

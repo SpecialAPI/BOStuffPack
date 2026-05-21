@@ -12,10 +12,13 @@ namespace BOStuffPack.Passive
 
         public static void Init()
         {
+            var mergeCountSV = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.MergedCountDB, StoredValueIDs.MergedCountID)
+                .SetColor(StoredValueColor_Negative)
+                .SetFormat("Merged Enemies: {0}");
             Merged = NewPassive<MultiCustomTriggerEffectPassive>(PassiveIDs.MergedDB, PassiveIDs.MergedID)
             .SetBasicInformation("Merged", "Merged")
             .SetEnemyDescription("This enemy will perform an additional ability for each enemy merged into it.")
-            .SetStoredValue(LocalStoredValues.MergedCount)
+            .SetStoredValue(mergeCountSV)
             .SetTriggerEffects(new()
             {
                 new()
@@ -28,7 +31,7 @@ namespace BOStuffPack.Passive
                     effect = new ModifyIntegerReferenceTriggerEffect()
                     {
                         Operation = IntOperation.Add,
-                        StoredValue = LocalStoredValues.MergedCount._UnitStoreDataID,
+                        StoredValue = StoredValueIDs.MergedCountID,
                         UseStoredValue = true
                     }
                 }

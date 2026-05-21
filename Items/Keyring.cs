@@ -21,12 +21,12 @@ namespace BOStuffPack.Items
 
             var keybladeDmg = 4;
 
-            var colors = new List<(ManaColorSO pigmentColor, UnitStoreData_BasicSO keyStoredValue, string spritePostfix)>()
+            var colors = new List<(ManaColorSO pigmentColor, string spritePostfix)>()
             {
-                (Pigments.Red, LocalStoredValues.KeybladeRTurn, "Red"),
-                (Pigments.Blue, LocalStoredValues.KeybladeBTurn, "Blue"),
-                (Pigments.Yellow, LocalStoredValues.KeybladeYTurn, "Yellow"),
-                (Pigments.Purple, LocalStoredValues.KeybladePTurn, "Purple"),
+                (Pigments.Red, "Red"),
+                (Pigments.Blue, "Blue"),
+                (Pigments.Yellow, "Yellow"),
+                (Pigments.Purple, "Purple"),
             };
 
             var lockAbilities = new List<CharacterAbility>();
@@ -34,11 +34,13 @@ namespace BOStuffPack.Items
 
             for (int i = 0; i < colors.Count; i++)
             {
-                var (pigment, keySV, spritePostfix) = colors[i];
+                var (pigment, spritePostfix) = colors[i];
                 var idx = pigment.pigmentID[0];
 
                 var keyName = $"Keyblade {idx}";
                 var keyDesc = $"Deal {keybladeDmg} damage to the opposing enemy and refresh this party member.\nDisable the effects of Keyblade {idx} for this turn.";
+
+                var keySV = NewStoredValue<AdvancedStoredValueIntInfo>(string.Format(StoredValueIDs.KeybladeTurnDB, idx), string.Format(StoredValueIDs.KeybladeTurnID, idx)).SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
 
                 var keyAb = NewAbility(string.Format(AbilityIDs.Key, idx))
                     .SetBasicInformationCharacter(keyName, keyDesc, $"AttackIcon_Key_{spritePostfix}")
@@ -92,6 +94,11 @@ namespace BOStuffPack.Items
                 }
             };
             item.SetStaticModifiers(ModdedDataModifier(new OverworldAbilityDisplayStaticModifier(lockAbilities)));
+        }
+
+        public static bool CurrentTurnIsLowerThanValueDisplayCondition(UnitStoreDataHolder holder)
+        {
+            return holder.m_MainData >= CombatManager.Instance._stats.TurnsPassed + 1;
         }
     }
 }

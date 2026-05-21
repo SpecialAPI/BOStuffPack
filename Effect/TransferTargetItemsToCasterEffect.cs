@@ -7,7 +7,7 @@ namespace BOStuffPack.Effect
 {
     public class TransferTargetItemsToCasterEffect : EffectSO
     {
-        public UnitStoreData_BasicSO itemsStoredValue;
+        public string itemsStoredValue;
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -123,7 +123,7 @@ namespace BOStuffPack.Effect
 
             if(itemsStoredValue != null)
             {
-                caster.TryGetStoredData(itemsStoredValue._UnitStoreDataID, out var hold);
+                caster.TryGetStoredData(itemsStoredValue, out var hold);
 
                 if (hold.m_ObjectData is not List<BaseWearableSO> storedItems)
                     hold.m_ObjectData = storedItems = [];

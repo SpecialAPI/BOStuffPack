@@ -19,6 +19,14 @@ namespace BOStuffPack.Items
                 .SetPrice(8)
                 .AddToTreasure();
 
+            NewStoredValue<CombatAbilityStoredValue>(StoredValueIDs.BlankBookAbilityDB, StoredValueIDs.BlankBookAbilityID)
+                .SetColor(StoredValueColor_Rare)
+                .SetFormat("Last used ability: {0}");
+
+            NewStoredValue<PassiveAbilityStoredValue>(StoredValueIDs.BlankBookPassiveDB, StoredValueIDs.BlankBookPassiveID)
+                .SetColor(StoredValueColor_Rare)
+                .SetFormat("Last used passive: {0}");
+
             item.SetTriggerEffects(new()
             {
                 new()
@@ -29,7 +37,7 @@ namespace BOStuffPack.Items
 
                     effect = new BlankBookSetAbilityTriggerEffect()
                     {
-                        storedValue = LocalStoredValues.BlankBookAbility._UnitStoreDataID
+                        storedValue = StoredValueIDs.BlankBookAbilityID
                     }
                 },
                 new()
@@ -40,7 +48,7 @@ namespace BOStuffPack.Items
 
                     effect = new BlankBookSetPassiveTriggerEffect()
                     {
-                        storedValue = LocalStoredValues.BlankBookPassive._UnitStoreDataID
+                        storedValue = StoredValueIDs.BlankBookPassiveID
                     }
                 },
                 new TriggerEffectAndTriggersInfo()
@@ -52,10 +60,10 @@ namespace BOStuffPack.Items
 
                     effect = new SetUpAndProduceWrittenBookTriggerEffect()
                     {
-                        abilityStoredValue = LocalStoredValues.BlankBookAbility._UnitStoreDataID,
+                        abilityStoredValue = StoredValueIDs.BlankBookAbilityID,
                         abilityDataKey = WrittenBook.ExtraAbilityDataKey,
 
-                        passiveStoredValue = LocalStoredValues.BlankBookPassive._UnitStoreDataID,
+                        passiveStoredValue = StoredValueIDs.BlankBookPassiveID,
                         passiveDataKey = WrittenBook.ExtraPassiveDataKey,
 
                         itemID = ItemIDs.WrittenBook

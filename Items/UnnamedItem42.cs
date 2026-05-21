@@ -20,6 +20,8 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
+            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.UnnamedItem42TempDisableDB, StoredValueIDs.UnnamedItem42TempDisableID);
+
             item.SetTriggerEffects(new()
             {
                 new()
@@ -36,12 +38,12 @@ namespace BOStuffPack.Items
                     doesPopup = false,
                     immediate = true,
 
-                    effect = new DodgeDamageModifierSetterTriggerEffect(LocalStoredValues.UnnamedItem42TempDisable._UnitStoreDataID),
+                    effect = new DodgeDamageModifierSetterTriggerEffect(StoredValueIDs.UnnamedItem42TempDisableID),
                     conditions = new()
                     {
                         CreateScriptable<StoredValueComparisonEffectorCondition>(x =>
                         {
-                            x.value = LocalStoredValues.UnnamedItem42TempDisable._UnitStoreDataID;
+                            x.value = StoredValueIDs.UnnamedItem42TempDisableID;
                             x.compareTo = 0;
                             x.comparison = IntComparison.Equal;
                         })

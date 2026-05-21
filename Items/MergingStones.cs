@@ -20,6 +20,10 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
+            NewStoredValue<MergingStonesStoredValue>(StoredValueIDs.MergingStonesDB, StoredValueIDs.MergingStonesID)
+                .SetColor(StoredValueColor_Rare)
+                .SetFormat("Merging Stones: {0}");
+
             item.triggerEffects = new()
             {
                 new()
@@ -30,7 +34,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = LocalStoredValues.MergingStones), 0, Targeting.Slot_AllySides)
+                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = StoredValueIDs.MergingStonesID), 0, Targeting.Slot_AllySides)
                     })
                 }
             };
@@ -44,7 +48,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = LocalStoredValues.MergingStones,
+                        itemsStoredValue = StoredValueIDs.MergingStonesID,
                         disconnect = false
                     }
                 }
@@ -59,7 +63,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = LocalStoredValues.MergingStones,
+                        itemsStoredValue = StoredValueIDs.MergingStonesID,
                         disconnect = true
                     }
                 }

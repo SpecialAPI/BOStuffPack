@@ -8,14 +8,8 @@ namespace BOStuffPack
     {
         public static readonly string MergedCountDB                 = "MergedCount_USD".Prefix();
         public static readonly string MergedCountID                 = "MergedCount".Prefix();
-        public static readonly string KeybladeRTurnDB               = "KeybladeRTurn_USD".Prefix();
-        public static readonly string KeybladeRTurnID               = "KeybladeRTurn".Prefix();
-        public static readonly string KeybladeBTurnDB               = "KeybladeBTurn_USD".Prefix();
-        public static readonly string KeybladeBTurnID               = "KeybladeBTurn".Prefix();
-        public static readonly string KeybladeYTurnDB               = "KeybladeYTurn_USD".Prefix();
-        public static readonly string KeybladeYTurnID               = "KeybladeYTurn".Prefix();
-        public static readonly string KeybladePTurnDB               = "KeybladePTurn_USD".Prefix();
-        public static readonly string KeybladePTurnID               = "KeybladePTurn".Prefix();
+        public static readonly string KeybladeTurnDB                = "Keyblade{0}Turn_USD".Prefix();
+        public static readonly string KeybladeTurnID                = "Keyblade{0}Turn".Prefix();
         public static readonly string BloodDB                       = "Blood_USD".Prefix();
         public static readonly string BloodID                       = "Blood".Prefix();
         public static readonly string UnnamedItem5DB                = "UnnamedItem5_USD".Prefix();

@@ -6,7 +6,7 @@ namespace BOStuffPack.TriggerEffects
 {
     public class ConnectOrDisconnectStoredItemsTriggerEffect : TriggerEffect
     {
-        public UnitStoreData_BasicSO itemsStoredValue;
+        public string itemsStoredValue;
         public bool disconnect;
 
         public override void DoEffect(IUnit sender, object args, TriggerEffectInfo triggerInfo, TriggerEffectActivationExtraInfo extraInfo)
@@ -14,7 +14,7 @@ namespace BOStuffPack.TriggerEffects
             if (sender is not IWearableEffector effector)
                 return;
 
-            sender.TryGetStoredData(itemsStoredValue._UnitStoreDataID, out var hold);
+            sender.TryGetStoredData(itemsStoredValue, out var hold);
 
             if (hold.m_ObjectData is not List<BaseWearableSO> items)
                 return;

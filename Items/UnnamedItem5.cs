@@ -20,6 +20,8 @@ namespace BOStuffPack.Items
                 .SetPrice(11)
                 .AddToTreasure();
 
+            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.UnnamedItem5DB, StoredValueIDs.UnnamedItem5ID);
+
             item.SetTriggerEffects(new()
             {
                 new()
@@ -34,8 +36,8 @@ namespace BOStuffPack.Items
                     })
                 },
 
-                CharacterMultiAttackTriggerEffect.RestoreSV(LocalStoredValues.UnnamedItem5._UnitStoreDataID, 2),
-                CharacterMultiAttackTriggerEffect.Refresh(LocalStoredValues.UnnamedItem5._UnitStoreDataID, true),
+                CharacterMultiAttackTriggerEffect.RestoreSV(StoredValueIDs.UnnamedItem5ID, 2),
+                CharacterMultiAttackTriggerEffect.Refresh(StoredValueIDs.UnnamedItem5ID, true),
             });
         }
     }

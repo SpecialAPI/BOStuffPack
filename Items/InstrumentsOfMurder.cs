@@ -21,6 +21,10 @@ namespace BOStuffPack.Items
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
+            NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.BloodDB, StoredValueIDs.BloodID)
+                .SetColor(StoredValueColor_Negative)
+                .SetFormat("Blood: {0}");
+
             item.SetTriggerEffects(new()
             {
                 new()
@@ -29,7 +33,7 @@ namespace BOStuffPack.Items
                     doesPopup = true,
                     immediate = true,
 
-                    effect = new ConvertDamageToUnitStoredValueTriggerEffect(1, LocalStoredValues.Blood._UnitStoreDataID),
+                    effect = new ConvertDamageToUnitStoredValueTriggerEffect(1, StoredValueIDs.BloodID),
 
                     conditions = new()
                     {
@@ -51,13 +55,13 @@ namespace BOStuffPack.Items
                 {
                     Effects.GenerateEffect(CreateScriptable<PlayAnimationOnAllTargetsFulfillingStoredValueConditionEffect>(x =>
                     {
-                        x.storedValueID = LocalStoredValues.Blood._UnitStoreDataID;
+                        x.storedValueID = StoredValueIDs.BloodID;
                         x.storedValueCondition = IntCondition.Positive;
                         x.visuals = Visuals.Slash;
                     }), 0, Targeting.AllUnits),
                     Effects.GenerateEffect(CreateScriptable<DamageByTargetStoredValueEffect>(x =>
                     {
-                        x.storedValueID = LocalStoredValues.Blood._UnitStoreDataID;
+                        x.storedValueID = StoredValueIDs.BloodID;
                         x.damageType = CombatType_GameIDs.Dmg_Ruptured.ToString();
                     }), 1, Targeting.AllUnits)
                 })
