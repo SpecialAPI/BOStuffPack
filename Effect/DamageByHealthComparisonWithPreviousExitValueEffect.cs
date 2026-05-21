@@ -4,38 +4,32 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class DamageByHealthComparisonWithPreviousExitValueEffect : EffectSO
+    public class DamageByHealthComparisonWithPreviousExitValueEffect : CustomDamageEffectBase
     {
-        public IntComparison healthComparison;
-        public int targetHealth;
+        public int compareTo;
+        public IntComparison comparison;
+        public bool compareToCasterHealth;
 
-        public bool useCasterHealth;
-
-        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        public override int BaseDamageAmount(IUnit unit, TargetSlotInfo target, CombatStats stats, IUnit caster, bool areTargetSlots, int entryVariable, bool indirect)
         {
-            exitAmount = 0;
+            var compTo = compareTo;
+            if (compareToCasterHealth)
+                compTo = caster.CurrentHealth;
 
-            foreach(var t in targets)
-            {
-                if(t == null || !t.HasUnit)
-                    continue;
+            if (CompareInts(unit.CurrentHealth, compTo, comparison))
+                return PreviousExitValue;
+            else
+                return entryVariable;
+        }
 
-                var amt = entryVariable;
-                var tHealth = targetHealth;
+        public static EffectSO Create(int compareTo, IntComparison comparison, bool compareToCasterHealthInstead = false, bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        {
+            var e = Create<DamageByHealthComparisonWithPreviousExitValueEffect>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
+            e.compareTo = compareTo;
+            e.comparison = comparison;
+            e.compareToCasterHealth = compareToCasterHealthInstead;
 
-                if (useCasterHealth)
-                    tHealth = caster.CurrentHealth;
-
-                if (CompareInts(t.Unit.CurrentHealth, tHealth, healthComparison))
-                    amt = PreviousExitValue;
-
-                exitAmount += t.Unit.Damage(caster.WillApplyDamage(amt, t.Unit), caster, DeathType_GameIDs.Basic.ToString(), areTargetSlots ? t.TargetOffset() : -1).damageAmount;
-            }
-
-            if(exitAmount > 0)
-                caster.DidApplyDamage(exitAmount);
-
-            return exitAmount > 0;
+            return e;
         }
     }
 }

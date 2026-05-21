@@ -4,29 +4,18 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class DamageByStatusEffectsEffect : EffectSO
+    public class DamageByStatusEffectsEffect : CustomDamageEffectBase
     {
-        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        public override int BaseDamageAmount(IUnit unit, TargetSlotInfo target, CombatStats stats, IUnit caster, bool areTargetSlots, int entryVariable, bool indirect)
         {
-            exitAmount = 0;
+            return entryVariable + (unit.StatusEffectCount * PreviousExitValue);
+        }
 
-            foreach(var t in targets)
-            {
-                if(t == null || !t.HasUnit)
-                    continue;
+        public static EffectSO Create(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        {
+            var e = Create<DamageByStatusEffectsEffect>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
 
-                var amt = entryVariable;
-
-                if (t.Unit is IStatusEffector effector)
-                    amt += effector.StatusEffects.Count * PreviousExitValue;
-
-                exitAmount += t.Unit.Damage(caster.WillApplyDamage(amt, t.Unit), caster, DeathType_GameIDs.Basic.ToString(), areTargetSlots ? t.TargetOffset() : -1).damageAmount;
-            }
-
-            if (exitAmount > 0)
-                caster.DidApplyDamage(exitAmount);
-
-            return exitAmount > 0;
+            return e;
         }
     }
 }
