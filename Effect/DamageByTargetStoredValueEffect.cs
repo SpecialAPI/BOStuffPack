@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class DamageByTargetStoredValueEffect : DamageEffectBase
+    public class DamageByTargetStoredValueEffect : CustomDamageEffectBase
     {
         public string storedValue;
 

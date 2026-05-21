@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public abstract class DamageEffectBase : EffectSO
+    public abstract class CustomDamageEffectBase : EffectSO
     {
         public bool indirect;
         public bool usePreviousExitValue;
@@ -13,7 +13,7 @@ namespace BOStuffPack.Effect
         public string deathType = DeathType_GameIDs.Basic.ToString();
         public string specialDamage = string.Empty;
 
-        protected static T Create<T>(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "") where T : DamageEffectBase
+        protected static T Create<T>(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "") where T : CustomDamageEffectBase
         {
             var e = CreateScriptable<T>();
             e.indirect = indirect;
@@ -27,7 +27,7 @@ namespace BOStuffPack.Effect
         }
 
         /*
-        public static DamageByTargetStoredValueEffect Create(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        public static EffectSO Create(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
         {
             var e = Create<CLASSNAME>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
 
