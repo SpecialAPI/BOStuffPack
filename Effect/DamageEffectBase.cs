@@ -6,16 +6,40 @@ namespace BOStuffPack.Effect
 {
     public abstract class DamageEffectBase : EffectSO
     {
-        public string specialDamage = string.Empty;
-        public string deathType = DeathType_GameIDs.Basic.ToString();
-        public bool usePreviousExitValue;
-        public bool ignoreShield;
         public bool indirect;
+        public bool usePreviousExitValue;
         public bool returnKillAsSuccess;
+        public bool ignoreShield;
+        public string deathType = DeathType_GameIDs.Basic.ToString();
+        public string specialDamage = string.Empty;
+
+        protected static T Create<T>(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "") where T : DamageEffectBase
+        {
+            var e = CreateScriptable<T>();
+            e.indirect = indirect;
+            e.usePreviousExitValue = usePreviousExit;
+            e.returnKillAsSuccess = successOnKill;
+            e.ignoreShield = ignoreShield;
+            e.deathType = deathType;
+            e.specialDamage = specialDamage;
+
+            return e;
+        }
+
+        /*
+        public static DamageByTargetStoredValueEffect Create(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        {
+            var e = Create<CLASSNAME>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
+
+            return e;
+        }
+        */
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
+
+            ModifyEntryParameters(ref targets, ref areTargetSlots, ref entryVariable);
 
             var killed = false;
             var indirect = 0;
@@ -48,6 +72,12 @@ namespace BOStuffPack.Effect
             return exitAmount > 0;
         }
 
+        public virtual void ModifyEntryParameters(ref TargetSlotInfo[] targets, ref bool areTargetSlots, ref int entryVariable)
+        {
+            if (usePreviousExitValue)
+                entryVariable *= PreviousExitValue;
+        }
+
         public virtual bool ShouldDamage(IUnit unit, TargetSlotInfo target, CombatStats stats, IUnit caster, bool areTargetSlots, int entryVariable)
         {
             return true;
@@ -72,7 +102,9 @@ namespace BOStuffPack.Effect
             var ignoresShield = IgnoreShields(unit, target, stats, caster, areTargetSlots, entryVariable, indirect);
             var generatePigment = GeneratePigment(unit, target, stats, caster, areTargetSlots, entryVariable, indirect);
 
-            return unit.Damage(amt, indirect ? null : caster, deathType, offs, generatePigment, indirect, ignoresShield, specialDamage);
+            var killer = indirect ? null : caster;
+
+            return unit.Damage(amt, killer, deathType, offs, generatePigment, !indirect, ignoresShield, specialDamage);
         }
 
         public virtual bool IsIndirect(IUnit unit, TargetSlotInfo target, CombatStats stats, IUnit caster, bool areTargetSlots, int entryVariable)

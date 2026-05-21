@@ -4,29 +4,21 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class DamageByTargetStoredValueEffect : EffectSO
+    public class DamageByTargetStoredValueEffect : DamageEffectBase
     {
-        public string damageType = "";
-        public string storedValueID;
+        public string storedValue;
 
-        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        public override int BaseDamageAmount(IUnit unit, TargetSlotInfo target, CombatStats stats, IUnit caster, bool areTargetSlots, int entryVariable, bool indirect)
         {
-            exitAmount = 0;
+            return unit.SimpleGetStoredValue(storedValue) * entryVariable;
+        }
 
-            foreach(var t in targets)
-            {
-                if(t == null || !t.HasUnit)
-                    continue;
+        public static EffectSO Create(string storedValue, bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        {
+            var e = Create<DamageByTargetStoredValueEffect>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
+            e.storedValue = storedValue;
 
-                var storedValue = t.Unit.SimpleGetStoredValue(storedValueID);
-
-                if(storedValue <= 0)
-                    continue;
-
-                exitAmount += t.Unit.Damage(caster.WillApplyDamage(entryVariable * storedValue, t.Unit), caster, DeathType_GameIDs.Basic.ToString(), t.TargetOffset(areTargetSlots), true, true, false, damageType).damageAmount;
-            }
-
-            return exitAmount > 0;
+            return e;
         }
     }
 }

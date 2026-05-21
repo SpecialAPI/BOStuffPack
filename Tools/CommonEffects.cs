@@ -61,7 +61,7 @@ namespace BOStuffPack.Tools
         public static EffectSO Animation(AttackVisualsSO anim)
         {
             var e = CreateScriptable<AnimationVisualsOnEffectTargetsEffect>();
-            e.visuals = Visuals.Mitosis;
+            e.visuals = anim;
 
             return e;
         }
@@ -94,6 +94,14 @@ namespace BOStuffPack.Tools
         {
             var e = CreateScriptable<RandomizeAllManaEffect>();
             e.manaRandomOptions = pool;
+
+            return e;
+        }
+
+        public static EffectSO SetCasterStoredValue(string storedValue)
+        {
+            var e = CreateScriptable<CasterStoreValueSetterEffect>();
+            e.m_unitStoredDataID = storedValue;
 
             return e;
         }

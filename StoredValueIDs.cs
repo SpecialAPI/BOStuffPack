@@ -10,8 +10,10 @@ namespace BOStuffPack
         public static readonly string MergedCountID                 = "MergedCount".Prefix();
         public static readonly string KeybladeTurnDB                = "Keyblade{0}Turn_USD".Prefix();
         public static readonly string KeybladeTurnID                = "Keyblade{0}Turn".Prefix();
-        public static readonly string BloodDB                       = "Blood_USD".Prefix();
-        public static readonly string BloodID                       = "Blood".Prefix();
+        public static readonly string MurderDB                      = "Murder_USD".Prefix();
+        public static readonly string MurderID                      = "Murder".Prefix();
+        public static readonly string MurderTempDisableDB           = "MurderTempDisable_USD".Prefix();
+        public static readonly string MurderTempDisableID           = "MurderTempDisable".Prefix();
         public static readonly string UnnamedItem5DB                = "UnnamedItem5_USD".Prefix();
         public static readonly string UnnamedItem5ID                = "UnnamedItem5".Prefix();
         public static readonly string UnnamedItem42TempDisableDB    = "UnnamedItem42TempDisable_USD".Prefix();

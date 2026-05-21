@@ -41,12 +41,7 @@ namespace BOStuffPack.Items
                     effect = new DodgeDamageModifierSetterTriggerEffect(StoredValueIDs.UnnamedItem42TempDisableID),
                     conditions = new()
                     {
-                        CreateScriptable<StoredValueComparisonEffectorCondition>(x =>
-                        {
-                            x.value = StoredValueIDs.UnnamedItem42TempDisableID;
-                            x.compareTo = 0;
-                            x.comparison = IntComparison.Equal;
-                        })
+                        StoredValueComparisonEffectorCondition.Create(StoredValueIDs.UnnamedItem42TempDisableID, 0, IntComparison.Equal)
                     }
                 }
             });

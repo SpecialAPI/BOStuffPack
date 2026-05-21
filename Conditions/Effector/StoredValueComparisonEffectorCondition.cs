@@ -18,5 +18,15 @@ namespace BOStuffPack.Conditions.Effector
 
             return false;
         }
+
+        public static EffectorConditionSO Create(string sv, int compareTo, IntComparison comparison)
+        {
+            var c = CreateScriptable<StoredValueComparisonEffectorCondition>();
+            c.value = sv;
+            c.compareTo = compareTo;
+            c.comparison = comparison;
+
+            return c;
+        }
     }
 }
