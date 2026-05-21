@@ -65,7 +65,7 @@ namespace BOStuffPack.Tools
             return f;
         }
 
-        public static BaseCombatTargettingSO FilterUnitByStoredValueInRange(this BaseCombatTargettingSO orig, string storedValue, int min, int max)
+        public static BaseCombatTargettingSO FilterUnitByStoredValueInRange(this BaseCombatTargettingSO orig, string storedValue, int? min, int? max)
         {
             var f = CreateScriptable<UnitFilterByStoredValueInRangeTargeting>();
             f.orig = orig;
