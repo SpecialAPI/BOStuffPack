@@ -42,7 +42,7 @@ namespace BOStuffPack
         public static readonly string UnnamedItem35                 = "UnnamedItem35_TW".Prefix();
         public static readonly string UnnamedItem36                 = "UnnamedItem36_TW".Prefix();
         public static readonly string UnnamedItem37                 = "UnnamedItem37".Prefix();
-        public static readonly string FakeGun                       = "FakeGun_TW".Prefix();
+        public static readonly string ImaginaryGun                  = "ImaginaryGun_TW".Prefix();
         public static readonly string UnnamedItem42                 = "UnnamedItem42_TW".Prefix();
         public static readonly string DirtBlock                     = "DirtBlock_ExtraW".Prefix();
         public static readonly string OldBleach                     = "OldBleach_ExtraW".Prefix();

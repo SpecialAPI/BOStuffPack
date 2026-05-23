@@ -6,15 +6,15 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class FakeGun
+    public static class ImaginaryGun
     {
         public static void Init()
         {
-            var name = "Fake Gun";
-            var flav = "\"It can't actually shoot.\"";
+            var name = "Imaginary Gun";
+            var flav = "\"You need to believe in it.\"";
             var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that deals fake damage.";
 
-            var item = NewItem<BasicWearable>(ItemIDs.FakeGun)
+            var item = NewItem<BasicWearable>(ItemIDs.ImaginaryGun)
                 .SetBasicInformation(name, flav, desc, "FakeGunPlaceholder")
                 .SetPrice(2)
                 .AddToTreasure();

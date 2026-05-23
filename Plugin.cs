@@ -70,7 +70,7 @@ namespace BOStuffPack
             UnnamedItem35.Init();
             //UnnamedItem36.Init();
             UnnamedItem37.Init();
-            FakeGun.Init();
+            ImaginaryGun.Init();
             UnnamedItem42.Init();
             DirtBlock.Init();
             OldBleach.Init();
