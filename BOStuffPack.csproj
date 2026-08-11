@@ -36,11 +36,9 @@
     <None Remove="Resources\Items\MusicBox.png" />
     <None Remove="Resources\Items\NegativeTeapot.png" />
     <None Remove="Resources\Items\OilPaints.png" />
-    <None Remove="Resources\Items\OldBleach.png" />
     <None Remove="Resources\Items\Palette.png" />
     <None Remove="Resources\Items\RedMarker.png" />
     <None Remove="Resources\Items\SquirrelBomb.png" />
-    <None Remove="Resources\Items\TrueZeal.png" />
     <None Remove="Resources\Items\WrittenBookPlaceholder.png" />
     <None Remove="Resources\Passives\Merged.png" />
     <None Remove="Resources\Passives\Shapeshifter.png" />
@@ -69,7 +67,6 @@
     <EmbeddedResource Include="Resources\Items\DirtBlock.png" />
     <EmbeddedResource Include="Resources\Items\ElectromagnetPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\FakeGunPlaceholder.png" />
-    <EmbeddedResource Include="Resources\Items\OldBleach.png" />
     <EmbeddedResource Include="Resources\Items\SquirrelBomb.png" />
     <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
     <EmbeddedResource Include="Resources\Items\MergingStonesv2.png" />
@@ -91,7 +88,6 @@
     <EmbeddedResource Include="Resources\Items\RipAndTear.png" />
     <EmbeddedResource Include="Resources\Items\Survivorship.png" />
     <EmbeddedResource Include="Resources\Items\TheTideTurner.png" />
-    <EmbeddedResource Include="Resources\Items\TrueZeal.png" />
     <EmbeddedResource Include="Resources\Items\WorldShatter.png" />
     <EmbeddedResource Include="Resources\Items\WrittenBookPlaceholder.png" />
     <EmbeddedResource Include="Resources\Passives\Merged.png" />
