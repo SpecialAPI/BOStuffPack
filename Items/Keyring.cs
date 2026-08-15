@@ -11,6 +11,8 @@ namespace BOStuffPack.Items
         public static readonly string ID = "Keyring_TW".Prefix();
         public static readonly string KeyID = "Key{0}_A".Prefix();
         public static readonly string LockID = "Lock{0}_A".Prefix();
+        public static readonly string KeybladeTurnSVDB = "Keyblade{0}Turn_USD".Prefix();
+        public static readonly string KeybladeTurnSVID = "Keyblade{0}Turn".Prefix();
 
         public static void Init()
         {
@@ -44,7 +46,10 @@ namespace BOStuffPack.Items
                 var keyName = $"Keyblade {idx}";
                 var keyDesc = $"Deal {keybladeDmg} damage to the opposing enemy and refresh this party member.\nDisable the effects of Keyblade {idx} for this turn.";
 
-                var keySV = NewStoredValue<AdvancedStoredValueIntInfo>(string.Format(StoredValueIDs.KeybladeTurnDB, idx), string.Format(StoredValueIDs.KeybladeTurnID, idx)).SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
+                var keySV = NewStoredValue<AdvancedStoredValueIntInfo>(string.Format(KeybladeTurnSVDB, idx), string.Format(KeybladeTurnSVID, idx))
+                    .SetColor(StoredValueColor_Negative)
+                    .SetFormat("Keyblade P Disabled")
+                    .SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
 
                 var keyAb = NewAbility(string.Format(KeyID, idx))
                     .SetBasicInformationCharacter(keyName, keyDesc, $"AttackIcon_Key_{spritePostfix}")

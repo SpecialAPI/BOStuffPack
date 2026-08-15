@@ -10,6 +10,8 @@ namespace BOStuffPack.Items
     public static class MergingStones
     {
         public static readonly string ID = "MergingStones_TW".Prefix();
+        public static readonly string StoredValueDB = "MergingStones_USD".Prefix();
+        public static readonly string StoredValueID = "MergingStones".Prefix();
 
         public static void Init()
         {
@@ -22,7 +24,7 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
-            NewStoredValue<MergingStonesStoredValue>(StoredValueIDs.MergingStonesDB, StoredValueIDs.MergingStonesID)
+            NewStoredValue<MergingStonesStoredValue>(StoredValueDB, StoredValueID)
                 .SetColor(StoredValueColor_Rare)
                 .SetFormat("Merging Stones: {0}");
 
@@ -36,7 +38,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = StoredValueIDs.MergingStonesID), 0, Targeting.Slot_AllySides)
+                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = StoredValueID), 0, Targeting.Slot_AllySides)
                     })
                 }
             };
@@ -50,7 +52,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = StoredValueIDs.MergingStonesID,
+                        itemsStoredValue = StoredValueID,
                         disconnect = false
                     }
                 }
@@ -65,7 +67,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = StoredValueIDs.MergingStonesID,
+                        itemsStoredValue = StoredValueID,
                         disconnect = true
                     }
                 }

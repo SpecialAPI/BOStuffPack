@@ -12,6 +12,10 @@ namespace BOStuffPack.Items
     {
         public static readonly string ID = "InstrumentsOfMurder_TW".Prefix();
         public static readonly string AbilityID = "MurderEveryoneYouKnow_A".Prefix();
+        public static readonly string MurderSVDB = "Murder_USD".Prefix();
+        public static readonly string MurderSVID = "Murder".Prefix();
+        public static readonly string DisableSVDB = "MurderTempDisable_USD".Prefix();
+        public static readonly string DisableSVID = "MurderTempDisable".Prefix();
 
         public static void Init()
         {
@@ -26,11 +30,11 @@ namespace BOStuffPack.Items
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
-            NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.MurderDB, StoredValueIDs.MurderID)
+            NewStoredValue<AdvancedStoredValueIntInfo>(MurderSVDB, MurderSVID)
                 .SetColor(StoredValueColor_Negative)
                 .SetFormat("Murder: {0}");
 
-            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.MurderTempDisableDB, StoredValueIDs.MurderTempDisableID);
+            NewStoredValue<UnitStoreData_BasicSO>(DisableSVDB, DisableSVID);
 
             item.SetTriggerEffects(new()
             {
@@ -40,11 +44,11 @@ namespace BOStuffPack.Items
                     doesPopup = true,
                     immediate = true,
 
-                    effect = new UnitValueStoredValueChangeTriggerEffect(StoredValueIDs.MurderID, incOnDamage, IntOperation.Add, 1),
+                    effect = new UnitValueStoredValueChangeTriggerEffect(MurderSVID, incOnDamage, IntOperation.Add, 1),
 
                     conditions = new()
                     {
-                        StoredValueComparisonEffectorCondition.Create(StoredValueIDs.MurderTempDisableID, 0, IntComparison.Equal)
+                        StoredValueComparisonEffectorCondition.Create(DisableSVID, 0, IntComparison.Equal)
                     }
                 }
             });
@@ -53,29 +57,29 @@ namespace BOStuffPack.Items
             var abDesc = "Deal damage to each enemy and party member equal to their \"Murder\" count. Reset their \"Murder\" count.";
 
             var unitsWithSV = Targeting.AllUnits
-                .FilterUnitByStoredValueComparison(StoredValueIDs.MurderID, 0, IntComparison.GreaterThan);
+                .FilterUnitByStoredValueComparison(MurderSVID, 0, IntComparison.GreaterThan);
 
             var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Murder")
                 .SetVisuals(Visuals.InvadeTheVeins, unitsWithSV)
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CommonEffects.SetCasterStoredValue(StoredValueIDs.MurderTempDisableID), 1),
-                    Effects.GenerateEffect(DamageByTargetStoredValueEffect.Create(StoredValueIDs.MurderID), 1, unitsWithSV),
-                    Effects.GenerateEffect(CommonEffects.SetCasterStoredValue(StoredValueIDs.MurderTempDisableID), 0),
+                    Effects.GenerateEffect(CommonEffects.SetCasterStoredValue(DisableSVID), 1),
+                    Effects.GenerateEffect(DamageByTargetStoredValueEffect.Create(MurderSVID), 1, unitsWithSV),
+                    Effects.GenerateEffect(CommonEffects.SetCasterStoredValue(DisableSVID), 0),
 
-                    Effects.GenerateEffect(TargetSetStoredValueEffect.Create(StoredValueIDs.MurderID), 0, Targeting.AllUnits)
+                    Effects.GenerateEffect(TargetSetStoredValueEffect.Create(MurderSVID), 0, Targeting.AllUnits)
                 })
                 .SetIntents(
                 [
                     TargetIntent(Targeting.Unit_AllAllies,    IntentType_GameIDs.Misc_Hidden.ToString()),
                     TargetIntent(Targeting.Unit_AllOpponents, IntentType_GameIDs.Misc_Hidden.ToString()),
 
-                    ..LocalIntentTools.DamageIntentsWithStoredValueFilter(Targeting.Unit_AllAllies, StoredValueIDs.MurderID),
-                    ..LocalIntentTools.DamageIntentsWithStoredValueFilter(Targeting.Unit_AllOpponents, StoredValueIDs.MurderID),
+                    ..LocalIntentTools.DamageIntentsWithStoredValueFilter(Targeting.Unit_AllAllies, MurderSVID),
+                    ..LocalIntentTools.DamageIntentsWithStoredValueFilter(Targeting.Unit_AllOpponents, MurderSVID),
 
-                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueComparison(StoredValueIDs.MurderID, 0, IntComparison.GreaterThan), IntentType_GameIDs.Misc.ToString()),
-                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueComparison(StoredValueIDs.MurderID, 0, IntComparison.GreaterThan), IntentType_GameIDs.Misc.ToString()),
+                    TargetIntent(Targeting.Unit_AllAllies.FilterUnitByStoredValueComparison(MurderSVID, 0, IntComparison.GreaterThan), IntentType_GameIDs.Misc.ToString()),
+                    TargetIntent(Targeting.Unit_AllOpponents.FilterUnitByStoredValueComparison(MurderSVID, 0, IntComparison.GreaterThan), IntentType_GameIDs.Misc.ToString()),
                 ])
                 .CharacterAbility(Pigments.RedBlue, Pigments.RedBlue, Pigments.RedBlue);
 

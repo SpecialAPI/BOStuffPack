@@ -10,6 +10,8 @@ namespace BOStuffPack.Items
     public static class FramedE
     {
         public static readonly string ID = "FramedE_TW".Prefix();
+        public static readonly string StoredValueDB = "FramedE_USD".Prefix();
+        public static readonly string StoredValueID = "FramedE".Prefix();
 
         public static void Init()
         {
@@ -22,12 +24,12 @@ namespace BOStuffPack.Items
                 .SetPrice(6)
                 .AddToTreasure();
 
-            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.FramedEDB, StoredValueIDs.FramedEID);
+            NewStoredValue<UnitStoreData_BasicSO>(StoredValueDB, StoredValueID);
 
             item.SetTriggerEffects(new()
             {
-                CharacterMultiSwapTriggerEffect.RestoreSV(StoredValueIDs.FramedEID, 2),
-                CharacterMultiSwapTriggerEffect.Refresh(StoredValueIDs.FramedEID, false),
+                CharacterMultiSwapTriggerEffect.RestoreSV(StoredValueID, 2),
+                CharacterMultiSwapTriggerEffect.Refresh(StoredValueID, false),
 
                 new()
                 {

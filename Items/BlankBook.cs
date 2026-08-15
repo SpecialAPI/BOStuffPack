@@ -9,6 +9,10 @@ namespace BOStuffPack.Items
     public static class BlankBook
     {
         public static readonly string ID = "BlankBook_TW".Prefix();
+        public static readonly string AbilitySVDB = "BlankBook_Ability_USD".Prefix();
+        public static readonly string AbilitySVID = "BlankBook_Ability".Prefix();
+        public static readonly string PassiveSVDB = "BlankBook_Passive_USD".Prefix();
+        public static readonly string PassiveSVID = "BlankBook_Passive".Prefix();
 
         public static void Init()
         {
@@ -21,11 +25,11 @@ namespace BOStuffPack.Items
                 .SetPrice(8)
                 .AddToTreasure();
 
-            NewStoredValue<CombatAbilityStoredValue>(StoredValueIDs.BlankBookAbilityDB, StoredValueIDs.BlankBookAbilityID)
+            NewStoredValue<CombatAbilityStoredValue>(AbilitySVDB, AbilitySVID)
                 .SetColor(StoredValueColor_Rare)
                 .SetFormat("Last used ability: {0}");
 
-            NewStoredValue<PassiveAbilityStoredValue>(StoredValueIDs.BlankBookPassiveDB, StoredValueIDs.BlankBookPassiveID)
+            NewStoredValue<PassiveAbilityStoredValue>(PassiveSVDB, PassiveSVID)
                 .SetColor(StoredValueColor_Rare)
                 .SetFormat("Last used passive: {0}");
 
@@ -39,7 +43,7 @@ namespace BOStuffPack.Items
 
                     effect = new BlankBookSetAbilityTriggerEffect()
                     {
-                        storedValue = StoredValueIDs.BlankBookAbilityID
+                        storedValue = AbilitySVID
                     }
                 },
                 new()
@@ -50,7 +54,7 @@ namespace BOStuffPack.Items
 
                     effect = new BlankBookSetPassiveTriggerEffect()
                     {
-                        storedValue = StoredValueIDs.BlankBookPassiveID
+                        storedValue = PassiveSVID
                     }
                 },
                 new TriggerEffectAndTriggersInfo()
@@ -62,10 +66,10 @@ namespace BOStuffPack.Items
 
                     effect = new SetUpAndProduceWrittenBookTriggerEffect()
                     {
-                        abilityStoredValue = StoredValueIDs.BlankBookAbilityID,
+                        abilityStoredValue = AbilitySVID,
                         abilityDataKey = WrittenBook.ExtraAbilityDataKey,
 
-                        passiveStoredValue = StoredValueIDs.BlankBookPassiveID,
+                        passiveStoredValue = PassiveSVID,
                         passiveDataKey = WrittenBook.ExtraPassiveDataKey,
 
                         itemID = WrittenBook.ID

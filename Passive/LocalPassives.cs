@@ -9,14 +9,17 @@ namespace BOStuffPack.Passive
     {
         public static readonly string MergedDB = "Merged_PA".Prefix();
         public static readonly string MergedID = "Merged".Prefix();
+        public static readonly string MergedCountSVDB = "MergedCount_USD".Prefix();
+        public static readonly string MergedCountSVID = "MergedCount".Prefix();
         public static BasePassiveAbilitySO Merged;
+
         public static readonly string ShapeShifterDB = "ShapeShifter_PA".Prefix();
         public static readonly string ShapeShifterID = "ShapeShifter".Prefix();
         public static BasePassiveAbilitySO ShapeShifter;
 
         public static void Init()
         {
-            var mergeCountSV = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.MergedCountDB, StoredValueIDs.MergedCountID)
+            var mergeCountSV = NewStoredValue<AdvancedStoredValueIntInfo>(MergedCountSVDB, MergedCountSVID)
                 .SetColor(StoredValueColor_Negative)
                 .SetFormat("Merged Enemies: {0}");
             Merged = NewPassive<MultiCustomTriggerEffectPassive>(MergedDB, MergedID)
@@ -35,7 +38,7 @@ namespace BOStuffPack.Passive
                     effect = new ModifyIntegerReferenceTriggerEffect()
                     {
                         Operation = IntOperation.Add,
-                        StoredValue = StoredValueIDs.MergedCountID,
+                        StoredValue = MergedCountSVID,
                         UseStoredValue = true
                     }
                 }

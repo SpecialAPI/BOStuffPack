@@ -10,6 +10,8 @@ namespace BOStuffPack.Items
     public static class UnnamedItem5
     {
         public static readonly string ID = "UnnamedItem5_TW".Prefix();
+        public static readonly string StoredValueDB = "UnnamedItem5_USD".Prefix();
+        public static readonly string StoredValueID = "UnnamedItem5".Prefix();
 
         public static void Init()
         {
@@ -22,7 +24,7 @@ namespace BOStuffPack.Items
                 .SetPrice(11)
                 .AddToTreasure();
 
-            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.UnnamedItem5DB, StoredValueIDs.UnnamedItem5ID);
+            NewStoredValue<UnitStoreData_BasicSO>(StoredValueDB, StoredValueID);
 
             item.SetTriggerEffects(new()
             {
@@ -38,8 +40,8 @@ namespace BOStuffPack.Items
                     })
                 },
 
-                CharacterMultiAttackTriggerEffect.RestoreSV(StoredValueIDs.UnnamedItem5ID, 2),
-                CharacterMultiAttackTriggerEffect.Refresh(StoredValueIDs.UnnamedItem5ID, true),
+                CharacterMultiAttackTriggerEffect.RestoreSV(StoredValueID, 2),
+                CharacterMultiAttackTriggerEffect.Refresh(StoredValueID, true),
             });
         }
     }

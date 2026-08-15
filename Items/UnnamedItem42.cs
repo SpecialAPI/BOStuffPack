@@ -10,6 +10,8 @@ namespace BOStuffPack.Items
     public static class UnnamedItem42
     {
         public static readonly string ID = "UnnamedItem42_TW".Prefix();
+        public static readonly string DisableSVDB = "UnnamedItem42TempDisable_USD".Prefix();
+        public static readonly string DisableSVID = "UnnamedItem42TempDisable".Prefix();
 
         public static void Init()
         {
@@ -22,7 +24,7 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
-            NewStoredValue<UnitStoreData_BasicSO>(StoredValueIDs.UnnamedItem42TempDisableDB, StoredValueIDs.UnnamedItem42TempDisableID);
+            NewStoredValue<UnitStoreData_BasicSO>(DisableSVDB, DisableSVID);
 
             item.SetTriggerEffects(new()
             {
@@ -40,10 +42,10 @@ namespace BOStuffPack.Items
                     doesPopup = false,
                     immediate = true,
 
-                    effect = new DodgeDamageModifierSetterTriggerEffect(StoredValueIDs.UnnamedItem42TempDisableID),
+                    effect = new DodgeDamageModifierSetterTriggerEffect(DisableSVID),
                     conditions = new()
                     {
-                        StoredValueComparisonEffectorCondition.Create(StoredValueIDs.UnnamedItem42TempDisableID, 0, IntComparison.Equal)
+                        StoredValueComparisonEffectorCondition.Create(DisableSVID, 0, IntComparison.Equal)
                     }
                 }
             });

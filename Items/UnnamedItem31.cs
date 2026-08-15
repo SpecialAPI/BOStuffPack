@@ -12,6 +12,8 @@ namespace BOStuffPack.Items
     public static class UnnamedItem31
     {
         public static readonly string ID = "UnnamedItem31_SW".Prefix();
+        public static readonly string StoredValueDB = "UnnamedItem31_USD".Prefix();
+        public static readonly string StoredValueID = "UnnamedItem31".Prefix();
 
         public static void Init()
         {
@@ -24,7 +26,7 @@ namespace BOStuffPack.Items
                 .SetPrice(8)
                 .AddToShop();
 
-            NewStoredValue<IntEnumerableStoredValue>(StoredValueIDs.UnnamedItem31DB, StoredValueIDs.UnnamedItem31ID)
+            NewStoredValue<IntEnumerableStoredValue>(StoredValueDB, StoredValueID)
                 .SetColor(StoredValueColor_Negative).SetFormat("Already dealt: {0}")
                 .SetSortOrder(IntEnumerableStoredValue.IntSortOrder.Ascending);
 
@@ -40,7 +42,7 @@ namespace BOStuffPack.Items
                     {
                         Effects.GenerateEffect(CreateScriptable<AddEntryToStoreDataHashSetEffect>(x =>
                         {
-                            x.storedValue = StoredValueIDs.UnnamedItem31ID;
+                            x.storedValue = StoredValueID;
                             x.usePreviousExit = true;
                         }), 1),
                         Effects.GenerateEffect(CreateScriptable<ExtraCurrencyEffect>(), 1)
@@ -52,7 +54,7 @@ namespace BOStuffPack.Items
                         CreateScriptable<IntValueInStoreDataHashSetCheckEffectorCondition>(x =>
                         {
                             x.intValueIndex = 0;
-                            x.storedValue = StoredValueIDs.UnnamedItem31ID;
+                            x.storedValue = StoredValueID;
                             x.needsToContain = false;
                         })
                     }
