@@ -7,7 +7,11 @@ namespace BOStuffPack.Passive
 {
     public static class LocalPassives
     {
+        public static readonly string MergedDB = "Merged_PA".Prefix();
+        public static readonly string MergedID = "Merged".Prefix();
         public static BasePassiveAbilitySO Merged;
+        public static readonly string ShapeShifterDB = "ShapeShifter_PA".Prefix();
+        public static readonly string ShapeShifterID = "ShapeShifter".Prefix();
         public static BasePassiveAbilitySO ShapeShifter;
 
         public static void Init()
@@ -15,7 +19,7 @@ namespace BOStuffPack.Passive
             var mergeCountSV = NewStoredValue<AdvancedStoredValueIntInfo>(StoredValueIDs.MergedCountDB, StoredValueIDs.MergedCountID)
                 .SetColor(StoredValueColor_Negative)
                 .SetFormat("Merged Enemies: {0}");
-            Merged = NewPassive<MultiCustomTriggerEffectPassive>(PassiveIDs.MergedDB, PassiveIDs.MergedID)
+            Merged = NewPassive<MultiCustomTriggerEffectPassive>(MergedDB, MergedID)
             .SetBasicInformation("Merged", "Merged")
             .SetEnemyDescription("This enemy will perform an additional ability for each enemy merged into it.")
             .SetStoredValue(mergeCountSV)
@@ -37,7 +41,7 @@ namespace BOStuffPack.Passive
                 }
             });
 
-            var shapeshifter = NewPassive<MultiCustomTriggerEffectPassive>(PassiveIDs.ShapeShifterDB, PassiveIDs.ShapeShifterID)
+            var shapeshifter = NewPassive<MultiCustomTriggerEffectPassive>(ShapeShifterDB, ShapeShifterID)
             .SetBasicInformation("Shape-Shifter", "Shapeshifter")
             .SetCharacterDescription("At the start of each turn, unequip this party member's held item and equip a random treasure item. Attempt to trigger that item's on combat start effects.")
             .AddToGlossary("At the start of each turn, unequip this party member's held item and equip a random treasure item. Attempt to trigger that item's on combat start effects.")
