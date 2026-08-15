@@ -8,13 +8,15 @@ namespace BOStuffPack.Items
 {
     public static class Bookmark
     {
+        public static readonly string ID = "Bookmark_SW".Prefix();
+
         public static void Init()
         {
             var name = "Bookmark";
             var flav = "\"WIP\"";
             var desc = "At the end of combat, save all status effects and stored values on this party member. At the start of combat, apply all saved status effects and stored values to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Bookmark)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "BookmarkPlaceholder")
                 .SetPrice(7)
                 .AddToShop();

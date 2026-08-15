@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class PaperCrown
     {
+        public static readonly string ID = "PaperCrown_TW".Prefix();
+
         public static void Init()
         {
             var name = "Paper Crown";
             var flav = "\"Also useful for practicing museum burglary\"";
             var desc = "After this party member performs an ability, if there is no red pigment in the pigment bar, randomize all stored pigment.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.PaperCrown)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "PaperCrown")
                 .SetPrice(8)
                 .AddToTreasure();

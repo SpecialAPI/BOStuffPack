@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem37
     {
+        public static readonly string ID = "UnnamedItem37".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 37";
             var flav = "\"WIP\"";
             var desc = "At the start of each turn, apply 2 Fury to the enemy(ies) with the highest health and 1 Fury to a random party member with the highest health.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>("UnnamedItem37")
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(7)
                 .AddToTreasure();

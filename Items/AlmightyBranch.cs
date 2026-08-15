@@ -8,13 +8,15 @@ namespace BOStuffPack.Items
 {
     public static class AlmightyBranch
     {
+        public static readonly string ID = "AlmightyBranch_TW".Prefix();
+
         public static void Init()
         {
             var name = "Almighty Branch";
             var flav = "\"Divine Blood.\"";
             var desc = "Damage dealt by this party member always produces 1 red and 1 purple pigment instead of the target's health color, even if no pigment would normally be produced.";
 
-            var itm = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.AlmightyBranch)
+            var itm = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "AlmightyBranch")
                 .SetPrice(3)
                 .AddToTreasure();

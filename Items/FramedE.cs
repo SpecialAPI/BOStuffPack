@@ -9,13 +9,15 @@ namespace BOStuffPack.Items
 {
     public static class FramedE
     {
+        public static readonly string ID = "FramedE_TW".Prefix();
+
         public static void Init()
         {
             var name = "Framed E";
             var flav = "\"EEEEE E EE EEEEEEEE EEEE EEEEEE.\"";
             var desc = "This party member can now move 2 times per turn. Upon this party member moving themself to a new postion, move all enemies in the opposite direction.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.FramedE)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "FramedE")
                 .SetPrice(6)
                 .AddToTreasure();

@@ -7,6 +7,8 @@ namespace BOStuffPack.Items
 {
     public static class Pencil
     {
+        public static readonly string ID = "Pencil_TW".Prefix();
+
         public static void Init()
         {
             var name = "Pencil";
@@ -14,7 +16,7 @@ namespace BOStuffPack.Items
             var desc = "Small chance to deal 1 indirect damage to all enemies upon almost anything happening.";
 
             var item =
-                NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Pencil)
+                NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "Pencil")
                 .SetPrice(2)
                 .AddToTreasure();

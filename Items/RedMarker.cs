@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class RedMarker
     {
+        public static readonly string ID = "RedMarker_TW".Prefix();
+
         public static void Init()
         {
             var name = "Red Marker";
             var flav = "\"I can tell you're trying to say something about capitalism, but do it with more loops.\"";
             var desc = "Upon this party member moving themself to a new position, inflict 2 Linked to the opposing enemy.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.RedMarker)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "RedMarker")
                 .SetPrice(11)
                 .AddToTreasure();

@@ -9,13 +9,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem42
     {
+        public static readonly string ID = "UnnamedItem42_TW".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 42";
             var flav = "\"WIP\"";
             var desc = "This party member now deals double damage. Before this party member deals damage, move the target to the left or right.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem42)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(13)
                 .AddToTreasure();

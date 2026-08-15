@@ -9,13 +9,15 @@ namespace BOStuffPack.Items
 {
     public static class NewtonsApple
     {
+        public static readonly string ID = "NewtonsApple_TW".Prefix();
+
         public static void Init()
         {
             var name = "Newton's Apple";
             var flav = "\"Doesn't fall far from the tree.\"";
             var desc = "Before this party member performs an ability, move all enemies left of them to the right, then move all enemies right of them to the left.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.NewtonsApple)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "NewtonsApple")
                 .SetPrice(3)
                 .AddToTreasure();

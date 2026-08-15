@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class Potential
     {
+        public static readonly string ID = "Potential_TW".Prefix();
+
         public static void Init()
         {
             var name = "Potential";
             var flav = "\"There is potential\"";
             var desc = "This party member is 1 level higher than they would be otherwise.\nOn combat start, inflict 2 Weakened to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Potential)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "Potential")
                 .SetStaticModifiers(CreateScriptable<RankChange_Wearable_SMS>(x => x._rankAdditive = 1))
                 .AddToTreasure();

@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem35
     {
+        public static readonly string ID = "UnnamedItem35_TW".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 35";
             var flav = "\"WIP\"";
             var desc = "At the start of combat, apply 1 Fury to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem35)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(1)
                 .AddToTreasure();

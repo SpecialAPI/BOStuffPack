@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class Electromagnet
     {
+        public static readonly string ID = "Electromagnet_SW".Prefix();
+
         public static void Init()
         {
             var name = "Electromagnet";
             var flav = "\"WIP\"";
             var desc = "Upon this party member moving themself to a new position, move all field effects on the party member side to their new position.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Electromagnet)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "ElectromagnetPlaceholder")
                 .SetPrice(6)
                 .AddToShop();

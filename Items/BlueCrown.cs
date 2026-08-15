@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class BlueCrown
     {
+        public static readonly string ID = "BlueCrown_TW".Prefix();
+
         public static void Init()
         {
             var name = "Blue Crown";
             var flav = "\"Heavy is the crown.\"";
             var desc = "Adds Red Essence to this party member as a passive. Upon red lucky pigment being produced, randomize stored pigment.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.BlueCrown)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "BlueCrownPlaceholder")
                 .SetPrice(46)
                 .AddToTreasure()

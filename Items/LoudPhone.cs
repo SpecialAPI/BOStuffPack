@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class LoudPhone
     {
+        public static readonly string ID = "LoudPhone_TW".Prefix();
+
         public static void Init()
         {
             var name = "LoudPhone";
             var flav = "\"CAW CAW CAW\"";
             var desc = "60% chance to refresh this party member's abilities upon performing an ability. Inflict 1 Weakened to this party member if they get refreshed.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.LoudPhone)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "LoudPhone")
                 .SetPrice(4)
                 .AddToTreasure();

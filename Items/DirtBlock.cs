@@ -8,6 +8,8 @@ namespace BOStuffPack.Items
     [HarmonyPatch]
     public static class DirtBlock
     {
+        public static readonly string ID = "DirtBlock_ExtraW".Prefix();
+
         public const int Chance = 157;
         public const int MaxRoll = 1_000_000;
 
@@ -17,7 +19,7 @@ namespace BOStuffPack.Items
             var flav = "\"Copyright (c) 2026 Captain Pretzel\"";
             var desc = "This item cannot be destroyed in combat.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.DirtBlock)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "DirtBlock")
                 .SetPrice(0)
                 .ExcludeFromConsole();
@@ -60,7 +62,7 @@ namespace BOStuffPack.Items
             if (roll >= Chance)
                 return;
 
-            playerData.AddNewItem(GetWearable(ItemIDs.DirtBlock));
+            playerData.AddNewItem(GetWearable(ID));
         }
     }
 }

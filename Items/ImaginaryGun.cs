@@ -8,13 +8,15 @@ namespace BOStuffPack.Items
 {
     public static class ImaginaryGun
     {
+        public static readonly string ID = "ImaginaryGun_TW".Prefix();
+
         public static void Init()
         {
             var name = "Imaginary Gun";
             var flav = "\"You need to believe in it.\"";
             var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that deals fake damage.";
 
-            var item = NewItem<BasicWearable>(ItemIDs.ImaginaryGun)
+            var item = NewItem<BasicWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "FakeGunPlaceholder")
                 .SetPrice(2)
                 .AddToTreasure();

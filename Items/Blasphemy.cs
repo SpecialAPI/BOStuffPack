@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class Blasphemy
     {
+        public static readonly string ID = "Blasphemy_TW".Prefix();
+
         public static void Init()
         {
             var name = "Blasphemy";
             var flav = "\"Godslayer.\"";
             var desc = "This party member has Anointed (1) as a passive. Round up all damage dealt by this party member to 50% of its original value. This is applied after all damage modifiers on the target.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Blasphemy)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "BlasphemyPlaceholder")
                 .SetStaticModifiers(ExtraPassiveModifier(Passives.Anointed1))
                 .SetPrice(13)

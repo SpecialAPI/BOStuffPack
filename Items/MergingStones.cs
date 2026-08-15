@@ -9,13 +9,15 @@ namespace BOStuffPack.Items
 {
     public static class MergingStones
     {
+        public static readonly string ID = "MergingStones_TW".Prefix();
+
         public static void Init()
         {
             var name = "Merging Stones";
             var flav = "\"The operation, it is complete?\"";
             var desc = "At the start of combat, unequip the items held by the left and right allies and make this item copy both of their effects at once.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.MergingStones)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "MergingStonesv2")
                 .SetPrice(13)
                 .AddToTreasure();

@@ -8,13 +8,15 @@ namespace BOStuffPack.Items
 {
     public static class Keyring
     {
+        public static readonly string ID = "Keyring_TW".Prefix();
+
         public static void Init()
         {
             var name = "Key Ring";
             var flav = "\"Keymaster\"";
             var desc = "At the start of combat, add Lock R, Lock B, Lock Y and Lock P as additional abilities.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Keyring)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "Keyring")
                 .SetPrice(4)
                 .AddToTreasure();

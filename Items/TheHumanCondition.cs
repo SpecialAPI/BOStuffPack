@@ -7,6 +7,8 @@ namespace BOStuffPack.Items
 {
     public static class TheHumanCondition
     {
+        public static readonly string ID = "TheHumanCondition_TW".Prefix();
+
         public static void Init()
         {
             var name = "The Human Condition";
@@ -46,7 +48,7 @@ namespace BOStuffPack.Items
                 }
             });
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.TheHumanCondition)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "TheHumanCondition")
                 .SetPrice(15)
                 .AddToTreasure();

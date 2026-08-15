@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class MagickalBleach
     {
+        public static readonly string ID = "MagickalBleach_TW".Prefix();
+
         public static void Init()
         {
             var name = "Magickal Bleach";
             var flav = "\"Erase their mistakes.\"";
             var desc = "At the start of combat, remove all passives from all party members.";
             
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.MagickalBleach)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "MagickalBleach")
                 //.SetStaticModifiers(ModdedDataModifier(new BleachStaticModifier()))
                 .SetPrice(0)

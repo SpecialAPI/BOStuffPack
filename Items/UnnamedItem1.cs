@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem1
     {
+        public static readonly string ID = "UnnamedItem1_SW".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 1";
             var flav = "\"WIP\"";
             var desc = "Upon another item being destroyed, restore it and destroy this item if successful. This item's effects don't work on other copies of this item.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem1)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(4)
                 .AddToShop();

@@ -8,13 +8,15 @@ namespace BOStuffPack.Items
 {
     public static class TheTideTurner
     {
+        public static readonly string ID = "TheTideTurner_TW".Prefix();
+
         public static void Init()
         {
             var name = "The Tide Turner";
             var flav = "\"Close enough.\"";
             var desc = "Upon another party member using an ability, move this party member towards them, unless this party member is Constricted.\nAdds \"Anchor\" as an additional ability.";
 
-            var itm = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.TheTideTurner)
+            var itm = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "TheTideTurner")
                 .SetPrice(5)
                 .AddToTreasure();

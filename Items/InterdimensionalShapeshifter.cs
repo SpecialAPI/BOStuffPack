@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class InterdimensionalShapeshifter
     {
+        public static readonly string ID = "InterdimensionalShapeShifter_TW".Prefix();
+
         public static void Init()
         {
             var name = "Inter-Dimensional Shape-Shifter";
             var flav = "\"Some see it as a pawn\"";
             var desc = "At the start of battle, add Shape-Shifter to this party member as a passive.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.InterdimensionalShapeshifter)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "InterdimensionalShapeshifter")
                 .SetPrice(6)
                 .AddToTreasure()

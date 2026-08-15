@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class BloodyHacksaw
     {
+        public static readonly string ID = "BloodyHacksaw_SW".Prefix();
+
         public static void Init()
         {
             var name = "Bloody Hacksaw";
             var flav = "\"Two into one!\"";
             var desc = "Adds \"Two Into One\" as an additional ability, a weak attack with the ability to merge enemies.";
 
-            var item = NewItem<BasicWearable>(ItemIDs.BloodyHacksaw)
+            var item = NewItem<BasicWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "BloodyHacksaw")
                 .SetPrice(7)
                 .AddToShop()

@@ -10,6 +10,8 @@ namespace BOStuffPack.Items
 {
     public static class InstrumentsOfMurder
     {
+        public static readonly string ID = "InstrumentsOfMurder_TW".Prefix();
+
         public static void Init()
         {
             var incOnDamage = 5;
@@ -18,7 +20,7 @@ namespace BOStuffPack.Items
             var flav = "\"I take my E and think about my setbacks.\"";
             var desc = $"Upon this party member dealing damage, increase the target's \"Murder\" count by {incOnDamage}. Adds \"Murder Everyone You Know\" as an additional ability.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.InstrumentsOfMurder)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "InstrumentsOfMurder")
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Knife.ToString());

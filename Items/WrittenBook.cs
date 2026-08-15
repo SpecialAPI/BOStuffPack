@@ -9,6 +9,7 @@ namespace BOStuffPack.Items
 {
     public static class WrittenBook
     {
+        public static readonly string ID = "WrittenBook_ExtraW".Prefix();
         public static readonly string ExtraAbilityDataKey = "WrittenBookAbility".Prefix();
         public static readonly string ExtraPassiveDataKey = "WrittenBookPassive".Prefix();
 
@@ -21,7 +22,7 @@ namespace BOStuffPack.Items
             var flav = "\"WIP\"";
             var desc = "No effect.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.WrittenBook)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "WrittenBookPlaceholder")
                 .SetPrice(15)
                 .AddWithoutItemPools();

@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class WorldShatter
     {
+        public static readonly string ID = "WorldShatter_TW".Prefix();
+
         public static void Init()
         {
             var name = "World Shatter";
             var flav = "\"Goodbye\"";
             var desc = "Adds \"End of the Universe\" as an additional ability.";
 
-            var item = NewItem<BasicWearable>(ItemIDs.WorldShatter)
+            var item = NewItem<BasicWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "WorldShatter")
                 .SetPrice(-2)
                 .AddToTreasure();

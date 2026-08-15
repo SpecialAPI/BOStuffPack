@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem36
     {
+        public static readonly string ID = "UnnamedItem36_TW".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 36";
             var flav = "\"WIP\"";
             var desc = "This party member has \"Transmute\" as an additional ability, an ability that can reroll unwanted pigment.";
 
-            var item = NewItem<BasicWearable>(ItemIDs.UnnamedItem36)
+            var item = NewItem<BasicWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .AddToTreasure()
                 .SetPrice(7);

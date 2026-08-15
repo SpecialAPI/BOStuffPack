@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class DiceBullets
     {
+        public static readonly string ID = "DiceBullets_SW".Prefix();
+
         public static void Init()
         {
             var name = "Dice Bullets";
             var flav = "\"Gamblers Never Lose.\"";
             var desc = "Damage dealt by this party member is randomized between 4 and double the original amount of damage they would've dealt.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.DiceBullets)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "DiceBulletsPlaceholder")
                 .SetPrice(7)
                 .AddToShop();

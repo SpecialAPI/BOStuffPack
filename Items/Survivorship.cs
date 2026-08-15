@@ -6,13 +6,15 @@ namespace BOStuffPack.Items
 {
     public static class Survivorship
     {
+        public static readonly string ID = "Survivorship_TW".Prefix();
+
         public static void Init()
         {
             var name = "Survivorship";
             var flav = "\"Yet you stand\"";
             var desc = "On combat start, apply 1 Survive to this party member.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Survivorship)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "Survivorship")
                 .SetPrice(5)
                 .AddToTreasure();

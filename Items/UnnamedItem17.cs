@@ -8,13 +8,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem17
     {
+        public static readonly string ID = "UnnamedItem17_TW".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 17";
             var flav = "\"WIP\"";
             var desc = "Grey pigment can now be produced. This party member has \"Petrify\" as an additional ability.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem17)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(9)
                 .AddToTreasure();

@@ -9,13 +9,15 @@ namespace BOStuffPack.Items
 {
     public static class UnnamedItem5
     {
+        public static readonly string ID = "UnnamedItem5_TW".Prefix();
+
         public static void Init()
         {
             var name = "Unnamed Item 5";
             var flav = "\"WIP\"";
             var desc = "This party member can now perform 2 abilities per turn. At the start of combat, double this party member's ability costs.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.UnnamedItem5)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
                 .SetPrice(11)
                 .AddToTreasure();

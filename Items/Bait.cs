@@ -7,13 +7,15 @@ namespace BOStuffPack.Items
 {
     public static class Bait
     {
+        public static readonly string ID = "Bait_TW".Prefix();
+
         public static void Init()
         {
             var name = "Bait";
             var flav = "\"Bait used to be believable...\"";
             var desc = "At the start of combat, clone a random enemy. If this succeeds, gain coins equal to 20% of the source enemy's health (up to 4) and repeat this effect.";
 
-            var item = NewItem<MultiCustomTriggerEffectWearable>(ItemIDs.Bait)
+            var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "BaitPlaceholder")
                 .SetPrice(11)
                 .AddToTreasure();
