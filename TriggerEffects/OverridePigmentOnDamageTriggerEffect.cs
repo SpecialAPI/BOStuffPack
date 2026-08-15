@@ -5,9 +5,10 @@ using System.Text;
 
 namespace BOStuffPack.TriggerEffects
 {
-    public class OverridePigmentOnDamageTriggerEffect : TriggerEffect
+    public class OverridePigmentOnDamageTriggerEffect(List<ManaColorSO> pigments, bool nullPigmentIsCasterHealthColor = false) : TriggerEffect
     {
-        public List<ManaColorSO> pigments = [];
+        public List<ManaColorSO> pigments = pigments;
+        public bool nullPigmentIsCasterHealthColor = nullPigmentIsCasterHealthColor;
 
         public override void DoEffect(IUnit sender, object args, TriggerEffectInfo triggerInfo, TriggerEffectActivationExtraInfo extraInfo)
         {
@@ -18,9 +19,12 @@ namespace BOStuffPack.TriggerEffects
                 return;
 
             canProduceRef.canProducePigmentFromDamage = false;
-            foreach (var p in pigments)
+            foreach (var _p in pigments)
             {
-                if(p == null)
+                var p = _p;
+                if (nullPigmentIsCasterHealthColor && p == null)
+                    p = sender.HealthColor;
+                if (p == null)
                     continue;
 
                 CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(p, 1, damagedUnit.IsUnitCharacter, damagedUnit.ID));

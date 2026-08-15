@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
         {
             var name = "Almighty Branch";
             var flav = "\"Divine Blood.\"";
-            var desc = "Damage dealt by this party member always produces 1 red and 1 purple pigment instead of the target's health color, even if no pigment would normally be produced.";
+            var desc = "Damage dealt by this party member always produces 1 red and 1 pigment of this party member's health color instead of what would normally be produced.";
 
             var itm = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "AlmightyBranch")
@@ -25,22 +25,11 @@ namespace BOStuffPack.Items
             {
                 new()
                 {
-                    trigger = LocalCustomTriggers.ModifyCanProducePigmentFromDamage_Anyone,
+                    trigger = LocalCustomTriggers.ModifyTargetCanProducePigmentFromDamage,
                     doesPopup = true,
                     immediate = true,
 
-                    effect = new OverridePigmentOnDamageTriggerEffect()
-                    {
-                        pigments = new()
-                        {
-                            Pigments.Red,
-                            Pigments.Purple
-                        }
-                    },
-                    conditions = new()
-                    {
-                        CreateScriptable<UnitValueMatchesSenderEffectorCondition>(x => x.unitValueIndex = 1),
-                    }
+                    effect = new OverridePigmentOnDamageTriggerEffect([Pigments.Red, null], true)
                 }
             });
         }
