@@ -8,6 +8,7 @@ namespace BOStuffPack.Items
     public static class BloodyHacksaw
     {
         public static readonly string ID = "BloodyHacksaw_SW".Prefix();
+        public static readonly string AbilityID = "TwoIntoOne_A".Prefix();
 
         public static void Init()
         {
@@ -26,7 +27,7 @@ namespace BOStuffPack.Items
             var abilityDesc = $"If the Left and Right enemies are duplicates, merge them.\nOtherwise, deal {dmg} damage to the Left and Right enemies.";
 
             var mergeIntent = AddIntent("PA_Merged", "Merged");
-            var ab = NewAbility(AbilityIDs.TwoIntoOne)
+            var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
                 .SetEffects(new()
                 {

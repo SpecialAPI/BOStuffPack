@@ -9,6 +9,7 @@ namespace BOStuffPack.Items
     public static class TheTideTurner
     {
         public static readonly string ID = "TheTideTurner_TW".Prefix();
+        public static readonly string AbilityID = "Anchor_A".Prefix();
 
         public static void Init()
         {
@@ -49,7 +50,7 @@ namespace BOStuffPack.Items
             var abilityName = "Anchor";
             var abilityDesc = "If this party member isn't Constricted, refresh them. Apply 1 Constricted to this party member's position.";
 
-            var ab = NewAbility(AbilityIDs.Anchor)
+            var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_Anchor")
                 .SetVisuals(Visuals.Resolve, Targeting.Slot_SelfSlot)
                 .SetEffects(new()

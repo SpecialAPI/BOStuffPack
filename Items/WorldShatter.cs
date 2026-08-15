@@ -8,6 +8,7 @@ namespace BOStuffPack.Items
     public static class WorldShatter
     {
         public static readonly string ID = "WorldShatter_TW".Prefix();
+        public static readonly string AbilityID = "EndOfTheUniverse_A".Prefix();
 
         public static void Init()
         {
@@ -250,7 +251,7 @@ namespace BOStuffPack.Items
                 }), 0, Targeting.Unit_AllOpponents));
             }
 
-            var ability = NewAbility(AbilityIDs.EndOfTheUniverse)
+            var ability = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_EOTU")
                 .SetVisuals(Visuals.DemonCore, null)
                 .SetEffects(effects)

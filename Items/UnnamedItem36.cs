@@ -8,6 +8,7 @@ namespace BOStuffPack.Items
     public static class UnnamedItem36
     {
         public static readonly string ID = "UnnamedItem36_TW".Prefix();
+        public static readonly string AbilityID = "Transmute_A".Prefix();
 
         public static void Init()
         {
@@ -22,7 +23,7 @@ namespace BOStuffPack.Items
 
             var abName = "Transmute";
             var abDesc = "Produce 2 pigment of random colors not used to perform this ability. 50% chance to refresh this party member.";
-            var ability = NewAbility(AbilityIDs.Transmute)
+            var ability = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Transmute")
                 .SetEffects(new()
                 {

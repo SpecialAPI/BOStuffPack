@@ -9,6 +9,7 @@ namespace BOStuffPack.Items
     public static class ImaginaryGun
     {
         public static readonly string ID = "ImaginaryGun_TW".Prefix();
+        public static readonly string AbilityID = "Intimidation_A".Prefix();
 
         public static void Init()
         {
@@ -24,7 +25,7 @@ namespace BOStuffPack.Items
             var abName = "Intimidation";
             var abDesc = "Deals 18 fake damage to the Opposing enemy and this party member.";
 
-            var ab = NewAbility(AbilityIDs.Intimidation)
+            var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Intimidation")
                 .SetVisuals(Visuals.Misery, Targeting.Slot_Front.Join(Targeting.Slot_SelfSlot))
                 .SetEffects(new()

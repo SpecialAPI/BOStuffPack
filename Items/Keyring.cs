@@ -9,6 +9,8 @@ namespace BOStuffPack.Items
     public static class Keyring
     {
         public static readonly string ID = "Keyring_TW".Prefix();
+        public static readonly string KeyID = "Key{0}_A".Prefix();
+        public static readonly string LockID = "Lock{0}_A".Prefix();
 
         public static void Init()
         {
@@ -44,7 +46,7 @@ namespace BOStuffPack.Items
 
                 var keySV = NewStoredValue<AdvancedStoredValueIntInfo>(string.Format(StoredValueIDs.KeybladeTurnDB, idx), string.Format(StoredValueIDs.KeybladeTurnID, idx)).SetColor(StoredValueColor_Negative).SetFormat("Keyblade P Disabled").SetCustomDisplayCondition(CurrentTurnIsLowerThanValueDisplayCondition);
 
-                var keyAb = NewAbility(string.Format(AbilityIDs.Key, idx))
+                var keyAb = NewAbility(string.Format(KeyID, idx))
                     .SetBasicInformationCharacter(keyName, keyDesc, $"AttackIcon_Key_{spritePostfix}")
                     .SetEffects(new()
                     {
@@ -69,7 +71,7 @@ namespace BOStuffPack.Items
                 var lockName = $"Lock {idx}";
                 var lockDesc = $"If no wrong pigment was used to perform this ability, replace this ability with Keyblade {idx} and refresh this party member.";
 
-                var lockAb = NewAbility(string.Format(AbilityIDs.Lock, idx))
+                var lockAb = NewAbility(string.Format(LockID, idx))
                     .SetBasicInformationCharacter(lockName, lockDesc, $"AttackIcon_Lock_{spritePostfix}")
                     .SetEffects(new()
                     {

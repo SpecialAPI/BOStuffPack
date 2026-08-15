@@ -9,6 +9,7 @@ namespace BOStuffPack.Items
     public static class UnnamedItem17
     {
         public static readonly string ID = "UnnamedItem17_TW".Prefix();
+        public static readonly string AbilityID = "Petrify_A".Prefix();
 
         public static void Init()
         {
@@ -24,7 +25,7 @@ namespace BOStuffPack.Items
             var abName = "Petrify";
             var abDesc = "Change the left ally's health color to grey.\nIf this fails or the left ally's color is already grey, deal 1 damage to the left ally.\nDamage dealt by this ability produces 1 more pigment than it normally would.";
 
-            var ab = NewAbility(AbilityIDs.Petrify)
+            var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abName, abDesc)
                 .SetVisuals(Visuals.Scream, Targeting.Slot_AllyLeft)
                 .SetEffects(new()

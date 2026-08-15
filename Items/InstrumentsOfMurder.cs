@@ -11,6 +11,7 @@ namespace BOStuffPack.Items
     public static class InstrumentsOfMurder
     {
         public static readonly string ID = "InstrumentsOfMurder_TW".Prefix();
+        public static readonly string AbilityID = "MurderEveryoneYouKnow_A".Prefix();
 
         public static void Init()
         {
@@ -54,7 +55,7 @@ namespace BOStuffPack.Items
             var unitsWithSV = Targeting.AllUnits
                 .FilterUnitByStoredValueComparison(StoredValueIDs.MurderID, 0, IntComparison.GreaterThan);
 
-            var ab = NewAbility(AbilityIDs.MurderEveryoneYouKnow)
+            var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Murder")
                 .SetVisuals(Visuals.InvadeTheVeins, unitsWithSV)
                 .SetEffects(new()
