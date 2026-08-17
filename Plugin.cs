@@ -53,7 +53,7 @@ namespace BOStuffPack
             MergingStones.Init();
             //UnnamedItem17.Init();
             PaperCrown.Init();
-            BlueCrown.Init();
+            RedButton.Init();
             InstrumentsOfMurder.Init();
             FramedE.Init();
             RedMarker.Init();

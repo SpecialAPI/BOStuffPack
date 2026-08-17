@@ -37,6 +37,7 @@
     <None Remove="Resources\Items\NegativeTeapot.png" />
     <None Remove="Resources\Items\OilPaints.png" />
     <None Remove="Resources\Items\Palette.png" />
+    <None Remove="Resources\Items\RedButtonPlaceholder.png" />
     <None Remove="Resources\Items\RedMarker.png" />
     <None Remove="Resources\Items\SquirrelBomb.png" />
     <None Remove="Resources\Items\WrittenBookPlaceholder.png" />
@@ -61,12 +62,12 @@
     <EmbeddedResource Include="Resources\Items\BaitPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\BlankBookPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\BlasphemyPlaceholder.png" />
-    <EmbeddedResource Include="Resources\Items\BlueCrownPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\BookmarkPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\DiceBulletsPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\DirtBlock.png" />
     <EmbeddedResource Include="Resources\Items\ElectromagnetPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\FakeGunPlaceholder.png" />
+    <EmbeddedResource Include="Resources\Items\RedButtonPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\SquirrelBomb.png" />
     <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
     <EmbeddedResource Include="Resources\Items\MergingStonesv2.png" />

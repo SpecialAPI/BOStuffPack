@@ -5,19 +5,19 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class BlueCrown
+    public static class RedButton
     {
-        public static readonly string ID = "BlueCrown_TW".Prefix();
+        public static readonly string ID = "RedButton_TW".Prefix();
 
         public static void Init()
         {
-            var name = "Blue Crown";
-            var flav = "\"Heavy is the crown.\"";
+            var name = "Red Button";
+            var flav = "\"Do Not Press.\"";
             var desc = "Adds Red Essence to this party member as a passive. Upon red lucky pigment being produced, randomize stored pigment.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "BlueCrownPlaceholder")
-                .SetPrice(46)
+                .SetBasicInformation(name, flav, desc, "RedButtonPlaceholder")
+                .SetPrice(16)
                 .AddToTreasure()
                 .SetStaticModifiers(ExtraPassiveModifier(Passives.EssenceRed));
 
