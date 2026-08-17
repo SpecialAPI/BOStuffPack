@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
         {
             var name = "Imaginary Gun";
             var flav = "\"You need to believe in it.\"";
-            var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that deals fake damage.";
+            var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that \"deals\" \"damage\".";
 
             var item = NewItem<BasicWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "FakeGunPlaceholder")
