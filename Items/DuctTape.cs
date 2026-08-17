@@ -16,7 +16,7 @@ namespace BOStuffPack.Items
         public static void Init()
         {
             var name = "Duct Tape";
-            var flav = "\"The operation, it is complete?\"";
+            var flav = "\"WIP\"";
             var desc = "At the start of combat, unequip the items held by the left and right allies and make this item copy both of their effects at once.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
