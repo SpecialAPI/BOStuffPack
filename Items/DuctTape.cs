@@ -7,15 +7,15 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class MergingStones
+    public static class DuctTape
     {
-        public static readonly string ID = "MergingStones_TW".Prefix();
-        public static readonly string StoredValueDB = "MergingStones_USD".Prefix();
-        public static readonly string StoredValueID = "MergingStones".Prefix();
+        public static readonly string ID = "DuctTape_TW".Prefix();
+        public static readonly string StoredValueDB = "DuctTape_USD".Prefix();
+        public static readonly string StoredValueID = "DuctTape".Prefix();
 
         public static void Init()
         {
-            var name = "Merging Stones";
+            var name = "Duct Tape";
             var flav = "\"The operation, it is complete?\"";
             var desc = "At the start of combat, unequip the items held by the left and right allies and make this item copy both of their effects at once.";
 
@@ -24,9 +24,9 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
-            NewStoredValue<MergingStonesStoredValue>(StoredValueDB, StoredValueID)
+            NewStoredValue<ItemListStoredValue>(StoredValueDB, StoredValueID)
                 .SetColor(StoredValueColor_Rare)
-                .SetFormat("Merging Stones: {0}");
+                .SetFormat("Duct Tape: {0}");
 
             item.triggerEffects = new()
             {

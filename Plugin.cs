@@ -50,7 +50,7 @@ namespace BOStuffPack
             Pencil.Init();
             AlmightyBranch.Init();
             Bait.Init();
-            MergingStones.Init();
+            DuctTape.Init();
             //UnnamedItem17.Init();
             PaperCrown.Init();
             RedButton.Init();

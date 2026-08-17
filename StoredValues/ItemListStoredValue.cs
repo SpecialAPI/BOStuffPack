@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.StoredValues
 {
-    public class MergingStonesStoredValue : UnitStoreData_BasicSO
+    public class ItemListStoredValue : UnitStoreData_BasicSO
     {
         public string Format;
         public Color Color;
@@ -44,14 +44,14 @@ namespace BOStuffPack.StoredValues
             return true;
         }
 
-        public MergingStonesStoredValue SetFormat(string format)
+        public ItemListStoredValue SetFormat(string format)
         {
             Format = format;
 
             return this;
         }
 
-        public MergingStonesStoredValue SetColor(Color color)
+        public ItemListStoredValue SetColor(Color color)
         {
             Color = color;
 

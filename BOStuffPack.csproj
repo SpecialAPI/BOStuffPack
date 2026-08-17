@@ -32,7 +32,6 @@
     <None Remove="Resources\Items\Eyepatch.png" />
     <None Remove="Resources\Items\failrounds.png" />
     <None Remove="Resources\Items\jester_hat.png" />
-    <None Remove="Resources\Items\MergingStonesv2.png" />
     <None Remove="Resources\Items\MusicBox.png" />
     <None Remove="Resources\Items\NegativeTeapot.png" />
     <None Remove="Resources\Items\OilPaints.png" />
@@ -70,7 +69,6 @@
     <EmbeddedResource Include="Resources\Items\RedButtonPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\SquirrelBomb.png" />
     <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
-    <EmbeddedResource Include="Resources\Items\MergingStonesv2.png" />
     <EmbeddedResource Include="Resources\Items\RedMarker.png" />
     <EmbeddedResource Include="Resources\Items\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\BloodyHacksaw.png" />
