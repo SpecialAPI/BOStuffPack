@@ -35,28 +35,28 @@ namespace BOStuffPack
             LocalPassives.Init();
 
             TheTideTurner.Init();
-            BloodyHacksaw.Init();
-            ConjoinedFungi.Init();
-            RipAndTear.Init();
+            BloodyHacksaw.Init(); // reference
+            ConjoinedFungi.Init(); // reference
+            RipAndTear.Init(); // reference
             SquirrelBomb.Init();
-            Survivorship.Init();
-            LoudPhone.Init();
-            MagickalBleach.Init();
-            Potential.Init();
+            Survivorship.Init(); // reference
+            LoudPhone.Init(); // reference
+            MagickalBleach.Init(); // reference
+            Potential.Init(); // reference
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();
             WorldShatter.Init();
-            Keyring.Init();
+            Keyring.Init(); // reference
             Pencil.Init();
             AlmightyBranch.Init();
             Bait.Init();
             DuctTape.Init();
             //UnnamedItem17.Init();
-            PaperCrown.Init();
+            PaperCrown.Init(); // reference
             RedButton.Init();
             InstrumentsOfMurder.Init();
             FramedE.Init();
-            RedMarker.Init();
+            RedMarker.Init(); // reference
             Electromagnet.Init();
             Bookmark.Init();
             UnnamedItem1.Init();
