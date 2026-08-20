@@ -46,7 +46,7 @@ namespace BOStuffPack
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();
             WorldShatter.Init();
-            Keyring.Init(); // reference
+            //Keyring.Init(); // reference
             Pencil.Init();
             AlmightyBranch.Init();
             Bait.Init();
