@@ -16,7 +16,7 @@ namespace BOStuffPack.Items
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "Potential")
-                .SetStaticModifiers(RankChangeModifier(-1))
+                .SetStaticModifiers(RankChangeModifier(1))
                 .AddToTreasure();
 
             item.triggerEffects = new()
