@@ -16,7 +16,7 @@ namespace BOStuffPack.Items
         public static void Init()
         {
             var name = "Dirt Block";
-            var flav = "\"Copyright (c) 2026 Captain Pretzel\"";
+            var flav = "\"Copyright (c) 2024 Captain Pretzel\"";
             var desc = "This item cannot be destroyed in combat.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
