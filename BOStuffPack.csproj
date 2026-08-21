@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="bobuild.bat" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
@@ -149,5 +150,9 @@
       <HintPath>..\References\Unity\YarnSpinner.Unity.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="set &quot;outdir=$(OutDir)&quot;&#xD;&#xA;set &quot;assemblyname=$(AssemblyName)&quot;&#xD;&#xA;call bobuild.bat" />
+  </Target>
 
 </Project>
