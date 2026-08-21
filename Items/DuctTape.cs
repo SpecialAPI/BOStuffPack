@@ -20,7 +20,7 @@ namespace BOStuffPack.Items
             var desc = "At the start of combat, unequip the items held by the left and right allies and make this item copy both of their effects at once.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "MergingStonesv2")
+                .SetBasicInformation(name, flav, desc, "DuctTape")
                 .SetPrice(13)
                 .AddToTreasure();
 
