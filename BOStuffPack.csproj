@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="bobuild.bat" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.bank" />
     <None Remove="FMODAssets\Desktop\BOStuffPack.strings.bank" />
     <None Remove="Resources\AbilityIcons\AttackIcon_Anchor.png" />
