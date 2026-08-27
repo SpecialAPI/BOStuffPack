@@ -150,11 +150,9 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-    <Exec Command="set &quot;outdir=$(OutDir)&quot;&#xD;&#xA;set &quot;assemblyname=$(AssemblyName)&quot;&#xD;&#xA;call bobuild_win.bat" />
-  </Target>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
-    <Exec Command="export OUTDIR=&quot;$(OutDir)&quot;&#xD;&#xA;export ASSEMBLYNAME=&quot;$(AssemblyName)&quot;&#xD;&#xA;./bobuild_lin.sh" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="set &quot;outdir=$(OutDir)&quot;&#xD;&#xA;set &quot;assemblyname=$(AssemblyName)&quot;&#xD;&#xA;call bobuild_win.bat" Condition="$([MSBuild]::IsOSPlatform('Windows'))"/>
+	<Exec Command="export OUTDIR=&quot;$(OutDir)&quot;&#xD;&#xA;export ASSEMBLYNAME=&quot;$(AssemblyName)&quot;&#xD;&#xA;./bobuild_lin.sh" Condition="$([MSBuild]::IsOSPlatform('Linux'))"/>
   </Target>
 
 </Project>
