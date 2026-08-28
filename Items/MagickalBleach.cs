@@ -12,11 +12,10 @@ namespace BOStuffPack.Items
         {
             var name = "Magickal Bleach";
             var flav = "\"Erase their mistakes.\"";
-            var desc = "At the start of combat, remove all passives from all party members.";
+            var desc = "At the start of combat, remove all passives from this party member and the Left and Right allies.";
             
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "MagickalBleach")
-                //.SetStaticModifiers(ModdedDataModifier(new BleachStaticModifier()))
                 .SetPrice(0)
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Magic.ToString());
@@ -31,7 +30,7 @@ namespace BOStuffPack.Items
                     
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<RemoveAllPassives_Effect>(), 0, Targeting.Unit_AllAllies)
+                        Effects.GenerateEffect(CreateScriptable<RemoveAllPassives_Effect>(), 0, Targeting.Slot_SelfAndSides)
                     })
                 }
             });
