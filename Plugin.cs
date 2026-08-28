@@ -22,9 +22,9 @@ namespace BOStuffPack
         public const string MOD_VERSION     = "0.0.2";
         public const string MOD_PREFIX      = "157Items";
 
-        public static Harmony HarmonyInstance   = new(MOD_GUID);
-        public static Assembly ModAssembly      = Assembly.GetExecutingAssembly();
-        public static ModProfile Profile        = GenerateProfile();
+        public static readonly Harmony HarmonyInstance   = new(MOD_GUID);
+        public static readonly Assembly ModAssembly      = Assembly.GetExecutingAssembly();
+        public static readonly ModProfile Profile        = GenerateProfile();
 
         public static bool ReversePatchesFinished;
 
