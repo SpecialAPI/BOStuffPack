@@ -44,7 +44,7 @@ namespace BOStuffPack.Passive
                 }
             });
 
-            var shapeshifter = NewPassive<MultiCustomTriggerEffectPassive>(ShapeShifterDB, ShapeShifterID)
+            ShapeShifter = NewPassive<MultiCustomTriggerEffectPassive>(ShapeShifterDB, ShapeShifterID)
             .SetBasicInformation("Shape-Shifter", "Shapeshifter")
             .SetCharacterDescription("At the start of each turn, unequip this party member's held item and equip a random treasure item. Attempt to trigger that item's on combat start effects.")
             .AddToGlossary("At the start of each turn, unequip this party member's held item and equip a random treasure item. Attempt to trigger that item's on combat start effects.")
