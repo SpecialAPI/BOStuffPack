@@ -41,7 +41,7 @@ namespace BOStuffPack
             SquirrelBomb.Init();
             Survivorship.Init(); // reference
             //LoudPhone.Init(); // reference
-            MagickalBleach.Init(); // reference
+            BlankPortrait.Init();
             Potential.Init(); // reference
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();

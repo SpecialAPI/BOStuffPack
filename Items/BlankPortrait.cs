@@ -4,18 +4,18 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class MagickalBleach
+    public static class BlankPortrait
     {
-        public static readonly string ID = "MagickalBleach_TW".Prefix();
+        public static readonly string ID = "BlankPortrait_TW".Prefix();
 
         public static void Init()
         {
-            var name = "Magickal Bleach";
-            var flav = "\"Erase their mistakes.\"";
+            var name = "Blank Portrait";
+            var flav = "\"Erased from history.\"";
             var desc = "At the start of combat, remove all passives from this party member and the Left and Right allies.";
             
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "MagickalBleach")
+                .SetBasicInformation(name, flav, desc, "BlankPortrait")
                 .SetPrice(0)
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Magic.ToString());

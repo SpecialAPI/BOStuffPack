@@ -83,7 +83,6 @@
     <EmbeddedResource Include="Resources\Items\InterdimensionalShapeshifter.png" />
     <EmbeddedResource Include="Resources\Items\Keyring.png" />
     <EmbeddedResource Include="Resources\Items\LoudPhone.png" />
-    <EmbeddedResource Include="Resources\Items\MagickalBleach.png" />
     <EmbeddedResource Include="Resources\Items\NewtonsApple.png" />
     <EmbeddedResource Include="Resources\Items\PaperCrown.png" />
     <EmbeddedResource Include="Resources\Items\Pencil.png" />
@@ -156,8 +155,8 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="set &quot;outdir=$(OutDir)&quot;&#xD;&#xA;set &quot;assemblyname=$(AssemblyName)&quot;&#xD;&#xA;set &quot;modfolder=$(ModFolder)&quot;&#xD;&#xA;set &quot;modinfofolder=$(ModInfoFolder)&quot;&#xD;&#xA;set &quot;dllfolder=$(ModDLLFolder)&quot;&#xD;&#xA;call bobuild_win.bat" Condition="$([MSBuild]::IsOSPlatform('Windows'))"/>
-	<Exec Command="export OUTDIR=&quot;$(OutDir)&quot;&#xD;&#xA;export ASSEMBLYNAME=&quot;$(AssemblyName)&quot;&#xD;&#xA;export MODFOLDER=&quot;$(ModFolder)&quot;&#xD;&#xA;export MODINFOFOLDER=&quot;$(ModInfoFolder)&quot;&#xD;&#xA;export DLLFOLDER=&quot;$(ModDLLFolder)&quot;&#xD;&#xA;./bobuild_lin.sh" Condition="$([MSBuild]::IsOSPlatform('Linux'))"/>
+    <Exec Command="set &quot;outdir=$(OutDir)&quot;&#xD;&#xA;set &quot;assemblyname=$(AssemblyName)&quot;&#xD;&#xA;set &quot;modfolder=$(ModFolder)&quot;&#xD;&#xA;set &quot;modinfofolder=$(ModInfoFolder)&quot;&#xD;&#xA;set &quot;dllfolder=$(ModDLLFolder)&quot;&#xD;&#xA;call bobuild_win.bat" Condition="$([MSBuild]::IsOSPlatform('Windows'))" />
+	<Exec Command="export OUTDIR=&quot;$(OutDir)&quot;&#xD;&#xA;export ASSEMBLYNAME=&quot;$(AssemblyName)&quot;&#xD;&#xA;export MODFOLDER=&quot;$(ModFolder)&quot;&#xD;&#xA;export MODINFOFOLDER=&quot;$(ModInfoFolder)&quot;&#xD;&#xA;export DLLFOLDER=&quot;$(ModDLLFolder)&quot;&#xD;&#xA;./bobuild_lin.sh" Condition="$([MSBuild]::IsOSPlatform('Linux'))" />
   </Target>
 
 </Project>
