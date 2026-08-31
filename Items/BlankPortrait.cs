@@ -11,7 +11,7 @@ namespace BOStuffPack.Items
         public static void Init()
         {
             var name = "Blank Portrait";
-            var flav = "\"Erased from history.\"";
+            var flav = "\"Erased From History.\"";
             var desc = "At the start of combat, remove all passives from this party member and the Left and Right allies.";
             
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
