@@ -29,8 +29,8 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CommonEffects.ApplyStatus(CustomStatusEffects.Fury, false), 2, Targeting.Spec_Unit_AllOpponents_Strongest),
-                        Effects.GenerateEffect(CommonEffects.ApplyStatus(CustomStatusEffects.Fury, true), 1, Targeting.Spec_Unit_AllAllies_Strongest),
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Fury, false), 2, Targeting.Spec_Unit_AllOpponents_Strongest),
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Fury, true), 1, Targeting.Spec_Unit_AllAllies_Strongest),
                     })
                 }
             });

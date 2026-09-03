@@ -29,7 +29,7 @@ namespace BOStuffPack.Items
                     effect = new PerformEffectTriggerEffect(new()
                     {
                         Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot),
-                        Effects.GenerateEffect(CommonEffects.ApplyStatus(CustomStatusEffects.Weakened), 1, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Weakened), 1, Targeting.Slot_SelfSlot)
                     }),
 
                     conditions = new()

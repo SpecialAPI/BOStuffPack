@@ -28,7 +28,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CommonEffects.ApplyStatus(CustomStatusEffects.Survive), 1, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Survive), 1, Targeting.Slot_SelfSlot)
                     })
                 }
             };
