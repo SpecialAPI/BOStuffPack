@@ -2,7 +2,6 @@
 using BOStuffPack.CustomTrigger;
 using BOStuffPack.Effect;
 using BOStuffPack.StoredValues;
-using Grimoire.Content.TriggerEffects;
 using System;
 using System.Collections.Generic;
 using System.Text;
