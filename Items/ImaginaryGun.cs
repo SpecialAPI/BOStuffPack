@@ -14,7 +14,7 @@ namespace BOStuffPack.Items
         public static void Init()
         {
             var name = "Imaginary Gun";
-            var flav = "\"You need to believe in it.\"";
+            var flav = "\"Shoots imaginary bullets.\"";
             var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that \"deals\" \"damage\".";
 
             var item = NewItem<BasicWearable>(ID)
