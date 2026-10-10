@@ -67,7 +67,7 @@ namespace BOStuffPack
             ImaginaryGun.Init();
             UnnamedItem42.Init();
             DirtBlock.Init();
-            
+            BloodyScales.Init();
         }
 
         public void Start()
