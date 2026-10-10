@@ -56,7 +56,7 @@ namespace BOStuffPack
             RedButton.Init();
             InstrumentsOfMurder.Init();
             FramedE.Init();
-            RedMarker.Init(); // reference
+            // RedMarker.Init(); // reference
             Electromagnet.Init();
             Bookmark.Init();
             UnnamedItem1.Init();
