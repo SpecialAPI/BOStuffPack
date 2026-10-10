@@ -73,16 +73,12 @@
     <EmbeddedResource Include="Resources\Items\FakeGunPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\RedButtonPlaceholder.png" />
     <EmbeddedResource Include="Resources\Items\SquirrelBomb.png" />
-    <EmbeddedResource Include="Resources\Items\TheHumanCondition.png" />
-    <EmbeddedResource Include="Resources\Items\RedMarker.png" />
     <EmbeddedResource Include="Resources\Items\AlmightyBranch.png" />
     <EmbeddedResource Include="Resources\Items\BloodyHacksaw.png" />
     <EmbeddedResource Include="Resources\Items\ConjoinedFungi.png" />
     <EmbeddedResource Include="Resources\Items\FramedE.png" />
     <EmbeddedResource Include="Resources\Items\InstrumentsOfMurder.png" />
     <EmbeddedResource Include="Resources\Items\InterdimensionalShapeshifter.png" />
-    <EmbeddedResource Include="Resources\Items\Keyring.png" />
-    <EmbeddedResource Include="Resources\Items\LoudPhone.png" />
     <EmbeddedResource Include="Resources\Items\NewtonsApple.png" />
     <EmbeddedResource Include="Resources\Items\PaperCrown.png" />
     <EmbeddedResource Include="Resources\Items\Pencil.png" />

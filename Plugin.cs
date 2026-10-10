@@ -40,27 +40,22 @@ namespace BOStuffPack
             RipAndTear.Init(); // reference
             SquirrelBomb.Init();
             Survivorship.Init(); // reference
-            //LoudPhone.Init(); // reference
             BlankPortrait.Init();
             Potential.Init(); // reference
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();
             //WorldShatter.Init();
-            //Keyring.Init(); // reference
             Pencil.Init();
             AlmightyBranch.Init();
             Bait.Init();
             DuctTape.Init();
-            //UnnamedItem17.Init();
             //PaperCrown.Init(); // reference
             RedButton.Init();
             InstrumentsOfMurder.Init();
             FramedE.Init();
-            // RedMarker.Init(); // reference
             Electromagnet.Init();
             Bookmark.Init();
             UnnamedItem1.Init();
-            //TheHumanCondition.Init();
             BlankBook.Init();
             WrittenBook.Init();
             Blasphemy.Init();
@@ -68,7 +63,6 @@ namespace BOStuffPack
             DiceBullets.Init();
             UnnamedItem5.Init();
             UnnamedItem35.Init();
-            //UnnamedItem36.Init();
             UnnamedItem37.Init();
             ImaginaryGun.Init();
             UnnamedItem42.Init();
