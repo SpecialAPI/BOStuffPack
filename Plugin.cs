@@ -47,7 +47,7 @@ namespace BOStuffPack
             //WorldShatter.Init();
             Pencil.Init();
             AlmightyBranch.Init();
-            Bait.Init();
+            //Bait.Init();
             DuctTape.Init();
             //PaperCrown.Init(); // reference
             RedButton.Init();
@@ -67,6 +67,7 @@ namespace BOStuffPack
             ImaginaryGun.Init();
             UnnamedItem42.Init();
             DirtBlock.Init();
+            
         }
 
         public void Start()
