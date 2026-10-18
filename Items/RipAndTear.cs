@@ -10,9 +10,11 @@ namespace BOStuffPack.Items
 
         public static void Init()
         {
+            var fury = 1;
+            
             var name = "Rip and Tear";
             var flav = "\"Enemies have a 20% cha- oh wait, wrong game\"";
-            var desc = "Upon killing an enemy, apply 2 Fury to this party member.";
+            var desc = $"Upon killing an enemy, apply {fury} Fury to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "RipAndTear")
@@ -28,7 +30,7 @@ namespace BOStuffPack.Items
                     
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Fury), 2, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Fury), fury, Targeting.Slot_SelfSlot)
                     })
                 }
             };
