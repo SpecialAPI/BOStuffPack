@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOStuffPack.Conditions.Effector;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace BOStuffPack.Items
         {
             var name = "Unnamed Item 35";
             var flav = "\"WIP\"";
-            var desc = "At the start of combat, apply 1 Fury to this party member.";
+            var desc = "At the start of the third turn, apply 1 Fury to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "")
@@ -23,14 +24,18 @@ namespace BOStuffPack.Items
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnCombatStart.ToString(),
+                    trigger = TriggerCalls.OnTurnStart.ToString(),
                     immediate = false,
                     doesPopup = true,
                     
                     effect = new PerformEffectTriggerEffect(new()
                     {
                         Effects.GenerateEffect(CommonEffects.ApplyStatus(GrimoireStatusField.Fury), 1, Targeting.Slot_SelfSlot)
-                    })
+                    }),
+                    conditions = new()
+                    {
+                        IsTurnEffectorCondition.Create(3)
+                    }
                 }
             });
         }

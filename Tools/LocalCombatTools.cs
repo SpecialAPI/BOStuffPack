@@ -7,6 +7,8 @@ namespace BOStuffPack.Tools
 {
     public static class LocalCombatTools
     {
+        public static int CurrentPlayerTurn(this CombatStats stats) => stats.TurnsPassed + (stats.IsPlayerTurn ? 1 : 0);
+
         public static bool AddNewEnemyWithOutput(this CombatStats stats, EnemySO enemy, int slot, bool givesExperience, string spawnSoundID, int maxHealth, out EnemyCombat spawnedEnemy)
         {
             if (!ReversePatchesFinished)
