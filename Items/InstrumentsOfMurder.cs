@@ -21,9 +21,12 @@ namespace BOStuffPack.Items
         {
             var incOnDamage = 5;
 
+            var abName = "Murder Everyone You Know";
+            var abDesc = "Deal damage to each enemy and party member equal to their \"Murder\" count. Reset their \"Murder\" count.";
+
             var name = "Instruments of Murder";
             var flav = "\"I take my E and think about my setbacks.\"";
-            var desc = $"Upon this party member dealing damage, increase the target's \"Murder\" count by {incOnDamage}. Adds \"Murder Everyone You Know\" as an additional ability.";
+            var desc = $"Upon this party member dealing damage, increase the target's \"Murder\" count by {incOnDamage}. Adds \"{abName}\" as an additional ability.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "InstrumentsOfMurder")
@@ -52,9 +55,6 @@ namespace BOStuffPack.Items
                     }
                 }
             });
-
-            var abName = "Murder Everyone You Know";
-            var abDesc = "Deal damage to each enemy and party member equal to their \"Murder\" count. Reset their \"Murder\" count.";
 
             var unitsWithSV = Targeting.AllUnits
                 .FilterUnitByStoredValueComparison(MurderSVID, 0, IntComparison.GreaterThan);

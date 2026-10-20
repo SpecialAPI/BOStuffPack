@@ -13,17 +13,17 @@ namespace BOStuffPack.Items
 
         public static void Init()
         {
+            var abName = "Intimidation";
+            var abDesc = "Deals 18 fake damage to the Opposing enemy and this party member.";
+
             var name = "Imaginary Gun";
             var flav = "\"Shoots imaginary bullets.\"";
-            var desc = "Adds \"Intimidation\" as an additional ability, an \"attack\" that \"deals\" \"damage\".";
+            var desc = $"Adds \"{abName}\" as an additional ability, an \"attack\" that \"deals\" \"damage\".";
 
             var item = NewItem<BasicWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "FakeGunPlaceholder")
                 .SetPrice(2)
                 .AddToTreasure();
-
-            var abName = "Intimidation";
-            var abDesc = "Deals 18 fake damage to the Opposing enemy and this party member.";
 
             var ab = NewAbility(AbilityID)
                 .SetBasicInformationCharacter(abName, abDesc, "AttackIcon_Intimidation")

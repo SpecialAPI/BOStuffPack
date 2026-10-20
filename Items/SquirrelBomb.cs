@@ -10,9 +10,11 @@ namespace BOStuffPack.Items
 
         public static void Init()
         {
+            var damageIncrease = 200;
+
             var name = "Squirrel Bomb";
             var flav = "\"Uh oh.\"";
-            var desc = "The first wrong pigment used in an ability counts as correct. Increase incoming wrong pigment damage by 200%.";
+            var desc = $"The first wrong pigment used in an ability counts as correct. Increase incoming wrong pigment damage by {damageIncrease}%.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "SquirrelBomb")
@@ -40,7 +42,7 @@ namespace BOStuffPack.Items
                     doesPopup = true,
                     immediate = true,
 
-                    effect = new PercentageModifierSetterTriggerEffect(200, true)
+                    effect = new PercentageModifierSetterTriggerEffect(damageIncrease, true)
                 }
             };
         }

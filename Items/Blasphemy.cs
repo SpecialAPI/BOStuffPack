@@ -11,9 +11,11 @@ namespace BOStuffPack.Items
 
         public static void Init()
         {
+            var damageRounding = 50;
+
             var name = "Blasphemy";
             var flav = "\"Godslayer.\"";
-            var desc = "This party member has Anointed (1) as a passive. Round up all damage dealt by this party member to 50% of its original value. This is applied after all damage modifiers on the target.";
+            var desc = $"This party member has Anointed (1) as a passive. Round up all damage dealt by this party member to {damageRounding}% of its original value. This is applied after all damage modifiers on the target.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "BlasphemyPlaceholder")
@@ -29,7 +31,7 @@ namespace BOStuffPack.Items
                     immediate = true,
                     doesPopup = true,
                     
-                    effect = new MaximizeValueToPercentOfOriginalLateTriggerEffect(50),
+                    effect = new MaximizeValueToPercentOfOriginalLateTriggerEffect(damageRounding),
                 }
             });
         }
