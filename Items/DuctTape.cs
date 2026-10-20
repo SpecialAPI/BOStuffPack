@@ -10,8 +10,7 @@ namespace BOStuffPack.Items
     public static class DuctTape
     {
         public static readonly string ID = "DuctTape_TW".Prefix();
-        public static readonly string StoredValueDB = "DuctTape_USD".Prefix();
-        public static readonly string StoredValueID = "DuctTape".Prefix();
+        public static readonly string ItemsSVID = "DuctTape".Prefix();
 
         public static void Init()
         {
@@ -24,7 +23,7 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
-            NewStoredValue<ItemListStoredValue>(StoredValueDB, StoredValueID)
+            NewStoredValue<ItemListStoredValue>(ItemsSVID)
                 .SetColor(StoredValueColor_Rare)
                 .SetFormat("Duct Tape: {0}");
 
@@ -38,7 +37,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = StoredValueID), 0, Targeting.Slot_AllySides)
+                        Effects.GenerateEffect(CreateScriptable<TransferTargetItemsToCasterEffect>(x => x.itemsStoredValue = ItemsSVID), 0, Targeting.Slot_AllySides)
                     })
                 }
             };
@@ -52,7 +51,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = StoredValueID,
+                        itemsStoredValue = ItemsSVID,
                         disconnect = false
                     }
                 }
@@ -67,7 +66,7 @@ namespace BOStuffPack.Items
 
                     effect = new ConnectOrDisconnectStoredItemsTriggerEffect()
                     {
-                        itemsStoredValue = StoredValueID,
+                        itemsStoredValue = ItemsSVID,
                         disconnect = true
                     }
                 }

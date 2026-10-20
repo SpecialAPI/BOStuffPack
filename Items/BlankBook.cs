@@ -9,9 +9,7 @@ namespace BOStuffPack.Items
     public static class BlankBook
     {
         public static readonly string ID = "BlankBook_TW".Prefix();
-        public static readonly string AbilitySVDB = "BlankBook_Ability_USD".Prefix();
         public static readonly string AbilitySVID = "BlankBook_Ability".Prefix();
-        public static readonly string PassiveSVDB = "BlankBook_Passive_USD".Prefix();
         public static readonly string PassiveSVID = "BlankBook_Passive".Prefix();
 
         public static void Init()
@@ -25,11 +23,11 @@ namespace BOStuffPack.Items
                 .SetPrice(8)
                 .AddToTreasure();
 
-            NewStoredValue<CombatAbilityStoredValue>(AbilitySVDB, AbilitySVID)
+            NewStoredValue<CombatAbilityStoredValue>(AbilitySVID)
                 .SetColor(StoredValueColor_Rare)
                 .SetFormat("Last used ability: {0}");
 
-            NewStoredValue<PassiveAbilityStoredValue>(PassiveSVDB, PassiveSVID)
+            NewStoredValue<PassiveAbilityStoredValue>(PassiveSVID)
                 .SetColor(StoredValueColor_Rare)
                 .SetFormat("Last used passive: {0}");
 

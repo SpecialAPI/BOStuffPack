@@ -10,7 +10,6 @@ namespace BOStuffPack.Items
     public static class UnnamedItem42
     {
         public static readonly string ID = "UnnamedItem42_TW".Prefix();
-        public static readonly string DisableSVDB = "UnnamedItem42TempDisable_USD".Prefix();
         public static readonly string DisableSVID = "UnnamedItem42TempDisable".Prefix();
 
         public static void Init()
@@ -24,7 +23,7 @@ namespace BOStuffPack.Items
                 .SetPrice(13)
                 .AddToTreasure();
 
-            NewStoredValue<UnitStoreData_BasicSO>(DisableSVDB, DisableSVID);
+            NewStoredValue<UnitStoreData_BasicSO>(DisableSVID);
 
             item.SetTriggerEffects(new()
             {

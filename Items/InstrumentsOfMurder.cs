@@ -12,9 +12,7 @@ namespace BOStuffPack.Items
     {
         public static readonly string ID = "InstrumentsOfMurder_TW".Prefix();
         public static readonly string AbilityID = "MurderEveryoneYouKnow_A".Prefix();
-        public static readonly string MurderSVDB = "Murder_USD".Prefix();
         public static readonly string MurderSVID = "Murder".Prefix();
-        public static readonly string DisableSVDB = "MurderTempDisable_USD".Prefix();
         public static readonly string DisableSVID = "MurderTempDisable".Prefix();
 
         public static void Init()
@@ -33,11 +31,11 @@ namespace BOStuffPack.Items
                 .AddToTreasure()
                 .AddItemTypes(ItemType_GameIDs.Knife.ToString());
 
-            NewStoredValue<AdvancedStoredValueIntInfo>(MurderSVDB, MurderSVID)
+            NewStoredValue<AdvancedStoredValueIntInfo>(MurderSVID)
                 .SetColor(StoredValueColor_Negative)
                 .SetFormat("Murder: {0}");
 
-            NewStoredValue<UnitStoreData_BasicSO>(DisableSVDB, DisableSVID);
+            NewStoredValue<UnitStoreData_BasicSO>(DisableSVID);
 
             item.SetTriggerEffects(new()
             {
