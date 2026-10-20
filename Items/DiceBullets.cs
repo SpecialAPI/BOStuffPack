@@ -10,13 +10,15 @@ namespace BOStuffPack.Items
 
         public static void Init()
         {
+            var min = 2;
+
             var name = "Dice Bullets";
             var flav = "\"Gamblers Never Lose.\"";
-            var desc = "Damage dealt by this party member is randomized between 4 and double the original amount of damage they would've dealt.";
+            var desc = $"Damage dealt by this party member is randomized between {min} and double the original amount of damage they would've dealt.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "DiceBulletsPlaceholder")
-                .SetPrice(7)
+                .SetPrice(9)
                 .AddToShop();
 
             item.SetTriggerEffects(new()
@@ -27,7 +29,7 @@ namespace BOStuffPack.Items
                     immediate = true,
                     doesPopup = true,
 
-                    effect = new RandomizeBetweenValuesModifierSetterTriggerEffect(4, false, 200, true) 
+                    effect = new RandomizeBetweenValuesModifierSetterTriggerEffect(min, false, 200, true) 
                 }
             });
         }
