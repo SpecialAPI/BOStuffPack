@@ -49,7 +49,7 @@ namespace BOStuffPack.Items
                     
                     conditions = new()
                     {
-                        CreateScriptable<UnitValueMatchesSenderEffectorCondition>(x => x.unitValueIndex = 0),
+                        CreateScriptable<TargetMatchesSenderEffectorCondition>(x => x.unitValueIndex = 0),
                         CreateScriptable<IntValueInStoreDataHashSetCheckEffectorCondition>(x =>
                         {
                             x.intValueIndex = 0;

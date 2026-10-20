@@ -37,11 +37,11 @@ namespace BOStuffPack.Items
                     doesPopup = true,
 
                     effect = new PercentageModifierSetterTriggerEffect(damageUp, true)
-                        .Add(new UnitValueStoredValueChangeTriggerEffect(SVID, 1, IntOperation.Set)),
+                        .Add(new TargetStoredValueChangeTriggerEffect(SVID, 1, IntOperation.Set)),
 
                     conditions = new()
                     {
-                        UnitValueHealthComparisonEffectorCondition.Create(healthReq, IntComparison.LessThanOrEqual, true)
+                        TargetHealthComparisonEffectorCondition.Create(healthReq, IntComparison.LessThanOrEqual, true)
                     }
                 },
                 new()
@@ -54,7 +54,7 @@ namespace BOStuffPack.Items
 
                     conditions = new()
                     {
-                        UnitValueStoredValueComparisonEffectorCondition.Create(SVID, 0, IntComparison.LessThanOrEqual)
+                        TargetStoredValueComparisonEffectorCondition.Create(SVID, 0, IntComparison.LessThanOrEqual)
                     }
                 },
                 new()
@@ -63,8 +63,8 @@ namespace BOStuffPack.Items
                     immediate = false,
                     doesPopup = false,
 
-                    effect = new UnitValueApplyStatusTriggerEffect(StatusField.Gutted, 1)
-                        .Add(new UnitValueStoredValueChangeTriggerEffect(SVID, 0, IntOperation.Set)),
+                    effect = new TargetApplyStatusTriggerEffect(StatusField.Gutted, 1)
+                        .Add(new TargetStoredValueChangeTriggerEffect(SVID, 0, IntOperation.Set)),
                 }
             });
         }

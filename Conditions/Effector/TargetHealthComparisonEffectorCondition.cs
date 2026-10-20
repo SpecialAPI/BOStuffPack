@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class UnitValueHealthComparisonEffectorCondition : EffectorConditionSO
+    public class TargetHealthComparisonEffectorCondition : EffectorConditionSO
     {
         public int unitValueIndex = 0;
         public int compareTo;
@@ -25,7 +25,7 @@ namespace BOStuffPack.Conditions.Effector
 
         public static EffectorConditionSO Create(int compareTo, IntComparison comparison, bool compareAsPercentage = false, int unitValueIndex = 0)
         {
-            var ec = CreateScriptable<UnitValueHealthComparisonEffectorCondition>();
+            var ec = CreateScriptable<TargetHealthComparisonEffectorCondition>();
             ec.compareTo = compareTo;
             ec.comparison = comparison;
             ec.compareAsPercentage = compareAsPercentage;

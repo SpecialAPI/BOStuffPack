@@ -47,7 +47,7 @@ namespace BOStuffPack.Items
                     doesPopup = true,
                     immediate = true,
 
-                    effect = new UnitValueStoredValueChangeTriggerEffect(MurderSVID, incOnDamage, IntOperation.Add, 1),
+                    effect = new TargetStoredValueChangeTriggerEffect(MurderSVID, incOnDamage, IntOperation.Add, 1),
 
                     conditions = new()
                     {

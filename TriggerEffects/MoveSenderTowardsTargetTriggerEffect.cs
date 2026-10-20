@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.TriggerEffects
 {
-    public class MoveSenderTowardsUnitValueTriggerEffect(int valueIndex = 0) : TriggerEffect
+    public class MoveSenderTowardsTargetTriggerEffect(int valueIndex = 0) : TriggerEffect
     {
         public override void DoEffect(IUnit sender, object args, TriggerEffectInfo triggerInfo, TriggerEffectActivationExtraInfo extraInfo)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class UnitValueStoredValueComparisonEffectorCondition : EffectorConditionSO
+    public class TargetStoredValueComparisonEffectorCondition : EffectorConditionSO
     {
         public int unitValueIndex = 0;
         public string value;
@@ -21,7 +21,7 @@ namespace BOStuffPack.Conditions.Effector
 
         public static EffectorConditionSO Create(string sv, int compareTo, IntComparison comparison, int unitValueIndex = 0)
         {
-            var c = CreateScriptable<UnitValueStoredValueComparisonEffectorCondition>();
+            var c = CreateScriptable<TargetStoredValueComparisonEffectorCondition>();
             c.value = sv;
             c.compareTo = compareTo;
             c.comparison = comparison;

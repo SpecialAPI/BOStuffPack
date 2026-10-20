@@ -30,12 +30,12 @@ namespace BOStuffPack.Items
                     doesPopup = true,
                     immediate = false,
 
-                    effect = new MoveSenderTowardsUnitValueTriggerEffect(),
+                    effect = new MoveSenderTowardsTargetTriggerEffect(),
                     conditions = new()
                     {
-                        CreateScriptable<UnitValueSideCheckEffectorCondition>(x =>
+                        CreateScriptable<TargetSideCheckEffectorCondition>(x =>
                         {
-                            x.neededSide = UnitValueSideCheckEffectorCondition.UnitSide.SameAsCaster;
+                            x.neededSide = TargetSideCheckEffectorCondition.UnitSide.SameAsCaster;
                             x.ignoreCaster = true;
                         }),
                         CreateScriptable<ContainsFieldEffectEffectorCondition>(x =>

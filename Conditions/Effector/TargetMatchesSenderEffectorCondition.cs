@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class UnitValueMatchesSenderEffectorCondition : EffectorConditionSO
+    public class TargetMatchesSenderEffectorCondition : EffectorConditionSO
     {
         public int unitValueIndex;
 

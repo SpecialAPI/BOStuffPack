@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class UnitValueSideCheckEffectorCondition : EffectorConditionSO
+    public class TargetSideCheckEffectorCondition : EffectorConditionSO
     {
         public int unitValueIndex = 0;
         public UnitSide neededSide;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class UnitValuePlacementCheckEffectorCondition : EffectorConditionSO
+    public class TargetPlacementCheckEffectorCondition : EffectorConditionSO
     {
         public int unitValueIndex;
         public UnitPlacement neededPlacement;
