@@ -32,7 +32,7 @@ namespace BOStuffPack.Items
             {
                 new()
                 {
-                    trigger = LocalCustomTriggers.OnAnyoneDamaged,
+                    trigger = LocalCustomTriggers.OnTargetDamaged,
                     immediate = true,
                     doesPopup = true,
 
@@ -48,8 +48,7 @@ namespace BOStuffPack.Items
                     
                     conditions = new()
                     {
-                        CreateScriptable<TargetMatchesSenderEffectorCondition>(x => x.unitValueIndex = 0),
-                        CreateScriptable<IntValueInStoreDataHashSetCheckEffectorCondition>(x =>
+                        CreateScriptable<IntValueInStoreDataEnumerableCheckEffectorCondition>(x =>
                         {
                             x.intValueIndex = 0;
                             x.storedValue = AlreadyDealtSVID;

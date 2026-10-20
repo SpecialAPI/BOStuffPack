@@ -6,23 +6,22 @@ namespace BOStuffPack.Conditions.Effector
 {
     public class StoredValueComparisonEffectorCondition : EffectorConditionSO
     {
-        public string value;
-
-        public IntComparison comparison;
+        public string storedValue;
         public int compareTo;
+        public IntComparison comparison;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if (effector is IUnit u)
-                return CompareInts(u.SimpleGetStoredValue(value), compareTo, comparison);
+                return CompareInts(u.SimpleGetStoredValue(storedValue), compareTo, comparison);
 
             return false;
         }
 
-        public static EffectorConditionSO Create(string sv, int compareTo, IntComparison comparison)
+        public static EffectorConditionSO Create(string storedValue, int compareTo, IntComparison comparison)
         {
             var c = CreateScriptable<StoredValueComparisonEffectorCondition>();
-            c.value = sv;
+            c.storedValue = storedValue;
             c.compareTo = compareTo;
             c.comparison = comparison;
 

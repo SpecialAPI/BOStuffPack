@@ -4,10 +4,10 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class CasterSlotIDToIntHolderValueComparisonEffectorCondition : EffectorConditionSO
+    public class CasterSlotIDToIntValueComparisonEffectorCondition : EffectorConditionSO
     {
-        public int intValueIndex;
         public IntComparison comparison;
+        public int intValueIndex;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
@@ -15,6 +15,15 @@ namespace BOStuffPack.Conditions.Effector
                 return false;
 
             return CompareInts(effector.SlotID, intHolder[intValueIndex], comparison);
+        }
+
+        public static EffectorConditionSO Create(IntComparison comparison, int intValueIndex = 0)
+        {
+            var ec = CreateScriptable<CasterSlotIDToIntValueComparisonEffectorCondition>();
+            ec.comparison = comparison;
+            ec.intValueIndex = intValueIndex;
+
+            return ec;
         }
     }
 }

@@ -48,5 +48,20 @@ namespace BOStuffPack.Conditions.Effector
 
             return CompareInts(matchingAmount, compareTo, comparison);
         }
+
+        public static EffectorConditionSO Create(ManaColorSO targetColor, int compareTo, IntComparison comparison, bool checkInBar = true, bool checkInGenerator = false, bool checkInOverflow = false, bool shouldHaveAnyMana = false, PigmentMatchType matchType = PigmentMatchType.Exact)
+        {
+            var ec = CreateScriptable<MatchingPigmentComparisonEffectorCondition>();
+            ec.targetColor = targetColor;
+            ec.compareTo = compareTo;
+            ec.comparison = comparison;
+            ec.checkInBar = checkInBar;
+            ec.checkInGenerator = checkInGenerator;
+            ec.checkInOverflow = checkInOverflow;
+            ec.checkedBarsShouldHaveAnyMana = shouldHaveAnyMana;
+            ec.matchType = matchType;
+
+            return ec;
+        }
     }
 }

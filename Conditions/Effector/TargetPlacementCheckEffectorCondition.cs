@@ -6,8 +6,8 @@ namespace BOStuffPack.Conditions.Effector
 {
     public class TargetPlacementCheckEffectorCondition : EffectorConditionSO
     {
-        public int unitValueIndex;
         public UnitPlacement neededPlacement;
+        public int unitValueIndex;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
@@ -32,6 +32,15 @@ namespace BOStuffPack.Conditions.Effector
                 return false;
 
             return slot.Unit == u;
+        }
+
+        public static EffectorConditionSO Create(UnitPlacement neededPlacement, int unitValueIndex = 0)
+        {
+            var ec = CreateScriptable<TargetPlacementCheckEffectorCondition>();
+            ec.neededPlacement = neededPlacement;
+            ec.unitValueIndex = unitValueIndex;
+
+            return ec;
         }
 
         public enum UnitPlacement

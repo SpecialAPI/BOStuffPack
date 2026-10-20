@@ -6,23 +6,23 @@ namespace BOStuffPack.Conditions.Effector
 {
     public class TargetStoredValueComparisonEffectorCondition : EffectorConditionSO
     {
-        public int unitValueIndex = 0;
-        public string value;
-        public IntComparison comparison;
+        public string storedValue;
         public int compareTo;
+        public IntComparison comparison;
+        public int unitValueIndex;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if (!ValueReferenceTools.TryGetUnitHolder(args, out var unitHolder) || unitHolder[unitValueIndex] is not IUnit u)
                 return false;
 
-            return CompareInts(u.SimpleGetStoredValue(value), compareTo, comparison);
+            return CompareInts(u.SimpleGetStoredValue(storedValue), compareTo, comparison);
         }
 
-        public static EffectorConditionSO Create(string sv, int compareTo, IntComparison comparison, int unitValueIndex = 0)
+        public static EffectorConditionSO Create(string storedValue, int compareTo, IntComparison comparison, int unitValueIndex = 0)
         {
             var c = CreateScriptable<TargetStoredValueComparisonEffectorCondition>();
-            c.value = sv;
+            c.storedValue = storedValue;
             c.compareTo = compareTo;
             c.comparison = comparison;
             c.unitValueIndex = unitValueIndex;

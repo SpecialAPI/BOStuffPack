@@ -34,12 +34,7 @@ namespace BOStuffPack.Items
                     }),
                     conditions = new()
                     {
-                        CreateScriptable<CheckCurrentLuckyPigmentColorEffectorCondition>(x =>
-                        {
-                            x.targetColor = Pigments.Red;
-                            x.matchType = PigmentMatchType.ShareColor;
-                            x.shouldMatch = true;
-                        })
+                        CheckCurrentLuckyPigmentColorEffectorCondition.Create(Pigments.Red, true, PigmentMatchType.ShareColor)
                     }
                 }
             };

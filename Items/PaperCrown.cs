@@ -33,14 +33,7 @@ namespace BOStuffPack.Items
                     }),
                     conditions = new()
                     {
-                        CreateScriptable<MatchingPigmentComparisonEffectorCondition>(x =>
-                        {
-                            x.targetColor = Pigments.Red;
-                            x.matchType = PigmentMatchType.ShareColor;
-                            x.compareTo = 0;
-                            x.comparison = IntComparison.Equal;
-                            x.checkedBarsShouldHaveAnyMana = true;
-                        })
+                        MatchingPigmentComparisonEffectorCondition.Create(Pigments.Red, 0, IntComparison.Equal, true, false, false, true, PigmentMatchType.ShareColor)
                     }
                 }
             };

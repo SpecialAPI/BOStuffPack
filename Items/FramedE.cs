@@ -41,7 +41,7 @@ namespace BOStuffPack.Items
                     }),
                     conditions = new()
                     {
-                        CreateScriptable<CasterSlotIDToIntHolderValueComparisonEffectorCondition>(x => x.comparison = IntComparison.LessThan)
+                        CasterSlotIDToIntValueComparisonEffectorCondition.Create(IntComparison.LessThan)
                     }
                 },
                 new()
@@ -56,7 +56,7 @@ namespace BOStuffPack.Items
                     }),
                     conditions = new()
                     {
-                        CreateScriptable<CasterSlotIDToIntHolderValueComparisonEffectorCondition>(x => x.comparison = IntComparison.GreaterThan)
+                        CasterSlotIDToIntValueComparisonEffectorCondition.Create(IntComparison.GreaterThan)
                     }
                 }
             });

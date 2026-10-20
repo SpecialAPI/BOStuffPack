@@ -33,11 +33,7 @@ namespace BOStuffPack.Items
                     effect = new MoveSenderTowardsTargetTriggerEffect(),
                     conditions = new()
                     {
-                        CreateScriptable<TargetSideCheckEffectorCondition>(x =>
-                        {
-                            x.neededSide = TargetSideCheckEffectorCondition.UnitSide.SameAsCaster;
-                            x.ignoreCaster = true;
-                        }),
+                        TargetSideCheckEffectorCondition.Create(TargetSideCheckEffectorCondition.UnitSide.SameAsCaster, true),
                         CreateScriptable<ContainsFieldEffectEffectorCondition>(x =>
                         {
                             x.fieldEffectCheck = Status.Constricted;

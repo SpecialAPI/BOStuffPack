@@ -6,9 +6,9 @@ namespace BOStuffPack.Conditions.Effector
 {
     public class TargetSideCheckEffectorCondition : EffectorConditionSO
     {
-        public int unitValueIndex = 0;
         public UnitSide neededSide;
         public bool ignoreCaster = false;
+        public int unitValueIndex;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
@@ -30,6 +30,16 @@ namespace BOStuffPack.Conditions.Effector
             };
 
             return u.IsUnitCharacter == checkSide;
+        }
+
+        public static EffectorConditionSO Create(UnitSide neededSide, bool ignoreCaster = false, int unitValueIndex = 0)
+        {
+            var ec = CreateScriptable<TargetSideCheckEffectorCondition>();
+            ec.neededSide = neededSide;
+            ec.ignoreCaster = ignoreCaster;
+            ec.unitValueIndex = unitValueIndex;
+
+            return ec;
         }
 
         public enum UnitSide

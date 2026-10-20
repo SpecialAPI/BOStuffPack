@@ -6,10 +6,10 @@ namespace BOStuffPack.Conditions.Effector
 {
     public class TargetHealthComparisonEffectorCondition : EffectorConditionSO
     {
-        public int unitValueIndex = 0;
         public int compareTo;
         public IntComparison comparison;
         public bool compareAsPercentage;
+        public int unitValueIndex;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {

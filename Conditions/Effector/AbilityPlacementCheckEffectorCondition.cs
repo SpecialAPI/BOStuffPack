@@ -5,13 +5,13 @@ using System.Text;
 
 namespace BOStuffPack.Conditions.Effector
 {
-    public class TiderunnerCheckCondition : EffectorConditionSO
+    public class AbilityPlacementCheckEffectorCondition : EffectorConditionSO
     {
-        public AbilityPlacement placementReq;
+        public AbilityPlacement neededPlacement;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            return args is AbilityUsedContext ctx && effector is IUnit u && u.Abilities() is List<CombatAbility> abs && placementReq switch
+            return args is AbilityUsedContext ctx && effector is IUnit u && u.Abilities() is List<CombatAbility> abs && neededPlacement switch
             {
                 AbilityPlacement.Middle => abs.Count <= 1 || ctx.abilityIndex > 0 && ctx.abilityIndex < abs.Count - 1,
                 AbilityPlacement.Left => abs.Count > 1 && ctx.abilityIndex == 0,
@@ -19,6 +19,14 @@ namespace BOStuffPack.Conditions.Effector
 
                 _ => false
             };
+        }
+
+        public static EffectorConditionSO Create(AbilityPlacement neededPlacement)
+        {
+            var ec = CreateScriptable<AbilityPlacementCheckEffectorCondition>();
+            ec.neededPlacement = neededPlacement;
+
+            return ec;
         }
 
         public enum AbilityPlacement

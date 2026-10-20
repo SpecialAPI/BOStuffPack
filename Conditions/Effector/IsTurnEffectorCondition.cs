@@ -6,17 +6,17 @@ namespace BOStuffPack.Conditions.Effector
 {
     public class IsTurnEffectorCondition : EffectorConditionSO
     {
-        public int reqTurn;
+        public int targetTurn;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            return CombatManager.Instance._stats.CurrentPlayerTurn() == reqTurn;
+            return CombatManager.Instance._stats.CurrentPlayerTurn() == targetTurn;
         }
 
-        public static EffectorConditionSO Create(int reqTurn)
+        public static EffectorConditionSO Create(int targetTurn)
         {
             var c = CreateScriptable<IsTurnEffectorCondition>();
-            c.reqTurn = reqTurn;
+            c.targetTurn = targetTurn;
 
             return c;
         }
