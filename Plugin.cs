@@ -37,7 +37,7 @@ namespace BOStuffPack
             TheTideTurner.Init();
             BloodyHacksaw.Init(); // reference
             ConjoinedFungi.Init(); // reference
-            RipAndTear.Init(); // reference
+            BloodyHands.Init();
             SquirrelBomb.Init();
             Survivorship.Init(); // reference
             BlankPortrait.Init();
