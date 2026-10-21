@@ -37,7 +37,7 @@ namespace BOStuffPack.Items
                     doesPopup = true,
 
                     effect = new PercentageModifierSetterTriggerEffect(damageUp, true)
-                        .Add(new TargetStoredValueChangeTriggerEffect(PopupSVID, 1, IntOperation.Set)),
+                        .Add(new TargetStoredValueChangeTriggerEffect(PopupSVID, 1, IntOperation.Set, unitValueIndex: 1)),
 
                     conditions = new()
                     {
@@ -64,7 +64,7 @@ namespace BOStuffPack.Items
                     doesPopup = false,
 
                     effect = new TargetApplyStatusTriggerEffect(StatusField.Gutted, 1, unitValueIndex: 1)
-                        .Add(new TargetStoredValueChangeTriggerEffect(PopupSVID, 0, IntOperation.Set)),
+                        .Add(new TargetStoredValueChangeTriggerEffect(PopupSVID, 0, IntOperation.Set, unitValueIndex: 1)),
                 }
             });
         }
