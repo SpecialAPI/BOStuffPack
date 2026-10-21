@@ -17,8 +17,8 @@ namespace BOStuffPack.Items
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "ColorSwitch")
-                .SetPrice(8)
-                .AddToTreasure();
+                .SetPrice(6)
+                .AddToShop();
 
             item.triggerEffects = new()
             {
