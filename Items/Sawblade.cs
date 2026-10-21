@@ -9,7 +9,7 @@ namespace BOStuffPack.Items
     public static class Sawblade
     {
         public static readonly string ID = "Sawblade_TW".Prefix();
-        public static readonly string PopupSVID = "SawbladeStoredValue";
+        public static readonly string PopupSVID = "SawbladeStoredValue".Prefix();
 
         public static void Init()
         {
