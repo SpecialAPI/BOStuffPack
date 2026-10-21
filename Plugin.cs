@@ -49,7 +49,7 @@ namespace BOStuffPack
             AlmightyBranch.Init();
             //Bait.Init();
             DuctTape.Init();
-            //PaperCrown.Init(); // reference
+            ColorSwitch.Init();
             RedButton.Init();
             InstrumentsOfMurder.Init();
             FramedE.Init();
