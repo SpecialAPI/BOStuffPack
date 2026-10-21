@@ -34,7 +34,7 @@ namespace BOStuffPack.CustomTrigger.Patches
             var modifyCanProduceRef = new ModifyCanProducePigmentFromDamageReference(curr, damagedUnit, possibleSourceUnit, amount, damageTypeID, directDamage, ignoreShield, affectedStartSlot, affectedEndSlot);
 
             if(possibleSourceUnit != null)
-                CombatManager.Instance.PostNotification(LocalCustomTriggers.OnTargetDamaged, possibleSourceUnit, modifyCanProduceRef);
+                CombatManager.Instance.PostNotification(LocalCustomTriggers.ModifyTargetCanProducePigmentFromDamage, possibleSourceUnit, modifyCanProduceRef);
 
             CombatManager.Instance.ProcessImmediateAction(new TriggerUnitGeneralEventAction(LocalCustomTriggers.ModifyCanProducePigmentFromDamage_Anyone, modifyCanProduceRef, false, false, null));
             
