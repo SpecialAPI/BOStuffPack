@@ -63,7 +63,7 @@ namespace BOStuffPack.Items
                     immediate = false,
                     doesPopup = false,
 
-                    effect = new TargetApplyStatusTriggerEffect(StatusField.Gutted, 1)
+                    effect = new TargetApplyStatusTriggerEffect(StatusField.Gutted, 1, unitValueIndex: 1)
                         .Add(new TargetStoredValueChangeTriggerEffect(PopupSVID, 0, IntOperation.Set)),
                 }
             });
