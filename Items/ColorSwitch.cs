@@ -7,7 +7,7 @@ namespace BOStuffPack.Items
 {
     public static class ColorSwitch
     {
-        public static readonly string ID = "ColorSwitch_TW".Prefix();
+        public static readonly string ID = "ColorSwitch_SW".Prefix();
 
         public static void Init()
         {
