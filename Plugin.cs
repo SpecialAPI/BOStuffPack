@@ -59,7 +59,7 @@ namespace BOStuffPack
             BlankBook.Init();
             WrittenBook.Init();
             Blasphemy.Init();
-            UnnamedItem31.Init();
+            RewardMechanism.Init();
             DiceBullets.Init();
             UnnamedItem5.Init();
             UnnamedItem35.Init();

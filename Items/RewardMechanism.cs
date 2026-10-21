@@ -8,15 +8,15 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class UnnamedItem31
+    public static class RewardMechanism
     {
-        public static readonly string ID = "UnnamedItem31_SW".Prefix();
-        public static readonly string AlreadyDealtSVID = "UnnamedItem31".Prefix();
+        public static readonly string ID = "RewardMechanism_SW".Prefix();
+        public static readonly string AlreadyDealtSVID = "RewardMechanismAlreadyDealt".Prefix();
 
         public static void Init()
         {
-            var name = "Unnamed Item 31";
-            var flav = "\"WIP\"";
+            var name = "Reward Mechanism";
+            var flav = "\"Good Job!\"";
             var desc = "Upon this party member dealing damage, if this is the first time they've dealt that amount of damage this combat, gain 1 coin.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
