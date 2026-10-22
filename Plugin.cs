@@ -44,7 +44,6 @@ namespace BOStuffPack
             Potential.Init(); // reference
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();
-            //WorldShatter.Init();
             Pencil.Init();
             AlmightyBranch.Init();
             //Bait.Init();
