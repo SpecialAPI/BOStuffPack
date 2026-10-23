@@ -6,7 +6,7 @@ namespace BOStuffPack.Items
 {
     public static class Potential
     {
-        public static readonly string ID = "Potential_TW".Prefix();
+        public static readonly string ID = "Potential_SW".Prefix();
 
         public static void Init()
         {
@@ -17,7 +17,8 @@ namespace BOStuffPack.Items
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "Potential")
                 .SetStaticModifiers(RankChangeModifier(1))
-                .AddToTreasure();
+                .SetPrice(6)
+                .AddToShop();
 
             item.triggerEffects = new()
             {
