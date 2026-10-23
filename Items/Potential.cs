@@ -11,7 +11,7 @@ namespace BOStuffPack.Items
         public static void Init()
         {
             var name = "Potential";
-            var flav = "\"There is potential\"";
+            var flav = "\"You could've been so much more.\"";
             var desc = "This party member is 1 level higher than they would be otherwise.\nOn combat start, inflict 2 Weakened to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)

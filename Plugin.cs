@@ -41,7 +41,7 @@ namespace BOStuffPack
             SquirrelBomb.Init();
             Survivorship.Init(); // reference
             BlankPortrait.Init();
-            Potential.Init(); // reference
+            Potential.Init();
             NewtonsApple.Init();
             InterdimensionalShapeshifter.Init();
             Pencil.Init();
