@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
         {
             var healthReq = 50;
             var damageUp = 50;
-            var gutted = 1;
+            var gutted = 2;
 
             var name = "Sawblade";
             var flav = "\"Goodbye forever.\"";
