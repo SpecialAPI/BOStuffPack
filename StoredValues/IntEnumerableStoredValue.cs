@@ -21,7 +21,10 @@ namespace BOStuffPack.StoredValues
             if (holder == null || holder.m_ObjectData is not IEnumerable<int> enumerable)
                 return false;
 
-            if(SortOrder == IntSortOrder.Ascending)
+            if (!enumerable.Any())
+                return false;
+
+            if (SortOrder == IntSortOrder.Ascending)
                 enumerable = enumerable.OrderBy(x => x);
             else if(SortOrder == IntSortOrder.Descending)
                 enumerable = enumerable.OrderByDescending(x => x);

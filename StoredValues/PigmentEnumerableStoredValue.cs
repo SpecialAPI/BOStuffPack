@@ -20,6 +20,9 @@ namespace BOStuffPack.StoredValues
             if (holder == null || holder.m_ObjectData is not IEnumerable<ManaColorSO> enumerable)
                 return false;
 
+            if(!enumerable.Any())
+                return false;
+
             result = string.Format(Format, string.Join(Separator, enumerable.Select(x => x.pigmentID))).Colorize(Color);
             return true;
         }
