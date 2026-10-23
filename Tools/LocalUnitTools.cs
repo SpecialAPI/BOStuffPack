@@ -101,5 +101,22 @@ namespace BOStuffPack.Tools
 
             return false;
         }
+
+        public static bool HasBasicAbility(this CharacterCombat cc)
+        {
+            return cc.CharacterWearableModifiers.UsesBasicBool ?
+                cc.CharacterWearableModifiers.UsesBasicAbilityModifier :
+                cc.Character.usesBasicAbility;
+        }
+
+        public static CharacterAbility BasicAbility(this CharacterCombat cc)
+        {
+            if(!cc.HasBasicAbility())
+                return null;
+
+            return cc.CharacterWearableModifiers.HasBasicAbilityModifier ?
+                cc.CharacterWearableModifiers.BasicAbilityModifier :
+                cc.Character.basicCharAbility;
+        }
     }
 }

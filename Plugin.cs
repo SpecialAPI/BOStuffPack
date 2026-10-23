@@ -68,6 +68,7 @@ namespace BOStuffPack
             DirtBlock.Init();
             BloodyScales.Init();
             Sawblade.Init();
+            TinyFactory.Init();
         }
 
         public void Start()
