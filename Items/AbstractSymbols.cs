@@ -7,19 +7,19 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class UnnamedItem42
+    public static class AbstractSymbols
     {
-        public static readonly string ID = "UnnamedItem42_TW".Prefix();
-        public static readonly string DisableSVID = "UnnamedItem42TempDisable".Prefix();
+        public static readonly string ID = "AbstractSymbols_TW".Prefix();
+        public static readonly string DisableSVID = "AbstractSymbolsTempDisable".Prefix();
 
         public static void Init()
         {
-            var name = "Unnamed Item 42";
-            var flav = "\"WIP\"";
+            var name = "Abstract Symbols";
+            var flav = "\"Incomprehensible.\"";
             var desc = "This party member now deals double damage. Before this party member deals damage, move the target to the left or right.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "")
+                .SetBasicInformation(name, flav, desc, "AbstractSymbols")
                 .SetPrice(13)
                 .AddToTreasure();
 

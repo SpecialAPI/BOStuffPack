@@ -64,7 +64,7 @@ namespace BOStuffPack
             UnnamedItem35.Init();
             UnnamedItem37.Init();
             ImaginaryGun.Init();
-            UnnamedItem42.Init();
+            AbstractSymbols.Init();
             DirtBlock.Init();
             BloodyScales.Init();
             Sawblade.Init();
