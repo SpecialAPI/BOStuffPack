@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
             var desc = "Upon killing an enemy, apply 1 Fury to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "RipAndTear")
+                .SetBasicInformation(name, flav, desc, "BloodyHands")
                 .SetPrice(10)
                 .AddToTreasure();
 
