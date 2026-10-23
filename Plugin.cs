@@ -69,6 +69,7 @@ namespace BOStuffPack
             BloodyScales.Init();
             Sawblade.Init();
             TinyFactory.Init();
+            EvilRerollItem.Init();
         }
 
         public void Start()

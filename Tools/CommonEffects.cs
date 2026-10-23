@@ -25,6 +25,8 @@ namespace BOStuffPack.Tools
         public static readonly EffectSO Refresh = CreateScriptable<RefreshAbilityUseEffect>();
         public static readonly EffectSO RestoreSwap = CreateScriptable<RestoreSwapUseEffect>();
 
+        public static readonly EffectSO UnitCheck = CreateScriptable<CheckHasUnitEffect>();
+
         public static readonly EffectSO ApplyFocused = ApplyStatus(StatusField.Focused);
         public static readonly EffectSO ApplyRuptured = ApplyStatus(StatusField.Ruptured);
         public static readonly EffectSO ApplyFrail = ApplyStatus(StatusField.Frail);
@@ -40,6 +42,9 @@ namespace BOStuffPack.Tools
         public static readonly EffectSO ApplyConstricted = ApplyField(StatusField.Constricted);
         public static readonly EffectSO ApplyFire = ApplyField(StatusField.OnFire);
         public static readonly EffectSO ApplyShield = ApplyField(StatusField.Shield);
+
+        public static readonly EffectSO RerollTargetAbilities = CreateScriptable<ReRollTargetTimelineAbilityEffect>();
+        public static readonly EffectSO RerollRandomAbilities = CreateScriptable<ReRollRandomTimelineAbilityEffect>();
 
         public static EffectSO ApplyStatus(StatusEffect_SO status, bool oneRandomTarget = false)
         {
