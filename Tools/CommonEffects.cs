@@ -58,13 +58,7 @@ namespace BOStuffPack.Tools
             return e;
         }
 
-        public static EffectSO Animation(AttackVisualsSO anim)
-        {
-            var e = CreateScriptable<AnimationVisualsOnEffectTargetsEffect>();
-            e.visuals = anim;
-
-            return e;
-        }
+        public static EffectSO Animation(AttackVisualsSO anim) => AnimationVisualsOnEffectTargetsEffect.Create(anim);
 
         public static EffectSO AddPassive(BasePassiveAbilitySO passive)
         {

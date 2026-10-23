@@ -134,5 +134,13 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create(string itemsStoredValue)
+        {
+            var e = CreateScriptable<TransferTargetItemsToCasterEffect>();
+            e.itemsStoredValue = itemsStoredValue;
+
+            return e;
+        }
     }
 }

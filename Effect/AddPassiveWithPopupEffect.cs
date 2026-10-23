@@ -27,5 +27,13 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create(BasePassiveAbilitySO passive)
+        {
+            var e = CreateScriptable<AddPassiveWithPopupEffect>();
+            e.passive = passive;
+
+            return e;
+        }
     }
 }

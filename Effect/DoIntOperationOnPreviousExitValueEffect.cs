@@ -13,5 +13,13 @@ namespace BOStuffPack.Effect
             exitAmount = DoOperation(PreviousExitValue, entryVariable, operation);
             return true;
         }
+
+        public static EffectSO Create(IntOperation operation)
+        {
+            var e = CreateScriptable<DoIntOperationOnPreviousExitValueEffect>();
+            e.operation = operation;
+
+            return e;
+        }
     }
 }

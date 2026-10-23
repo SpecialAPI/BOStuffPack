@@ -17,5 +17,7 @@ namespace BOStuffPack.Effect
 
             return (exitAmount = units.Min(x => x.CurrentHealth)) > 0;
         }
+
+        public static EffectSO Create() => CreateScriptable<OutputWeakestHealthEffect>();
     }
 }

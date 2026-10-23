@@ -30,17 +30,13 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<RecursiveCloneWithPerformedEffectsEffect>(x =>
+                        Effects.GenerateEffect(RecursiveCloneWithPerformedEffectsEffect.Create(new()
                         {
-                            x.effects =
-                            [
-                                Effects.GenerateEffect(CreateScriptable<OutputTargetsCombinedHealthEffect>(), 0, Targeting.Slot_SelfSlot),
-                                Effects.GenerateEffect(CreateScriptable<DoIntOperationOnPreviousExitValueEffect>(x => x.operation = IntOperation.Divide), 5),
-                                Effects.GenerateEffect(CreateScriptable<ClampPreviousExitValueEffect>(x => { x.min = 1; x.max = 4; })),
-                                Effects.GenerateEffect(CreateScriptable<ExtraCurrencyEffect>(x => x._usePreviousExitValue = true), 1)
-                            ];
-                            x.effectsAreImmediate = false;
-                        }))
+                            Effects.GenerateEffect(OutputTargetsHealthEffect.Create(), 0, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(DoIntOperationOnPreviousExitValueEffect.Create(IntOperation.Divide), 5),
+                            Effects.GenerateEffect(ClampPreviousExitValueEffect.Create(1, 4)),
+                            Effects.GenerateEffect(CreateScriptable<ExtraCurrencyEffect>(x => x._usePreviousExitValue = true), 1)
+                        }, false))
                     })
                 }
             };

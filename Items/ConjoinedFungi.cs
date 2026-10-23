@@ -28,7 +28,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Unit_AllOpponents)
+                        Effects.GenerateEffect(MergeEnemiesEffect.Create(), 0, Targeting.Unit_AllOpponents)
                     })
                 }
             };

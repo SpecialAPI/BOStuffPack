@@ -6,8 +6,8 @@ namespace BOStuffPack.Effect
 {
     public class ForceGeneratePigmentColorEffect : EffectSO
     {
+        public ManaColorSO pigment;
         public bool usePreviousExitValue;
-        public ManaColorSO pigmentColor;
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -16,8 +16,17 @@ namespace BOStuffPack.Effect
                 entryVariable *= PreviousExitValue;
             }
             exitAmount = entryVariable;
-            CombatManager.Instance.ProcessImmediateAction(new ForceAddPigmentAction(pigmentColor, entryVariable, caster.IsUnitCharacter, caster.ID));
+            CombatManager.Instance.ProcessImmediateAction(new ForceAddPigmentAction(pigment, entryVariable, caster.IsUnitCharacter, caster.ID));
             return true;
+        }
+
+        public static EffectSO Create(ManaColorSO pigment, bool usePreviousExitValue = false)
+        {
+            var e = CreateScriptable<ForceGeneratePigmentColorEffect>();
+            e.pigment = pigment;
+            e.usePreviousExitValue = usePreviousExitValue;
+
+            return e;
         }
     }
 }

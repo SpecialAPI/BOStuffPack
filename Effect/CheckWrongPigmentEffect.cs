@@ -10,5 +10,7 @@ namespace BOStuffPack.Effect
         {
             return (exitAmount = caster.LastCalculatedWrongMana) > entryVariable;
         }
+
+        public static EffectSO Create() => CreateScriptable<CheckWrongPigmentEffect>();
     }
 }

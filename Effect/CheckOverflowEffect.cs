@@ -17,5 +17,7 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create() => CreateScriptable<CheckOverflowEffect>();
     }
 }

@@ -4,19 +4,25 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class DamageEqualDistributionEffect : EffectSO
+    public class DamageEqualDistributionEffect : CustomDamageEffectBase
     {
-        public bool indirect;
-
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
 
-            var unitTargets = new List<TargetSlotInfo>();
+            ModifyEntryParameters(ref targets, ref areTargetSlots, ref entryVariable);
 
+            var killed = false;
+            var indirect = 0;
+            var direct = 0;
+
+            var unitTargets = new List<TargetSlotInfo>();
             foreach(var t in targets)
             {
                 if(t == null || !t.HasUnit)
+                    continue;
+
+                if (!ShouldDamage(t.Unit, t, stats, caster, areTargetSlots, entryVariable))
                     continue;
 
                 unitTargets.Add(t);
@@ -25,29 +31,39 @@ namespace BOStuffPack.Effect
             if (unitTargets.Count <= 0)
                 return false;
 
-            while(unitTargets.Count > 0 && entryVariable > 0)
+            var remDamage = entryVariable;
+            while(unitTargets.Count > 0 && remDamage > 0)
             {
-                var dmg = entryVariable / unitTargets.Count;
-                entryVariable -= dmg;
+                var dmg = remDamage / unitTargets.Count;
+                remDamage -= dmg;
+                var t = unitTargets.GetAndRemoveRandomElement();
+                var u = t.Unit;
 
-                var idx = Random.Range(0, unitTargets.Count);
+                if (!ShouldDamage(u, t, stats, caster, areTargetSlots, entryVariable))
+                    continue;
 
-                var t = unitTargets[idx];
-                unitTargets.RemoveAt(idx);
+                var dmgInfo = DamageUnit(u, t, stats, caster, areTargetSlots, entryVariable, out var isIndirect);
 
-                var offs = areTargetSlots ? t.SlotID - t.Unit.SlotID : -1;
+                exitAmount += dmgInfo.damageAmount;
+                killed |= dmgInfo.beenKilled;
 
-                if (indirect)
-                    exitAmount += t.Unit.Damage(dmg, null, DeathType_GameIDs.Basic.ToString(), offs, false, false, true).damageAmount;
-
+                if (isIndirect)
+                    indirect += dmgInfo.damageAmount;
                 else
-                    exitAmount += t.Unit.Damage(caster.WillApplyDamage(dmg, t.Unit), caster, DeathType_GameIDs.Basic.ToString(), offs).damageAmount;
+                    direct += dmgInfo.damageAmount;
             }
 
-            if(exitAmount > 0 && !indirect)
-                caster.DidApplyDamage(exitAmount);
+            if (direct > 0)
+                caster.DidApplyDamage(direct);
 
-            return exitAmount > 0;
+            return IsSuccessful(stats, caster, targets, areTargetSlots, entryVariable, exitAmount, killed, direct, indirect);
+        }
+
+        public static EffectSO Create(bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        {
+            var e = Create<DamageEqualDistributionEffect>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
+
+            return e;
         }
     }
 }

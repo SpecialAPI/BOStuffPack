@@ -52,5 +52,13 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create(ManaColorSO pigment)
+        {
+            var e = CreateScriptable<ConvertOverflowEffect>();
+            e.pigment = pigment;
+
+            return e;
+        }
     }
 }

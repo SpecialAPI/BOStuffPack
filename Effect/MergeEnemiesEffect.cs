@@ -61,6 +61,8 @@ namespace BOStuffPack.Effect
             }
             return exitAmount > 0;
         }
+
+        public static EffectSO Create() => CreateScriptable<MergeEnemiesEffect>();
     }
 
     public class TrySpawnMergedEnemyAction(EnemySO enemy, bool givesExperience, int maxHealth, int currentHealth, int extraAbilities) : CombatAction

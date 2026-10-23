@@ -16,6 +16,14 @@ namespace BOStuffPack.Effect
 
             return true;
         }
+
+        public static EffectSO Create(AttackVisualsSO visuals)
+        {
+            var e = CreateScriptable<AnimationVisualsOnEffectTargetsEffect>();
+            e.visuals = visuals;
+
+            return e;
+        }
     }
 
     public class PlayAbilityAnimationAction(AttackVisualsSO visuals, TargetSlotInfo[] targets, bool areTargetSlots) : CombatAction

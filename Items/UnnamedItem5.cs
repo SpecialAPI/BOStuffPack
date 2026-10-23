@@ -35,7 +35,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<MultiplyTargetAbilityCostsEffect>(), 2, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(MultiplyTargetAbilityCostsEffect.Create(), 2, Targeting.Slot_SelfSlot)
                     })
                 },
 

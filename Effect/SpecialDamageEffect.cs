@@ -4,50 +4,32 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class SpecialDamageEffect : EffectSO
+    public class SpecialDamageEffect : CustomDamageEffectBase
     {
         public SpecialDamageInfo damageInfo;
 
-        public bool indirect;
-
-        public bool dryDamage;
-        public bool wetDamage;
-
-        public bool ignoreShield;
-        public bool shieldHittingIndirect;
-
-        public string deathType = DeathType_GameIDs.Basic.ToString();
-        public string specialDamageType = "";
-
-        public bool usePreviousExitValue;
-
-        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        public override DamageInfo DamageUnit(IUnit unit, TargetSlotInfo target, CombatStats stats, IUnit caster, bool areTargetSlots, int entryVariable, out bool indirect)
         {
-            exitAmount = 0;
+            indirect = IsIndirect(unit, target, stats, caster, areTargetSlots, entryVariable);
 
-            if (usePreviousExitValue)
-                entryVariable *= PreviousExitValue;
+            var amt = BaseDamageAmount(unit, target, stats, caster, areTargetSlots, entryVariable, indirect);
+            amt = ModifyDamageAmount(amt, unit, target, stats, caster, areTargetSlots, entryVariable, indirect);
 
-            foreach(var t in targets)
-            {
-                if(t == null || !t.HasUnit)
-                    continue;
+            var offs = target.TargetOffset(areTargetSlots);
+            var ignoresShield = IgnoreShields(unit, target, stats, caster, areTargetSlots, entryVariable, indirect);
+            var generatePigment = GeneratePigment(unit, target, stats, caster, areTargetSlots, entryVariable, indirect);
 
-                var targetOffset = areTargetSlots ? t.TargetOffset() : -1;
+            var killer = indirect ? null : caster;
 
-                if (indirect)
-                    exitAmount += t.Unit.SpecialDamage(entryVariable, null, damageInfo, deathType, targetOffset, wetDamage, false, !shieldHittingIndirect, specialDamageType).damageAmount;
+            return unit.SpecialDamage(amt, killer, damageInfo, deathType, offs, generatePigment, !indirect, ignoresShield, specialDamage);
+        }
 
-                else
-                {
-                    exitAmount += t.Unit.SpecialDamage(caster.WillApplyDamage(entryVariable, t.Unit), caster, damageInfo, deathType, targetOffset, !dryDamage, true, ignoreShield, specialDamageType).damageAmount;
-                }
-            }
+        public static EffectSO Create(SpecialDamageInfo damageInfo, bool indirect = false, bool usePreviousExit = false, bool successOnKill = false, bool ignoreShield = false, string deathType = nameof(DeathType_GameIDs.Basic), string specialDamage = "")
+        {
+            var e = Create<SpecialDamageEffect>(indirect, usePreviousExit, successOnKill, ignoreShield, deathType, specialDamage);
+            e.damageInfo = damageInfo;
 
-            if (exitAmount > 0 && !indirect)
-                caster.DidApplyDamage(exitAmount);
-
-            return exitAmount > 0;
+            return e;
         }
     }
 }

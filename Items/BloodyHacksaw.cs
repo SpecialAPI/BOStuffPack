@@ -31,10 +31,10 @@ namespace BOStuffPack.Items
                 .SetBasicInformationCharacter(abilityName, abilityDesc, "AttackIcon_TwoIntoOne")
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CreateScriptable<CheckDuplicateEnemiesEffect>(), 0, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(CheckDuplicateEnemiesEffect.Create(), 0, Targeting.Slot_OpponentSides),
 
                     Effects.GenerateEffect(CommonEffects.Animation(Visuals.Equal), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 1)),
-                    Effects.GenerateEffect(CreateScriptable<MergeEnemiesEffect>(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2)),
+                    Effects.GenerateEffect(MergeEnemiesEffect.Create(), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(true, 2)),
 
                     Effects.GenerateEffect(CommonEffects.Animation(Visuals.Mitosis), 0, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 3)),
                     Effects.GenerateEffect(CommonEffects.Damage, dmg, Targeting.Slot_OpponentSides, Effects.CheckPreviousEffectCondition(false, 4)),

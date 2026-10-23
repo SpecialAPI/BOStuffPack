@@ -4,8 +4,10 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class MoveTargetFieldEffectsToCasterFirstSlotEffect : EffectSO
+    public class MoveTargetFieldEffectsEffect : EffectSO
     {
+        public BaseCombatTargettingSO destinationTargeting;
+
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
@@ -33,11 +35,24 @@ namespace BOStuffPack.Effect
             if (effectsToApply.Count <= 0)
                 return false;
 
-            exitAmount = effectsToApply.Count;
-            foreach (var (feSO, amount) in effectsToApply)
-                stats.combatSlots.ApplyFieldEffect(caster.SlotID, caster.IsUnitCharacter, feSO, amount);
+            var destinationTargets = destinationTargeting.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter);
+            foreach(var t in destinationTargets)
+            {
+                exitAmount += effectsToApply.Count;
+
+                foreach (var (feSO, amount) in effectsToApply)
+                    stats.combatSlots.ApplyFieldEffect(t.SlotID, t.IsTargetCharacterSlot, feSO, amount);
+            }
 
             return true;
+        }
+
+        public static EffectSO Create(BaseCombatTargettingSO destinationTargeting)
+        {
+            var e = CreateScriptable<MoveTargetFieldEffectsEffect>();
+            e.destinationTargeting = destinationTargeting;
+
+            return e;
         }
     }
 }

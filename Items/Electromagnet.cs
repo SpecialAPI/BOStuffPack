@@ -30,7 +30,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<MoveTargetFieldEffectsToCasterFirstSlotEffect>(), 0, Targeting.GenerateSlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], true))
+                        Effects.GenerateEffect(MoveTargetFieldEffectsEffect.Create(Targeting.Slot_SelfAll), 0, Targeting.GenerateSlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], true))
                     })
                 }
             });

@@ -37,5 +37,7 @@ namespace BOStuffPack.Effect
 
             return true;
         }
+
+        public static EffectSO Create() => CreateScriptable<CheckDuplicateEnemiesEffect>();
     }
 }

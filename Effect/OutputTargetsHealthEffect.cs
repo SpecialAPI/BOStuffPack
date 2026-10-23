@@ -4,29 +4,23 @@ using System.Text;
 
 namespace BOStuffPack.Effect
 {
-    public class DirectDeathToCharacterOfRankEffect : EffectSO
+    public class OutputTargetsHealthEffect : EffectSO
     {
-        public int rankTarget;
-        public IntComparison rankComparison;
-
-        public bool obliterate;
-
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
 
             foreach(var t in targets)
             {
-                if(!t.HasUnit)
+                if(t == null || !t.HasUnit)
                     continue;
 
-                if(t.Unit is not CharacterCombat cc || !CompareInts(cc.ClampedRank, rankTarget, rankComparison))
-                    continue;
-
-                t.Unit.DirectDeath(caster, obliterate, out _);
+                exitAmount += t.Unit.CurrentHealth;
             }
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create() => CreateScriptable<OutputTargetsHealthEffect>();
     }
 }

@@ -27,5 +27,13 @@ namespace BOStuffPack.Effect
             else
                 return exitAmount > 0;
         }
+
+        public EffectSO Create(bool allMustBeMainCharacter = false)
+        {
+            var e = CreateScriptable<MainCharacterCheckEffect>();
+            e.allTargetsMustBeMainCharacter = allMustBeMainCharacter;
+
+            return e;
+        }
     }
 }

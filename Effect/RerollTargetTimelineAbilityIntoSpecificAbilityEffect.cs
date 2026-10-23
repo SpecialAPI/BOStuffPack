@@ -7,7 +7,7 @@ namespace BOStuffPack.Effect
 {
     public class RerollTargetTimelineAbilityIntoSpecificAbilityEffect : EffectSO
     {
-        public string abId;
+        public string abilityID;
         public bool rerollAll;
         public bool ignoreCantReroll;
 
@@ -41,13 +41,23 @@ namespace BOStuffPack.Effect
                 if(ab == null || ab.ability == null)
                     continue;
 
-                if (ab.ability.name != abId)
+                if (ab.ability.name != abilityID)
                     continue;
 
                 return i;
             }
 
             return -1;
+        }
+
+        public static EffectSO Create(string abilityID, bool rerollAll = false, bool ignoreCantReroll = false)
+        {
+            var e = CreateScriptable<RerollTargetTimelineAbilityIntoSpecificAbilityEffect>();
+            e.abilityID = abilityID;
+            e.rerollAll = rerollAll;
+            e.ignoreCantReroll = ignoreCantReroll;
+
+            return e;
         }
     }
 }

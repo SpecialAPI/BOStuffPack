@@ -57,7 +57,7 @@ namespace BOStuffPack.Passive
 
                     effect = new PerformEffectTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<EquipRandomTreasureEffect>(), 0, Targeting.Slot_SelfSlot)
+                        Effects.GenerateEffect(EquipRandomTreasureEffect.Create(), 0, Targeting.Slot_SelfSlot)
                     })
                 }
             });

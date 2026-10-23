@@ -12,5 +12,7 @@ namespace BOStuffPack.Effect
 
             return stats.TryTriggerOverflow();
         }
+
+        public static EffectSO Create() => CreateScriptable<TriggerOverflowEffect>();
     }
 }

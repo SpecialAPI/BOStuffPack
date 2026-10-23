@@ -6,7 +6,7 @@ namespace BOStuffPack.Effect
 {
     public class UnitFieldEffectCheckEffect : EffectSO
     {
-        public string field;
+        public string fieldEffect;
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -17,13 +17,21 @@ namespace BOStuffPack.Effect
                 if (!target.HasUnit)
                     continue;
 
-                if (!target.Unit.ContainsFieldEffect(field))
+                if (!target.Unit.ContainsFieldEffect(fieldEffect))
                     continue;
 
                 exitAmount++;
             }
 
             return exitAmount > 0;
+        }
+
+        public static EffectSO Create(string fieldEffect)
+        {
+            var e = CreateScriptable<UnitFieldEffectCheckEffect>();
+            e.fieldEffect = fieldEffect;
+
+            return e;
         }
     }
 }

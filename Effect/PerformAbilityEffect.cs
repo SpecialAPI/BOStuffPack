@@ -12,6 +12,9 @@ namespace BOStuffPack.Effect
         {
             exitAmount = 0;
 
+            if (ability == null)
+                return false;
+
             foreach(var t in targets)
             {
                 if(t == null || !t.HasUnit)
@@ -22,6 +25,14 @@ namespace BOStuffPack.Effect
             }
 
             return exitAmount > 0;
+        }
+
+        public static EffectSO Create(AbilitySO ability)
+        {
+            var e = CreateScriptable<PerformAbilityEffect>();
+            e.ability = ability;
+
+            return e;
         }
     }
 }

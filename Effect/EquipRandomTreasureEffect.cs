@@ -77,15 +77,14 @@ namespace BOStuffPack.Effect
 
             while (items.Count > 0)
             {
-                var idx = Random.Range(0, items.Count);
-                var stuff = GetWearable(items[idx]);
-
-                items.RemoveAt(idx);
+                var stuff = GetWearable(items.GetAndRemoveRandomElement());
 
                 if (stuff != null && (!stuff.startsLocked || holder == null || holder.Game == null || holder.Game.IsItemUnlocked(stuff.name)))
                     return stuff;
             }
             return null;
         }
+
+        public static EffectSO Create() => CreateScriptable<EquipRandomTreasureEffect>();
     }
 }

@@ -6,7 +6,7 @@ namespace BOStuffPack.Effect
 {
     public class AddRandomPassiveEffect : EffectSO
     {
-        public List<BasePassiveAbilitySO> passives;
+        public List<BasePassiveAbilitySO> passives = [];
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -38,6 +38,14 @@ namespace BOStuffPack.Effect
             }
 
             return exitAmount > 0;
+        }
+
+        public static EffectSO Create(List<BasePassiveAbilitySO> passives)
+        {
+            var e = CreateScriptable<AddRandomPassiveEffect>();
+            e.passives = passives;
+
+            return e;
         }
     }
 }

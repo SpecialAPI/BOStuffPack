@@ -30,5 +30,13 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create(ManaColorSO healthColor)
+        {
+            var e = CreateScriptable<ChangeHealthColorFailIfAlreadyThatColorEffect>();
+            e.healthColor = healthColor;
+
+            return e;
+        }
     }
 }

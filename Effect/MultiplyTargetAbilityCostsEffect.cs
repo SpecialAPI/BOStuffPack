@@ -38,5 +38,13 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create(List<string> ignoredAbilityIDs = null)
+        {
+            var e = CreateScriptable<MultiplyTargetAbilityCostsEffect>();
+            e.ignoredAbilityIDs = ignoredAbilityIDs ?? [];
+
+            return e;
+        }
     }
 }

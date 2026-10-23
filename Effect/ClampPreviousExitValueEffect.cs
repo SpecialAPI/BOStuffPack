@@ -14,5 +14,14 @@ namespace BOStuffPack.Effect
             exitAmount = Mathf.Clamp(PreviousExitValue, min, max);
             return true;
         }
+
+        public static EffectSO Create(int min, int max)
+        {
+            var e = CreateScriptable<ClampPreviousExitValueEffect>();
+            e.min = min;
+            e.max = max;
+
+            return e;
+        }
     }
 }

@@ -30,8 +30,8 @@ namespace BOStuffPack.Items
                 .SetVisuals(Visuals.Misery, Targeting.Slot_Front.Join(Targeting.Slot_SelfSlot))
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CreateScriptable<SpecialDamageEffect>(x => x.damageInfo = new() { FakeDamage = true }), 18, Targeting.Slot_Front),
-                    Effects.GenerateEffect(CreateScriptable<SpecialDamageEffect>(x => x.damageInfo = new() { FakeDamage = true }), 18, Targeting.Slot_SelfSlot)
+                    Effects.GenerateEffect(SpecialDamageEffect.Create(new() { FakeDamage = true }), 18, Targeting.Slot_Front),
+                    Effects.GenerateEffect(SpecialDamageEffect.Create(new() { FakeDamage = true }), 18, Targeting.Slot_SelfSlot)
                 })
                 .SetIntents(new()
                 {

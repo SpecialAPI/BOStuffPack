@@ -6,7 +6,7 @@ namespace BOStuffPack.Effect
 {
     public class ItemCheckEffect : EffectSO
     {
-        public string requiredItem;
+        public string requiredID;
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -17,13 +17,21 @@ namespace BOStuffPack.Effect
                 if(t == null || !t.HasUnit)
                     continue;
 
-                if(!t.Unit.HasUsableItem || !string.IsNullOrEmpty(requiredItem) && t.Unit.HeldItem.name != requiredItem)
+                if(!t.Unit.HasUsableItem || !string.IsNullOrEmpty(requiredID) && t.Unit.HeldItem.name != requiredID)
                     continue;
 
                 exitAmount++;
             }
 
             return exitAmount > 0;
+        }
+
+        public static EffectSO Create(string requiredID = "")
+        {
+            var e = CreateScriptable<ItemCheckEffect>();
+            e.requiredID = requiredID;
+
+            return e;
         }
     }
 }

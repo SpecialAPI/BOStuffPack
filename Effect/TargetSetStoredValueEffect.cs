@@ -24,10 +24,10 @@ namespace BOStuffPack.Effect
             return exitAmount > 0;
         }
 
-        public static EffectSO Create(string sv)
+        public static EffectSO Create(string storedValue)
         {
             var e = CreateScriptable<TargetSetStoredValueEffect>();
-            e.storedValue = sv;
+            e.storedValue = storedValue;
 
             return e;
         }

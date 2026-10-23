@@ -38,11 +38,7 @@ namespace BOStuffPack.Items
 
                     effect = new PerformEffectWithIntReferenceEntryTriggerEffect(new()
                     {
-                        Effects.GenerateEffect(CreateScriptable<AddEntryToStoreDataHashSetEffect>(x =>
-                        {
-                            x.storedValue = AlreadyDealtSVID;
-                            x.usePreviousExit = true;
-                        }), 1),
+                        Effects.GenerateEffect(AddEntryToStoreDataHashSetEffect.Create(AlreadyDealtSVID, true), 1),
                         Effects.GenerateEffect(CreateScriptable<ExtraCurrencyEffect>(), 1)
                     }),
                     

@@ -25,5 +25,13 @@ namespace BOStuffPack.Effect
 
             return exitAmount > 0;
         }
+
+        public static EffectSO Create(bool increase)
+        {
+            var e = CreateScriptable<ChangeMaxHealthByPreviousExitValueEffect>();
+            e.increase = increase;
+
+            return e;
+        }
     }
 }

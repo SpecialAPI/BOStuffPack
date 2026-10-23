@@ -63,5 +63,13 @@ namespace BOStuffPack.Effect
 
             return true;
         }
+
+        public static EffectSO Create(List<ManaColorSO> pigmentColors)
+        {
+            var e = CreateScriptable<ProducePigmentNotUsedForAbilityEffect>();
+            e.pigmentColors = pigmentColors ?? [Pigments.Yellow, Pigments.Red, Pigments.Blue, Pigments.Purple];
+
+            return e;
+        }
     }
 }

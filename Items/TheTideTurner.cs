@@ -51,7 +51,7 @@ namespace BOStuffPack.Items
                 .SetVisuals(Visuals.Resolve, Targeting.Slot_SelfSlot)
                 .SetEffects(new()
                 {
-                    Effects.GenerateEffect(CreateScriptable<UnitFieldEffectCheckEffect>(x => x.field = StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
+                    Effects.GenerateEffect(UnitFieldEffectCheckEffect.Create(StatusField_GameIDs.Constricted_ID.ToString()), 0, Targeting.Slot_SelfAll),
                     Effects.GenerateEffect(CommonEffects.Refresh, 0, Targeting.Slot_SelfSlot, Effects.CheckPreviousEffectCondition(false, 1)),
 
                     Effects.GenerateEffect(CommonEffects.ApplyConstricted, 1, Targeting.Slot_SelfAll)

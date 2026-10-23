@@ -53,5 +53,14 @@ namespace BOStuffPack.Effect
 
             return success;
         }
+
+        public static EffectSO Create(AbilitySO abilityToReplace, ExtraAbilityInfo replacement)
+        {
+            var e = CreateScriptable<CasterReplaceExtraAbilityEffect>();
+            e.abilityToReplace = abilityToReplace;
+            e.replacement = replacement;
+
+            return e;
+        }
     }
 }
