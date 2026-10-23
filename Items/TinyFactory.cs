@@ -22,7 +22,7 @@ namespace BOStuffPack.Items
                 .SetStaticModifiers(BasicAbilityCostReplacementStaticModifier.Create(Pigments.Grey, 1))
                 .AddToShop();
 
-            NewStoredValue<IntEnumerableStoredValue>(ProducedPigmentSVID)
+            NewStoredValue<PigmentEnumerableStoredValue>(ProducedPigmentSVID)
                 .SetColor(StoredValueColor_Positive).SetFormat("Tiny Factory: {0}");
 
             item.SetTriggerEffects(new()
