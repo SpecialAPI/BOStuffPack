@@ -29,7 +29,7 @@ namespace BOStuffPack.Items
             {
                 new()
                 {
-                    trigger = TriggerCalls.OnAbilityUsed.ToString(),
+                    trigger = CustomTriggers.OnAbilityPerformedContext,
                     immediate = true,
                     doesPopup = false,
 

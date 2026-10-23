@@ -22,7 +22,7 @@ namespace BOStuffPack.Effect
 
             foreach (var pigment in usedPigment)
             {
-                usedPigment.Add(pigment);
+                coll.Add(pigment);
                 exitAmount++;
             }
 
