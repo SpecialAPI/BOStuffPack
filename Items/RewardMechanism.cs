@@ -20,7 +20,7 @@ namespace BOStuffPack.Items
             var desc = "Upon this party member dealing damage, if this is the first time they've dealt that amount of damage this combat, gain 1 coin.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "")
+                .SetBasicInformation(name, flav, desc, "RewardMechanism")
                 .SetPrice(8)
                 .AddToShop();
 
