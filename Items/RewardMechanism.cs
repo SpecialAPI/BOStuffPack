@@ -21,7 +21,7 @@ namespace BOStuffPack.Items
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
                 .SetBasicInformation(name, flav, desc, "RewardMechanism")
-                .SetPrice(8)
+                .SetPrice(10)
                 .AddToShop();
 
             NewStoredValue<IntEnumerableStoredValue>(AlreadyDealtSVID)
