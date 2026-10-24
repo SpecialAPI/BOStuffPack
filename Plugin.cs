@@ -50,7 +50,7 @@ namespace BOStuffPack
             DuctTape.Init();
             ColorSwitch.Init();
             RedButton.Init();
-            InstrumentsOfMurder.Init();
+            Knives.Init();
             FramedE.Init();
             Electromagnet.Init();
             Bookmark.Init();

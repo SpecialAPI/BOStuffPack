@@ -57,7 +57,6 @@
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Purple.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Red.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Key_Yellow.png" />
-    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Murder.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_TwoIntoOne.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Lock_Blue.png" />
     <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Lock_Purple.png" />
@@ -77,7 +76,6 @@
     <EmbeddedResource Include="Resources\Items\BloodyHacksaw.png" />
     <EmbeddedResource Include="Resources\Items\ConjoinedFungi.png" />
     <EmbeddedResource Include="Resources\Items\FramedE.png" />
-    <EmbeddedResource Include="Resources\Items\InstrumentsOfMurder.png" />
     <EmbeddedResource Include="Resources\Items\InterdimensionalShapeshifter.png" />
     <EmbeddedResource Include="Resources\Items\NewtonsApple.png" />
     <EmbeddedResource Include="Resources\Items\PaperCrown.png" />
@@ -109,6 +107,10 @@
     <EmbeddedResource Include="Resources\Items\AbstractSymbols.png" />
     <None Remove="Resources\Items\Sawblade.png" />
     <EmbeddedResource Include="Resources\Items\Sawblade.png" />
+    <None Remove="Resources\Items\Knives.png" />
+    <EmbeddedResource Include="Resources\Items\Knives.png" />
+    <None Remove="Resources\AbilityIcons\AttackIcon_Knives.png" />
+    <EmbeddedResource Include="Resources\AbilityIcons\AttackIcon_Knives.png" />
   </ItemGroup>
 
   <ItemGroup>
