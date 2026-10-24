@@ -89,6 +89,26 @@
     <EmbeddedResource Include="Resources\Items\WrittenBookPlaceholder.png" />
     <EmbeddedResource Include="Resources\Passives\Merged.png" />
     <EmbeddedResource Include="Resources\Passives\Shapeshifter.png" />
+    <None Remove="Resources\Items\TinyFactory.png" />
+    <EmbeddedResource Include="Resources\Items\TinyFactory.png" />
+    <None Remove="Resources\Items\RewardMechanism.png" />
+    <EmbeddedResource Include="Resources\Items\RewardMechanism.png" />
+    <None Remove="Resources\Items\Potential.png" />
+    <EmbeddedResource Include="Resources\Items\Potential.png" />
+    <None Remove="Resources\Items\DuctTape.png" />
+    <EmbeddedResource Include="Resources\Items\DuctTape.png" />
+    <None Remove="Resources\Items\ColorSwitch.png" />
+    <EmbeddedResource Include="Resources\Items\ColorSwitch.png" />
+    <None Remove="Resources\Items\BloodyScales.png" />
+    <EmbeddedResource Include="Resources\Items\BloodyScales.png" />
+    <None Remove="Resources\Items\BloodyHands.png" />
+    <EmbeddedResource Include="Resources\Items\BloodyHands.png" />
+    <None Remove="Resources\Items\BlankPortrait.png" />
+    <EmbeddedResource Include="Resources\Items\BlankPortrait.png" />
+    <None Remove="Resources\Items\AbstractSymbols.png" />
+    <EmbeddedResource Include="Resources\Items\AbstractSymbols.png" />
+    <None Remove="Resources\Items\Sawblade.png" />
+    <EmbeddedResource Include="Resources\Items\Sawblade.png" />
   </ItemGroup>
 
   <ItemGroup>
