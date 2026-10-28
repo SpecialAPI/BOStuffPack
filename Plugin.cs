@@ -62,7 +62,6 @@ namespace BOStuffPack
             DiceBullets.Init();
             UnnamedItem5.Init();
             UnnamedItem35.Init();
-            UnnamedItem37.Init();
             ImaginaryGun.Init();
             AbstractSymbols.Init();
             DirtBlock.Init();
