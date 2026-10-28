@@ -39,7 +39,7 @@ namespace BOStuffPack
             ConjoinedFungi.Init(); // reference
             BloodyHands.Init();
             SquirrelBomb.Init();
-            Survivorship.Init(); // reference
+            Keyhole.Init();
             BlankPortrait.Init();
             Potential.Init();
             NewtonsApple.Init();

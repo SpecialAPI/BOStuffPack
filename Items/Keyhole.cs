@@ -4,14 +4,14 @@ using System.Text;
 
 namespace BOStuffPack.Items
 {
-    public static class Survivorship
+    public static class Keyhole
     {
-        public static readonly string ID = "Survivorship_TW".Prefix();
+        public static readonly string ID = "Keyhole_TW".Prefix();
 
         public static void Init()
         {
-            var name = "Survivorship";
-            var flav = "\"Yet you stand\"";
+            var name = "Keyhole";
+            var flav = "\"Door To Oblivion.\"";
             var desc = "On combat start, apply 1 Survive to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
