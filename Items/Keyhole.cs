@@ -15,7 +15,7 @@ namespace BOStuffPack.Items
             var desc = "On combat start, apply 1 Survive to this party member.";
 
             var item = NewItem<MultiCustomTriggerEffectWearable>(ID)
-                .SetBasicInformation(name, flav, desc, "Survivorship")
+                .SetBasicInformation(name, flav, desc, "Keyhole")
                 .SetPrice(5)
                 .AddToTreasure();
 

@@ -81,7 +81,6 @@
     <EmbeddedResource Include="Resources\Items\PaperCrown.png" />
     <EmbeddedResource Include="Resources\Items\Pencil.png" />
     <EmbeddedResource Include="Resources\Items\PetrifiedMedicine.png" />
-    <EmbeddedResource Include="Resources\Items\Survivorship.png" />
     <EmbeddedResource Include="Resources\Items\TheTideTurner.png" />
     <EmbeddedResource Include="Resources\Items\WorldShatter.png" />
     <EmbeddedResource Include="Resources\Items\WrittenBookPlaceholder.png" />
